@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovementID : MonoBehaviour
 {
+    public float rotSpeed = 40f;
     public float speed = 20f;
     public Rigidbody2D rb;
     void Start()
@@ -14,12 +15,12 @@ public class PlayerMovementID : MonoBehaviour
 
     void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal") * speed;
+        var horizontal = Input.GetAxis("Horizontal") * rotSpeed;
         var vertical = Input.GetAxis("Vertical") * speed;
         vertical *= Time.deltaTime;
         horizontal *= Time.deltaTime;
         transform.Translate(0,vertical,0 );
-        transform.Rotate(horizontal,0, horizontal);
+        transform.Rotate(0,0, -horizontal);
         
         
     }
