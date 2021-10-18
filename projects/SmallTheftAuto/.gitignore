@@ -243,6 +243,7 @@ StyleCopReport.xml
 *.pch
 *.ipdb
 *.pgc
+*.meta
 *.pgd
 *.rsp
 *.sbr
