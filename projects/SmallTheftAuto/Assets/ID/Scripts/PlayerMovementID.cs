@@ -16,6 +16,11 @@ public class PlayerMovementID : MonoBehaviour
     {
         var horizontal = Input.GetAxis("Horizontal") * speed;
         var vertical = Input.GetAxis("Vertical") * speed;
-        rb.velocity = new Vector2(horizontal, vertical);
+        vertical *= Time.deltaTime;
+        horizontal *= Time.deltaTime;
+        transform.Translate(0,vertical,0 );
+        transform.Rotate(horizontal,0, horizontal);
+        
+        
     }
 }
