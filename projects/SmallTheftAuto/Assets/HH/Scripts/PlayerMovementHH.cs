@@ -5,13 +5,22 @@ using UnityEngine;
 public class PlayerMovementHH : MonoBehaviour
 {
     // Start is called before the first frame update
+    public float speed = 20f;
+    public Rigidbody2D rb;
     void Start()
     {
-        
+        rb = this.GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        var horizontal = Input.GetAxis("Horizontal") * speed;
+        var vertical = Input.GetAxis("Vertical") * speed;
+        rb.velocity = new Vector2(horizontal, vertical);
     }
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
@@ -41,5 +50,5 @@ public class PlayerMovementHH : MonoBehaviour
 
 
         
-    }
+    }*/
 }
