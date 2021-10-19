@@ -11,9 +11,17 @@ public class CarMovement : MonoBehaviour
     public float turnSpeed = 150f;
 
     private float speed;
+    private const KeyCode VehicleInteract = KeyCode.F;
 
     void Update()
     {
+        // NOTE: Check first if Player wants to exit
+        if (Input.GetKeyDown(VehicleInteract))
+        {
+            gameObject.GetComponent<HandlePassenger>().Exit();
+            return;
+        }
+        
         var vertical = Input.GetAxis("Vertical") * maxSpeed*Time.deltaTime;
         var horizontal = Input.GetAxis("Horizontal") * (turnSpeed + vertical)* Time.deltaTime;
 
