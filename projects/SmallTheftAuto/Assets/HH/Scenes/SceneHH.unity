@@ -660,6 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fd3fecf0ead824c9ea9880ff5eae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraHeightOffset: -40
   target: {fileID: 1516512060}
 --- !u!1 &1048045397
 GameObject:
