@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class CarMovement : MonoBehaviour
 {
     public float maxSpeed = 30f;
-    public float acceleration = 10f;
-    public float deAcceleration = 10f;
+    
     public float turnSpeed = 150f;
 
     private float speed;
@@ -17,18 +17,26 @@ public class CarMovement : MonoBehaviour
     {
         var vertical = Input.GetAxis("Vertical") * maxSpeed*Time.deltaTime;
         var horizontal = Input.GetAxis("Horizontal") * (turnSpeed + vertical)* Time.deltaTime;
-        transform.Translate(0,vertical,0 );
 
         if (vertical != 0)
         {
             transform.Rotate(0, 0, -horizontal);
         }
-        
-        
-        
-        
-        
-        
+
+        if (vertical < 0)
+        {
+            transform.Translate(0,vertical/2,0 );
+        }
+
+        else
+        {
+            transform.Translate(0,vertical,0 );
+        }
+
+
+
+
+
         // transform.Translate(0f, acceleration*Time.deltaTime*Input.GetAxis("Vertical"), 0f);
         // transform.Rotate(0f, 0f, turnSpeed * Time.deltaTime * Input.GetAxis("Horizontal"));
         //
