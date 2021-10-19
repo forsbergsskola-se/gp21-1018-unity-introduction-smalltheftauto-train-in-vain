@@ -638,8 +638,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 813982315
-  m_SortingLayer: 0
+  m_SortingLayerID: -620047959
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 462680c1fcf7432408e20a6a6d7ad183, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -936,6 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1907962088}
   - component: {fileID: 1907962087}
+  - component: {fileID: 1907962089}
   m_Layer: 0
   m_Name: Telephone Box
   m_TagString: Untagged
@@ -981,8 +982,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -620047959
-  m_SortingLayer: 2
+  m_SortingLayerID: 497170051
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa3d50bde83f09449934a0ba87a9ae36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1009,6 +1010,40 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!60 &1907962089
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907962086}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.3399999, y: 2.51}
+      - {x: 1.04, y: 2.8999999}
+      - {x: 0.71999997, y: 3.22}
+      - {x: -0.98999995, y: 3.22}
+      - {x: -1.62, y: 2.54}
+      - {x: -1.62, y: -3.22}
+      - {x: 1.41, y: -3.22}
+      - {x: 1.42, y: -3.1999998}
+      - {x: 1.42, y: 2.02}
 --- !u!1 &2114014069
 GameObject:
   m_ObjectHideFlags: 0
