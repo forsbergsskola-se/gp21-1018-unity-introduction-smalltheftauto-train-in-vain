@@ -219,6 +219,7 @@ GameObject:
   m_Component:
   - component: {fileID: 386831154}
   - component: {fileID: 386831153}
+  - component: {fileID: 386831155}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -290,8 +291,24 @@ Transform:
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &386831155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386831152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ae372252b1c194a8aa609b18209783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 40
+  acceleration: 10
+  deAcceleration: 10
+  turnSpeed: 15
 --- !u!1 &628140229
 GameObject:
   m_ObjectHideFlags: 0
