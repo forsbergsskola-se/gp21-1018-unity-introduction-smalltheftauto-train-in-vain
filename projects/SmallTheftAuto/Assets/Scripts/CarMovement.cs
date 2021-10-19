@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    public float maxSpeed = 40f;
+    public float maxSpeed = 30f;
     public float acceleration = 10f;
     public float deAcceleration = 10f;
-    public float turnSpeed = 30f;
+    public float turnSpeed = 150f;
 
     private float speed;
 
@@ -18,7 +18,11 @@ public class CarMovement : MonoBehaviour
         var vertical = Input.GetAxis("Vertical") * maxSpeed*Time.deltaTime;
         var horizontal = Input.GetAxis("Horizontal") * (turnSpeed + vertical)* Time.deltaTime;
         transform.Translate(0,vertical,0 );
-        transform.Rotate(0, 0, -horizontal);
+
+        if (vertical != 0)
+        {
+            transform.Rotate(0, 0, -horizontal);
+        }
         
         
         
