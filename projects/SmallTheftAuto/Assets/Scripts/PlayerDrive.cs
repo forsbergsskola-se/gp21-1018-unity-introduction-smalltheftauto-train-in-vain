@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlayerDrive : MonoBehaviour
@@ -9,7 +8,7 @@ public class PlayerDrive : MonoBehaviour
 
     void Update()
     {
-        if (isWithinRange() && Input.GetKeyDown(VehicleInteract))
+        if (gameObject.activeInHierarchy && isWithinRange() && Input.GetKeyDown(VehicleInteract))
         {
             EnterVehicle();
         }

@@ -1,22 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class CarMovement : MonoBehaviour
 {
     public float maxSpeed = 30f;
-    
     public float turnSpeed = 150f;
+    public GameObject Player;
 
     private float speed;
     private const KeyCode VehicleInteract = KeyCode.F;
 
     void Update()
     {
-        // NOTE: Check first if Player wants to exit
-        if (Input.GetKeyDown(VehicleInteract))
+        if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
         {
             gameObject.GetComponent<HandlePassenger>().Exit();
             return;

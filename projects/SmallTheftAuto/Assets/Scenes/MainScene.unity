@@ -477,6 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 30
   turnSpeed: 150
+  Player: {fileID: 1516512060}
 --- !u!114 &1259374267
 MonoBehaviour:
   m_ObjectHideFlags: 0
