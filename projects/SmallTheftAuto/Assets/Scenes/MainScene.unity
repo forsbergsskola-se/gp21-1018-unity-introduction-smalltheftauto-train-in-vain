@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 1516512063}
   - component: {fileID: 1516512066}
   - component: {fileID: 1516512065}
+  - component: {fileID: 1516512067}
   m_Layer: 0
   m_Name: Player pixel
   m_TagString: CarID
@@ -765,6 +766,25 @@ PolygonCollider2D:
       - {x: 0.42, y: -0.7}
       - {x: 0.61, y: -0.64}
       - {x: 0.64, y: -0.53}
+--- !u!114 &1516512067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516512060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb25b9fa0726864e90c3396fe5d7323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  sprite1: {fileID: 21300000, guid: 014e6b7e51bae7749b3eb51cf25dbacd, type: 3}
+  sprite2: {fileID: 21300000, guid: 291ede61ada071541a08a9e7b3fd9a14, type: 3}
+  sprite3: {fileID: 21300000, guid: 22b78223151fab54fa4ced4b9642538f, type: 3}
+  sprite4: {fileID: 21300000, guid: 06e5848193109de4b90ffe694c2689be, type: 3}
+  sprite5: {fileID: 21300000, guid: 88436af7fc65a7a42ad069cb23c0ee74, type: 3}
+  sprite6: {fileID: 21300000, guid: 77bdd9d26d376df43bf4d14a3f6829dc, type: 3}
 --- !u!1 &1849050624
 GameObject:
   m_ObjectHideFlags: 0
