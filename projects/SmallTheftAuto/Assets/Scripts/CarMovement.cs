@@ -7,15 +7,32 @@ public class CarMovement : MonoBehaviour
     public float turnSpeed = 150f;
     public GameObject Player;
     public FollowCamera FollowCamera;
+    public SpriteRenderer spriteRenderer;
+    public Sprite drivingSkin;
+    public Sprite defaultSkin;
+    
+
 
     private float speed;
     private const KeyCode VehicleInteract = KeyCode.F;
+    
+    private void Start()
+    {
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+    }
 
     void Update()
     {
+        // Changes skin when driving
+        spriteRenderer.sprite = drivingSkin;
+
+        
         if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
         {
             gameObject.GetComponent<HandlePassenger>().Exit();
+            
+            // Restores skin when exiting
+            spriteRenderer.sprite = defaultSkin;
             return;
         }
         
