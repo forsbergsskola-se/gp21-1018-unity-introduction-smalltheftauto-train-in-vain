@@ -28,6 +28,8 @@ public class CarController : MonoBehaviour
     
     public int MaxHealth;
 
+    public bool IsRunning;
+
 
 
     void CarIsBurning()
@@ -43,6 +45,7 @@ public class CarController : MonoBehaviour
         // Kill the player.
         // Destroy the car.
         // Possibly leave a car wreck behind where it died?
+        IsRunning = false;
     }
     
     
