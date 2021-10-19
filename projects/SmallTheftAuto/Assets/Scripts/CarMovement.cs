@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
@@ -5,6 +6,7 @@ public class CarMovement : MonoBehaviour
     public float maxSpeed = 30f;
     public float turnSpeed = 150f;
     public GameObject Player;
+    public FollowCamera FollowCamera;
 
     private float speed;
     private const KeyCode VehicleInteract = KeyCode.F;
@@ -34,5 +36,24 @@ public class CarMovement : MonoBehaviour
         {
             transform.Translate(0,vertical,0 );
         }
+    }
+
+    // public FollowCamera followCamera;
+    // public GameObject player;
+    //
+    // then we add OnEnable()
+    // And in there add: 
+    // followCamera.target = this;
+    //
+    // Then just almost the same thing in OnDisable()
+    // followCamera.target = player;
+    private void OnEnable()
+    {
+        FollowCamera.target = gameObject;
+    }
+
+    private void OnDisable()
+    {
+        FollowCamera.target = Player;
     }
 }

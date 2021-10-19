@@ -478,6 +478,7 @@ MonoBehaviour:
   maxSpeed: 30
   turnSpeed: 150
   Player: {fileID: 1516512060}
+  FollowCamera: {fileID: 954319413}
 --- !u!114 &1259374267
 MonoBehaviour:
   m_ObjectHideFlags: 0
