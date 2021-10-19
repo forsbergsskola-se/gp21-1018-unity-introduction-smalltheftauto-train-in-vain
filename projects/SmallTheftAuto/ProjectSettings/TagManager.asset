@@ -42,12 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
+  - name: Ground
     uniqueID: 497170051
     locked: 0
-  - name: Midground
+  - name: Ground detail
     uniqueID: 3674919337
     locked: 0
-  - name: Foreground
+  - name: Entities
     uniqueID: 2312762339
+    locked: 0
+  - name: Flying entities
+    uniqueID: 496700913
     locked: 0
