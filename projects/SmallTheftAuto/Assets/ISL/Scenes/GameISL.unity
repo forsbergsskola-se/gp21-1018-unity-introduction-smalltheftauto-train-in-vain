@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 346611949}
   - component: {fileID: 346611950}
   - component: {fileID: 346611954}
+  - component: {fileID: 346611953}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -286,6 +287,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346611953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346611948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 639de5ed348f9234fa2fc106561d4200, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &346611954
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,7 +324,6 @@ GameObject:
   - component: {fileID: 1634006115}
   - component: {fileID: 1634006114}
   - component: {fileID: 1634006116}
-  - component: {fileID: 1634006117}
   m_Layer: 0
   m_Name: Pink Car
   m_TagString: Car
@@ -439,18 +451,6 @@ PolygonCollider2D:
       - {x: 1.5999999, y: -3.4499998}
       - {x: 1.8199999, y: -2.4199998}
       - {x: 1.8199999, y: -1.17}
---- !u!114 &1634006117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1634006113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 639de5ed348f9234fa2fc106561d4200, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1827155585
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fd3fecf0ead824c9ea9880ff5eae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraHeightOffset: -40
   target: {fileID: 346611948}
 --- !u!1 &1883867172
 GameObject:
