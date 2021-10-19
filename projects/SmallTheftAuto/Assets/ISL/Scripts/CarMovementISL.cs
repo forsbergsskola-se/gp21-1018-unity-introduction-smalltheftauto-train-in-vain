@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class CarMovement1 : MonoBehaviour
+public class CarMovementISL : MonoBehaviour
 {
     public float maxSpeed = 40f;
     public float acceleration = 10f;
