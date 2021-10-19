@@ -7,7 +7,7 @@ public class CarCollision : MonoBehaviour
 {
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("CarID")&& Input.GetKeyDown(KeyCode.E))
+        if (other.gameObject.CompareTag("Car")&& Input.GetKeyDown(KeyCode.E))
         {
             gameObject.SetActive(false);
             
