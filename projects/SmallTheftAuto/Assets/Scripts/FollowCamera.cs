@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FollowCamera : MonoBehaviour
 {
-    private const float CameraHeightOffset = -10;
+    public float CameraHeightOffset = -10;
     public GameObject target;
     
     void Update()

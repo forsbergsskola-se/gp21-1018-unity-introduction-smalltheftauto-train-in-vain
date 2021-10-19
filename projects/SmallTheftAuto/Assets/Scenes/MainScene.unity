@@ -640,6 +640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fd3fecf0ead824c9ea9880ff5eae54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CameraHeightOffset: -20
   target: {fileID: 1516512060}
 --- !u!1 &1014306021
 GameObject:
@@ -1065,7 +1066,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1516512060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a1d93360744087545a3aafb07c11cc7f, type: 3}
   m_Name: 
@@ -1355,6 +1356,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1849050626}
   - component: {fileID: 1849050625}
+  - component: {fileID: 1849050627}
   m_Layer: 0
   m_Name: Pimpmobile
   m_TagString: Untagged
@@ -1428,6 +1430,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849050627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849050624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30ae372252b1c194a8aa609b18209783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 40
+  acceleration: 10
+  deAcceleration: 10
+  turnSpeed: 30
 --- !u!1 &1924909314
 GameObject:
   m_ObjectHideFlags: 0

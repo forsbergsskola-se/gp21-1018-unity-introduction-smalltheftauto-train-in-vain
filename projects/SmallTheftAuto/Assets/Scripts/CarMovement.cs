@@ -15,8 +15,8 @@ public class CarMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var horizontal = Input.GetAxis("Horizontal") * turnSpeed* Time.deltaTime;
-        var vertical = Input.GetAxis("Vertical") * speed*Time.deltaTime;
+        var vertical = Input.GetAxis("Vertical") * maxSpeed*Time.deltaTime;
+        var horizontal = Input.GetAxis("Horizontal") * (turnSpeed + vertical)* Time.deltaTime;
         transform.Translate(0,vertical,0 );
         transform.Rotate(0, 0, -horizontal);
         
