@@ -7,7 +7,6 @@ public class PlayerMovementHH : MonoBehaviour
     // Start is called before the first frame update
     public float speed = 20f;
     public float rotationSpeed = 60f;
-    public Rigidbody2D rb;
 
     void Update()
     {
@@ -46,9 +45,6 @@ public class PlayerMovementHH : MonoBehaviour
                 transform.Rotate(0,0,270);
     
             }
-    
-    
-            
         }*/
     }
 }
