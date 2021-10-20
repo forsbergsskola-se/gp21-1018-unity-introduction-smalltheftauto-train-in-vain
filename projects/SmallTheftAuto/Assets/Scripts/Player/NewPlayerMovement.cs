@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class NewPlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    public float rotSpeed = 120f;
+    public float speed = 10f;
+    
     void Update()
     {
+        var horizontal = Input.GetAxis("Horizontal") * rotSpeed* Time.deltaTime;
+        var vertical = Input.GetAxis("Vertical") * speed*Time.deltaTime;
+        transform.Rotate(0, 0, -horizontal);
         
+        if (vertical < 0)
+        {
+            transform.Translate(0,vertical/2,0);
+        }
+        else
+        {
+            transform.Translate(0,vertical,0);
+        }
     }
 }
