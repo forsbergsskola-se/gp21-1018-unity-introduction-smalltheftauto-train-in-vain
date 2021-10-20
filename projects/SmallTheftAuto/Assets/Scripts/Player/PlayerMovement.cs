@@ -22,4 +22,9 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(0,vertical,0);
         }
     }
+
+    private void Update
+    {
+        
+    }
 }
