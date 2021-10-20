@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class NewPlayerDrive : MonoBehaviour
+public class PlayerDrive : MonoBehaviour
 {
     private const float RangeToGetIn = 10f;
     private const KeyCode VehicleInteract = KeyCode.F;
