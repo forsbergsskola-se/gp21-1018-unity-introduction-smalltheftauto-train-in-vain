@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NewPlayerDrive : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private const float RangeToGetIn = 10f;
+    private const KeyCode VehicleInteract = KeyCode.F;
+    public GameObject Car;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (gameObject.activeInHierarchy && isWithinRange() && Input.GetKeyDown(VehicleInteract))
+        {
+            EnterVehicle();
+        }
+    }
+    
+    private void EnterVehicle()
+    {
+        Car.gameObject.GetComponent<HandlePassenger>().Enter();
+    }
+
+    private bool isWithinRange()
+    {
+        return Vector3.Distance(gameObject.transform.position, Car.gameObject.transform.position) <= RangeToGetIn;
     }
 }
