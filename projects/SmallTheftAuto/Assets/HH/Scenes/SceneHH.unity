@@ -1300,6 +1300,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1689754231195845970, guid: d2e4363cf4d09294481432d83759d948, type: 3}
   m_PrefabInstance: {fileID: 1689754230560155246}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1516512061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516512060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b748795941e094689585e25b10493f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 120
+  speed: 10
 --- !u!1 &1563689660
 GameObject:
   m_ObjectHideFlags: 0
@@ -2287,5 +2301,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Pixel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1689754231195845969, guid: d2e4363cf4d09294481432d83759d948, type: 3}
+    - {fileID: 4603023969937630150, guid: d2e4363cf4d09294481432d83759d948, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d2e4363cf4d09294481432d83759d948, type: 3}
