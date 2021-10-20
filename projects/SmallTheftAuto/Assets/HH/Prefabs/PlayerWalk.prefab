@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4243841258989336412}
   - component: {fileID: 2122960445117271769}
   m_Layer: 0
-  m_Name: Player Who Can Run
+  m_Name: PlayerWalk
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
