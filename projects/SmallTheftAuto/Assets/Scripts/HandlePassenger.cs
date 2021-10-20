@@ -7,6 +7,7 @@ public class HandlePassenger : MonoBehaviour
 {
     public GameObject Player;
     private CarMovement CarMovement;
+    public GameObject ExitPosition;
 
     void Awake()
     {
@@ -21,6 +22,8 @@ public class HandlePassenger : MonoBehaviour
 
     public void Exit()
     {
+        Player.transform.position = ExitPosition.transform.position;
+        
         Player.SetActive(true);
         CarMovement.enabled = false;
     }
