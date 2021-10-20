@@ -20,6 +20,11 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             transform.Translate(0,vertical,0);
+            
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                transform.Translate(0,vertical*1,0);
+            }
         }
     }
 }
