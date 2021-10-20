@@ -1,13 +1,12 @@
-using System;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
     public float maxSpeed = 30f;
     public float turnSpeed = 150f;
-    public GameObject Player;
-    public FollowCamera FollowCamera;
-    public SpriteRenderer spriteRenderer;
+    private GameObject Player;
+    private FollowCamera FollowCamera;
+    private SpriteRenderer spriteRenderer;
     public Sprite drivingSkin;
     public Sprite defaultSkin;
     
@@ -15,14 +14,22 @@ public class CarMovement : MonoBehaviour
 
     private float speed;
     private const KeyCode VehicleInteract = KeyCode.F;
-    
-    private void Start()
+
+    void Awake()
     {
+        Player = GameObject.FindWithTag("Player");
+        FollowCamera = GameObject.FindWithTag("MainCamera").GetComponent<FollowCamera>();
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
+    // private void Start()
+    // {
+    //     spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+    // }
+
     void Update()
     {
+        Debug.Log("CarMovement is activated!!");
         // Changes skin when driving
         spriteRenderer.sprite = drivingSkin;
 
@@ -66,6 +73,7 @@ public class CarMovement : MonoBehaviour
     // followCamera.target = player;
     private void OnEnable()
     {
+        Debug.Log("CarMovement enabled!");
         FollowCamera.target = gameObject;
     }
 

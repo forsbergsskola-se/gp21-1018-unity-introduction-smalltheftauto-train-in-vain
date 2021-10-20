@@ -4,7 +4,7 @@ public class PlayerDrive : MonoBehaviour
 {
     private const float RangeToGetIn = 10f;
     private const KeyCode VehicleInteract = KeyCode.F;
-    public GameObject Car;
+    private GameObject Car;
 
     void Update()
     {
@@ -13,7 +13,7 @@ public class PlayerDrive : MonoBehaviour
             EnterVehicle();
         }
     }
-    
+
     private void EnterVehicle()
     {
         Car.gameObject.GetComponent<HandlePassenger>().Enter();
