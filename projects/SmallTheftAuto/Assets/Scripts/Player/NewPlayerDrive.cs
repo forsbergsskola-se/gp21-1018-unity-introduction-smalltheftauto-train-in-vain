@@ -1,10 +1,16 @@
+using System;
 using UnityEngine;
 
 public class NewPlayerDrive : MonoBehaviour
 {
     private const float RangeToGetIn = 10f;
     private const KeyCode VehicleInteract = KeyCode.F;
-    public GameObject Car;
+    private GameObject Car;
+
+    private void Start()
+    {
+        Car = GameObject.FindGameObjectWithTag("Car");
+    }
 
     void Update()
     {

@@ -15,10 +15,9 @@ public class CarMovement : MonoBehaviour
     private float speed;
     private const KeyCode VehicleInteract = KeyCode.F;
 
-    void Awake()
+    void Start()
     {
-        Player = GameObject.FindWithTag("Player");
-        FollowCamera = GameObject.FindWithTag("MainCamera").GetComponent<FollowCamera>();
+        FollowCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
         spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -73,7 +72,11 @@ public class CarMovement : MonoBehaviour
     // followCamera.target = player;
     private void OnEnable()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
+        Player.SetActive(false);
+        
         Debug.Log("CarMovement enabled!");
+        FollowCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
         FollowCamera.target = gameObject;
     }
 

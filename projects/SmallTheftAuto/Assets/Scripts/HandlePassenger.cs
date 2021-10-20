@@ -10,15 +10,16 @@ public class HandlePassenger : MonoBehaviour
     public CarMovement CarMovement;
     public GameObject ExitPosition;
 
-    void Awake()
+    void Start()
     {
-        Player = GameObject.FindWithTag("Player");
+        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     public void Enter()
     {
-        if (Player == null) Player = GameObject.FindWithTag("Player");
-        Player.SetActive(false);
+        if (Player == null) Player = GameObject.FindGameObjectWithTag("Player");
+        Debug.Log(Player);
+        // Player.SetActive(false);
         CarMovement.enabled = true;
     }
 
