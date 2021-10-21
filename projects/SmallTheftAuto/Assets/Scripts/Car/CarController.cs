@@ -46,8 +46,6 @@ public class CarController : MonoBehaviour
 
     public bool IsRunning
     {
-        get => isRunning;
-
         set
         {
             isRunning = value;
