@@ -13,7 +13,6 @@ namespace ZooISL
             animalZoo.AddAnimal(new Donkey());
             Console.WriteLine("This should be True: " + animalZoo.HasAnimal<Fish>());
         }
-        
     }
     
     public class Zoo<TAnimal> where TAnimal : Animal
@@ -27,10 +26,7 @@ namespace ZooISL
             animals[arraySize - 1] = animal;
         }
 
-        public bool HasAnimal<T>() where T : TAnimal
-        {
-            return animals.ToList().Any(x => x is T);
-        }
+        public bool HasAnimal<T>() where T : TAnimal => animals.ToList().Any(x => x is T);
     }
 
     public class Animal { }
