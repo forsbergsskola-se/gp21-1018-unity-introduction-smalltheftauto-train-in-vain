@@ -54,10 +54,5 @@ public class CarController : MonoBehaviour
     {
         Health = MaxHealth;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

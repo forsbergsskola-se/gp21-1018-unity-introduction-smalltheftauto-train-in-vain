@@ -14,5 +14,9 @@ public class SpawnCar : MonoBehaviour
         var car2 = Instantiate(carPrefab);
         car2.transform.position = new Vector3(-10, 1.8f, 0);
         car2.GetComponent<CarMovement>().enabled = false;
+        
+        var car3 = Instantiate(carPrefab);
+        car3.transform.position = new Vector3(10, 1.8f, 0);
+        car3.GetComponent<CarMovement>().enabled = false;
     }
 }

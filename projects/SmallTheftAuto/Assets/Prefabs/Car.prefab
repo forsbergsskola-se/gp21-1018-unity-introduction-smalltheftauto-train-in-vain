@@ -41,6 +41,8 @@ GameObject:
   - component: {fileID: 6942922090966478903}
   - component: {fileID: 6942922090966478901}
   - component: {fileID: 3311061954591959268}
+  - component: {fileID: -1842214170060211372}
+  - component: {fileID: 6767068626679393930}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -76,8 +78,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0333c8d85fbd6499acd930348733d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CarMovement: {fileID: 3311061954591959268}
   ExitPosition: {fileID: 6942922090553220526}
+  CarMovement: {fileID: 3311061954591959268}
+  CarController: {fileID: 6767068626679393930}
+  CarSpriteChanger: {fileID: -1842214170060211372}
 --- !u!114 &3311061954591959268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92,8 +96,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 30
   turnSpeed: 150
+--- !u!114 &-1842214170060211372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942922090966478902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaeb0b361dec4a34ea4f0d3098afb24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   drivingSkin: {fileID: 21300000, guid: 6428b559bdbe9524fb74c0f2009be8af, type: 3}
   defaultSkin: {fileID: 21300000, guid: 042772663b91167488bf9ea38fa30936, type: 3}
+--- !u!114 &6767068626679393930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942922090966478902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 545acf0754d33304b9bb28696e4c965c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 0
+  IsRunning: 0
 --- !u!1 &6942922091421380750
 GameObject:
   m_ObjectHideFlags: 0
