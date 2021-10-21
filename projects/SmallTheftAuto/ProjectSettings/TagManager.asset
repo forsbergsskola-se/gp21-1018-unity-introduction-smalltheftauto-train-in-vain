@@ -7,6 +7,8 @@ TagManager:
   - Car
   - CarID
   - HealthBar
+  - Wasted
+  - Water
   layers:
   - Default
   - TransparentFX
@@ -55,4 +57,7 @@ TagManager:
     locked: 0
   - name: Flying entities
     uniqueID: 496700913
+    locked: 0
+  - name: Water
+    uniqueID: 4053689277
     locked: 0
