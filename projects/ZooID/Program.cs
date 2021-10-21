@@ -84,7 +84,15 @@ namespace ZooID
 
         public bool HasAnimal<TSpecies>() where TSpecies : TAnimals
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < this.Animals.Count; i++)
+            {
+                if (this.Animals[i] is TSpecies)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
         
     }
