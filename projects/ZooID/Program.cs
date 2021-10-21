@@ -24,7 +24,7 @@ namespace ZooID
                 animalZoo.AddAnimal(new Lion()); // OKAY
                 animalZoo.AddAnimal(new Lion()); // OKAY
             }
-            {
+            /*{
                 Zoo<Salmon> salmonZoo = new Zoo<Salmon>();
                 salmonZoo.HasAnimal<Lion>(); // ERROR!
             }
@@ -38,7 +38,7 @@ namespace ZooID
             {
                 Zoo<Salmon> salmonZoo = new Zoo<Salmon>();
                 salmonZoo.AddAnimal(new Fish()); // ERROR!
-            }
+            }*/
             {
                 Zoo<Fish> fishZoo = new Zoo<Fish>();
                 fishZoo.AddAnimal(new Salmon());
