@@ -27,12 +27,11 @@ namespace ZooOa
     class Zoo<TAnimal> where TAnimal : Animal
     {
         private List<Animal> animals = new List<Animal>();
-
+        
         public void AddAnimal(TAnimal animal)
         {
             animals.Add(animal);
         }
-
 
         public bool HasAnimal<TSearchAnimal>() where TSearchAnimal : TAnimal
         {
