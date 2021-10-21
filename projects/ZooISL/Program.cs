@@ -11,7 +11,7 @@ namespace ZooISL
             animalZoo.AddAnimal(new Salmon());
             animalZoo.AddAnimal(new Lion());
             animalZoo.AddAnimal(new Donkey());
-            Console.WriteLine("This should be True: " + animalZoo.HasAnimal<Fish>());
+            Console.WriteLine("This should be True: "+animalZoo.HasAnimal<Fish>());
         }
     }
     
