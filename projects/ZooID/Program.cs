@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ZooID
 {
@@ -23,7 +24,7 @@ namespace ZooID
                 animalZoo.AddAnimal(new Lion()); // OKAY
                 animalZoo.AddAnimal(new Lion()); // OKAY
             }
-            {
+            /*{
                 Zoo<Salmon> salmonZoo = new Zoo<Salmon>();
                 salmonZoo.HasAnimal<Lion>(); // ERROR!
             }
@@ -37,72 +38,51 @@ namespace ZooID
             {
                 Zoo<Salmon> salmonZoo = new Zoo<Salmon>();
                 salmonZoo.AddAnimal(new Fish()); // ERROR!
-            }
+            }*/
             {
                 Zoo<Fish> fishZoo = new Zoo<Fish>();
                 fishZoo.AddAnimal(new Salmon());
                 fishZoo.AddAnimal(new Salmon());
-                Console.WriteLine("This should be False: "+fishZoo.HasAnimal<Clownfish>());
+                Console.WriteLine("This should be False: "+ fishZoo.HasAnimal<Clownfish>());
             }
             
         }
     }
-    class Animal 
-    {
-            
-    }
+    class Animal { }
 
-    class Mammal : Animal
-    {
-        
-    }
+    class Mammal : Animal { }
 
-    class Bear : Mammal
-    {
-        
-    }
+    class Bear : Mammal { }
 
-    class Donkey : Mammal
-    {
-        
-    }
+    class Donkey : Mammal { }
 
-    class Lion : Mammal
-    {
-        
-    }
+    class Lion : Mammal { }
 
-    class Fish : Animal
-    {
-        
-    }
+    class Fish : Animal { }
 
-    class Salmon : Fish
-    {
-        
-    }
+    class Salmon : Fish { }
 
-    class Clownfish : Fish
-    {
-        
-    }
+    class Clownfish : Fish { }
 
-    class Student 
-    {
-        
-    }
+    class Student { }
 
     class Zoo <TAnimals>  where TAnimals : Animal
     {
-        private TAnimals[] Animals = new TAnimals[0];
-
+        private List<TAnimals> Animals = new List<TAnimals>();
         public void AddAnimal(TAnimals animal) 
         { 
-            Array.Resize(ref Animals, Animals.Length+1);
-            Animals[Animals.Length - 1] = animal;
+            this.Animals.Add(animal);
+            this.Animals.Add(animal);
+            for (int i = 0; i < this.Animals.Count; i++)
+            {
+                Console.WriteLine(this.Animals[i]);
+            }
         }
 
-        public void HasAnimal<TSpecies>() where TSpecies : TAnimals
+        
+            
+
+        public bool HasAnimal<TSpecies>() where TSpecies : TAnimals
         {
             throw new NotImplementedException();
         }
