@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class PlayerDrive : MonoBehaviour
 {
-    private const float RangeToGetIn = 10f;
+    private const float RangeToGetIn = 5f;
     private const KeyCode VehicleInteract = KeyCode.F;
     private List<GameObject> carsInScene;
     private GameObject targetCar;
@@ -20,7 +19,6 @@ public class PlayerDrive : MonoBehaviour
         if (gameObject.activeInHierarchy && carIsWithinRange() && Input.GetKeyDown(VehicleInteract))
         {
             EnterVehicle();
-            targetCar = null;
         }
     }
     
@@ -36,9 +34,11 @@ public class PlayerDrive : MonoBehaviour
         for (var i = 0; i < length; i++)
         {
             result = Vector3.Distance(gameObject.transform.position, carsInScene[i].gameObject.transform.position) <= RangeToGetIn;
-            if (!result) continue;
-            targetCar = carsInScene[i].gameObject;
-            break;
+            if (result)
+            {
+                targetCar = carsInScene[i];
+                break;
+            }
         }
         return result;
     }
