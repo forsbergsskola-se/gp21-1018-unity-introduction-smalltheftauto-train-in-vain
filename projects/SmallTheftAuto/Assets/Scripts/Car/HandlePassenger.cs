@@ -15,23 +15,14 @@ public class HandlePassenger : MonoBehaviour
     
     // Field for the child ExitPosition of Car.
     public GameObject ExitPosition;
-    
-    // Field for the CarMovement script
-    public CarMovement CarMovement;
-    
-    // Field for the CarController.
-    public CarController CarController;
 
     // Field for the CarSpriteChanger script to change the texture of the car.
     public CarSpriteChanger CarSpriteChanger;
 
 
-    private bool CanExit = false;
-    
-    
+    // Todo: Don't use GetComponent multiple times, instead use a field that gets it once from the start. 
 
-    // Constant variable which holds what key is pressed to exit the vehicle.
-    private const KeyCode VehicleInteract = KeyCode.F;
+    
     
     void Start()
     {
@@ -41,38 +32,29 @@ public class HandlePassenger : MonoBehaviour
         // Get the camera component.
         FollowCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
     }
-
-    private void Update()
-    {
-        if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract) && gameObject.GetComponent<CarController>().IsRunning)
-        {
-            Exit();
-            // CanExit = false;
-        }
-    }
-
+    
+    
+    
     public void Enter()
     {
         // If for some reason the player is null, search and find it again.
         if (Player == null) Player = GameObject.FindGameObjectWithTag("Player");
-        
-        // CanExit = true;
-        
+
         // Disable the player.
         Player.SetActive(false);
 
         // Make the camera target the car.
         FollowCamera.target = gameObject;
 
-        // Enable the car movement.
-        // CarMovement.enabled = true;
-
+        // Start the car.
         gameObject.GetComponent<CarController>().IsRunning = true;
 
         // Make the car sprite show a player in the car.
         CarSpriteChanger.PlayerInCar = true;
     }
 
+    
+    
     public void Exit()
     {
         // Make the car sprite show a empty window again and no player.
@@ -84,12 +66,10 @@ public class HandlePassenger : MonoBehaviour
         // Enable the player again.
         Player.SetActive(true);
         
+        // Stop the car.
         gameObject.GetComponent<CarController>().IsRunning = false;
         
         // Make the player the target of the camera.
         FollowCamera.target = Player;
-        
-        // Disable the driving script.
-        // CarMovement.enabled = false;
     }
 }

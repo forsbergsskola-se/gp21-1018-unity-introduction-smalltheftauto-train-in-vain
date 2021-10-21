@@ -5,17 +5,6 @@ public class CarMovement : MonoBehaviour
 {
     public float maxSpeed = 30f;
     public float turnSpeed = 150f;
-    private GameObject Player;
-
-
-
-    private float speed;
-    private const KeyCode VehicleInteract = KeyCode.F;
-
-    private void Start()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player");
-    }
 
     void Update()
     {
@@ -24,18 +13,15 @@ public class CarMovement : MonoBehaviour
         var vertical = Input.GetAxis("Vertical") * maxSpeed*Time.deltaTime;
         var horizontal = Input.GetAxis("Horizontal") * (turnSpeed + vertical)* Time.deltaTime;
 
-        if (vertical != 0)
-        {
+        if (vertical != 0) {
             transform.Rotate(0, 0, -horizontal);
         }
 
-        if (vertical < 0)
-        {
+        if (vertical < 0) {
             transform.Translate(0,vertical/2,0 );
         }
 
-        else
-        {
+        else {
             transform.Translate(0,vertical,0 );
         }
     }

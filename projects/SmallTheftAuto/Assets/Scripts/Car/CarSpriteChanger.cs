@@ -23,18 +23,9 @@ public class CarSpriteChanger : MonoBehaviour
         {
             // Set playerInCar to input value.
             playerInCar = value;
-            
-            if (playerInCar)
-            {
-                // Change the sprite to show the player driving it.
-                spriteRenderer.sprite = drivingSkin;
-            }
-            // If the player is not in the car.
-            else
-            {
-                // Change the sprite back to be an empty car.
-                spriteRenderer.sprite = defaultSkin;
-            }
+
+            // Set the skin depending on if the player is in the car or not.
+            spriteRenderer.sprite = playerInCar ? drivingSkin : defaultSkin;
         }
     }
 
