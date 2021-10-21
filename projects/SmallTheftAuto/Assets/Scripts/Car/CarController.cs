@@ -28,7 +28,28 @@ public class CarController : MonoBehaviour
     
     public int MaxHealth;
 
-    public bool IsRunning;
+    
+    
+    // Field for the CarMovement script
+    public CarMovement CarMovement;
+    
+    private bool isRunning;
+
+    public bool IsRunning
+    {
+        get => isRunning;
+
+        set
+        {
+            isRunning = value;
+            if (isRunning)
+            {
+                CarMovement.enabled = true;
+            }
+            else
+                CarMovement.enabled = false;
+        }
+    }
 
 
 

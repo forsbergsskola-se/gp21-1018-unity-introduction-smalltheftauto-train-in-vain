@@ -44,7 +44,7 @@ public class HandlePassenger : MonoBehaviour
 
     private void Update()
     {
-        if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract) && GetComponent<CarController>().IsRunning)
+        if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract) && gameObject.GetComponent<CarController>().IsRunning)
         {
             Exit();
             // CanExit = false;
@@ -65,9 +65,9 @@ public class HandlePassenger : MonoBehaviour
         FollowCamera.target = gameObject;
 
         // Enable the car movement.
-        CarMovement.enabled = true;
+        // CarMovement.enabled = true;
 
-        GetComponent<CarController>().IsRunning = true;
+        gameObject.GetComponent<CarController>().IsRunning = true;
 
         // Make the car sprite show a player in the car.
         CarSpriteChanger.PlayerInCar = true;
@@ -84,12 +84,12 @@ public class HandlePassenger : MonoBehaviour
         // Enable the player again.
         Player.SetActive(true);
         
-        GetComponent<CarController>().IsRunning = false;
+        gameObject.GetComponent<CarController>().IsRunning = false;
         
         // Make the player the target of the camera.
         FollowCamera.target = Player;
         
         // Disable the driving script.
-        CarMovement.enabled = false;
+        // CarMovement.enabled = false;
     }
 }

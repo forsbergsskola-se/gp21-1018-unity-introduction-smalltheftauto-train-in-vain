@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHealth: 0
-  IsRunning: 0
+  CarMovement: {fileID: 3311061954591959268}
 --- !u!1 &6942922091421380750
 GameObject:
   m_ObjectHideFlags: 0
