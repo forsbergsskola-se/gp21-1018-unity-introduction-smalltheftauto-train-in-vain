@@ -1,32 +1,45 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerDrive : MonoBehaviour
 {
     private const float RangeToGetIn = 10f;
     private const KeyCode VehicleInteract = KeyCode.F;
-    private GameObject Car;
+    private List<GameObject> carsInScene;
+    private GameObject targetCar;
 
     private void Start()
     {
-        Car = GameObject.FindGameObjectWithTag("Car");
+        carsInScene = GameObject.FindGameObjectsWithTag("Car").ToList();
     }
 
     void Update()
     {
-        if (gameObject.activeInHierarchy && isWithinRange() && Input.GetKeyDown(VehicleInteract))
+        if (gameObject.activeInHierarchy && carIsWithinRange() && Input.GetKeyDown(VehicleInteract))
         {
             EnterVehicle();
+            targetCar = null;
         }
     }
     
     private void EnterVehicle()
     {
-        Car.gameObject.GetComponent<HandlePassenger>().Enter();
+        targetCar.GetComponent<HandlePassenger>().Enter();
     }
 
-    private bool isWithinRange()
+    private bool carIsWithinRange()
     {
-        return Vector3.Distance(gameObject.transform.position, Car.gameObject.transform.position) <= RangeToGetIn;
+        var result = false;
+        var length = carsInScene.Count;
+        for (var i = 0; i < length; i++)
+        {
+            result = Vector3.Distance(gameObject.transform.position, carsInScene[i].gameObject.transform.position) <= RangeToGetIn;
+            if (!result) continue;
+            targetCar = carsInScene[i].gameObject;
+            break;
+        }
+        return result;
     }
 }
