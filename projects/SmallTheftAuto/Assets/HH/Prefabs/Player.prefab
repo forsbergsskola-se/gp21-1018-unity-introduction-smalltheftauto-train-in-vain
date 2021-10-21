@@ -15,8 +15,6 @@ GameObject:
   - component: {fileID: -2141383885038231095}
   - component: {fileID: -7833527537460937507}
   - component: {fileID: 3808596473524340056}
-  - component: {fileID: 849736714710510647}
-  - component: {fileID: -7324317932517199746}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -200,36 +198,3 @@ PolygonCollider2D:
       - {x: 0.71999997, y: -1}
       - {x: 0.90999997, y: -0.94}
       - {x: 0.94, y: -0.83}
---- !u!114 &849736714710510647
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c310aca8ed6232c4e970476808a96192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
---- !u!95 &-7324317932517199746
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6a3b3553f205246418e4c04007680931, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
