@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -10,7 +11,7 @@ public class CarController : MonoBehaviour
     private GameObject Player;
     
     // Field for the CarMovement script
-    public CarMovement CarMovement;
+    private CarMovement carMovement;
 
     // Constant variable which holds what key is pressed to exit the vehicle.
     private const KeyCode VehicleInteract = KeyCode.F;
@@ -49,32 +50,27 @@ public class CarController : MonoBehaviour
         set
         {
             isRunning = value;
-            if (isRunning)
-            {
-                CarMovement.enabled = true;
-            }
-            else
-                CarMovement.enabled = false;
+            carMovement.enabled = isRunning;
         }
     }
 
 
 
-    private void Update()
+    // private void Update()
+    // {
+    //     //Check if the player wants to leave the car.
+    //     if (isRunning && !Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
+    //     {
+    //         // Exit the car.
+    //         gameObject.GetComponent<HandlePassenger>().Exit();
+    //     }
+    // }
+
+    public void HandlePlayerExitCar()
     {
-        // Only run this if the car is running to prevent unnecessary cpu usage.
-        if (isRunning)
-        {
-            // Check if the player wants to leave the car.
-            if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
-            {
-                // Exit the car.
-                gameObject.GetComponent<HandlePassenger>().Exit();
-            }
-        }
+        gameObject.GetComponent<HandlePassenger>().Exit();
     }
 
-    
 
     void CarIsBurning()
     {
@@ -104,5 +100,10 @@ public class CarController : MonoBehaviour
         
         // Get the player object.
         Player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private void Awake()
+    {
+        carMovement = gameObject.GetComponent<CarMovement>();
     }
 }
