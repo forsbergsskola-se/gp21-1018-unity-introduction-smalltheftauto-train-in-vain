@@ -31,6 +31,11 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         HealthBar.sethealth(currentHealth);
+        if (currentHealth<=0)
+        {
+            Destroy(this.gameObject);
+            Debug.Log("Player is dead.");
+        }
     }
 
 }
