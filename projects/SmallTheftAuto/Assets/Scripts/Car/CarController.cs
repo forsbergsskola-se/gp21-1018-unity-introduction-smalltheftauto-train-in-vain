@@ -7,20 +7,14 @@ using UnityEngine;
 
 public class CarController : MonoBehaviour
 {
-    // Prepare a private field for the player.
-    private GameObject Player;
-    
     // Field for the CarMovement script
-    private CarMovement carMovement;
+    public CarMovement carMovement;
     
     // // Field for the CarExitChecker script
-    // public CarExitChecker CarExitChecker;
+    public CarExitChecker CarExitChecker;
 
-    // Constant variable which holds what key is pressed to exit the vehicle.
-    private const KeyCode VehicleInteract = KeyCode.F;
-    
     // Variables to hold if the car is on fire or running.
-    private bool isRunning = false;
+    private bool isRunning;
     private bool isBurning;
     
     // The max health of the car.
@@ -47,48 +41,26 @@ public class CarController : MonoBehaviour
     }
     
     
-
+    
+    /// <summary>
+    /// True/false will turn on and turn of the car.
+    /// </summary>
     public bool IsRunning
     {
         set
         {
             isRunning = value;
             carMovement.enabled = isRunning;
-            
+            CarExitChecker.enabled = isRunning;
         }
     }
 
 
 
-    // private void Update()
-    // {
-    //     if (isRunning)
-    //     {
-    //         if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
-    //         {
-    //             gameObject.GetComponent<HandlePassenger>().Exit();
-    //         }
-    //     }
-    //     
-    //     // //Check if the player wants to leave the car.
-    //     // if (isRunning && !Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
-    //     // {
-    //     //     // Exit the car.
-    //     //     gameObject.GetComponent<HandlePassenger>().Exit();
-    //     // }
-    // }
-
-    public void HandlePlayerExitCar()
-    {
-        gameObject.GetComponent<HandlePassenger>().Exit();
-    }
-
-
     void CarIsBurning()
     {
-        // AJAJAJAJ DET BRINNER FAN RING AMBUL-NEJ-BRANDKÅREN FORT FAN FAN FAN. 
-     
-        // Change the sprite of the car to be on fire.
+        //TODO Change the sprite of the car to be on fire.
+        
         isBurning = true;
     }
 
@@ -96,26 +68,17 @@ public class CarController : MonoBehaviour
     
     void CarExplode()
     {
-        // Kill the player.
-        // Destroy the car.
-        // Possibly leave a car wreck behind where it died?
+        // TODO: Kill the player.
+        // TODO: Destroy the car.
+        // TODO: Possibly leave a car wreck behind where it died?
+        
         IsRunning = false;
     }
     
     
     
-    // Start is called before the first frame update
     void Start()
     {
-        // Set health to maxHealth on spawn.
         Health = MaxHealth;
-        
-        // Get the player object.
-        Player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void Awake()
-    {
-        carMovement = gameObject.GetComponent<CarMovement>();
     }
 }

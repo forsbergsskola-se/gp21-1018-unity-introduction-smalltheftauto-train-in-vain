@@ -7,22 +7,18 @@ using UnityEngine;
 /// </summary>
 public class HandlePassenger : MonoBehaviour
 {
-    // Prepare a private field for the player.
     private GameObject Player;
     
-    // Prepare a private field for the camera.
     private FollowCamera FollowCamera;
     
-    // Field for the child ExitPosition of Car.
     public GameObject ExitPosition;
 
     // Field for the CarSpriteChanger script to change the texture of the car.
     public CarSpriteChanger CarSpriteChanger;
 
+    public CarController CarController;
 
-    // Todo: Don't use GetComponent multiple times, instead use a field that gets it once from the start. 
 
-    
     
     void Start()
     {
@@ -35,7 +31,7 @@ public class HandlePassenger : MonoBehaviour
     
     
     
-    public void Enter()
+    public void EnterCar()
     {
         // If for some reason the player is null, search and find it again.
         if (Player == null) Player = GameObject.FindGameObjectWithTag("Player");
@@ -47,7 +43,7 @@ public class HandlePassenger : MonoBehaviour
         FollowCamera.target = gameObject;
 
         // Start the car.
-        gameObject.GetComponent<CarController>().IsRunning = true;
+        CarController.IsRunning = true;
 
         // Make the car sprite show a player in the car.
         CarSpriteChanger.PlayerInCar = true;
@@ -55,7 +51,7 @@ public class HandlePassenger : MonoBehaviour
 
     
     
-    public void Exit()
+    public void ExitCar()
     {
         // Make the car sprite show a empty window again and no player.
         CarSpriteChanger.PlayerInCar = false;
@@ -67,7 +63,7 @@ public class HandlePassenger : MonoBehaviour
         Player.SetActive(true);
         
         // Stop the car.
-        gameObject.GetComponent<CarController>().IsRunning = false;
+        CarController.IsRunning = false;
         
         // Make the player the target of the camera.
         FollowCamera.target = Player;

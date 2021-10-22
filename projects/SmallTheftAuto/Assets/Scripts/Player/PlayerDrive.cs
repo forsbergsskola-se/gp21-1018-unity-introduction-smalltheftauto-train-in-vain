@@ -24,7 +24,7 @@ public class PlayerDrive : MonoBehaviour
     
     private void EnterVehicle()
     {
-        targetCar.GetComponent<HandlePassenger>().Enter();
+        targetCar.GetComponent<HandlePassenger>().EnterCar();
     }
 
     private bool carIsWithinRange()

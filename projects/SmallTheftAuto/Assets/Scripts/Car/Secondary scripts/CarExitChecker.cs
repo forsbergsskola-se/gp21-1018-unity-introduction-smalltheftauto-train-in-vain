@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class CarExitChecker : MonoBehaviour
 {
-    // private CarController carController;
-    // private const KeyCode VehicleInteract = KeyCode.F;
-    //
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     
-    // }
-    //
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     if (gameObject.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
-    //     {
-    //         carController.HandlePlayerExitCar();
-    //     }
-    // }
+    public HandlePassenger HandlePassenger;
+    
+    private const KeyCode VehicleInteractKey = KeyCode.F;
+    
+
+    
+    void Update()
+    {
+        if (gameObject.activeInHierarchy && Input.GetKeyDown(VehicleInteractKey))
+        {
+            HandlePassenger.ExitCar();
+        }
+    }
 }
