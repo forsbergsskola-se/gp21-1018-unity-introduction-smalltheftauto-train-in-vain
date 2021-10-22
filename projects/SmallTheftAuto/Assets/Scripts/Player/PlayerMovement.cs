@@ -8,10 +8,15 @@ public class PlayerMovement : MonoBehaviour
     public float rotSpeed = 120f;
     public float speed = 10f;
     public bool isWalking;
+    public Sprite defaultSprite;
+    public SpriteRenderer spriteRenderer;
+
+
 
      void Start()
      {
          GetComponent<Animator>().enabled = false;
+         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
      }
 
 
@@ -22,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, -horizontal);
         isWalking = false;
         GetComponent<Animator>().enabled = false;
+        spriteRenderer.sprite = defaultSprite;
 
         
         if (vertical < 0)
