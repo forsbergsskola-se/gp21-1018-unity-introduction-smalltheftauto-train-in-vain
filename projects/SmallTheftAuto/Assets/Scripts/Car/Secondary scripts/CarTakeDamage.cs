@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class CarTakeDamage : MonoBehaviour
 {
+    private const int MaxDamage = 500;
     private CarMovement carMovement;
 
     private void Awake()
@@ -10,11 +11,12 @@ public class CarTakeDamage : MonoBehaviour
         carMovement = GameObject.FindObjectOfType<CarMovement>();
     }
 
-    public void TakeDamage(CarController car, int damage)
+    public void TakeDamage(CarController car)
     {
-        Debug.Log("Vertical speed: " + carMovement.VerticalSpeed);
-        car.Health -= (int)Math.Round(damage * carMovement.VerticalSpeed);
-        Debug.Log("I'm dealing damaageeeee!");
+        Debug.Log("Vertical speed: " + carMovement.Vertical);
+        car.Health -= Math.Abs((int)Math.Round(MaxDamage * carMovement.Vertical));
+        
+        Debug.Log("I'm taking damaageeeee!");
     }
 
     public void DealDamage()
