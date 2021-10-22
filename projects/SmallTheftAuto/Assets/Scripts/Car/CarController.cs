@@ -17,6 +17,7 @@ public class CarController : MonoBehaviour
     
     // The max health of the car.
     private int maxHealth = MaxHealth;
+    private GameObject Player;
     
     
     private int health;
@@ -56,6 +57,9 @@ public class CarController : MonoBehaviour
     {
         Health = maxHealth;
         Debug.Log("Current health: " + Health);
+        Player = (GameObject.FindGameObjectWithTag ("Player"));
+
+        
     }
 
 
@@ -74,6 +78,8 @@ public class CarController : MonoBehaviour
         // TODO: Destroy the car.
         // TODO: Possibly leave a car wreck behind where it died?
         
+        
+        Player.GetComponent<PlayerHealth>().TakeDamage(999);
         IsRunning = false;
     }
 
