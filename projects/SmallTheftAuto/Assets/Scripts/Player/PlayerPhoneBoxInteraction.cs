@@ -9,10 +9,15 @@ public class PlayerPhoneBoxInteraction : MonoBehaviour
     private const KeyCode PhoneBoxInteractKey = KeyCode.F;
     private List<GameObject> phoneBoxInScene;
     private GameObject targetPhoneBox;
-    // Start is called before the first frame update
+
+
+    private GameObject QuestUi;
+    
+    
     void Start()
     {
         phoneBoxInScene = GameObject.FindGameObjectsWithTag("PhoneBox").ToList();
+        QuestUi = GameObject.FindGameObjectWithTag("QuestUi");
     }
 
     // Update is called once per frame

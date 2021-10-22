@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class QuestUiPopupHelper : MonoBehaviour
 {
-    public GameObject QuestUi;
-    
+    private List<GameObject> QuestUi = new List<GameObject>();
 
-    
-    
+
     public void ViewQuestUI(bool value)
     {
-        QuestUi.SetActive(value);
+        foreach (GameObject childUI in QuestUi)
+        {
+            childUI.active = value;
+        }
+        
     }
     
     void Start()
     {
-        
+        foreach (Transform child in transform)
+        {
+            QuestUi.Add(child.gameObject);
+        }
     }
 
     // Update is called once per frame
