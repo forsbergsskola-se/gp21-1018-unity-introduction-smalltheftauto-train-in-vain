@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,13 @@ public class PlayerMovement : MonoBehaviour
 {
     public float rotSpeed = 120f;
     public float speed = 10f;
-    
+
+     void Start()
+     {
+         GetComponent<Animator>().enabled = false;
+     }
+
+
     void Update()
     {
         var horizontal = Input.GetAxis("Horizontal") * rotSpeed* Time.deltaTime;
@@ -25,6 +32,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 transform.Translate(0,vertical*1,0);
             }
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.S) || (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.W
+        )))
+        {
+            GetComponent<Animator>().enabled = true;
         }
     }
 }
