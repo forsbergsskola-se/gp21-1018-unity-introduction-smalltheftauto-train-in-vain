@@ -20,13 +20,13 @@ public class PlayerPhoneBoxInteraction : MonoBehaviour
     {
         if (gameObject.activeInHierarchy && phoneBoxInRange()&& Input.GetKeyDown(PhoneBoxInteract) )
         {
-            
+            PhoneBox();
         }
     }
 
     private void PhoneBox()
     {
-        
+        targetPhoneBox.GetComponent<PhoneBoxInteraction>().EnterPhoneBox();
     }
 
     private bool phoneBoxInRange()
