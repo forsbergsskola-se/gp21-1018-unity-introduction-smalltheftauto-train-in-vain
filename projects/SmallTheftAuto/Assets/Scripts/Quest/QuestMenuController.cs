@@ -32,6 +32,7 @@ public class QuestMenuController : MonoBehaviour
         {
             questUiPopupHelper.ViewQuestUI(false);
             PhoneBoxInteraction.ExitPhoneBox();
+            
         }
     }
 }

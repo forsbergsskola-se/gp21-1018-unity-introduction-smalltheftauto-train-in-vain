@@ -37,12 +37,13 @@ public class PhoneBoxInteraction : MonoBehaviour
     
     public void ExitPhoneBox()
     {
+        Debug.Log("Hej där något är skummt!");
         Player.transform.position = ExitPostion.transform.position;
         
         Player.SetActive(true);
 
         FollowCamera.target = Player;
-        Debug.Log("Hej där något är skummt!");
+        
         
         QuestMenuController.enabled = false;
     }
