@@ -19,4 +19,9 @@ public class SpawnCar : MonoBehaviour
         car3.transform.position = new Vector3(10, 1.8f, 0);
         car3.GetComponent<CarMovement>().enabled = false;
     }
+
+    public void SpawnCars()
+    {
+        
+    }
 }

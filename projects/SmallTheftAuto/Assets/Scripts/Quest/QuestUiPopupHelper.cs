@@ -11,9 +11,8 @@ public class QuestUiPopupHelper : MonoBehaviour
     {
         foreach (GameObject childUI in QuestUi)
         {
-            childUI.active = value;
+            childUI.SetActive(value);
         }
-        
     }
     
     void Start()
