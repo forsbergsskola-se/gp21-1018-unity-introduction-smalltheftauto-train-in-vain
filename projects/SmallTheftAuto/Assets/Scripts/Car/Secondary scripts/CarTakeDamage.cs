@@ -8,15 +8,12 @@ public class CarTakeDamage : MonoBehaviour
 
     private void Awake()
     {
-        carMovement = GameObject.FindObjectOfType<CarMovement>();
+        carMovement = GetComponent<CarMovement>();
     }
 
     public void TakeDamage(CarController car)
     {
-        Debug.Log("Vertical speed: " + carMovement.Vertical);
         car.Health -= Math.Abs((int)Math.Round(MaxDamage * carMovement.Vertical));
-        
-        Debug.Log("I'm taking damaageeeee!");
     }
 
     public void DealDamage()

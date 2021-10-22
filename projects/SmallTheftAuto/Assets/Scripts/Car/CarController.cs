@@ -9,6 +9,7 @@ public class CarController : MonoBehaviour
     public CarExitChecker CarExitChecker;
 
     private CarTakeDamage carTakeDamage;
+    private CarSpriteChanger carSpriteChanger;
 
     // Variables to hold if the car is on fire or running.
     private bool isRunning;
@@ -50,16 +51,15 @@ public class CarController : MonoBehaviour
 
     private void Awake()
     {
-        carTakeDamage = GameObject.FindObjectOfType<CarTakeDamage>();
+        carTakeDamage = GetComponent<CarTakeDamage>();
+        carSpriteChanger = GetComponent<CarSpriteChanger>();
+        Player = GameObject.FindGameObjectWithTag ("Player");
     }
 
     void Start()
     {
         Health = maxHealth;
         Debug.Log("Current health: " + Health);
-        Player = (GameObject.FindGameObjectWithTag ("Player"));
-
-        
     }
 
 
@@ -68,6 +68,7 @@ public class CarController : MonoBehaviour
         //TODO Change the sprite of the car to be on fire.
         
         isBurning = true;
+        carSpriteChanger.PlayerInCarBurning();
     }
 
     

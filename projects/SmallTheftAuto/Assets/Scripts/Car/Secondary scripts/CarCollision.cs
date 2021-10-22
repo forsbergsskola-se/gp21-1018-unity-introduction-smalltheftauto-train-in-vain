@@ -12,7 +12,7 @@ public class CarCollision : MonoBehaviour
 
     private void Awake()
     {
-        carController = GameObject.FindObjectOfType<CarController>();
+        carController = GetComponent<CarController>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
