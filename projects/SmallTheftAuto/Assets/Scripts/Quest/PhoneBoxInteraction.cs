@@ -7,6 +7,9 @@ public class PhoneBoxInteraction : MonoBehaviour
     private GameObject Player;
     private FollowCamera FollowCamera;
     public GameObject ExitPostion;
+    public QuestMenuController QuestMenuController;
+    
+    
     
     // Start is called before the first frame update
     void Start()
@@ -16,15 +19,22 @@ public class PhoneBoxInteraction : MonoBehaviour
         FollowCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
     }
 
+    
+    
     public void EnterPhoneBox()
     {
         if (Player == null) Player = GameObject.FindGameObjectWithTag("Player");
-        
-        Player.SetActive(false);
 
         FollowCamera.target = gameObject;
+        
+        // Todo: Add ui scripts to control which quests are started
+        QuestMenuController.enabled = true;
+        
+        Player.SetActive(false);
     }
 
+    
+    
     public void ExitPhoneBox()
     {
         Player.transform.position = ExitPostion.transform.position;
@@ -32,11 +42,7 @@ public class PhoneBoxInteraction : MonoBehaviour
         Player.SetActive(true);
 
         FollowCamera.target = Player;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
+        QuestMenuController.enabled = false;
     }
 }

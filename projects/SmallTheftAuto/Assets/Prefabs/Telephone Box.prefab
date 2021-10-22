@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1516592271390903080}
   - component: {fileID: 1516592271390903078}
   - component: {fileID: -1599267757049485696}
+  - component: {fileID: -6631829878378991070}
   m_Layer: 0
   m_Name: Telephone Box
   m_TagString: PhoneBox
@@ -133,6 +134,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExitPostion: {fileID: 3796426572830405934}
+  QuestMenuController: {fileID: -6631829878378991070}
+--- !u!114 &-6631829878378991070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1516592271390903081}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d9464054d340449966bae4d0fc1fdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PhoneBoxInteraction: {fileID: -1599267757049485696}
 --- !u!1 &3796426572830405934
 GameObject:
   m_ObjectHideFlags: 0

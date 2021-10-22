@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerPhoneBoxInteraction : MonoBehaviour
 {
     private const float RangeToGetIn = 5f;
-    private const KeyCode PhoneBoxInteract = KeyCode.F;
+    private const KeyCode PhoneBoxInteractKey = KeyCode.F;
     private List<GameObject> phoneBoxInScene;
     private GameObject targetPhoneBox;
     // Start is called before the first frame update
@@ -18,7 +18,7 @@ public class PlayerPhoneBoxInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.activeInHierarchy && phoneBoxInRange()&& Input.GetKeyDown(PhoneBoxInteract) )
+        if (gameObject.activeInHierarchy && phoneBoxInRange()&& Input.GetKeyDown(PhoneBoxInteractKey) )
         {
             PhoneBox();
         }
