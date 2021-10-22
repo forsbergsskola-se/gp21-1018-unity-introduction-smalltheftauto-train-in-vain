@@ -7,19 +7,18 @@ public class CarMovement : MonoBehaviour
     public float turnSpeed = 150f;
 
     public float VerticalSpeed { get; set; }
-    public float HorizontalSpeed { get; set; }
 
     void Update()
     {
         VerticalSpeed = Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime;
-        HorizontalSpeed = Input.GetAxis("Horizontal") * (turnSpeed + VerticalSpeed) * Time.deltaTime;
+        var horizontalSpeed = Input.GetAxis("Horizontal") * (turnSpeed + VerticalSpeed) * Time.deltaTime;
 
         if (VerticalSpeed != 0) {
-            transform.Rotate(0, 0, - HorizontalSpeed);
+            transform.Rotate(0, 0, - horizontalSpeed);
         }
 
         if (VerticalSpeed < 0) {
-            transform.Translate(0, VerticalSpeed / 2, 0 );
+            transform.Translate(0, VerticalSpeed/ 2, 0 );
         }
 
         else {

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarTakeDamage : MonoBehaviour
@@ -12,7 +13,12 @@ public class CarTakeDamage : MonoBehaviour
     public void TakeDamage(CarController car, int damage)
     {
         Debug.Log("Vertical speed: " + carMovement.VerticalSpeed);
-        Debug.Log("Horizontal speed: " + carMovement.HorizontalSpeed);
-        car.Health -= damage;
+        car.Health -= (int)Math.Round(damage * carMovement.VerticalSpeed);
+        Debug.Log("I'm dealing damaageeeee!");
+    }
+
+    public void DealDamage()
+    {
+        //Deal Damage with car
     }
 }

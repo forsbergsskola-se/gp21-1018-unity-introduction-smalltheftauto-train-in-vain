@@ -14,7 +14,7 @@ public class CarController : MonoBehaviour
     private bool isRunning;
     private bool isBurning;
     private const int MaxHealth = 300; // NOTE: Completely arbitrary, can be adjusted
-    private const int BaseDamageValue = 50; // NOTE: Completely arbitrary, can be adjusted
+    private const int BaseDamageValue = 1000; // NOTE: Completely arbitrary, can be adjusted
     
     // The max health of the car.
     private int maxHealth = MaxHealth;
@@ -80,7 +80,7 @@ public class CarController : MonoBehaviour
 
     public void OnCarCollideAgainstCar()
     {
-        carTakeDamage.TakeDamage(this, 50);
+        carTakeDamage.TakeDamage(this, BaseDamageValue);
         Debug.Log("Current health: " + Health);
     }
 }
