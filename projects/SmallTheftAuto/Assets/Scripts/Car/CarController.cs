@@ -12,6 +12,9 @@ public class CarController : MonoBehaviour
     
     // Field for the CarMovement script
     private CarMovement carMovement;
+    
+    // // Field for the CarExitChecker script
+    // public CarExitChecker CarExitChecker;
 
     // Constant variable which holds what key is pressed to exit the vehicle.
     private const KeyCode VehicleInteract = KeyCode.F;
@@ -51,6 +54,7 @@ public class CarController : MonoBehaviour
         {
             isRunning = value;
             carMovement.enabled = isRunning;
+            
         }
     }
 
@@ -58,12 +62,20 @@ public class CarController : MonoBehaviour
 
     // private void Update()
     // {
-    //     //Check if the player wants to leave the car.
-    //     if (isRunning && !Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
+    //     if (isRunning)
     //     {
-    //         // Exit the car.
-    //         gameObject.GetComponent<HandlePassenger>().Exit();
+    //         if (!Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
+    //         {
+    //             gameObject.GetComponent<HandlePassenger>().Exit();
+    //         }
     //     }
+    //     
+    //     // //Check if the player wants to leave the car.
+    //     // if (isRunning && !Player.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
+    //     // {
+    //     //     // Exit the car.
+    //     //     gameObject.GetComponent<HandlePassenger>().Exit();
+    //     // }
     // }
 
     public void HandlePlayerExitCar()

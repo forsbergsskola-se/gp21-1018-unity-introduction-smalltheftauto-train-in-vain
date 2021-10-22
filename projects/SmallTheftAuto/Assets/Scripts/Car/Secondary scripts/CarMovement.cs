@@ -11,6 +11,9 @@ public class CarMovement : MonoBehaviour
     void Update()
     {
         Debug.Log("CarMovement is activated!!");
+        
+        
+        
         if (gameObject.activeInHierarchy && Input.GetKeyDown(VehicleInteract))
         {
             carController.HandlePlayerExitCar();
