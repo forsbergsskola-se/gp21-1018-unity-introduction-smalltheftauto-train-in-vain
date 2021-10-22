@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1516592271390903079}
   - component: {fileID: 1516592271390903080}
   - component: {fileID: 1516592271390903078}
-  - component: {fileID: 3200241121267080202}
   m_Layer: 0
   m_Name: Telephone Box
   m_TagString: PhoneBox
@@ -119,15 +118,3 @@ PolygonCollider2D:
       - {x: 1.41, y: -3.22}
       - {x: 1.42, y: -3.1999998}
       - {x: 1.42, y: 2.02}
---- !u!114 &3200241121267080202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1516592271390903081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 963d00b73bb4ff3479ba5cc1babfc2c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
