@@ -15,7 +15,7 @@ public class QuestMenuController : MonoBehaviour
 
     private QuestUiPopupHelper questUiPopupHelper;
 
-    private void Start()
+    private void OnEnable()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
         Player.SetActive(false);
