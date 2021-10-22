@@ -6,21 +6,24 @@ public class CarMovement : MonoBehaviour
     public float maxSpeed = 30f;
     public float turnSpeed = 150f;
 
+    public float VerticalSpeed { get; set; }
+    public float HorizontalSpeed { get; set; }
+
     void Update()
     {
-        var vertical = Input.GetAxis("Vertical") * maxSpeed*Time.deltaTime;
-        var horizontal = Input.GetAxis("Horizontal") * (turnSpeed + vertical)* Time.deltaTime;
+        VerticalSpeed = Input.GetAxis("Vertical") * maxSpeed * Time.deltaTime;
+        HorizontalSpeed = Input.GetAxis("Horizontal") * (turnSpeed + VerticalSpeed) * Time.deltaTime;
 
-        if (vertical != 0) {
-            transform.Rotate(0, 0, -horizontal);
+        if (VerticalSpeed != 0) {
+            transform.Rotate(0, 0, - HorizontalSpeed);
         }
 
-        if (vertical < 0) {
-            transform.Translate(0,vertical/2,0 );
+        if (VerticalSpeed < 0) {
+            transform.Translate(0, VerticalSpeed / 2, 0 );
         }
 
         else {
-            transform.Translate(0,vertical,0 );
+            transform.Translate(0,VerticalSpeed ,0 );
         }
     }
 }

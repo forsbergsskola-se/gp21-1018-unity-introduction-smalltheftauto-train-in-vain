@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2251242416109144706}
   - component: {fileID: 7363963417973955265}
   - component: {fileID: -4298258042902302669}
+  - component: {fileID: -3229381560416348499}
   - component: {fileID: 3230510851580911034}
   - component: {fileID: 590724334294594763}
   m_Layer: 0
@@ -125,7 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carMovement: {fileID: 3311061954591959268}
   CarExitChecker: {fileID: -4298258042902302669}
-  MaxHealth: 0
 --- !u!114 &7363963417973955265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +153,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HandlePassenger: {fileID: 6942922090966478901}
+--- !u!114 &-3229381560416348499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942922090966478902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2507e1e539500384595b17d6e69bf155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!60 &3230510851580911034
 PolygonCollider2D:
   m_ObjectHideFlags: 0

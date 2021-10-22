@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -13,35 +8,33 @@ public class CarController : MonoBehaviour
     // // Field for the CarExitChecker script
     public CarExitChecker CarExitChecker;
 
+    private CarTakeDamage carTakeDamage;
+
     // Variables to hold if the car is on fire or running.
     private bool isRunning;
     private bool isBurning;
+    private const int MaxHealth = 300; // NOTE: Completely arbitrary, can be adjusted
+    private const int BaseDamageValue = 50; // NOTE: Completely arbitrary, can be adjusted
     
     // The max health of the car.
-    public int MaxHealth;
+    private int maxHealth = MaxHealth;
     
     
     private int health;
     public int Health
     {
-        get { return Health; }
+        get => health;
         set
         {
-            health -= value;
+            health = value;
             // If the car is below 25% health start burning.
-            if (health < MaxHealth / 4 && !isBurning)
-            {
-                CarIsBurning();
-            }
-            if (health <= 0)
-            {
-                CarExplode();
-            }
+            if (health < maxHealth / 4 && !isBurning) CarIsBurning(); // NOTE: Add animation here
+            if (health <= 0) CarExplode();
         }
     }
-    
-    
-    
+
+
+
     /// <summary>
     /// True/false will turn on and turn of the car.
     /// </summary>
@@ -55,6 +48,16 @@ public class CarController : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        carTakeDamage = GameObject.FindObjectOfType<CarTakeDamage>();
+    }
+
+    void Start()
+    {
+        Health = maxHealth;
+        Debug.Log("Current health: " + Health);
+    }
 
 
     void CarIsBurning()
@@ -74,11 +77,10 @@ public class CarController : MonoBehaviour
         
         IsRunning = false;
     }
-    
-    
-    
-    void Start()
+
+    public void OnCarCollideAgainstCar()
     {
-        Health = MaxHealth;
+        carTakeDamage.TakeDamage(this, 50);
+        Debug.Log("Current health: " + Health);
     }
 }
