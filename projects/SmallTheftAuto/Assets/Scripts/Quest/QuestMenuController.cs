@@ -10,21 +10,27 @@ public class QuestMenuController : MonoBehaviour
     private GameObject Player;
     
     private const KeyCode PhoneBoxInteractKey = KeyCode.F;
-    
-    
-    
-    private void OnEnable()
+
+    private GameObject QuestUi;
+
+    private QuestUiPopupHelper questUiPopupHelper;
+
+    private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        Player.SetActive(false);
+        
+        questUiPopupHelper = GameObject.FindGameObjectWithTag("QuestUi").GetComponent<QuestUiPopupHelper>();
+        questUiPopupHelper.ViewQuestUI(true);
     }
 
-    
-    
+
     // Update is called once per frame
     void Update()
     {
         if (!Player.activeInHierarchy && Input.GetKeyDown(PhoneBoxInteractKey))
         {
+            questUiPopupHelper.ViewQuestUI(false);
             PhoneBoxInteraction.ExitPhoneBox();
         }
     }

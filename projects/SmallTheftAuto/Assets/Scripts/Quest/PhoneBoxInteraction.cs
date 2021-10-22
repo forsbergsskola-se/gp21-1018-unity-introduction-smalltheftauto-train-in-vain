@@ -28,9 +28,9 @@ public class PhoneBoxInteraction : MonoBehaviour
         FollowCamera.target = gameObject;
         
         // Todo: Add ui scripts to control which quests are started
+        
         QuestMenuController.enabled = true;
         
-        Player.SetActive(false);
     }
 
     
@@ -42,6 +42,7 @@ public class PhoneBoxInteraction : MonoBehaviour
         Player.SetActive(true);
 
         FollowCamera.target = Player;
+        Debug.Log("Hej där något är skummt!");
         
         QuestMenuController.enabled = false;
     }
