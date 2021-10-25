@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -18,9 +19,17 @@ public class QuestMenuController : MonoBehaviour
     private QuestUiPopupHelper questUiPopupHelper;
 
     private Button ExitPhoneBoxButton;
+    
     private Button yesButton;
+    
     public GameObject quest;
 
+    public string QuestTitle;
+    
+    
+    
+    
+    
 
 
     private void OnEnable()
@@ -29,7 +38,7 @@ public class QuestMenuController : MonoBehaviour
         Player.SetActive(false);
         
         questUiPopupHelper = GameObject.FindGameObjectWithTag("QuestUi").GetComponent<QuestUiPopupHelper>();
-        questUiPopupHelper.ViewQuestUI(true);
+        questUiPopupHelper.ViewQuestUI(true, QuestTitle, "TEMP");
 
         ExitPhoneBoxButton = GameObject.FindGameObjectWithTag("NoButton").GetComponent<Button>();
         ExitPhoneBoxButton.onClick.AddListener(ExitPhoneBox);
@@ -39,21 +48,27 @@ public class QuestMenuController : MonoBehaviour
 
     }
 
+    
+    
     private void OnDisable()
     {
         ExitPhoneBoxButton.onClick.RemoveListener(ExitPhoneBox);
         yesButton.onClick.RemoveListener(StartQuest);
     }
 
+    
+    
     private void StartQuest()
     {
         quest.GetComponent<CarRaceController>().temp();
         ExitPhoneBox();
     }
 
+    
+    
     private void ExitPhoneBox()
     {
-        questUiPopupHelper.ViewQuestUI(false);
+        questUiPopupHelper.ViewQuestUI(false, "", "");
         PhoneBoxInteraction.ExitPhoneBox();
     }
     

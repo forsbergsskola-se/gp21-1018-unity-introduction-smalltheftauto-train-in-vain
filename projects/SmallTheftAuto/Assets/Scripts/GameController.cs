@@ -10,7 +10,10 @@ public class GameController : MonoBehaviour
     {
         Instantiate(player);
         Instantiate(phoneBox).transform.position=new Vector3(-0.519f, 41.2f,0f);
-        phoneBox.GetComponent<QuestMenuController>().quest = QuestOne;
+        var questMenuController = phoneBox.GetComponent<QuestMenuController>();
+        questMenuController.QuestTitle = "CarRace";
+        questMenuController.quest = QuestOne;
+
     }
 
     void Update()
