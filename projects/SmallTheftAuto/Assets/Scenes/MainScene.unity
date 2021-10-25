@@ -1360,7 +1360,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4396968072063033420, guid: b30f76cfa54ad974c808f01553842117, type: 3}
   phoneBox: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
-  QuestOne: {fileID: 429540630}
+  phoneBox2: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
+  questOne: {fileID: 429540630}
 --- !u!4 &642482743
 Transform:
   m_ObjectHideFlags: 0
