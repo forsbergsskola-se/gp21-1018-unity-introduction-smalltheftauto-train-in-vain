@@ -39,6 +39,12 @@ public class QuestMenuController : MonoBehaviour
 
     }
 
+    private void OnDisable()
+    {
+        ExitPhoneBoxButton.onClick.RemoveListener(ExitPhoneBox);
+        yesButton.onClick.RemoveListener(StartQuest);
+    }
+
     private void StartQuest()
     {
         quest.GetComponent<CarRaceController>().temp();
