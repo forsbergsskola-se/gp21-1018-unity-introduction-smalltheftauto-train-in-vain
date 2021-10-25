@@ -6,12 +6,12 @@ public class PlayerDrive : MonoBehaviour
 {
     private const float RangeToGetIn = 5f;
     private const KeyCode VehicleInteract = KeyCode.F;
-    private List<GameObject> carsInScene;
+    public List<GameObject> carsInScene;
     private GameObject targetCar;
 
     private void Start()
     {
-        carsInScene = GameObject.FindGameObjectsWithTag("Car").ToList();
+        // carsInScene = GameObject.FindGameObjectsWithTag("Car").ToList();
     }
 
     void Update()

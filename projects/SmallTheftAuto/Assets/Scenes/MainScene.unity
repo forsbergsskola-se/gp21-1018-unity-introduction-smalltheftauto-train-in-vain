@@ -747,8 +747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fc4b919b5796d46b959afc64adb39f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 6942922090966478902, guid: d64bf0052c4712d4cbc700cf653a6e02, type: 3}
-  carSpawn: {fileID: 1019280014}
+  SpawnCar: {fileID: 642482744}
+  CarSpawnPosition: {fileID: 1019280014}
 --- !u!4 &429540632
 Transform:
   m_ObjectHideFlags: 0
@@ -1716,7 +1716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1019280015}
   m_Layer: 0
-  m_Name: CarSpawner
+  m_Name: CarSpawnPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
