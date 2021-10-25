@@ -23,7 +23,6 @@ public class GameController : MonoBehaviour
         // questMenuController2.QuestTitle = "BikeRace";
         // questMenuController2.QuestDescription = "Bike go ded.";
         // questMenuController2.quest = questOne;
-        
     }
 
     void Update()
