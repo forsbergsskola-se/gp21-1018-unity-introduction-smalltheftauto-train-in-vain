@@ -48,7 +48,6 @@ GameObject:
   - component: {fileID: -3229381560416348499}
   - component: {fileID: 3230510851580911034}
   - component: {fileID: 590724334294594763}
-  - component: {fileID: 1072180312829298974}
   m_Layer: 0
   m_Name: Car
   m_TagString: Car
@@ -141,7 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drivingSkin: {fileID: 21300000, guid: 6428b559bdbe9524fb74c0f2009be8af, type: 3}
   defaultSkin: {fileID: 21300000, guid: 042772663b91167488bf9ea38fa30936, type: 3}
-  drivingOnFireSkin: {fileID: 0}
 --- !u!114 &-4298258042902302669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,25 +216,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!95 &1072180312829298974
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6942922090966478902}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a975f6fb9172e6f47af3d370c1b56322, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6942922091421380750
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +227,7 @@ GameObject:
   - component: {fileID: 6942922091421380748}
   - component: {fileID: 6942922091421380751}
   - component: {fileID: 6942922091421380749}
+  - component: {fileID: 2272338426246101550}
   m_Layer: 0
   m_Name: Pimpmobile
   m_TagString: Untagged
@@ -375,3 +355,22 @@ PolygonCollider2D:
       - {x: 1.5999999, y: -3.4499998}
       - {x: 1.8199999, y: -2.4199998}
       - {x: 1.8199999, y: -1.17}
+--- !u!95 &2272338426246101550
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6942922091421380750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a975f6fb9172e6f47af3d370c1b56322, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -7,7 +7,7 @@ public class CarSpriteChanger : MonoBehaviour
 {
     // Gets the Spriterenderer for changing car sprites.
     private SpriteRenderer spriteRenderer;
-    private Animator burningAnimator;
+    private Animator onFireAnimation;
     
     // Gets the sprites to change between.
     public Sprite drivingSkin;
@@ -20,8 +20,9 @@ public class CarSpriteChanger : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        burningAnimator = GetComponent<Animator>();
-        burningAnimator.enabled = false;
+        onFireAnimation = GetComponentInChildren<Animator>();
+        onFireAnimation.enabled = false;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     public bool PlayerInCar
@@ -38,13 +39,6 @@ public class CarSpriteChanger : MonoBehaviour
 
     public void PlayerInCarBurning()
     {
-        Debug.Log("I AM FROM PlayerInCarBurning");
-        burningAnimator.enabled = true;
-    }
-
-    private void Start()
-    {
-        // Get the SpriteRenderer object to allow for texture changes.
-        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+        onFireAnimation.enabled = true;
     }
 }
