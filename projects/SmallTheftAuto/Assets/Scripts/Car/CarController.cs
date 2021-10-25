@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CarController : MonoBehaviour
@@ -71,15 +72,26 @@ public class CarController : MonoBehaviour
         carSpriteChanger.PlayerInCarBurning();
     }
 
-    
-    
+    private void Update()
+    {
+        if (!isRunning)
+        {
+            carSpriteChanger.CarBurning();
+        }
+        
+        else if (isRunning && isBurning)
+        {
+            carSpriteChanger.PlayerInCarBurning();
+        }
+    }
+
+
     void CarExplode()
     {
         // TODO: Kill the player.
         // TODO: Destroy the car.
         // TODO: Possibly leave a car wreck behind where it died?
-        
-        
+
         Player.GetComponent<PlayerHealth>().TakeDamage(999);
         IsRunning = false;
     }
