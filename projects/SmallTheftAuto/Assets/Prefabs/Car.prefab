@@ -126,6 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carMovement: {fileID: 3311061954591959268}
   CarExitChecker: {fileID: -4298258042902302669}
+  SpawnCar: {fileID: 0}
+  firePrefab: {fileID: 5494904029611182767, guid: 7a8b6c5ac5c6cab4c9c3a083a5ff5cab, type: 3}
 --- !u!114 &7363963417973955265
 MonoBehaviour:
   m_ObjectHideFlags: 0
