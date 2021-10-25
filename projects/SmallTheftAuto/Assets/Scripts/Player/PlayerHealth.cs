@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private ResetScene ResetScene;
     private HealthBar HealthBar;
     private GameObject Wasted;
+    private GameObject Hurt;
     
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
         HealthBar.sethealth(maxHealth);
         Wasted = GameObject.FindWithTag("Wasted");
         Wasted.SetActive(false);
+        Hurt = GameObject.FindWithTag("Hurt");
+        Hurt.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,7 +39,13 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         HealthBar.sethealth(currentHealth);
-        if (currentHealth<=0)
+
+        if (currentHealth <= 40 && currentHealth <0)
+        {
+            Hurt.SetActive(true);
+        }
+        
+        else if (currentHealth<=0)
         {
             Wasted.SetActive(true);
             // Destroy(this.gameObject);
