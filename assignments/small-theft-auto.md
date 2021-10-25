@@ -51,18 +51,18 @@ Here's the set of features that I'll be looking for:
 |Environment| BONUS: Pedestrians | | <ul><li>- [ ] </li></ul> | 20 |
 |Fire| Fire exists that deals damage to the player while he is standing in the Fire | | <ul><li>- [x] </li></ul> | 5 |
 |Fire| Fires are spawned by exploding cars | | <ul><li>- [x] </li></ul> | 5 |
-|Fire| Fires extinguish after a while | | <ul><li>- [ ] </li></ul> | 5 |
+|Fire| Fires extinguish after a while | | <ul><li>- [x] </li></ul> | 5 |
 |Heart| Heart Powerups exist that heal the Player by a certain amount when he collects them | | <ul><li>- [ ] </li></ul> | 5 |
 |Water| Water exists that makes the Player drown, if he jumps into it. Resulting in Death. | | <ul><li>- [x] </li></ul> | 5 |
 |Death| Text "WASTED" is displayed. Player respawns after a few seconds. He loses half of his money. | | <ul><li>- [x] </li></ul> | 5 |
 |SavePoint| SavePoint-Powerups exist that save the Player's Progress, if he is not on a quest right now. When loading, the player's Health and Money is loaded and he spawns at the SavePoint that he touched last. | | <ul><li>- [ ] </li></ul> | 5 |
 
 | | | | | Total: 180 |
--------------------------------
+------------------------------
 
 
-Current Score: 110
+Current Score: 115
 
-Current percent: 61.1% 
+Current percent: 64% 
 
 Current grade: G - Passed (C) 
