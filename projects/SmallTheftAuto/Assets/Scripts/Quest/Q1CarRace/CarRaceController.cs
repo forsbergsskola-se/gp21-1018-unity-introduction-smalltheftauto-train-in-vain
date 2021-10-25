@@ -5,17 +5,21 @@ using UnityEngine;
 public class CarRaceController : MonoBehaviour
 {
     private GameObject phoneBox;
-    
+    public GameObject carPrefab;
+    private GameObject raceCar;
+    public GameObject carSpawn;
     
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hey I Am here");
+        
+        
     }
 
     public void temp()
     {
-        Debug.Log("Heyu");
+        raceCar = Instantiate(carPrefab);
+        raceCar.transform.position= carSpawn.transform.position;
     }
 
     // Update is called once per frame
