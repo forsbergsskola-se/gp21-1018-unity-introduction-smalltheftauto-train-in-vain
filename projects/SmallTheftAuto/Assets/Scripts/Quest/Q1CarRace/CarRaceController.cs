@@ -10,7 +10,6 @@ public class CarRaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         Debug.Log("Hey I Am here");
     }
 

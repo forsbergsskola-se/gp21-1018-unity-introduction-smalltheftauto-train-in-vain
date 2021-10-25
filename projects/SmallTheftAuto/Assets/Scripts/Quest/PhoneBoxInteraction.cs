@@ -19,7 +19,7 @@ public class PhoneBoxInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Hej där jag är trasig.");
+        //Debug.Log("Hej där jag är trasig.");
         
         Player = GameObject.FindGameObjectWithTag("Player");
         
@@ -44,7 +44,7 @@ public class PhoneBoxInteraction : MonoBehaviour
     
     public void ExitPhoneBox()
     {
-        Debug.Log("Hej där något är skummt!");
+        //Debug.Log("Hej där något är skummt!");
         
         Debug.Log($"Hej jag heter {this.name}");
         
