@@ -74,14 +74,17 @@ public class CarController : MonoBehaviour
 
     private void Update()
     {
-        if (!isRunning)
-        {
-            carSpriteChanger.CarBurning();
-        }
         
-        else if (isRunning && isBurning)
+        // loads fire driving animation when car reaches high damage
+        if (isRunning && isBurning)
         {
             carSpriteChanger.PlayerInCarBurning();
+        }
+        
+        // keeps default car fire animation when leaving car
+        else if (!isRunning && isBurning)
+        {
+            carSpriteChanger.CarBurning();
         }
     }
 
