@@ -30,39 +30,39 @@ Here's the set of features that I'll be looking for:
 |Car| Car can drive in reverse | | <ul><li>- [x] </li></ul> | 5 |
 |Car| Car takes damage when colliding with Cars or Walls | | <ul><li>- [x] </li></ul> | 5 |
 |Car| Car starts burning when under certain health-threshold | | <ul><li>- [x] </li></ul> | 5 |
-|Car| Car explodes when at zero health | | | 5 |
+|Car| Car explodes when at zero health | | <ul><li>- [x] </li></ul> | 5 |
 |Car| Player dies if he is in the car when it explodes | | <ul><li>- [x] </li></ul> | 5 |
 |UI| Player's Health can be seen | | <ul><li>- [x] </li></ul> | 5 |
-|UI| Player's Money can be seen | | | 5 |
-|UI| Player's Score can be seen | | | 5 |
+|UI| Player's Money can be seen | | <ul><li>- [ ] </li></ul> | 5 |
+|UI| Player's Score can be seen | | <ul><li>- [ ] </li></ul> | 5 |
 |UI| BONUS: Minimap can be seen | | <ul><li>- [x] </li></ul> | 5 |
 |Quest| Player can interact with Phonebox to receive quest | | <ul><li>- [x] </li></ul> | 5 |
-|Quest| Player cannot interact with Phonebox if already on quest | | | 5 |
-|Quest| Quest yields Money Reward, if completed | | | 5 |
-|Weapon| Player can switch Weapon between Hands, Pistol and Machine Gun | | | 5 |
-|Weapon| Player can use Weapon to Attack | | | 5 |
-|Weapon| Weapons need to reload | | | 5 |
+|Quest| Player cannot interact with Phonebox if already on quest | | <ul><li>- [ ] </li></ul> | 5 |
+|Quest| Quest yields Money Reward, if completed | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Player can switch Weapon between Hands, Pistol and Machine Gun | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Player can use Weapon to Attack | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Weapons need to reload | | <ul><li>- [ ] </li></ul> | 5 |
 |UI| Player's chosen Weapon can be seen | | | 5 |
-|UI| Player's Weapon's shots until reload can be seen | | | 5 |
-|Weapon| Attacks can hit cars | | | 5 |
-|Environment| There is houses | | | 5 |
+|UI| Player's Weapon's shots until reload can be seen | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Attacks can hit cars | | <ul><li>- [ ] </li></ul> | 5 |
+|Environment| There is houses | | <ul><li>- [ ] </li></ul> | 5 |
 |Environment| There is streets | | <ul><li>- [x] </li></ul> | 5 |
-|Environment| BONUS: Traffic | | | 20 |
-|Environment| BONUS: Pedestrians | | | 20 |
+|Environment| BONUS: Traffic | | <ul><li>- [ ] </li></ul> | 20 |
+|Environment| BONUS: Pedestrians | | <ul><li>- [ ] </li></ul> | 20 |
 |Fire| Fire exists that deals damage to the player while he is standing in the Fire | | <ul><li>- [x] </li></ul> | 5 |
-|Fire| Fires are spawned by exploding cars | | | 5 |
-|Fire| Fires extinguish after a while | | | 5 |
-|Heart| Heart Powerups exist that heal the Player by a certain amount when he collects them | | | 5 |
+|Fire| Fires are spawned by exploding cars | | <ul><li>- [ ] </li></ul> | 5 |
+|Fire| Fires extinguish after a while | | <ul><li>- [ ] </li></ul> | 5 |
+|Heart| Heart Powerups exist that heal the Player by a certain amount when he collects them | | <ul><li>- [ ] </li></ul> | 5 |
 |Water| Water exists that makes the Player drown, if he jumps into it. Resulting in Death. | | <ul><li>- [x] </li></ul> | 5 |
 |Death| Text "WASTED" is displayed. Player respawns after a few seconds. He loses half of his money. | | <ul><li>- [x] </li></ul> | 5 |
-|SavePoint| SavePoint-Powerups exist that save the Player's Progress, if he is not on a quest right now. When loading, the player's Health and Money is loaded and he spawns at the SavePoint that he touched last. | | | 5 |
+|SavePoint| SavePoint-Powerups exist that save the Player's Progress, if he is not on a quest right now. When loading, the player's Health and Money is loaded and he spawns at the SavePoint that he touched last. | | <ul><li>- [ ] </li></ul> | 5 |
 
 | | | | | Total: 180 |
 -------------------------------
 
 
-Current Score: 100 
+Current Score: 105
 
-Current percent: 55.5% 
+Current percent: 58.333% 
 
 Current grade: G - Barely passed (D) 
