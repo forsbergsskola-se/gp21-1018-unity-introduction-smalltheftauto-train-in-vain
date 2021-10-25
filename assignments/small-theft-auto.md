@@ -59,3 +59,10 @@ Here's the set of features that I'll be looking for:
 
 | | | | | Total: 180 |
 -------------------------------
+
+
+Current Score: 100 
+
+Current percent: 55.5% 
+
+Current grade: G - Barely passed (D) 
