@@ -8,7 +8,7 @@ public class CarSpriteChanger : MonoBehaviour
     // Gets the Spriterenderer for changing car sprites.
     private SpriteRenderer spriteRenderer;
     private Animator onFireAnimation;
-    
+
     // Gets the sprites to change between.
     public Sprite drivingSkin;
     public Sprite defaultSkin;
@@ -40,5 +40,13 @@ public class CarSpriteChanger : MonoBehaviour
     public void PlayerInCarBurning()
     {
         onFireAnimation.enabled = true;
+        onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On FireDriving") as RuntimeAnimatorController;
+
+    }
+
+    public void CarBurning()
+    {
+        onFireAnimation.enabled = true;
+        onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On Fire") as RuntimeAnimatorController;
     }
 }

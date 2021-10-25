@@ -23,8 +23,6 @@ public class PhoneBoxInteraction : MonoBehaviour
         
         Player = GameObject.FindGameObjectWithTag("Player");
         
-        
-
         FollowCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
     }
 
