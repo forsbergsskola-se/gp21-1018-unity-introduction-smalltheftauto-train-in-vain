@@ -95,8 +95,10 @@ public class CarController : MonoBehaviour
         // TODO: Destroy the car.
         // TODO: Possibly leave a car wreck behind where it died?
 
-        Player.GetComponent<PlayerHealth>().TakeDamage(999);
+        //Player.GetComponent<PlayerHealth>().TakeDamage(999);
         IsRunning = false;
+        CarExitChecker.HandlePassenger.ExitCar();
+        Destroy(this.gameObject);
     }
 
     public void OnCarCollideAgainstCar()
