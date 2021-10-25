@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class QuestMenuController : MonoBehaviour
 {
@@ -15,6 +17,10 @@ public class QuestMenuController : MonoBehaviour
 
     private QuestUiPopupHelper questUiPopupHelper;
 
+    private Button ExitPhoneBoxButton;
+
+
+
     private void OnEnable()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
@@ -22,17 +28,27 @@ public class QuestMenuController : MonoBehaviour
         
         questUiPopupHelper = GameObject.FindGameObjectWithTag("QuestUi").GetComponent<QuestUiPopupHelper>();
         questUiPopupHelper.ViewQuestUI(true);
+
+        ExitPhoneBoxButton = GameObject.FindGameObjectWithTag("NoButton").GetComponent<Button>();
+        ExitPhoneBoxButton.onClick.AddListener(ExitPhoneBox);
     }
 
+    
 
+    private void ExitPhoneBox()
+    {
+        questUiPopupHelper.ViewQuestUI(false);
+        PhoneBoxInteraction.ExitPhoneBox();
+    }
+    
+
+    
     // Update is called once per frame
     void Update()
     {
         if (!Player.activeInHierarchy && Input.GetKeyDown(PhoneBoxInteractKey))
         {
-            questUiPopupHelper.ViewQuestUI(false);
-            PhoneBoxInteraction.ExitPhoneBox();
-            
+            ExitPhoneBox();
         }
     }
 }

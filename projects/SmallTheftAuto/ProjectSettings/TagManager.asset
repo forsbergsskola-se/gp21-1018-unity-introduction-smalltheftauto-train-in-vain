@@ -11,6 +11,7 @@ TagManager:
   - Water
   - PhoneBox
   - QuestUi
+  - NoButton
   layers:
   - Default
   - TransparentFX
