@@ -148,6 +148,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PhoneBoxInteraction: {fileID: -1599267757049485696}
+  quest: {fileID: 0}
+  QuestTitle: CarRace
+  QuestDescription: Complete the race course in time for a reward.
 --- !u!1 &3796426572830405934
 GameObject:
   m_ObjectHideFlags: 0
