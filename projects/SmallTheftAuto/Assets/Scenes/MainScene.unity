@@ -1236,7 +1236,7 @@ GameObject:
   - component: {fileID: 642482744}
   m_Layer: 0
   m_Name: GameController
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1253,7 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f15d09878ebe5f549ad39512d27a681a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4396968072063033420, guid: b30f76cfa54ad974c808f01553842117, type: 3}
+  playerPrefab: {fileID: 4396968072063033420, guid: b30f76cfa54ad974c808f01553842117, type: 3}
   phoneBox: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
   phoneBox2: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
   questOne: {fileID: 429540630}

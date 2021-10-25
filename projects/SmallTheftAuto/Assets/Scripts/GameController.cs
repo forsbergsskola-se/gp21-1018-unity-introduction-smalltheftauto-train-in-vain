@@ -3,13 +3,21 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject playerPrefab;
+
+    // This should be accessed instead of player directly in cases where the player might be inactive in a car/phonebox.
+    public GameObject Player
+    {
+        get;
+        private set;
+    }
+    
     public GameObject phoneBox;
     public GameObject phoneBox2;
     public GameObject questOne;
     void Start()
     {
-        Instantiate(player);
+        Player = Instantiate(playerPrefab);
         var placedPhoneBox = Instantiate(phoneBox);
         placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();

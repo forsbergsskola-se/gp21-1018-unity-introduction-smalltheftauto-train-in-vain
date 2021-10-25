@@ -34,7 +34,6 @@ public class QuestMenuController : MonoBehaviour
     {
         get => questIsActive;
         set { questIsActive = value; }
-
     }
     
     

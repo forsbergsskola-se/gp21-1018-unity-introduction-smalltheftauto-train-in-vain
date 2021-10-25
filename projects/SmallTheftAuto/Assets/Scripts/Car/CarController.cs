@@ -57,7 +57,10 @@ public class CarController : MonoBehaviour
     {
         carTakeDamage = GetComponent<CarTakeDamage>();
         carSpriteChanger = GetComponent<CarSpriteChanger>();
-        Player = GameObject.FindGameObjectWithTag ("Player");
+        
+        // This will get the player object directly from the stashed player in GameController since the
+        // player might be inactive, and there for impossible to find.
+        Player = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>().Player;
     }
 
     void Start()
