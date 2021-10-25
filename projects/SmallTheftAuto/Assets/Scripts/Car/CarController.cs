@@ -94,17 +94,23 @@ public class CarController : MonoBehaviour
 
     public void CarExplode()
     {
-        // TODO: Kill the player.
-        // TODO: Destroy the car.
-        // TODO: Possibly leave a car wreck behind where it died?
+        if (isRunning == true)
+        {
+            IsRunning = false;
+            CarExitChecker.HandlePassenger.ExitCar();
+            Player.transform.position = this.gameObject.transform.position;
+            var fire = Instantiate(firePrefab);
+            fire.transform.position = this.transform.position;    
+            Destroy(this.gameObject); 
+            Player.GetComponent<PlayerHealth>().TakeDamage(999);
+        }
 
-        //Player.GetComponent<PlayerHealth>().TakeDamage(999);
-        IsRunning = false;
-        CarExitChecker.HandlePassenger.ExitCar();
-        Player.transform.position = this.transform.position;
-        var fire = Instantiate(firePrefab);
-        fire.transform.position = Player.transform.position;
-        Destroy(this.gameObject);
+        else
+        {
+            var fire = Instantiate(firePrefab);
+            fire.transform.position = this.transform.position;    
+            Destroy(this.gameObject); 
+        }
     }
 
     public void OnCarCollideAgainstCar()
