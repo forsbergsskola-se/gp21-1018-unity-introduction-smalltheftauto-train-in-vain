@@ -40,11 +40,13 @@ public class CarSpriteChanger : MonoBehaviour
     public void PlayerInCarBurning()
     {
         onFireAnimation.enabled = true;
+        onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On FireDriving") as RuntimeAnimatorController;
+
     }
 
     public void CarBurning()
     {
-        onFireAnimation.enabled = false;
-        spriteRenderer.sprite = defaultSkin;
+        onFireAnimation.enabled = true;
+        onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On Fire") as RuntimeAnimatorController;
     }
 }
