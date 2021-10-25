@@ -24,7 +24,7 @@ internal abstract class Weapon : ScriptableObject, IEquippable
         Power = power;
     }
 
-    public override string ToString() => name;
+    public override string ToString() => weaponName;
 }
 
 internal enum WeaponPower

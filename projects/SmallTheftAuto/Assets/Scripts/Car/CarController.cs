@@ -103,7 +103,7 @@ public class CarController : MonoBehaviour
 
     public void OnCarCollideAgainstCar()
     {
-        carTakeDamage.TakeDamage(this);
+        carTakeDamage.TakeDamage();
         Debug.Log("Current health: " + Health);
     }
 }

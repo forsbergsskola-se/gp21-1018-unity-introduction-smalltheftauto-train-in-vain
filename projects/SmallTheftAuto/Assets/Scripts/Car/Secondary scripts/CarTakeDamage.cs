@@ -1,19 +1,27 @@
 using System;
 using UnityEngine;
 
-public class CarTakeDamage : MonoBehaviour
+public class CarTakeDamage : MonoBehaviour, ITarget
 {
     private const int MaxDamage = 500;
     private CarMovement carMovement;
+    private CarController carController;
 
     private void Awake()
     {
         carMovement = GetComponent<CarMovement>();
+        carController = GetComponent<CarController>();
     }
 
-    public void TakeDamage(CarController car)
+    public void TakeDamage()
     {
-        car.Health -= Math.Abs((int)Math.Round(MaxDamage * carMovement.Vertical));
+        carController.Health -= Math.Abs((int)Math.Round(MaxDamage * carMovement.Vertical));
+    }
+
+    public void TakeDamage(int damage)
+    {
+        carController.Health -= damage;
+        Debug.Log("Car taking damage from a weapon!!!!!");
     }
 
     public void DealDamage()

@@ -5,13 +5,13 @@ using UnityEngine;
 /// "WeaponController" is a vague name, would probably rename it to something else
 /// more descriptive later.
 /// </summary>
-internal class PlayerWeaponController : MonoBehaviour, IEquipTarget
+internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
-    // WARNING temporary for developement purpose
-    private const KeyCode AttackKey = KeyCode.Space;
-    // WARNING
+    private const int LeftClick = 0;
     private Weapon bareHands;
+    
     public IEquippable Equippable { get; set; }
+    public ITarget Target { get; set; }
 
     private void Awake()
     {
@@ -20,11 +20,19 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget
         bareHands.EquipTo(this);
     }
 
-    void Update()
+    public void Attack(ITarget target, int damage)
     {
-        if (Input.GetKeyDown(AttackKey))
+        Target = target;
+        Target.TakeDamage(damage);
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        var gameObj = other.gameObject;
+        Debug.Log("HEY AM FROM PlayerWeaponController");
+        if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(LeftClick))
         {
-            Debug.Log($"Player attacks with {bareHands} that deals {(int)bareHands.Power} damage.");
+            Attack(gameObj.GetComponent<CarTakeDamage>(), (int)Equippable.Power);
         }
     }
 }
