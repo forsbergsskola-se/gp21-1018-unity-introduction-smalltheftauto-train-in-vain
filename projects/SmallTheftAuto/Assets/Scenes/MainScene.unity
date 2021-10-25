@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 300353914}
   m_Layer: 5
   m_Name: YesButton
-  m_TagString: Untagged
+  m_TagString: YesButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -718,6 +718,49 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &429540630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429540632}
+  - component: {fileID: 429540631}
+  m_Layer: 0
+  m_Name: Q1CarRaceController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &429540631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429540630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fc4b919b5796d46b959afc64adb39f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &429540632
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429540630}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5774164, y: 44.600967, z: -61.297337}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &470453689
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4396968072063033420, guid: b30f76cfa54ad974c808f01553842117, type: 3}
   phoneBox: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
+  QuestOne: {fileID: 429540630}
 --- !u!4 &642482743
 Transform:
   m_ObjectHideFlags: 0

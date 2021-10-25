@@ -12,6 +12,7 @@ TagManager:
   - PhoneBox
   - QuestUi
   - NoButton
+  - YesButton
   layers:
   - Default
   - TransparentFX

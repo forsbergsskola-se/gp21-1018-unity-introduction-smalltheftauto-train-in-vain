@@ -18,6 +18,8 @@ public class QuestMenuController : MonoBehaviour
     private QuestUiPopupHelper questUiPopupHelper;
 
     private Button ExitPhoneBoxButton;
+    private Button yesButton;
+    public GameObject quest;
 
 
 
@@ -31,9 +33,17 @@ public class QuestMenuController : MonoBehaviour
 
         ExitPhoneBoxButton = GameObject.FindGameObjectWithTag("NoButton").GetComponent<Button>();
         ExitPhoneBoxButton.onClick.AddListener(ExitPhoneBox);
+        
+        yesButton = GameObject.FindGameObjectWithTag("YesButton").GetComponent<Button>();
+        yesButton.onClick.AddListener(StartQuest);
+
     }
 
-    
+    private void StartQuest()
+    {
+        quest.GetComponent<CarRaceController>().temp();
+        ExitPhoneBox();
+    }
 
     private void ExitPhoneBox()
     {
