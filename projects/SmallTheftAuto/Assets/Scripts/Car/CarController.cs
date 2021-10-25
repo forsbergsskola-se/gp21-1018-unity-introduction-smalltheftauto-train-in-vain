@@ -63,7 +63,7 @@ public class CarController : MonoBehaviour
     }
 
 
-    void CarIsBurning()
+    void CarIsBurning() 
     {
         //TODO Change the sprite of the car to be on fire.
         
