@@ -18,7 +18,7 @@ public class QuestMenuController : MonoBehaviour
 
     private QuestUiPopupHelper questUiPopupHelper;
 
-    private Button ExitPhoneBoxButton;
+    private Button noButton;
     
     private Button yesButton;
     
@@ -27,6 +27,8 @@ public class QuestMenuController : MonoBehaviour
     public string QuestTitle;
 
     public string QuestDescription;
+
+    public static bool QuestIsActive;
 
 
 
@@ -40,8 +42,8 @@ public class QuestMenuController : MonoBehaviour
         questUiPopupHelper = GameObject.FindGameObjectWithTag("QuestUi").GetComponent<QuestUiPopupHelper>();
         questUiPopupHelper.ViewQuestUI(true, QuestTitle, QuestDescription);
 
-        ExitPhoneBoxButton = GameObject.FindGameObjectWithTag("NoButton").GetComponent<Button>();
-        ExitPhoneBoxButton.onClick.AddListener(ExitPhoneBox);
+        noButton = GameObject.FindGameObjectWithTag("NoButton").GetComponent<Button>();
+        noButton.onClick.AddListener(ExitPhoneBox);
         
         yesButton = GameObject.FindGameObjectWithTag("YesButton").GetComponent<Button>();
         yesButton.onClick.AddListener(StartQuest);
@@ -52,7 +54,7 @@ public class QuestMenuController : MonoBehaviour
     
     private void OnDisable()
     {
-        ExitPhoneBoxButton.onClick.RemoveListener(ExitPhoneBox);
+        noButton.onClick.RemoveListener(ExitPhoneBox);
         yesButton.onClick.RemoveListener(StartQuest);
     }
 
@@ -60,8 +62,16 @@ public class QuestMenuController : MonoBehaviour
     
     private void StartQuest()
     {
-        quest.GetComponent<CarRaceController>().temp();
-        ExitPhoneBox();
+        if (!QuestIsActive)
+        {
+            quest.GetComponent<CarRaceController>().temp();
+            QuestIsActive = true;
+            ExitPhoneBox();
+        }
+        else
+        {
+            Debug.Log("QUEST ALREADY ACTIVE!");
+        }
     }
 
     
