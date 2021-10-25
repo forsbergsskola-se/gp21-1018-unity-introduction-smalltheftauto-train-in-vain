@@ -50,7 +50,7 @@ Here's the set of features that I'll be looking for:
 |Environment| BONUS: Traffic | | <ul><li>- [ ] </li></ul> | 20 |
 |Environment| BONUS: Pedestrians | | <ul><li>- [ ] </li></ul> | 20 |
 |Fire| Fire exists that deals damage to the player while he is standing in the Fire | | <ul><li>- [x] </li></ul> | 5 |
-|Fire| Fires are spawned by exploding cars | | <ul><li>- [ ] </li></ul> | 5 |
+|Fire| Fires are spawned by exploding cars | | <ul><li>- [x] </li></ul> | 5 |
 |Fire| Fires extinguish after a while | | <ul><li>- [ ] </li></ul> | 5 |
 |Heart| Heart Powerups exist that heal the Player by a certain amount when he collects them | | <ul><li>- [ ] </li></ul> | 5 |
 |Water| Water exists that makes the Player drown, if he jumps into it. Resulting in Death. | | <ul><li>- [x] </li></ul> | 5 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 -------------------------------
 
 
-Current Score: 105
+Current Score: 110
 
-Current percent: 58.333% 
+Current percent: 61.1% 
 
-Current grade: G - Barely passed (D) 
+Current grade: G - Passed (C) 

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CarController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class CarController : MonoBehaviour
 
     private CarTakeDamage carTakeDamage;
     private CarSpriteChanger carSpriteChanger;
+    public SpawnCar SpawnCar;
+    public GameObject firePrefab;
 
     // Variables to hold if the car is on fire or running.
     private bool isRunning;
@@ -89,16 +92,25 @@ public class CarController : MonoBehaviour
     }
 
 
-    void CarExplode()
+    public void CarExplode()
     {
-        // TODO: Kill the player.
-        // TODO: Destroy the car.
-        // TODO: Possibly leave a car wreck behind where it died?
+        if (isRunning == true)
+        {
+            IsRunning = false;
+            CarExitChecker.HandlePassenger.ExitCar();
+            Player.transform.position = this.gameObject.transform.position;
+            var fire = Instantiate(firePrefab);
+            fire.transform.position = this.transform.position;    
+            Destroy(this.gameObject); 
+            Player.GetComponent<PlayerHealth>().TakeDamage(999);
+        }
 
-        //Player.GetComponent<PlayerHealth>().TakeDamage(999);
-        IsRunning = false;
-        CarExitChecker.HandlePassenger.ExitCar();
-        Destroy(this.gameObject);
+        else
+        {
+            var fire = Instantiate(firePrefab);
+            fire.transform.position = this.transform.position;    
+            Destroy(this.gameObject); 
+        }
     }
 
     public void OnCarCollideAgainstCar()

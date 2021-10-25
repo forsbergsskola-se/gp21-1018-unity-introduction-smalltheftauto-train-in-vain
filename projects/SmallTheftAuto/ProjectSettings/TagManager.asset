@@ -13,6 +13,7 @@ TagManager:
   - QuestUi
   - NoButton
   - YesButton
+  - Fire
   layers:
   - Default
   - TransparentFX
