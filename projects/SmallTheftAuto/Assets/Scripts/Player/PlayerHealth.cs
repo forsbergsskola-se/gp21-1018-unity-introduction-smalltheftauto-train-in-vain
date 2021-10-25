@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -12,8 +13,7 @@ public class PlayerHealth : MonoBehaviour
     private HealthBar HealthBar;
     private GameObject Wasted;
     private GameObject Hurt;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         HealthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
@@ -26,30 +26,36 @@ public class PlayerHealth : MonoBehaviour
         Hurt.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }*/
-    }
-
-   public void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         HealthBar.sethealth(currentHealth);
 
-        if (currentHealth <= 40 && currentHealth <0)
+        // trigger Hurt
+        
+        if ((currentHealth <= 40) && (currentHealth >0))
         {
             Hurt.SetActive(true);
         }
         
+        // trigger Wasted, disable movement
+        
         else if (currentHealth<=0)
         {
             Wasted.SetActive(true);
-            // Destroy(this.gameObject);
-            ResetScene.Reset();
+            this.GetComponent<PlayerMovement>().enabled = false;
+            GameOver();
         }
     }
+
+   // wait 5 seconds before resetting scene
+   void GameOver()
+   {
+       StartCoroutine(SelfDestruct());
+   }
+   IEnumerator SelfDestruct()
+   {
+       yield return new WaitForSeconds(5f);
+       ResetScene.Reset();
+   }
 }
