@@ -25,11 +25,11 @@ public class QuestMenuController : MonoBehaviour
     public GameObject quest;
 
     public string QuestTitle;
-    
-    
-    
-    
-    
+
+    public string QuestDescription;
+
+
+
 
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public class QuestMenuController : MonoBehaviour
         Player.SetActive(false);
         
         questUiPopupHelper = GameObject.FindGameObjectWithTag("QuestUi").GetComponent<QuestUiPopupHelper>();
-        questUiPopupHelper.ViewQuestUI(true, QuestTitle, "TEMP");
+        questUiPopupHelper.ViewQuestUI(true, QuestTitle, QuestDescription);
 
         ExitPhoneBoxButton = GameObject.FindGameObjectWithTag("NoButton").GetComponent<Button>();
         ExitPhoneBoxButton.onClick.AddListener(ExitPhoneBox);

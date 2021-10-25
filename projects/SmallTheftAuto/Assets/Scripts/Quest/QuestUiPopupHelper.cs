@@ -10,13 +10,13 @@ public class QuestUiPopupHelper : MonoBehaviour
     private List<GameObject> QuestUi = new List<GameObject>();
 
     // private string titleText; 
-    // private TextMeshProUGUI titleText;
-    private TextMeshProUGUI titleText; 
+    private TextMeshProUGUI title; 
+    private TextMeshProUGUI description; 
         
         
         
     
-    public void ViewQuestUI(bool value, string title, string description)
+    public void ViewQuestUI(bool value, string Title, string Description)
     {
         foreach (GameObject childUI in QuestUi)
         {
@@ -24,8 +24,8 @@ public class QuestUiPopupHelper : MonoBehaviour
         }
         
         
-        // gameObject.GetComponentInChildren<TextMeshProUGUI>().text = title;
-        titleText.text = title;
+        title.text = Title;
+        description.text = Description;
         // titleText = title;
     }
 
@@ -36,7 +36,8 @@ public class QuestUiPopupHelper : MonoBehaviour
             QuestUi.Add(child.gameObject);
         }
 
-        // titleText = gameObject.transform.Find("QuestTitle").GetComponent<TextMeshProUGUI>().SetText();
-        titleText = gameObject.transform.Find("QuestTitle").GetComponent<TextMeshProUGUI>();
+        // titleText = gameObject.transform.Find("QuestTitle").GetComponent<TextMeshProUGUI>().text;
+        title = gameObject.transform.Find("QuestTitle").GetComponent<TextMeshProUGUI>();
+        description = gameObject.transform.Find("QuestDescription").GetComponent<TextMeshProUGUI>();
     }
 }
