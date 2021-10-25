@@ -28,9 +28,17 @@ public class QuestMenuController : MonoBehaviour
 
     public string QuestDescription;
 
-    public static bool QuestIsActive;
+    private static bool questIsActive;
 
+    public bool QuestIsActive
+    {
+        get => questIsActive;
+        set { questIsActive = value; }
 
+    }
+    
+    
+    
 
 
 
@@ -62,10 +70,10 @@ public class QuestMenuController : MonoBehaviour
     
     private void StartQuest()
     {
-        if (!QuestIsActive)
+        if (!questIsActive)
         {
             quest.GetComponent<CarRaceController>().temp();
-            QuestIsActive = true;
+            questIsActive = true;
             ExitPhoneBox();
         }
         else
