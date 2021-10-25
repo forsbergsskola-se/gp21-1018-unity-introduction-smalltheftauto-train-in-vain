@@ -101,8 +101,9 @@ public class CarController : MonoBehaviour
         //Player.GetComponent<PlayerHealth>().TakeDamage(999);
         IsRunning = false;
         CarExitChecker.HandlePassenger.ExitCar();
+        Player.transform.position = this.transform.position;
         var fire = Instantiate(firePrefab);
-        fire.transform.position = this.transform.position;
+        fire.transform.position = Player.transform.position;
         Destroy(this.gameObject);
     }
 
