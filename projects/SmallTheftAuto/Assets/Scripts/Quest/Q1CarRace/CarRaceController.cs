@@ -8,6 +8,7 @@ public class CarRaceController : MonoBehaviour
     public SpawnCar SpawnCar;
     private GameObject raceCar;
     public GameObject CarSpawnPosition;
+    public FinishCarRace finishCarRace;
     
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,13 @@ public class CarRaceController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void raceCompltion(bool playerWin, int totalTime)
+    {
+        if (playerWin)
+        {
+            GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
+        }
     }
 }
