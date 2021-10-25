@@ -40,11 +40,11 @@ Here's the set of features that I'll be looking for:
 |Quest| Player cannot interact with Phonebox if already on quest | | <ul><li>- [ ] </li></ul> | 5 |
 |Quest| Quest yields Money Reward, if completed | | <ul><li>- [ ] </li></ul> | 5 |
 |Weapon| Player can switch Weapon between Hands, Pistol and Machine Gun | | <ul><li>- [ ] </li></ul> | 5 |
-|Weapon| Player can use Weapon to Attack | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Player can use Weapon to Attack | | <ul><li>- [x] </li></ul> | 5 |
 |Weapon| Weapons need to reload | | <ul><li>- [ ] </li></ul> | 5 |
 |UI| Player's chosen Weapon can be seen | | | 5 |
 |UI| Player's Weapon's shots until reload can be seen | | <ul><li>- [ ] </li></ul> | 5 |
-|Weapon| Attacks can hit cars | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Attacks can hit cars | | <ul><li>- [x] </li></ul> | 5 |
 |Environment| There is houses | | <ul><li>- [ ] </li></ul> | 5 |
 |Environment| There is streets | | <ul><li>- [x] </li></ul> | 5 |
 |Environment| BONUS: Traffic | | <ul><li>- [ ] </li></ul> | 20 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 115
+Current Score: 125
 
-Current percent: 64% 
+Current percent: 69% 
 
 Current grade: G - Passed (C) 
