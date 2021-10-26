@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,8 @@ public class CarRaceController : MonoBehaviour
 {
     private List<GameObject> carRaceComponents = new List<GameObject>();
     private List<GameObject> placerPrefabs = new List<GameObject>();
-    
+    private List<GameObject> checkPointPostions = new List<GameObject>();
+
     public SpawnCar SpawnCar;
     public GameObject CarSpawnPosition;
     
@@ -39,8 +41,25 @@ public class CarRaceController : MonoBehaviour
         goalObject.transform.rotation = transform.Find("FinishPosition").gameObject.transform.rotation;
         placerPrefabs.Add(goalObject);
         DisplayQuest(true);
+        PlaceCheckPoints();
     }
-    
+
+    private void PlaceCheckPoints()
+    {
+        var currentPostion = gameObject;
+        for (int index = 1; currentPostion != null; index++)
+        {
+            try
+            {
+                currentPostion = transform.Find("CheckPointPostion" + index).gameObject;
+            }
+            catch 
+            {
+                currentPostion = null;
+            }
+        }
+
+    }
     
 
     /// <summary>

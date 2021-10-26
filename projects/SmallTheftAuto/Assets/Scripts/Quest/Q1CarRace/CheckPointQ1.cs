@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CheckPointQ1 : MonoBehaviour
 {
+    
     private GameObject questCar;
 
     private void OnEnable()
@@ -21,6 +22,5 @@ public class CheckPointQ1 : MonoBehaviour
             Debug.Log("hej");
             // this.gameObject.SetActive(false);
         }
-        
     }
 }
