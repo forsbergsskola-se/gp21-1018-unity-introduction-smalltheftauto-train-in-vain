@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// The script controls player's weapon logic
 /// "WeaponController" is a vague name, would probably rename it to something else
-/// more descriptive later.
+/// more descriptive later. 
 /// </summary>
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
@@ -13,7 +13,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private const KeyCode WeaponInteract = KeyCode.F;
     private const float RangeToPickUp = 5f;
     private Weapon bareHands;
-    private List<Weapon> weaponsInScene;
+    private List<Weapon> nonMeleeWeaponsInScene;
     private Weapon activeWeapon;
     
     public IEquippable Equippable { get; set; }
@@ -24,26 +24,27 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         // Bare hands as default weapon
         bareHands = gameObject.AddComponent<WeaponBareHands>();
         bareHands.EquipTo(this);
-        weaponsInScene = GameObject.FindObjectsOfType<Weapon>().ToList();
-        Debug.Log("Weapons available in scene: " + weaponsInScene);
+        nonMeleeWeaponsInScene = GameObject.FindObjectsOfType<Weapon>().Where(w => !(w as WeaponBareHands)).ToList();
+
     }
 
     private void Update()
     {
         if (weaponIsWithinRange() && Input.GetKeyDown(WeaponInteract))
         {
-            Debug.Log("Weapon in range and picked-up!!");
+            activeWeapon.EquipTo(this);
         }
     }
 
     private bool weaponIsWithinRange()
     {
         var result = false;
-        foreach (var weapon in weaponsInScene)
+        foreach (var weapon in nonMeleeWeaponsInScene)
         {
             result = Vector3.Distance(gameObject.transform.position, weapon.transform.position) <= RangeToPickUp;
             if (!result) continue;
             activeWeapon = weapon;
+            Debug.Log("Current active weapon: " + activeWeapon);
             break;
         }
         return result;
