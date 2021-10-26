@@ -28,8 +28,8 @@ public class CarRaceController : MonoBehaviour
     
     public void ActivateCarRaceQuest()
     {
-        DisplayQuest(true);
         QuestCar = SpawnCar.SpawnAndReturn(CarSpawnPosition.transform.position, new Vector3(0, 0, 0));
+        DisplayQuest(true);
     }
     
     
