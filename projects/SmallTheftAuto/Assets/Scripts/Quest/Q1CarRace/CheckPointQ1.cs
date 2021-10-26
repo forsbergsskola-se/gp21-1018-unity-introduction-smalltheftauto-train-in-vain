@@ -19,7 +19,8 @@ public class CheckPointQ1 : MonoBehaviour
         if (car.gameObject == questCar)
         {
             Debug.Log("hej");
+            // this.gameObject.SetActive(false);
         }
-        this.gameObject.SetActive(false);
+        
     }
 }
