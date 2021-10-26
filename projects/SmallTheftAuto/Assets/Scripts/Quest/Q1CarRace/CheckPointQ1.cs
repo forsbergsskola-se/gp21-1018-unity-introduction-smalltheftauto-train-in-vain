@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CheckPointQ1 : MonoBehaviour
@@ -20,6 +21,6 @@ public class CheckPointQ1 : MonoBehaviour
         {
             Debug.Log("hej");
         }
-        OnEnable();
+        
     }
 }
