@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class SpawnCar : MonoBehaviour
@@ -11,36 +12,24 @@ public class SpawnCar : MonoBehaviour
     {
         playerDrive = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDrive>();
 
-        Spawn(new Vector3(0, 1.8f, 0), new Vector3(0, 0, 0));
-        Spawn(new Vector3(-10, 1.8f, 0), new Vector3(0, 0, 0));
-        Spawn(new Vector3(10, 1.8f, 0), new Vector3(0, 0, 0));
-
-        // var car = Instantiate(carPrefab);
-        // car.transform.position = new Vector3(0, 1.8f, 0);
-        // car.GetComponent<CarMovement>().enabled = false;
-        //
-        // var car2 = Instantiate(carPrefab);
-        // car2.transform.position = new Vector3(-10, 1.8f, 0);
-        // car2.GetComponent<CarMovement>().enabled = false;
-        //
-        // var car3 = Instantiate(carPrefab);
-        // car3.transform.position = new Vector3(10, 1.8f, 0);
-        // car3.GetComponent<CarMovement>().enabled = false;
+        Spawn(new Vector3(0, 1.8f, 0));
+        Spawn(new Vector3(-10, 1.8f, 0));
+        Spawn(new Vector3(10, 1.8f, 0));
     }
 
-    public void Spawn(Vector3 spawnPosition, Vector3 rotation)
+    public void Spawn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
     {
         var car = Instantiate(carPrefab);
         car.transform.position = spawnPosition;
-        // Todo: Add rotation support.----------------------------------------------------------------------------------
+        car.transform.rotation = rotation;
         playerDrive.carsInScene.Add(car);
     }
     
-    public GameObject SpawnAndReturn(Vector3 spawnPosition, Vector3 rotation)
+    public GameObject SpawnAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
     {
         var car = Instantiate(carPrefab);
         car.transform.position = spawnPosition;
-        // Todo: Add rotation support.----------------------------------------------------------------------------------
+        car.transform.rotation = rotation;
         playerDrive.carsInScene.Add(car);
         return car;
     }
