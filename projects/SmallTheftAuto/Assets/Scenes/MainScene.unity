@@ -749,7 +749,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpawnCar: {fileID: 642482744}
   CarSpawnPosition: {fileID: 1019280014}
-  finishCarRace: {fileID: 0}
 --- !u!4 &429540632
 Transform:
   m_ObjectHideFlags: 0
@@ -2358,8 +2357,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.5248686, b: 0.22075468, a: 1}
+    m_PressedColor: {r: 1, g: 0.87995595, b: 0.21960783, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3483,7 +3482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2000601136}
   m_Layer: 5
-  m_Name: Button to Button to reset level
+  m_Name: Button to reset level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
