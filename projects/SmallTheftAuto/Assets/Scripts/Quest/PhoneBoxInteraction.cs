@@ -51,6 +51,7 @@ public class PhoneBoxInteraction : MonoBehaviour
         Player.SetActive(true);
         
         Player.transform.position = ExitPostion.transform.position;
+        Player.transform.rotation = ExitPostion.transform.rotation;
         
 
         FollowCamera.target = Player;

@@ -58,6 +58,7 @@ public class HandlePassenger : MonoBehaviour
         
         // Set the player position to next to the car like if they exited the left door.
         Player.transform.position = ExitPosition.transform.position;
+        Player.transform.rotation = ExitPosition.transform.rotation;
         
         // Enable the player again.
         Player.SetActive(true);
