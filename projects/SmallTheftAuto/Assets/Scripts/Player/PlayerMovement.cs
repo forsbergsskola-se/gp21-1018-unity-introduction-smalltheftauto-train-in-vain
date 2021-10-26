@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (vertical < 0)
         {
             transform.Translate(0,vertical/2,0);
-            isWalking = true;
+            isShooting = true;
         }
 
         else if (isShooting == true)
@@ -63,6 +63,11 @@ public class PlayerMovement : MonoBehaviour
         if (isWalking == true)
         {
             PlayerIsWalking();
+        }
+
+        if (isShooting == true)
+        {
+            PlayerIsShootingPistol();
         }
     }
      
