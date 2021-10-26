@@ -37,7 +37,7 @@ Here's the set of features that I'll be looking for:
 |UI| Player's Score can be seen | | <ul><li>- [ ] </li></ul> | 5 |
 |UI| BONUS: Minimap can be seen | | <ul><li>- [x] </li></ul> | 5 |
 |Quest| Player can interact with Phonebox to receive quest | | <ul><li>- [x] </li></ul> | 5 |
-|Quest| Player cannot interact with Phonebox if already on quest | | <ul><li>- [ ] </li></ul> | 5 |
+|Quest| Player cannot interact with Phonebox if already on quest | | <ul><li>- [x] </li></ul> | 5 |
 |Quest| Quest yields Money Reward, if completed | | <ul><li>- [ ] </li></ul> | 5 |
 |Weapon| Player can switch Weapon between Hands, Pistol and Machine Gun | | <ul><li>- [ ] </li></ul> | 5 |
 |Weapon| Player can use Weapon to Attack | | <ul><li>- [x] </li></ul> | 5 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 125
+Current Score: 130
 
-Current percent: 69% 
+Current percent: 72% 
 
-Current grade: G - Passed (C) 
+Current grade: VG - Cum Laude (B) 
