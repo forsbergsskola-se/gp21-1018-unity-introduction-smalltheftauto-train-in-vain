@@ -11,7 +11,6 @@ public class CheckPointQ1 : MonoBehaviour
     private void OnEnable()
     {
         questCar = FindObjectOfType<CarRaceController>().QuestCar.transform.Find("CarChassis").gameObject;
-        
     }
     
 
@@ -21,6 +20,6 @@ public class CheckPointQ1 : MonoBehaviour
         {
             Debug.Log("hej");
         }
-        
+        this.gameObject.SetActive(false);
     }
 }
