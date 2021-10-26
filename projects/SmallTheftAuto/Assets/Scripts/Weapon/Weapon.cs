@@ -1,8 +1,8 @@
 using UnityEngine;
 
-internal abstract class Weapon : ScriptableObject, IEquippable
+internal abstract class Weapon : MonoBehaviour, IEquippable
 {
-    private string weaponName;
+    private readonly string weaponName;
     public WeaponPower Power { get; }
     public IEquipTarget EquippedTo { get; private set; }
     public void UnEquip()

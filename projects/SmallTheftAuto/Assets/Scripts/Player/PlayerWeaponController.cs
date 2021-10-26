@@ -16,7 +16,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private void Awake()
     {
         // Player equip Bare hands by default
-        bareHands = ScriptableObject.CreateInstance<WeaponBareHands>();
+        bareHands = gameObject.AddComponent<WeaponBareHands>();
         bareHands.EquipTo(this);
     }
 
@@ -32,6 +32,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         Debug.Log("HEY AM FROM PlayerWeaponController");
         if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(LeftClick))
         {
+            Debug.Log(Equippable);
             Attack(gameObj.GetComponent<CarTakeDamage>(), (int)Equippable.Power);
         }
     }
