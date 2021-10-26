@@ -37,7 +37,6 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(0,vertical/2,0);
             isWalking = true;
-            PlayerIsWalking();
         }
 
         else if (isShooting == true)
@@ -52,15 +51,18 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.W))
             {
                 isWalking = true;
-                PlayerIsWalking();
             }
             
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 transform.Translate(0,vertical*1,0);
                 isWalking = true;
-                PlayerIsWalking();
             }
+        }
+
+        if (isWalking == true)
+        {
+            PlayerIsWalking();
         }
     }
      
