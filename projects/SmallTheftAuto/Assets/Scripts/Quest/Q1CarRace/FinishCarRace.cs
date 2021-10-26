@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class FinishCarRace : MonoBehaviour
 {
-    public bool CarHasPassed;
+    public bool CarHasPassed = false;
     
     private GameObject questCar;
     
