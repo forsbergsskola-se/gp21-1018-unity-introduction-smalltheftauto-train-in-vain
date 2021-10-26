@@ -8,15 +8,16 @@ public class PlayerMovement : MonoBehaviour
     public float rotSpeed = 120f;
     public float speed = 10f;
     public bool isWalking;
-    public Sprite defaultSprite;
+    public bool isShooting;
     public SpriteRenderer spriteRenderer;
+    public Animator animator;
+    public Sprite defaultSprite;
 
-
-
-     void Start()
+    
+    void Start()
      {
-         GetComponent<Animator>().enabled = false;
-         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+         spriteRenderer = GetComponent<SpriteRenderer>();
+         animator = GetComponent<Animator>();
      }
 
 
@@ -25,8 +26,10 @@ public class PlayerMovement : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal") * rotSpeed* Time.deltaTime;
         var vertical = Input.GetAxis("Vertical") * speed*Time.deltaTime;
         transform.Rotate(0, 0, -horizontal);
+        
         isWalking = false;
-        GetComponent<Animator>().enabled = false;
+        isShooting = false;
+        animator.enabled = false;
         spriteRenderer.sprite = defaultSprite;
 
         
@@ -34,26 +37,36 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.Translate(0,vertical/2,0);
             isWalking = true;
+            PlayerIsWalking();
         }
+        
+        
         else
         {
             transform.Translate(0,vertical,0);
             if (Input.GetKey(KeyCode.W))
             {
                 isWalking = true;
+                PlayerIsWalking();
             }
             
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 transform.Translate(0,vertical*1,0);
                 isWalking = true;
+                PlayerIsWalking();
             }
         }
+    }
+     
+    
+   void PlayerIsWalking()
+    {
+        animator.enabled = true;
+    }
 
-
-        if (isWalking == true)
-        {
-            GetComponent<Animator>().enabled = true;
-        }
+    void PlayerIsShootingPistol()
+    {
+        animator.enabled = true;
     }
 }
