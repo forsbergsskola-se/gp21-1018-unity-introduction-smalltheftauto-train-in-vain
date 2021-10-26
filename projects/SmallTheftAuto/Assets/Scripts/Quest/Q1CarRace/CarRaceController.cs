@@ -34,10 +34,16 @@ public class CarRaceController : MonoBehaviour
     
     
 
-    public void raceCompltion(bool playerWin, int totalTime)
+    /// <summary>
+    /// RaceCompleted
+    /// </summary>
+    /// <param name="playerWin">True or false for if the player wom.</param>
+    /// <param name="totalTime">Total time of race.</param>
+    public void RaceCompleted(bool playerWin, int totalTime)
     {
         if (playerWin)
         {
+            Debug.Log($"You won the race!");
             GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
             DisplayQuest(false);
         }

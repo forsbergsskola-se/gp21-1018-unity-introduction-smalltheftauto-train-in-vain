@@ -174,7 +174,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6942922090966478902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 6200000, guid: 2dacf488ead38f64593a1d256efefa19, type: 2}
   m_IsTrigger: 0
@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 6942922091421380749}
   - component: {fileID: 2272338426246101550}
   m_Layer: 0
-  m_Name: Pimpmobile
+  m_Name: CarChassis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
