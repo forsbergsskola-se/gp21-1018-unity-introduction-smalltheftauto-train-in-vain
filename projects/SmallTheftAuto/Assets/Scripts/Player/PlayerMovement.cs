@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (vertical < 0)
         {
-            transform.Translate(0,vertical/2,0);
+            transform.Translate(0,vertical/1.5f,0);
             isShooting = true;
         }
 
