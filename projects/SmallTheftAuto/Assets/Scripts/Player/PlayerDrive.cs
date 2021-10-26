@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class PlayerDrive : MonoBehaviour
@@ -8,11 +7,6 @@ public class PlayerDrive : MonoBehaviour
     private const KeyCode VehicleInteract = KeyCode.F;
     public List<GameObject> carsInScene;
     private GameObject targetCar;
-
-    private void Start()
-    {
-        // carsInScene = GameObject.FindGameObjectsWithTag("Car").ToList();
-    }
 
     void Update()
     {
@@ -30,15 +24,12 @@ public class PlayerDrive : MonoBehaviour
     private bool carIsWithinRange()
     {
         var result = false;
-        var length = carsInScene.Count;
-        for (var i = 0; i < length; i++)
+        foreach (var car in carsInScene)
         {
-            result = Vector3.Distance(gameObject.transform.position, carsInScene[i].gameObject.transform.position) <= RangeToGetIn;
-            if (result)
-            {
-                targetCar = carsInScene[i];
-                break;
-            }
+            result = Vector3.Distance(gameObject.transform.position, car.gameObject.transform.position) <= RangeToGetIn;
+            if (!result) continue;
+            targetCar = car;
+            break;
         }
         return result;
     }

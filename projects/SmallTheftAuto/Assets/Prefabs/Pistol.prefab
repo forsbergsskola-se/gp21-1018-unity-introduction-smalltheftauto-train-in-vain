@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 951816989079572100}
   - component: {fileID: 951816989079572103}
+  - component: {fileID: -3721264400987742526}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -83,3 +84,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-3721264400987742526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951816989079572102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 305d55603d5bbba4f9356a9f9f8dccb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
