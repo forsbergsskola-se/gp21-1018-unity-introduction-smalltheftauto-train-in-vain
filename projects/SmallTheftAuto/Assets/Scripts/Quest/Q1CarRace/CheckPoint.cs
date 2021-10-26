@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CheckPointQ1 : MonoBehaviour
+public class CheckPoint : MonoBehaviour
 {
+    public bool CarHasPassed;
     
     private GameObject questCar;
 
@@ -19,7 +20,8 @@ public class CheckPointQ1 : MonoBehaviour
     {
         if (car.gameObject == questCar)
         {
-            Debug.Log("hej");
+            CarHasPassed = true;
+            Debug.Log($"Car passed checkpoint.");
             // this.gameObject.SetActive(false);
         }
     }

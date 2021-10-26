@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class FinishCarRace : MonoBehaviour
 {
+    public bool CarHasPassed;
+    
     private GameObject questCar;
     
     private void OnEnable()
@@ -21,12 +23,8 @@ public class FinishCarRace : MonoBehaviour
         if (objectThatTriggered.gameObject == questCar)
         {
             // Tell the CarRaceController that the race has been completed.
+            CarHasPassed = true;
             FindObjectOfType<CarRaceController>().RaceCompleted(true,69);
         }
-    }
-
-    public void Update()
-    {
-        
     }
 }

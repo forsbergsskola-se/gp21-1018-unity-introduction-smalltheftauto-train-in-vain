@@ -6,7 +6,7 @@ using UnityEngine;
 public class CarRaceController : MonoBehaviour
 {
     private List<GameObject> carRaceComponents = new List<GameObject>();
-    private List<GameObject> placerPrefabs = new List<GameObject>();
+    private List<GameObject> placedPrefabs = new List<GameObject>();
     private List<GameObject> checkPointPostions = new List<GameObject>();
 
     public SpawnCar SpawnCar;
@@ -28,7 +28,7 @@ public class CarRaceController : MonoBehaviour
         }
         
         DisplayQuest(false);
-        ScanCheckPointPostion();
+        ScanCheckPointPosition();
     }
 
     
@@ -40,7 +40,7 @@ public class CarRaceController : MonoBehaviour
         var goalObject = Instantiate(GoalPrefab, transform);
         goalObject.transform.position = transform.Find("FinishPosition").gameObject.transform.position;
         goalObject.transform.rotation = transform.Find("FinishPosition").gameObject.transform.rotation;
-        placerPrefabs.Add(goalObject);
+        placedPrefabs.Add(goalObject);
         DisplayQuest(true);
         PlaceCheckPoints();
     }
@@ -52,19 +52,19 @@ public class CarRaceController : MonoBehaviour
             var checkpoint = Instantiate(CheckPointPrefab, transform);
             checkpoint.transform.position = checkPointPostion.transform.position;
             checkpoint.transform.rotation = checkPointPostion.transform.rotation;
-            placerPrefabs.Add(checkpoint);
+            placedPrefabs.Add(checkpoint);
         }
         
     }
 
-    void ScanCheckPointPostion()
+    void ScanCheckPointPosition()
     {
         var currentPostion = gameObject;
         for (int index = 1; currentPostion != null; index++)
         {
             try
             {
-                currentPostion = transform.Find("CheckPointPostion" + index).gameObject;
+                currentPostion = transform.Find("CheckPointPosition" + index).gameObject;
                 checkPointPostions.Add(currentPostion);
             }
             catch 
@@ -81,12 +81,28 @@ public class CarRaceController : MonoBehaviour
     /// <param name="totalTime">Total time of race.</param>
     public void RaceCompleted(bool playerWin, int totalTime)
     {
-        if (playerWin)
+        var AllCheckPointsCollected = true;
+        
+        foreach (GameObject objectData in placedPrefabs)
+        {
+            if (objectData.TryGetComponent<CheckPoint>(out var checkPoint))
+            {
+                Debug.Log($"Checking: {checkPoint.CarHasPassed}");
+                AllCheckPointsCollected = checkPoint.CarHasPassed;
+            }
+        }
+        
+        if (playerWin && AllCheckPointsCollected)
         {
             Debug.Log($"You won the race!");
-            GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
-            DisplayQuest(false);
         }
+        else
+        {
+            Debug.Log("You didn't get all the checkpoints! Try again!");
+        }
+        
+        GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
+        DisplayQuest(false);
     }
 
 
@@ -106,7 +122,7 @@ public class CarRaceController : MonoBehaviour
 
     private void DestroyPrefabs()
     {
-        foreach (var prefab in placerPrefabs)
+        foreach (var prefab in placedPrefabs)
         {
             Destroy(prefab);
         }
