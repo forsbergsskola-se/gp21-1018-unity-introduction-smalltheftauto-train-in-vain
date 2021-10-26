@@ -39,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
             isWalking = true;
             PlayerIsWalking();
         }
+
+        else if (isShooting == true)
+        {
+            PlayerIsShootingPistol();
+        }
         
         
         else
@@ -62,11 +67,19 @@ public class PlayerMovement : MonoBehaviour
     
    void PlayerIsWalking()
     {
-        animator.enabled = true;
+        if (animator.gameObject.activeSelf)
+        {
+            animator.enabled = true;
+            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerWalk");
+        }
     }
 
     void PlayerIsShootingPistol()
     {
-        animator.enabled = true;
+        if (animator.gameObject.activeSelf)
+        {
+            animator.enabled = true;
+            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+        }
     }
 }
