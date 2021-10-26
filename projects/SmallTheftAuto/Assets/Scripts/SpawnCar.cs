@@ -35,4 +35,13 @@ public class SpawnCar : MonoBehaviour
         // Todo: Add rotation support.----------------------------------------------------------------------------------
         playerDrive.carsInScene.Add(car);
     }
+    
+    public GameObject SpawnAndReturn(Vector3 spawnPosition, Vector3 rotation)
+    {
+        var car = Instantiate(carPrefab);
+        car.transform.position = spawnPosition;
+        // Todo: Add rotation support.----------------------------------------------------------------------------------
+        playerDrive.carsInScene.Add(car);
+        return car;
+    }
 }

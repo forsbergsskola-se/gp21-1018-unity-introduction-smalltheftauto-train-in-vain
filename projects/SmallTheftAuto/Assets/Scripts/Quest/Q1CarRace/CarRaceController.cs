@@ -4,35 +4,51 @@ using UnityEngine;
 
 public class CarRaceController : MonoBehaviour
 {
-    private GameObject phoneBox;
+    private List<GameObject> carRaceComponents = new List<GameObject>();
+    
     public SpawnCar SpawnCar;
-    private GameObject raceCar;
     public GameObject CarSpawnPosition;
-    public FinishCarRace finishCarRace;
+    
+    public GameObject QuestCar { get; private set; }
+
+    
     
     // Start is called before the first frame update
     void Start()
     {
+        foreach (Transform child in transform)
+        {
+            carRaceComponents.Add(child.gameObject);
+        }
         
-        
+        DisplayQuest(false);
     }
 
-    public void temp()
+    
+    
+    public void ActivateCarRaceQuest()
     {
-        SpawnCar.Spawn(CarSpawnPosition.transform.position, new Vector3(0, 0, 0));
+        DisplayQuest(true);
+        QuestCar = SpawnCar.SpawnAndReturn(CarSpawnPosition.transform.position, new Vector3(0, 0, 0));
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+    
 
     public void raceCompltion(bool playerWin, int totalTime)
     {
         if (playerWin)
         {
             GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
+            DisplayQuest(false);
+        }
+    }
+
+
+    private void DisplayQuest(bool value)
+    {
+        foreach (GameObject childComponent in carRaceComponents)
+        {
+            childComponent.SetActive(value);
         }
     }
 }

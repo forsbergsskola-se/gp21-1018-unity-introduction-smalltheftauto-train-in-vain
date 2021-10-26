@@ -71,7 +71,7 @@ public class QuestMenuController : MonoBehaviour
     {
         if (!questIsActive)
         {
-            quest.GetComponent<CarRaceController>().temp();
+            quest.GetComponent<CarRaceController>().ActivateCarRaceQuest();
             questIsActive = true;
             ExitPhoneBox();
         }
