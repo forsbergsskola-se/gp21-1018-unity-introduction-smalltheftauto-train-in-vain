@@ -89,6 +89,8 @@ public class CarRaceController : MonoBehaviour
             {
                 Debug.Log($"Checking: {checkPoint.CarHasPassed}");
                 AllCheckPointsCollected = checkPoint.CarHasPassed;
+                if (!AllCheckPointsCollected)
+                    break;
             }
         }
         
@@ -116,15 +118,16 @@ public class CarRaceController : MonoBehaviour
         if (!value)
         {
             Debug.Log("Destroyed prefabs");
-            DestroyPrefabs();
+            ResetQuest();
         }
     }
 
-    private void DestroyPrefabs()
+    private void ResetQuest()
     {
         foreach (var prefab in placedPrefabs)
         {
             Destroy(prefab);
-        }
+        } 
+        placedPrefabs = new List<GameObject>();
     }
 }
