@@ -5,9 +5,13 @@ using UnityEngine;
 public class CarRaceController : MonoBehaviour
 {
     private List<GameObject> carRaceComponents = new List<GameObject>();
+    private List<GameObject> placerPrefabs = new List<GameObject>();
     
     public SpawnCar SpawnCar;
     public GameObject CarSpawnPosition;
+    
+    public GameObject GoalPrefab;
+    public GameObject CheckPointPrefab;
     
     public GameObject QuestCar { get; private set; }
 
@@ -29,6 +33,11 @@ public class CarRaceController : MonoBehaviour
     public void ActivateCarRaceQuest()
     {
         QuestCar = SpawnCar.SpawnAndReturn(CarSpawnPosition.transform.position, CarSpawnPosition.transform.rotation);
+
+        var goalObject = Instantiate(GoalPrefab, transform);
+        goalObject.transform.position = transform.Find("FinishPosition").gameObject.transform.position;
+        goalObject.transform.rotation = transform.Find("FinishPosition").gameObject.transform.rotation;
+        placerPrefabs.Add(goalObject);
         DisplayQuest(true);
     }
     
@@ -55,6 +64,20 @@ public class CarRaceController : MonoBehaviour
         foreach (GameObject childComponent in carRaceComponents)
         {
             childComponent.SetActive(value);
+        }
+
+        if (!value)
+        {
+            Debug.Log("Destroyed prefabs");
+            DestroyPrefabs();
+        }
+    }
+
+    private void DestroyPrefabs()
+    {
+        foreach (var prefab in placerPrefabs)
+        {
+            Destroy(prefab);
         }
     }
 }

@@ -11,19 +11,17 @@ public class QuestUiPopupHelper : MonoBehaviour
 
     // private string titleText; 
     private TextMeshProUGUI title; 
-    private TextMeshProUGUI description; 
-        
-        
-        
+    private TextMeshProUGUI description;
     
+
+
     public void ViewQuestUI(bool value, string Title, string Description)
     {
         foreach (GameObject childUI in QuestUi)
         {
             childUI.SetActive(value);
         }
-        
-        
+
         title.text = Title;
         description.text = Description;
         // titleText = title;
