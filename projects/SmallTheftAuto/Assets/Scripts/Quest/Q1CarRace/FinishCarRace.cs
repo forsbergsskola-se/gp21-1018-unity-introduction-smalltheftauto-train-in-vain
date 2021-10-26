@@ -21,7 +21,7 @@ public class FinishCarRace : MonoBehaviour
         if (objectThatTriggered.gameObject == questCar)
         {
             // Tell the CarRaceController that the race has been completed.
-            gameObject.transform.parent.parent.gameObject.GetComponent<CarRaceController>().RaceCompleted(true,69);
+            FindObjectOfType<CarRaceController>().RaceCompleted(true,69);
         }
     }
 
