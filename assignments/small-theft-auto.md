@@ -33,7 +33,7 @@ Here's the set of features that I'll be looking for:
 |Car| Car explodes when at zero health | | <ul><li>- [x] </li></ul> | 5 |
 |Car| Player dies if he is in the car when it explodes | | <ul><li>- [x] </li></ul> | 5 |
 |UI| Player's Health can be seen | | <ul><li>- [x] </li></ul> | 5 |
-|UI| Player's Money can be seen | | <ul><li>- [ ] </li></ul> | 5 |
+|UI| Player's Money can be seen | | <ul><li>- [X] </li></ul> | 5 |
 |UI| Player's Score can be seen | | <ul><li>- [ ] </li></ul> | 5 |
 |UI| BONUS: Minimap can be seen | | <ul><li>- [x] </li></ul> | 5 |
 |Quest| Player can interact with Phonebox to receive quest | | <ul><li>- [x] </li></ul> | 5 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 130
+Current Score: 135
 
-Current percent: 72% 
+Current percent: 75% 
 
 Current grade: VG - Cum Laude (B) 
