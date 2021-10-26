@@ -28,6 +28,7 @@ public class CarRaceController : MonoBehaviour
         }
         
         DisplayQuest(false);
+        ScanCheckPointPostion();
     }
 
     
@@ -46,21 +47,32 @@ public class CarRaceController : MonoBehaviour
 
     private void PlaceCheckPoints()
     {
+        foreach (var checkPointPostion in checkPointPostions)
+        {
+            var checkpoint = Instantiate(CheckPointPrefab, transform);
+            checkpoint.transform.position = checkPointPostion.transform.position;
+            checkpoint.transform.rotation = checkPointPostion.transform.rotation;
+            placerPrefabs.Add(checkpoint);
+        }
+        
+    }
+
+    void ScanCheckPointPostion()
+    {
         var currentPostion = gameObject;
         for (int index = 1; currentPostion != null; index++)
         {
             try
             {
                 currentPostion = transform.Find("CheckPointPostion" + index).gameObject;
+                checkPointPostions.Add(currentPostion);
             }
             catch 
             {
                 currentPostion = null;
             }
         }
-
     }
-    
 
     /// <summary>
     /// RaceCompleted
