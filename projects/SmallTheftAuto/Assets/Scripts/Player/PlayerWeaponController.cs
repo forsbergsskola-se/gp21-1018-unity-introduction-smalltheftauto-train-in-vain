@@ -25,7 +25,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         bareHands = gameObject.AddComponent<WeaponBareHands>();
         bareHands.EquipTo(this);
         nonMeleeWeaponsInScene = GameObject.FindObjectsOfType<Weapon>().Where(w => !(w as WeaponBareHands)).ToList();
-
     }
 
     private void Update()
@@ -33,6 +32,8 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (weaponIsWithinRange() && Input.GetKeyDown(WeaponInteract))
         {
             activeWeapon.EquipTo(this);
+            activeWeapon.enabled = false;
+            // back here
         }
     }
 

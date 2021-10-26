@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerSpriteChanger : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
     public Sprite sprite1;
     public Sprite sprite2;
     public Sprite sprite3;
@@ -14,7 +11,7 @@ public class PlayerSpriteChanger : MonoBehaviour
     public Sprite sprite6;
   
     
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }

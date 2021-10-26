@@ -11,14 +11,14 @@ GameObject:
   - component: {fileID: 4396968072063033422}
   - component: {fileID: 4396968072063033423}
   - component: {fileID: -1959414707303884397}
+  - component: {fileID: 3808596473524340056}
   - component: {fileID: -3181994001049663900}
   - component: {fileID: -2141383885038231095}
   - component: {fileID: -7833527537460937507}
-  - component: {fileID: 3808596473524340056}
   - component: {fileID: 849736714710510647}
-  - component: {fileID: -7324317932517199746}
   - component: {fileID: -8364055760419563616}
   - component: {fileID: -1060661442283396699}
+  - component: {fileID: -7324317932517199746}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -86,7 +86,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.6, y: 9.6}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -113,49 +113,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3181994001049663900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e970460ca8eb648ae84d7e172ca331, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotSpeed: 120
-  speed: 10
-  isWalking: 0
-  spriteRenderer: {fileID: 0}
-  animator: {fileID: 0}
-  defaultSprite: {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
---- !u!114 &-2141383885038231095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf63608231a3a947a8e07af7afda477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  carsInScene: []
---- !u!114 &-7833527537460937507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4af847cca51cd44b88330f0db1c5962, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &3808596473524340056
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -174,7 +131,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 9.6, y: 9.6}
-    newSize: {x: 9.6, y: 9.6}
+    newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -207,6 +164,48 @@ PolygonCollider2D:
       - {x: 0.71999997, y: -1}
       - {x: 0.90999997, y: -0.94}
       - {x: 0.94, y: -0.83}
+--- !u!114 &-3181994001049663900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e970460ca8eb648ae84d7e172ca331, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotSpeed: 120
+  speed: 10
+  isWalking: 0
+  defaultSprite: {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
+  spriteRenderer: {fileID: 0}
+--- !u!114 &-2141383885038231095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf63608231a3a947a8e07af7afda477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carsInScene: []
+--- !u!114 &-7833527537460937507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4af847cca51cd44b88330f0db1c5962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &849736714710510647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,25 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
---- !u!95 &-7324317932517199746
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a02116933638a784e906f2f493f31622, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-8364055760419563616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,3 +244,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5899def688bb9d44098bd6ece8752731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &-7324317932517199746
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a3b3553f205246418e4c04007680931, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
