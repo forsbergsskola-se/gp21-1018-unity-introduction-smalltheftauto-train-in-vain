@@ -23,12 +23,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void AddMoney(int moneyToAdd)
+    void addMoney(int moneyToAdd)
     {
+        money += moneyToAdd;
+        Debug.Log("Woo-hoo, I'm rich!");
+    }
+
+    void subtractMoney(int moneyToSubtract)
+    {
+        if (money - moneyToSubtract >= 0)
+        {
+            money -= moneyToSubtract;
+            Debug.Log("Oh no, I'm poor!");
+        }
+        
+        Debug.Log("Oh no, I'm poor!");
         
     }
     
-    public int Money
+    /*public int Money
     {
         get => money;
         set
@@ -36,8 +49,7 @@ public class PlayerController : MonoBehaviour
             money = value;
             moneyText.text = ": $ " + money + ".00";
         }
-    }
-
+    }*/
 
 
     // Start is called before the first frame update
@@ -47,16 +59,26 @@ public class PlayerController : MonoBehaviour
         followCamera.target = gameObject;
 
         scoreText = FindObjectOfType<HUD>().ScoreText;
-        moneyText = FindObjectOfType<HUD>().MoneyText;
 
         Score = 50;
-        Money = 10;
     }
-
-    // Update is called once per frame
+  
     void Update()
     {
         
+        moneyText = FindObjectOfType<HUD>().MoneyText;
+        
+        moneyText.text = ": $ " + money;
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            addMoney(50);
+        }
+
+        else if (Input.GetMouseButtonDown(1))
+        {
+            subtractMoney(50);
+        }
     }
 
 }
