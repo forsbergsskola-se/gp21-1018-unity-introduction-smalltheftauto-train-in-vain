@@ -1,6 +1,6 @@
 internal interface IEquippable
 {
-    public WeaponPower Power { get; }
+    // private WeaponPower Power { get; }
     public IEquipTarget EquippedTo { get; }
     public void EquipTo(IEquipTarget equipTarget);
     public void UnEquip();
