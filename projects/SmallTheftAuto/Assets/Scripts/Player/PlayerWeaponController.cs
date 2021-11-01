@@ -17,6 +17,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private const KeyCode SwapToBareHands = KeyCode.Alpha1;
     private const KeyCode SwapToPistol = KeyCode.Alpha2;
     private const float RangeToPickUp = 5f;
+    
     private List<Weapon> nonMeleeWeaponsInScene;
     private List<Weapon> ownedWeapons = new List<Weapon>();
 
@@ -43,14 +44,16 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ActiveWeapon.gameObject.SetActive(false);
         }
 
-        if (ActiveWeapon.name != "BareHands" && Input.GetKeyDown(SwapToBareHands))
+        if (ActiveWeapon.WeaponName != "BareHands" && Input.GetKeyDown(SwapToBareHands))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name == "BareHands");
+            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
-        if (ActiveWeapon.name != "Pistol" && ownedWeapons.Find(x => x.name.Contains("Pistol")) && Input.GetKeyDown(SwapToPistol))
+        if (ActiveWeapon.WeaponName != "Pistol" && ownedWeapons.Find(x => x.WeaponName == "Pistol") && Input.GetKeyDown(SwapToPistol))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("Pistol"));
+            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
     }
