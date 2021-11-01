@@ -7,7 +7,6 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     private TMP_Text scoreText;
-    
     private int score;
 
     public int Score
@@ -30,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
         scoreText = FindObjectOfType<HUD>().ScoreText;
 
-        Score = 50;
+        Score = 0;
     }
 
     // Update is called once per frame
