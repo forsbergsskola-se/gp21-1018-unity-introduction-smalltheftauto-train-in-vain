@@ -9,6 +9,7 @@ public class CheckPoint : MonoBehaviour
     public bool CarHasPassed = false;
     
     private GameObject questCar;
+    
 
     private void OnEnable()
     {
@@ -22,6 +23,7 @@ public class CheckPoint : MonoBehaviour
         {
             CarHasPassed = true;
             Debug.Log($"Car passed checkpoint.");
+            gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
             // this.gameObject.SetActive(false);
         }
     }
