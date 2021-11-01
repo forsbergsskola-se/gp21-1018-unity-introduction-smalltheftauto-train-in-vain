@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,30 +10,29 @@ using UnityEngine;
 /// </summary>
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
+    [SerializeField] private Weapon ActiveWeapon;
     private const int LeftClick = 0;
     private const KeyCode WeaponInteract = KeyCode.F;
     private const float RangeToPickUp = 5f;
-    // private Weapon bareHands;
     private List<Weapon> nonMeleeWeaponsInScene;
-    private Weapon activeWeapon;
-    
+
     public IEquippable Equippable { get; set; }
     public ITarget Target { get; set; }
 
     private void Awake()
     {
-        // Bare hands as default weapon
-        // bareHands = gameObject.AddComponent<WeaponBareHands>();
-        // bareHands.EquipTo(this);
-        // nonMeleeWeaponsInScene = GameObject.FindObjectsOfType<Weapon>().Where(w => !(w as WeaponBareHands)).ToList();
+        if (ActiveWeapon == null) throw new Exception("Default weapon missing! Please assign a default weapon.");
+        ActiveWeapon.EquipTo(this);
+        nonMeleeWeaponsInScene = FindObjectsOfType<Weapon>().Where(w => !(FindObjectOfType<Melee>())).ToList();
+        Debug.Log("Get this non Melee weapons: " + nonMeleeWeaponsInScene);
     }
 
     private void Update()
     {
         if (weaponIsWithinRange() && Input.GetKeyDown(WeaponInteract))
         {
-            activeWeapon.EquipTo(this);
-            activeWeapon.gameObject.SetActive(false);
+            ActiveWeapon.EquipTo(this);
+            ActiveWeapon.gameObject.SetActive(false);
         }
     }
 
@@ -43,8 +43,8 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         {
             result = Vector3.Distance(gameObject.transform.position, weapon.transform.position) <= RangeToPickUp;
             if (!result) continue;
-            activeWeapon = weapon;
-            Debug.Log("Current active weapon: " + activeWeapon);
+            ActiveWeapon = weapon;
+            Debug.Log("Current active weapon: " + ActiveWeapon);
             break;
         }
         return result;
@@ -53,7 +53,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     public void Attack(ITarget target)
     {
         Target = target;
-        Target.TakeDamage((int)activeWeapon.Power);
+        Target.TakeDamage((int)ActiveWeapon.Power);
     }
 
     private void OnCollisionStay2D(Collision2D other)
