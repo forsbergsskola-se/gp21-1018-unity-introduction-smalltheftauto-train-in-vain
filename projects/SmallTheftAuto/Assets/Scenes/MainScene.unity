@@ -4288,6 +4288,7 @@ MonoBehaviour:
   slider: {fileID: 1907507275}
   textSlider: {fileID: 1726244043}
   gameTime: 70
+  startTemp: 70
 --- !u!1 &1918078659
 GameObject:
   m_ObjectHideFlags: 0

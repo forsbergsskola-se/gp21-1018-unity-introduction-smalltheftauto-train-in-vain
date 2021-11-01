@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI textSlider;
     public float gameTime;
+    public float startTemp;
     private bool stopTime;
     int minutes;
     int seconds;
@@ -20,14 +21,19 @@ public class Timer : MonoBehaviour
         slider.value = gameTime;
     }
 
+    private void OnDisable()
+    {
+        gameTime = startTemp;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        float time = gameTime - Time.deltaTime;
-        int minutes = Mathf.FloorToInt(time/60);
-        int seconds = Mathf.FloorToInt(time- minutes * 60f);
+        gameTime -= Time.deltaTime;
+        int minutes = Mathf.FloorToInt(gameTime/60);
+        int seconds = Mathf.FloorToInt(gameTime - minutes * 60f);
         string textTime = string.Format("{00:00}: {1:00}", minutes, seconds);
-        if (time<=0)
+        if (gameTime<=0)
         {
             stopTime = true;
             
@@ -36,7 +42,7 @@ public class Timer : MonoBehaviour
         if (stopTime== false)
         {
             textSlider.text = textTime;
-            slider.value = time;
+            slider.value = gameTime;
         }
         
     }
