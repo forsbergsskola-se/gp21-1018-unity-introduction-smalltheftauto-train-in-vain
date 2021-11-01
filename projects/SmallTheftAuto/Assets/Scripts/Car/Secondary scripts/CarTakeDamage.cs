@@ -21,7 +21,7 @@ public class CarTakeDamage : MonoBehaviour, ITarget
     public void TakeDamage(int damage)
     {
         carController.Health -= damage;
-        Debug.Log("Car taking damage from a weapon!!!!!");
+        Debug.Log("get this damage dealt to car: " + damage);
     }
 
     public void DealDamage()

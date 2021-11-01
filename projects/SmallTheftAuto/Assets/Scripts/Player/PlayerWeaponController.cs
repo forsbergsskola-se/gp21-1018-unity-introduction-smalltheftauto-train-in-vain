@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 /// <summary>
@@ -12,42 +13,67 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
     [SerializeField] private Weapon ActiveWeapon;
     private const int LeftClick = 0;
-    private const KeyCode WeaponInteract = KeyCode.F;
+    private const KeyCode PickUpWeapon = KeyCode.F;
+    private const KeyCode SwapToBareHands = KeyCode.Alpha1;
+    private const KeyCode SwapToPistol = KeyCode.Alpha2;
     private const float RangeToPickUp = 5f;
     private List<Weapon> nonMeleeWeaponsInScene;
+    private List<Weapon> ownedWeapons = new List<Weapon>();
 
     public IEquippable Equippable { get; set; }
     public ITarget Target { get; set; }
 
     private void Awake()
     {
+        // Note: Assume there's a default weapon assigned and it's bare hands
         if (ActiveWeapon == null) throw new Exception("Default weapon missing! Please assign a default weapon.");
         ActiveWeapon.EquipTo(this);
+        ownedWeapons.Add(ActiveWeapon);
         nonMeleeWeaponsInScene = FindObjectsOfType<Weapon>().Where(w => !(FindObjectOfType<Melee>())).ToList();
         Debug.Log("Get this non Melee weapons: " + nonMeleeWeaponsInScene);
     }
 
     private void Update()
     {
-        if (weaponIsWithinRange() && Input.GetKeyDown(WeaponInteract))
+        var foundWeapon = weaponIsWithinRange();
+        if (foundWeapon != null && Input.GetKeyDown(PickUpWeapon))
         {
+            ActiveWeapon = foundWeapon;
+            ownedWeapons.Add(ActiveWeapon);
+
+            foreach (var w in ownedWeapons)
+            {
+                Debug.Log("Weapon available in ownedWeapons: " + w);
+            }
+            
             ActiveWeapon.EquipTo(this);
             ActiveWeapon.gameObject.SetActive(false);
         }
+
+        if (ActiveWeapon.name != "BareHands" && Input.GetKeyDown(SwapToBareHands))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name == "BareHands");
+            Debug.Log("get this Swap to bare hands? " + ActiveWeapon);
+            Debug.Log("get this Active Weapon swapped to: " + ActiveWeapon);
+        }
+        if (ActiveWeapon.name != "Pistol" && ownedWeapons.Find(x => x.name == "Pistol") &&  Input.GetKeyDown(SwapToPistol))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name == "Pistol");
+            Debug.Log("get this Active Weapon swapped to: " + ActiveWeapon);
+        }
     }
 
-    private bool weaponIsWithinRange()
+    [CanBeNull]
+    private Weapon weaponIsWithinRange()
     {
-        var result = false;
-        foreach (var weapon in nonMeleeWeaponsInScene)
+        Weapon weaponCandidate = null;
+        foreach (var weapon in from weapon in nonMeleeWeaponsInScene let find = Vector3.Distance(gameObject.transform.position, weapon.transform.position) <= RangeToPickUp where find select weapon)
         {
-            result = Vector3.Distance(gameObject.transform.position, weapon.transform.position) <= RangeToPickUp;
-            if (!result) continue;
-            ActiveWeapon = weapon;
-            Debug.Log("Current active weapon: " + ActiveWeapon);
+            weaponCandidate = weapon;
+            Debug.Log("Weapon candidate: " + weaponCandidate);
             break;
         }
-        return result;
+        return weaponCandidate;
     }
 
     public void Attack(ITarget target)
