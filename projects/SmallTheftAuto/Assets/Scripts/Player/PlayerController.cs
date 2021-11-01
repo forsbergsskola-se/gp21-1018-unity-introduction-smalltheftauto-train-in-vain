@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
     private TMP_Text scoreText;
+    private TMP_Text moneyText;
     
     private int score;
+    private int money;
 
     public int Score
     {
@@ -17,6 +20,21 @@ public class PlayerController : MonoBehaviour
         {
             score = value;
             scoreText.text = "Score: " + score;
+        }
+    }
+
+    void AddMoney(int moneyToAdd)
+    {
+        
+    }
+    
+    public int Money
+    {
+        get => money;
+        set
+        {
+            money = value;
+            moneyText.text = ": $ " + money + ".00";
         }
     }
 
@@ -29,8 +47,10 @@ public class PlayerController : MonoBehaviour
         followCamera.target = gameObject;
 
         scoreText = FindObjectOfType<HUD>().ScoreText;
+        moneyText = FindObjectOfType<HUD>().MoneyText;
 
         Score = 50;
+        Money = 10;
     }
 
     // Update is called once per frame
