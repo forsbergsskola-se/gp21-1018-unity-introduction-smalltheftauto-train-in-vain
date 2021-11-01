@@ -30,7 +30,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         ActiveWeapon.EquipTo(this);
         ownedWeapons.Add(ActiveWeapon);
         nonMeleeWeaponsInScene = FindObjectsOfType<Weapon>().Where(w => !(FindObjectOfType<Melee>())).ToList();
-        Debug.Log("Get this non Melee weapons: " + nonMeleeWeaponsInScene);
     }
 
     private void Update()
@@ -40,12 +39,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         {
             ActiveWeapon = foundWeapon;
             ownedWeapons.Add(ActiveWeapon);
-
-            foreach (var w in ownedWeapons)
-            {
-                Debug.Log("Weapon available in ownedWeapons: " + w);
-            }
-            
             ActiveWeapon.EquipTo(this);
             ActiveWeapon.gameObject.SetActive(false);
         }
@@ -53,13 +46,12 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (ActiveWeapon.name != "BareHands" && Input.GetKeyDown(SwapToBareHands))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name == "BareHands");
-            Debug.Log("get this Swap to bare hands? " + ActiveWeapon);
-            Debug.Log("get this Active Weapon swapped to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
         }
-        if (ActiveWeapon.name != "Pistol" && ownedWeapons.Find(x => x.name == "Pistol") &&  Input.GetKeyDown(SwapToPistol))
+        if (ActiveWeapon.name != "Pistol" && ownedWeapons.Find(x => x.name.Contains("Pistol")) && Input.GetKeyDown(SwapToPistol))
         {
-            ActiveWeapon = ownedWeapons.Find(x => x.name == "Pistol");
-            Debug.Log("get this Active Weapon swapped to: " + ActiveWeapon);
+            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("Pistol"));
+            ActiveWeapon.EquipTo(this);
         }
     }
 
@@ -70,7 +62,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         foreach (var weapon in from weapon in nonMeleeWeaponsInScene let find = Vector3.Distance(gameObject.transform.position, weapon.transform.position) <= RangeToPickUp where find select weapon)
         {
             weaponCandidate = weapon;
-            Debug.Log("Weapon candidate: " + weaponCandidate);
             break;
         }
         return weaponCandidate;
@@ -87,7 +78,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         // NOTE checking type instead of CompareTag
         // NOTE should be passing distance check instead of collision
         var gameObj = other.gameObject;
-        Debug.Log("HEY AM FROM PlayerWeaponController");
         if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(LeftClick)) 
         {
             Debug.Log(Equippable);
