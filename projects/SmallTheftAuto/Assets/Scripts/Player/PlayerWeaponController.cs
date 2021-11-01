@@ -32,8 +32,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (weaponIsWithinRange() && Input.GetKeyDown(WeaponInteract))
         {
             activeWeapon.EquipTo(this);
-            activeWeapon.enabled = false;
-            // back here
+            activeWeapon.gameObject.SetActive(false);
         }
     }
 
