@@ -1,7 +1,7 @@
 public interface IAttacker
 {
     public ITarget Target { get; set; }
-    public void Attack(ITarget target, int damage);
+    public void Attack(ITarget target);
 }
 
 public interface ITarget

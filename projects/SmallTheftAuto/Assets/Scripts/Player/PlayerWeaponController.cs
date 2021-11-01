@@ -12,7 +12,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private const int LeftClick = 0;
     private const KeyCode WeaponInteract = KeyCode.F;
     private const float RangeToPickUp = 5f;
-    private Weapon bareHands;
+    // private Weapon bareHands;
     private List<Weapon> nonMeleeWeaponsInScene;
     private Weapon activeWeapon;
     
@@ -22,9 +22,9 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private void Awake()
     {
         // Bare hands as default weapon
-        bareHands = gameObject.AddComponent<WeaponBareHands>();
-        bareHands.EquipTo(this);
-        nonMeleeWeaponsInScene = GameObject.FindObjectsOfType<Weapon>().Where(w => !(w as WeaponBareHands)).ToList();
+        // bareHands = gameObject.AddComponent<WeaponBareHands>();
+        // bareHands.EquipTo(this);
+        // nonMeleeWeaponsInScene = GameObject.FindObjectsOfType<Weapon>().Where(w => !(w as WeaponBareHands)).ToList();
     }
 
     private void Update()
@@ -50,10 +50,10 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         return result;
     }
 
-    public void Attack(ITarget target, int damage)
+    public void Attack(ITarget target)
     {
         Target = target;
-        Target.TakeDamage(damage);
+        Target.TakeDamage((int)activeWeapon.Power);
     }
 
     private void OnCollisionStay2D(Collision2D other)
@@ -65,7 +65,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(LeftClick)) 
         {
             Debug.Log(Equippable);
-            Attack(gameObj.GetComponent<CarTakeDamage>(), (int)Equippable.Power);
+            Attack(gameObj.GetComponent<CarTakeDamage>());
         }
     }
 }
