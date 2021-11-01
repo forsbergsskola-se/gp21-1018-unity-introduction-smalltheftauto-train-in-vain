@@ -16,6 +16,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private const KeyCode PickUpWeapon = KeyCode.F;
     private const KeyCode SwapToBareHands = KeyCode.Alpha1;
     private const KeyCode SwapToPistol = KeyCode.Alpha2;
+    private const KeyCode SwapToMachineGun = KeyCode.Alpha3;
     private const float RangeToPickUp = 5f;
     
     private List<Weapon> nonMeleeWeaponsInScene;
@@ -53,6 +54,12 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (ActiveWeapon.WeaponName != "Pistol" && ownedWeapons.Find(x => x.WeaponName == "Pistol") && Input.GetKeyDown(SwapToPistol))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("Pistol"));
+            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
+        }
+        if (ActiveWeapon.WeaponName != "MachineGun" && ownedWeapons.Find(x => x.WeaponName == "MachineGun") && Input.GetKeyDown(SwapToMachineGun))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("MachineGun"));
             Debug.Log("get this Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
