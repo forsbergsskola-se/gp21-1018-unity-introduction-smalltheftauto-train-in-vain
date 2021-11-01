@@ -103,7 +103,7 @@ public class CarRaceController : MonoBehaviour
         {
             Debug.Log($"You won the race!");
             Slider.SetActive(false);
-
+            
         }
         else
         {
@@ -134,6 +134,7 @@ public class CarRaceController : MonoBehaviour
         foreach (var prefab in placedPrefabs)
         {
             Destroy(prefab);
+             
         } 
         placedPrefabs = new List<GameObject>();
     }
