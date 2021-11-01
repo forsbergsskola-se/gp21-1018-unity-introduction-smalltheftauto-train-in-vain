@@ -2,8 +2,8 @@ using UnityEngine;
 
 internal class Weapon : MonoBehaviour, IEquippable
 {
-    [SerializeField] private string WeaponName;
-    [SerializeField] public WeaponPower Power;
+    [SerializeField] internal string WeaponName;
+    [SerializeField] internal WeaponPower Power;
     public IEquipTarget EquippedTo { get; private set; }
     public void UnEquip()
     {
