@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using RenderSettings = UnityEngine.Experimental.GlobalIllumination.RenderSettings;
 
 public class CarRaceController : MonoBehaviour
 {
@@ -14,6 +16,7 @@ public class CarRaceController : MonoBehaviour
     
     public GameObject GoalPrefab;
     public GameObject CheckPointPrefab;
+    public GameObject Slider;
     
     public GameObject QuestCar { get; private set; }
 
@@ -26,7 +29,8 @@ public class CarRaceController : MonoBehaviour
         {
             carRaceComponents.Add(child.gameObject);
         }
-        
+
+        Slider = FindObjectOfType<HUD>().QuestTimer;
         DisplayQuest(false);
         ScanCheckPointPosition();
     }
@@ -41,6 +45,7 @@ public class CarRaceController : MonoBehaviour
         goalObject.transform.position = transform.Find("FinishPosition").gameObject.transform.position;
         goalObject.transform.rotation = transform.Find("FinishPosition").gameObject.transform.rotation;
         placedPrefabs.Add(goalObject);
+        Slider.SetActive(true);
         DisplayQuest(true);
         PlaceCheckPoints();
     }
@@ -97,6 +102,8 @@ public class CarRaceController : MonoBehaviour
         if (playerWin && AllCheckPointsCollected)
         {
             Debug.Log($"You won the race!");
+            Slider.SetActive(false);
+
         }
         else
         {

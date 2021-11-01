@@ -7,4 +7,5 @@ public class HUD : MonoBehaviour
 {
     public TMP_Text ScoreText;
     public TMP_Text MoneyText;
+    public GameObject QuestTimer;
 }

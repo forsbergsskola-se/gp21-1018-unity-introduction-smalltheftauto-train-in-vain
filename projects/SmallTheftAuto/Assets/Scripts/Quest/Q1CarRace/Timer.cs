@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI textSlider;
     public float gameTime;
     private bool stopTime;
+    int minutes;
+    int seconds;
     void Start()
     {
         stopTime = false;
@@ -27,6 +30,7 @@ public class Timer : MonoBehaviour
         if (time<=0)
         {
             stopTime = true;
+            
         }
 
         if (stopTime== false)
@@ -35,4 +39,5 @@ public class Timer : MonoBehaviour
             slider.value = time;
         }
     }
+    
 }

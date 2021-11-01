@@ -9,6 +9,7 @@ public class FinishCarRace : MonoBehaviour
     
     private GameObject questCar;
     
+    
     private void OnEnable()
     {
         questCar = FindObjectOfType<CarRaceController>().QuestCar.transform.Find("CarChassis").gameObject;
@@ -24,6 +25,7 @@ public class FinishCarRace : MonoBehaviour
         {
             // Tell the CarRaceController that the race has been completed.
             CarHasPassed = true;
+            
             FindObjectOfType<CarRaceController>().RaceCompleted(true,69);
         }
     }
