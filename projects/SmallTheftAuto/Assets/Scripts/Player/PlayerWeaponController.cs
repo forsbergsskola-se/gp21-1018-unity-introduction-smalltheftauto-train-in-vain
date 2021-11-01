@@ -12,6 +12,7 @@ using UnityEngine;
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
     [SerializeField] private Weapon ActiveWeapon;
+    // [SerializeField] private WeaponDisplay DisplayActiveWeapon;
     private const int LeftClick = 0;
     private const KeyCode PickUpWeapon = KeyCode.F;
     private const KeyCode SwapToBareHands = KeyCode.Alpha1;
@@ -21,12 +22,14 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private List<Weapon> nonMeleeWeaponsInScene;
     private List<Weapon> ownedWeapons = new List<Weapon>();
+    private WeaponDisplay displayActiveWeapon;
 
     public IEquippable Equippable { get; set; }
     public ITarget Target { get; set; }
 
     private void Awake()
     {
+        displayActiveWeapon = FindObjectOfType<WeaponDisplay>();
         // Note: Assume there's a default weapon assigned and it's bare hands
         if (ActiveWeapon == null) throw new Exception("Default weapon missing! Please assign a default weapon.");
         ActiveWeapon.EquipTo(this);
@@ -63,6 +66,11 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             Debug.Log("get this Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
+    }
+
+    private void LateUpdate()
+    {
+        if (ActiveWeapon != null) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
     }
 
     [CanBeNull]
