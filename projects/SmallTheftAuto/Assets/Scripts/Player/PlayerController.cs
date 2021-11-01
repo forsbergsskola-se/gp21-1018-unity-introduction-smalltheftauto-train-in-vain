@@ -34,40 +34,22 @@ public class PlayerController : MonoBehaviour
         if (money - moneyToSubtract >= 0)
         {
             money -= moneyToSubtract;
-            Debug.Log("Oh no, I'm poor!");
+            Debug.Log("Nooo! My precious money!");
         }
-        
-        Debug.Log("Oh no, I'm poor!");
-        
     }
-    
-    /*public int Money
-    {
-        get => money;
-        set
-        {
-            money = value;
-            moneyText.text = ": $ " + money + ".00";
-        }
-    }*/
 
-
-    // Start is called before the first frame update
     void Start()
     {
         var followCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
         followCamera.target = gameObject;
 
         scoreText = FindObjectOfType<HUD>().ScoreText;
-
         Score = 50;
     }
   
     void Update()
     {
-        
         moneyText = FindObjectOfType<HUD>().MoneyText;
-        
         moneyText.text = ": $ " + money;
         
         if (Input.GetMouseButtonDown(0))
@@ -80,5 +62,4 @@ public class PlayerController : MonoBehaviour
             subtractMoney(50);
         }
     }
-
 }
