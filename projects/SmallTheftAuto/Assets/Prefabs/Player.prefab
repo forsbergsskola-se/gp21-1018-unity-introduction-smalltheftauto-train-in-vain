@@ -12,15 +12,13 @@ GameObject:
   - component: {fileID: 4396968072063033423}
   - component: {fileID: -1959414707303884397}
   - component: {fileID: 3808596473524340056}
-  - component: {fileID: -3181994001049663900}
-  - component: {fileID: -2141383885038231095}
   - component: {fileID: -7833527537460937507}
+  - component: {fileID: -3181994001049663900}
+  - component: {fileID: -4736549970416121770}
   - component: {fileID: 849736714710510647}
-  - component: {fileID: -8364055760419563616}
   - component: {fileID: -1060661442283396699}
   - component: {fileID: -1886455180498070620}
   - component: {fileID: -7324317932517199746}
-  - component: {fileID: -4736549970416121770}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -166,6 +164,18 @@ PolygonCollider2D:
       - {x: 0.71999997, y: -1}
       - {x: 0.90999997, y: -0.94}
       - {x: 0.94, y: -0.83}
+--- !u!114 &-7833527537460937507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4af847cca51cd44b88330f0db1c5962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &-3181994001049663900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,21 +192,7 @@ MonoBehaviour:
   speed: 10
   defaultSprite: {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
   armedSprite: {fileID: 21300000, guid: bc8257d0f04ba864a98e03db76b71f2d, type: 3}
---- !u!114 &-2141383885038231095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf63608231a3a947a8e07af7afda477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enterables: []
-  InterractRange: 5
---- !u!114 &-7833527537460937507
+--- !u!114 &-4736549970416121770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -205,9 +201,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4396968072063033420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4af847cca51cd44b88330f0db1c5962, type: 3}
+  m_Script: {fileID: 11500000, guid: c7cb2ca4cb7843f4191ed61055e21a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Interactables: []
+  InteractRange: 5
 --- !u!114 &849736714710510647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,18 +220,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
---- !u!114 &-8364055760419563616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 963d00b73bb4ff3479ba5cc1babfc2c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-1060661442283396699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -281,17 +267,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-4736549970416121770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7cb2ca4cb7843f4191ed61055e21a7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Interactables: []
-  InteractRange: 5

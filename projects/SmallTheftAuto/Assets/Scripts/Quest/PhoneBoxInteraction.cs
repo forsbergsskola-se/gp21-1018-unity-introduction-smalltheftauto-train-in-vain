@@ -2,61 +2,100 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneBoxInteraction : MonoBehaviour
+public class PhoneBoxInteraction : MonoBehaviour, IEnterable, IInteractable
 {
-    private GameObject Player;
-    private FollowCamera FollowCamera;
-    public GameObject ExitPostion;
-    public QuestMenuController QuestMenuController;
-
-    private bool isEnterd;
-
-    public bool IsEnterd
-    {
-        get;
-    }
+    private QuestMenuController questMenuController;
+    private FollowCamera followCamera;
+    private Transform ExitPostion;
+    private GameObject currentUser;
+    private bool ExitAllowed;
     
-    // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log("Hej där jag är trasig.");
-        
-        Player = GameObject.FindGameObjectWithTag("Player");
-        
-        FollowCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
+        ExitPostion = transform.Find("ExitPosition");
+        questMenuController = FindObjectOfType<QuestMenuController>();
+        followCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
+    }
+    
+    public void Interact(GameObject User)
+    { 
+        Enter(User);
     }
 
-    
-    
-    public void EnterPhoneBox()
+    public void Enter(GameObject User)
     {
-        if (Player == null) Player = GameObject.FindGameObjectWithTag("Player");
+        currentUser = User;
+        currentUser.SetActive(false);
+        followCamera.target = gameObject;
+        
+        // Allow the phone box to be exited after half a second.
+        Invoke("ExitCooldown", 0.5f);
 
-        FollowCamera.target = gameObject;
-        
-        // Todo: Add ui scripts to control which quests are started
-        
-        QuestMenuController.enabled = true;
-        
+        questMenuController.enabled = true;
     }
-
     
-    
-    public void ExitPhoneBox()
+    void ExitCooldown()
     {
-        //Debug.Log("Hej där något är skummt!");
-        
-        Debug.Log($"Hej jag heter {this.name}");
-        
-        Player.SetActive(true);
-        
-        Player.transform.position = ExitPostion.transform.position;
-        Player.transform.rotation = ExitPostion.transform.rotation;
-        
-
-        FollowCamera.target = Player;
-        
-        
-        QuestMenuController.enabled = false;
+        ExitAllowed = true;
     }
+
+    public void Exit()
+    {
+        if (ExitAllowed)
+        {
+            currentUser.transform.position = ExitPostion.position;
+            currentUser.transform.rotation = ExitPostion.rotation;
+
+            currentUser.SetActive(true);
+            followCamera.target = currentUser;
+            
+            questMenuController.enabled = false;
+        }
+    }
+    
+    // private GameObject Player;
+    //
+    // private bool isEnterd;
+    //
+    // public bool IsEnterd
+    // {
+    //     get;
+    // }
+    //
+    // // Start is called before the first frame update
+    //
+    //
+    //
+    //
+    // public void EnterPhoneBox()
+    // {
+    //     if (Player == null) Player = GameObject.FindGameObjectWithTag("Player");
+    //
+    //     followCamera.target = gameObject;
+    //     
+    //     // Todo: Add ui scripts to control which quests are started
+    //     
+    //     QuestMenuController.enabled = true;
+    //     
+    // }
+    //
+    //
+    //
+    // public void ExitPhoneBox()
+    // {
+    //     //Debug.Log("Hej där något är skummt!");
+    //     
+    //     Debug.Log($"Hej jag heter {this.name}");
+    //     
+    //     Player.SetActive(true);
+    //     
+    //     Player.transform.position = ExitPostion.transform.position;
+    //     Player.transform.rotation = ExitPostion.transform.rotation;
+    //     
+    //
+    //     FollowCamera.target = Player;
+    //     
+    //     
+    //     QuestMenuController.enabled = false;
+    // }
 }

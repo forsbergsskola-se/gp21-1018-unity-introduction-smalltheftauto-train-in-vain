@@ -36,8 +36,8 @@ public class QuestMenuController : MonoBehaviour
     
     private void OnEnable()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
-        player.SetActive(false);
+        // player = GameObject.FindGameObjectWithTag("Player");
+        // player.SetActive(false);
         
         questUiPopupHelper = GameObject.FindGameObjectWithTag("QuestUi").GetComponent<QuestUiPopupHelper>();
         questUiPopupHelper.ViewQuestUI(true, QuestTitle, QuestDescription);
@@ -79,7 +79,7 @@ public class QuestMenuController : MonoBehaviour
     private void ExitPhoneBox()
     {
         questUiPopupHelper.ViewQuestUI(false, "", "");
-        PhoneBoxInteraction.ExitPhoneBox();
+        PhoneBoxInteraction.Exit();
     }
     
 
@@ -87,7 +87,7 @@ public class QuestMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!player.activeInHierarchy && Input.GetKeyDown(phoneBoxInteractKey))
+        if (Input.GetKeyDown(phoneBoxInteractKey))
         {
             ExitPhoneBox();
         }

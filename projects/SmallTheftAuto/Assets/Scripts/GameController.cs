@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
 
     public GameObject Pistol; 
     private GameObject pistol;
+    private PlayerInteract playerInteract;
 
     private void Awake()
     {
@@ -28,10 +29,12 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Player = Instantiate(playerPrefab);
+        playerInteract = Player.GetComponent<PlayerInteract>();
         FindObjectOfType<CarRaceController>().player = Player;
         
         var placedPhoneBox = Instantiate(phoneBox);
         placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);
+        playerInteract.Interactables.Add(placedPhoneBox);
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
         questMenuController.QuestTitle = "CarRace";
         questMenuController.QuestDescription = "Complete the race course in time for a reward.";
