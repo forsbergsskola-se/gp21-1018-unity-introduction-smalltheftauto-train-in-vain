@@ -5,9 +5,14 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
+    public static int NextId;
+
+    public int Id;
     
     private void Awake()
     {
+        Id = NextId;
+        NextId++;
         health = MaxHealth;
     }
     

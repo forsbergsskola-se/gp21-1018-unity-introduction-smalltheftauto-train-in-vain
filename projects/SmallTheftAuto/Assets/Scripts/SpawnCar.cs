@@ -7,12 +7,15 @@ public class SpawnCar : MonoBehaviour
     // public GameObject carPrefab;
     public GameObject NewCarPrefab;
 
-    private PlayerDrive playerDrive;
+    // private PlayerDrive playerDrive;
+    private PlayerInteract playerInteract;
 
     void Start()
     {
-        playerDrive = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDrive>();
-
+        // playerDrive = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerDrive>();
+        playerInteract = FindObjectOfType<PlayerInteract>();
+        // playerInteract = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteract>();
+        
         SpawnUpgraded(new Vector3(0, 1.8f, 0));
         SpawnUpgraded(new Vector3(-10, 1.8f, 0));
         SpawnUpgraded(new Vector3(10, 1.8f, 0));
@@ -42,7 +45,7 @@ public class SpawnCar : MonoBehaviour
         var car = Instantiate(NewCarPrefab);
         car.transform.position = spawnPosition;
         car.transform.rotation = rotation;
-        playerDrive.Enterables.Add(car);
+        playerInteract.Interactables.Add(car);
     }
     
     public GameObject SpawnUpgradedAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
@@ -50,7 +53,7 @@ public class SpawnCar : MonoBehaviour
         var car = Instantiate(NewCarPrefab);
         car.transform.position = spawnPosition;
         car.transform.rotation = rotation;
-        playerDrive.Enterables.Add(car);
+        playerInteract.Interactables.Add(car);
         return car;
     }
 }

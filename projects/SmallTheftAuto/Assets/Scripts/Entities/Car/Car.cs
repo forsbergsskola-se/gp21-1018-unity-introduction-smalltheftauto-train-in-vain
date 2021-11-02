@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : Entity, IDriveable, IEnterable, IDamageable
+public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 {
     // Constructor
     public Car() : base()
@@ -69,11 +69,18 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable
     
     
     // #################################################################################################################
-    // IEnterable
+    // IEnterable && IInteractable
     
     private FollowCamera followCamera;
     private Transform ExitPosition;
     private GameObject currentUser;
+
+
+
+    public void Interact(GameObject User)
+    {
+        Enter(User);
+    }
     
     
 
@@ -238,17 +245,5 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable
         takeDamageOnCooldown = true;
         yield return new WaitForSeconds(0.25f);
         takeDamageOnCooldown = false;
-    }
-    
-    
-    
-    
-    
-    // #################################################################################################################
-    // DestroyCar
-
-    private void OnDestroy()
-    {
-        FindObjectOfType<PlayerDrive>().Enterables.Remove(gameObject);
     }
 }

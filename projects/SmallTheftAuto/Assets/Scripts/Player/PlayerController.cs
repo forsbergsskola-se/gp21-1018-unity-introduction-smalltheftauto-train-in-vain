@@ -27,14 +27,18 @@ public class PlayerController : MonoBehaviour
     {
         money += moneyToAdd;
         Debug.Log("Woo-hoo, I'm rich!");
+        moneyText = FindObjectOfType<HUD>().MoneyText;
+        moneyText.text = ": $ " + money;
     }
 
-    void subtractMoney(int moneyToSubtract)
+    public void subtractMoney(int moneyToSubtract)
     {
         if (money - moneyToSubtract >= 0)
         {
             money -= moneyToSubtract;
             Debug.Log("Nooo! My precious money!");
+            moneyText = FindObjectOfType<HUD>().MoneyText;
+            moneyText.text = ": $ " + money;
         }
     }
 
