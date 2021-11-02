@@ -45,7 +45,7 @@ Here's the set of features that I'll be looking for:
 |UI| Player's chosen Weapon can be seen | | <ul><li>- [X] </li></ul> | 5 |
 |UI| Player's Weapon's shots until reload can be seen | | <ul><li>- [ ] </li></ul> | 5 |
 |Weapon| Attacks can hit cars | | <ul><li>- [x] </li></ul> | 5 |
-|Environment| There is houses | | <ul><li>- [ ] </li></ul> | 5 |
+|Environment| There is houses | | <ul><li>- [x] </li></ul> | 5 |
 |Environment| There is streets | | <ul><li>- [x] </li></ul> | 5 |
 |Environment| BONUS: Traffic | | <ul><li>- [ ] </li></ul> | 20 |
 |Environment| BONUS: Pedestrians | | <ul><li>- [ ] </li></ul> | 20 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 145
+Current Score: 150
 
-Current percent: 81% 
+Current percent: 83.33% 
 
 Current grade: VG - Magna Cum Laude (A) 
