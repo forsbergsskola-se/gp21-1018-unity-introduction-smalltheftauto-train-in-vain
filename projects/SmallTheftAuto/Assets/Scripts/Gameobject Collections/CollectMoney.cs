@@ -10,8 +10,7 @@ public class CollectMoney : MonoBehaviour
    public Sprite hundredDollars;
    public Sprite fiftyDollars;
    public Sprite tenDollars;
-      
-   
+
    private void OnTriggerEnter2D(Collider2D other)
    {
       if (other.CompareTag("Player"))
@@ -25,8 +24,6 @@ public class CollectMoney : MonoBehaviour
       playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
       spriteRenderer = GetComponent<SpriteRenderer>();
       
-      
-      Debug.Log("Picked-Up Money");
 
       if (spriteRenderer.sprite == hundredDollars)
       {
@@ -42,7 +39,7 @@ public class CollectMoney : MonoBehaviour
       {
          playerController.addMoney(10);
       }
-     
+      
       Destroy(gameObject);
    }
 }
