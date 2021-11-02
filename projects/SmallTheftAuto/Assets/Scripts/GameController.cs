@@ -15,7 +15,9 @@ public class GameController : MonoBehaviour
     public GameObject phoneBox;
     public GameObject phoneBox2;
     public GameObject questOne;
-    public GameObject heart;
+    public GameObject pizza;
+    public GameObject burger;
+    
     public GameObject savePointPrefab;
 
     public GameObject Pistol; 
@@ -38,8 +40,9 @@ public class GameController : MonoBehaviour
         placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);
         playerInteract.Interactables.Add(placedPhoneBox);
 
-        Instantiate(heart).transform.position = new Vector3(30, 0, 0);
-
+        Instantiate(pizza).transform.position = new Vector3(30, 5, 0);
+        Instantiate(burger).transform.position = new Vector3(30, 0, 0);
+        
         Instantiate(savePointPrefab).transform.position = new Vector3(10, 28, 0);
         Instantiate(savePointPrefab).transform.position = new Vector3(-10, 28, 0);
         
