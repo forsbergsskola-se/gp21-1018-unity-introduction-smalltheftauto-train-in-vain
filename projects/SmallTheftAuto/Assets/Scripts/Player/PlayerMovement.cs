@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private PlayerWeaponController playerWeaponController;
-    private bool isWalking;
-    private bool isShooting;
+    internal bool isWalking;
+    internal bool isShooting;
 
     private void Awake()
     {
@@ -28,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, -horizontal);
         
         isWalking = false;
-        isShooting = false;
         animator.enabled = false;
         var activeWeapon = playerWeaponController.ActiveWeapon;
         spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? defaultSprite : armedSprite;
@@ -53,14 +52,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (isWalking)
+        if (isWalking) PlayWalkingAnimation();
+        if (isShooting)
         {
-            PlayWalkingAnimation();
+            PlayShootingAnimation();
+            Invoke(nameof(SetIsShootingToFalse), 0.2f);
         }
     }
-     
-    
-   void PlayWalkingAnimation()
+
+    private void SetIsShootingToFalse() => isShooting = false;
+
+    void PlayWalkingAnimation()
     {
         if (animator.gameObject.activeSelf)
         {

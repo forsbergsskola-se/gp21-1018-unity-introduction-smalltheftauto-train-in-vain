@@ -17,6 +17,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private List<Weapon> nonMeleeWeaponsInScene;
     private List<Weapon> ownedWeapons = new List<Weapon>();
     private WeaponDisplay displayActiveWeapon;
+    private PlayerMovement playerMovement;
 
     public IEquippable Equippable { get; set; }
     public ITarget Target { get; set; }
@@ -24,6 +25,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private void Awake()
     {
         displayActiveWeapon = GetComponent<WeaponDisplay>();
+        playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Start()
@@ -81,6 +83,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     {
         if (Input.GetMouseButtonDown(KeyBinding.LeftClick) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
         {
+            playerMovement.isShooting = true;
             ActiveWeapon.GetComponent<FiringWeapon>().Fire();
         }
     }
@@ -116,15 +119,12 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         Target.TakeDamage((int)ActiveWeapon.Power);
     }
 
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        // NOTE checking type instead of CompareTag
-        // NOTE should be passing distance check instead of collision
-        var gameObj = other.gameObject;
-        if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(KeyBinding.LeftClick)) 
-        {
-            Debug.Log(Equippable);
-            Attack(gameObj.GetComponent<CarTakeDamage>());
-        }
-    }
+    // private void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Car") && Input.GetMouseButtonDown(KeyBinding.LeftClick)) 
+    //     {
+    //         Debug.Log(Equippable);
+    //         Attack(gameObj.GetComponent<CarTakeDamage>());
+    //     }
+    // }
 }
