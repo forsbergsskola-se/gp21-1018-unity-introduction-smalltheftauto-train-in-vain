@@ -112,3 +112,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 9129092525525590948, guid: 68767e34e102ccf45b0845c6e21541ff, type: 3}
+  TotalRounds: 17
