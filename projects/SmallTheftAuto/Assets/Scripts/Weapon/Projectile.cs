@@ -1,9 +1,9 @@
-using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private float BulletSpeed;
+    internal int BulletDamage;
     private SpriteRenderer bulletRenderer;
 
     private void Awake()
@@ -24,7 +24,10 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // should do damage here as well
+        if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
+        {
+            iDamageable.TakeDamage(BulletDamage, gameObject);
+        }
         Destroy(gameObject);
     }
 }

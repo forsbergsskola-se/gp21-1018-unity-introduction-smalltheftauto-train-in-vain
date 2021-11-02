@@ -6,6 +6,8 @@ public class FiringWeapon : MonoBehaviour
 
     internal void Fire()
     {
-        Instantiate(Bullet);
+        var bullet = Instantiate(Bullet);
+        var activeWeapon = FindObjectOfType<PlayerWeaponController>().ActiveWeapon;
+        bullet.GetComponent<Projectile>().BulletDamage = (int)activeWeapon.Power;
     }
 }
