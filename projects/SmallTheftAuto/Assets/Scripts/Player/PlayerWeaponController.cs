@@ -73,8 +73,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     private void LateUpdate()
     {
-        Debug.Log("get this current ActiveWeapon: " + ActiveWeapon);
-        Debug.Log("get this current display " + displayActiveWeapon);
         if (ActiveWeapon != null) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
     }
 

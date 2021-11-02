@@ -11,7 +11,6 @@ public class WeaponDisplay : MonoBehaviour
     void Awake()
     {
         weaponImage = FindObjectOfType<HUD>().WeaponImage;
-        Debug.Log("get this from line 14 weaponImage: " + weaponImage);
     }
 
     internal void UpdateWeaponDisplay(string weaponName)
