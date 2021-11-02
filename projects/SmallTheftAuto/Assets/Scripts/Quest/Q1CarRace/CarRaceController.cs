@@ -41,7 +41,7 @@ public class CarRaceController : MonoBehaviour
 
     public void ActivateCarRaceQuest()
     {
-        QuestCar = SpawnCar.SpawnAndReturn(CarSpawnPosition.transform.position, CarSpawnPosition.transform.rotation);
+        QuestCar = SpawnCar.SpawnUpgradedAndReturn(CarSpawnPosition.transform.position, CarSpawnPosition.transform.rotation);
 
         var goalObject = Instantiate(GoalPrefab, transform);
         goalObject.transform.position = transform.Find("FinishPosition").gameObject.transform.position;
@@ -107,6 +107,8 @@ public class CarRaceController : MonoBehaviour
             Slider.SetActive(false);
             winText.SetActive(true);
             Invoke(nameof(DisableWinText),cooldown);
+            QuestCar.GetComponent<Car>().Exit();
+            Destroy(QuestCar);
             
         }
         // else if(Slider.GetComponent<Timer>().gameTime== 0)
@@ -121,6 +123,8 @@ public class CarRaceController : MonoBehaviour
             Slider.SetActive(false);
             loseText.SetActive(true);
             Invoke(nameof(DisableLoseText),cooldown);
+            QuestCar.GetComponent<Car>().Exit();
+            Destroy(QuestCar);
         }
         
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
@@ -169,6 +173,8 @@ public class CarRaceController : MonoBehaviour
         Invoke(nameof(DisableLoseText),cooldown);
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
         DisplayQuest(false);
+        QuestCar.GetComponent<Car>().Exit();
+        Destroy(QuestCar);
         
     }
     

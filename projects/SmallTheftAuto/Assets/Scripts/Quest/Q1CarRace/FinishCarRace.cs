@@ -12,7 +12,7 @@ public class FinishCarRace : MonoBehaviour
     
     private void OnEnable()
     {
-        questCar = FindObjectOfType<CarRaceController>().QuestCar.transform.Find("CarChassis").gameObject;
+        questCar = FindObjectOfType<CarRaceController>().QuestCar;
     }
 
 
