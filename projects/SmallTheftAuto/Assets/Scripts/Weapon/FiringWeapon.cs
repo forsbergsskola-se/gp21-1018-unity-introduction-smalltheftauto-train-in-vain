@@ -1,18 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FiringWeapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject Bullet;
 
-    // Update is called once per frame
-    void Update()
+    internal void Fire()
     {
-        
+        var player = GameObject.FindGameObjectWithTag("Player");
+        var bullet = Instantiate(Bullet);
     }
 }
