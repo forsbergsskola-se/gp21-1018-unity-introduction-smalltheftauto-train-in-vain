@@ -15,7 +15,6 @@ public class WeaponDisplay : MonoBehaviour
 
     internal void UpdateWeaponDisplay(string weaponName)
     {
-        Debug.Log("get this updating weapon display");
         weaponImage.sprite = weaponName switch
         {
             "BareHands" => BareHandsSprite,

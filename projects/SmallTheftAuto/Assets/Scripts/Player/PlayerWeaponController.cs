@@ -11,7 +11,7 @@ using UnityEngine;
 /// </summary>
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
-    [SerializeField] private Weapon ActiveWeapon;
+    [SerializeField] internal Weapon ActiveWeapon;
     private const int LeftClick = 0;
     private const KeyCode PickUpWeapon = KeyCode.F;
     private const KeyCode SwapToBareHands = KeyCode.Alpha1;
