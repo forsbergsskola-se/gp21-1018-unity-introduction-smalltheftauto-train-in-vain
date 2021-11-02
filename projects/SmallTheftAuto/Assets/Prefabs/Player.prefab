@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -8364055760419563616}
   - component: {fileID: -1060661442283396699}
   - component: {fileID: -7324317932517199746}
+  - component: {fileID: -1886455180498070620}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -266,3 +267,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-1886455180498070620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa21015e76f848499a35237cca1bc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BareHandsSprite: {fileID: 21300000, guid: 97bef5c838c380e43820910187c7fa8f, type: 3}
+  PistolSprite: {fileID: 21300000, guid: 3e0b79ebe6d3dd44cb6b7da253b75434, type: 3}
+  MachineGunSprite: {fileID: 21300000, guid: d427218add2082c4f8b348dd3f465c20, type: 3}
