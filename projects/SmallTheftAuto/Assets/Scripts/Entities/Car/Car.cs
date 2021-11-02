@@ -232,13 +232,23 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable
                 CarExplode();
         }
     }
-
-    
     
     IEnumerator takeDamageCooldown()
     {
         takeDamageOnCooldown = true;
         yield return new WaitForSeconds(0.25f);
         takeDamageOnCooldown = false;
+    }
+    
+    
+    
+    
+    
+    // #################################################################################################################
+    // DestroyCar
+
+    private void OnDestroy()
+    {
+        FindObjectOfType<PlayerDrive>().Enterables.Remove(gameObject);
     }
 }

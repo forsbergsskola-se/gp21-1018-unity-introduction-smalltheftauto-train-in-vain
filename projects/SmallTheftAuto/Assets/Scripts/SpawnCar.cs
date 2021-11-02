@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCar : MonoBehaviour
 {
-    public GameObject carPrefab;
+    // public GameObject carPrefab;
     public GameObject NewCarPrefab;
 
     private PlayerDrive playerDrive;
@@ -20,22 +20,22 @@ public class SpawnCar : MonoBehaviour
         // SpawnUpgraded(new Vector3(-10, 10, 0));
     }
 
-    public void Spawn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
-    {
-        var car = Instantiate(carPrefab);
-        car.transform.position = spawnPosition;
-        car.transform.rotation = rotation;
-        playerDrive.carsInScene.Add(car);
-    }
-    
-    public GameObject SpawnAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
-    {
-        var car = Instantiate(carPrefab);
-        car.transform.position = spawnPosition;
-        car.transform.rotation = rotation;
-        playerDrive.carsInScene.Add(car);
-        return car;
-    }
+    // public void Spawn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
+    // {
+    //     var car = Instantiate(carPrefab);
+    //     car.transform.position = spawnPosition;
+    //     car.transform.rotation = rotation;
+    //     playerDrive.carsInScene.Add(car);
+    // }
+    //
+    // public GameObject SpawnAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
+    // {
+    //     var car = Instantiate(carPrefab);
+    //     car.transform.position = spawnPosition;
+    //     car.transform.rotation = rotation;
+    //     playerDrive.carsInScene.Add(car);
+    //     return car;
+    // }
 
     public void SpawnUpgraded(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
     {
