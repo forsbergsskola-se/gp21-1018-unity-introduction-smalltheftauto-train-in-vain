@@ -12,11 +12,6 @@ using UnityEngine;
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
     [SerializeField] internal Weapon ActiveWeapon;
-    private const int LeftClick = 0;
-    private const KeyCode PickUpWeapon = KeyCode.F;
-    private const KeyCode SwapToBareHands = KeyCode.Alpha1;
-    private const KeyCode SwapToPistol = KeyCode.Alpha2;
-    private const KeyCode SwapToMachineGun = KeyCode.Alpha3;
     private const float RangeToPickUp = 5f;
     
     private List<Weapon> nonMeleeWeaponsInScene;
@@ -47,29 +42,21 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         FireRangeWeaponWithLeftClick();
     }
 
-    private void FireRangeWeaponWithLeftClick()
-    {
-        if (Input.GetMouseButtonDown(LeftClick) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
-        {
-            ActiveWeapon.GetComponent<FiringWeapon>().Fire();
-        }
-    }
-
     private void SwapWeaponBasedOnInput()
     {
-        if (ActiveWeapon.WeaponName != WeaponName.BareHands && Input.GetKeyDown(SwapToBareHands))
+        if (ActiveWeapon.WeaponName != WeaponName.BareHands && Input.GetKeyDown(KeyBinding.SwapToBareHands))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name == WeaponName.BareHands);
             Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
-        if (ActiveWeapon.WeaponName != WeaponName.Pistol && ownedWeapons.Find(x => x.WeaponName == WeaponName.Pistol) && Input.GetKeyDown(SwapToPistol))
+        if (ActiveWeapon.WeaponName != WeaponName.Pistol && ownedWeapons.Find(x => x.WeaponName == WeaponName.Pistol) && Input.GetKeyDown(KeyBinding.SwapToPistol))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains(WeaponName.Pistol));
             Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
-        if (ActiveWeapon.WeaponName != WeaponName.MachineGun && ownedWeapons.Find(x => x.WeaponName == WeaponName.MachineGun) && Input.GetKeyDown(SwapToMachineGun))
+        if (ActiveWeapon.WeaponName != WeaponName.MachineGun && ownedWeapons.Find(x => x.WeaponName == WeaponName.MachineGun) && Input.GetKeyDown(KeyBinding.SwapToMachineGun))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains(WeaponName.MachineGun));
             Debug.Log("Swap weapon to: " + ActiveWeapon);
@@ -80,12 +67,20 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private void EquipWeaponIfFound()
     {
         var foundWeapon = weaponIsWithinRange();
-        if (foundWeapon != null && Input.GetKeyDown(PickUpWeapon))
+        if (foundWeapon != null && Input.GetKeyDown(KeyBinding.PickUpWeapon))
         {
             ActiveWeapon = foundWeapon;
             ownedWeapons.Add(ActiveWeapon);
             ActiveWeapon.EquipTo(this);
             ActiveWeapon.gameObject.SetActive(false);
+        }
+    }
+    
+    private void FireRangeWeaponWithLeftClick()
+    {
+        if (Input.GetMouseButtonDown(KeyBinding.LeftClick) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        {
+            ActiveWeapon.GetComponent<FiringWeapon>().Fire();
         }
     }
 
@@ -117,7 +112,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         // NOTE checking type instead of CompareTag
         // NOTE should be passing distance check instead of collision
         var gameObj = other.gameObject;
-        if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(LeftClick)) 
+        if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(KeyBinding.LeftClick)) 
         {
             Debug.Log(Equippable);
             Attack(gameObj.GetComponent<CarTakeDamage>());

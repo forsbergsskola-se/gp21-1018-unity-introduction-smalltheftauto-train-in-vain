@@ -13,15 +13,15 @@ public class PlayerSpriteChanger : MonoBehaviour
         playerWeaponController = GetComponent<PlayerWeaponController>();
     }
 
-    private void LateUpdate()
-    {
-        var activeWeaponName = playerWeaponController.ActiveWeapon.WeaponName;
-        spriteRenderer.sprite = activeWeaponName switch
-        {
-            WeaponName.BareHands => defaultSprite,
-            WeaponName.Pistol => armedSprite,
-            WeaponName.MachineGun => armedSprite,
-            _ => spriteRenderer.sprite
-        };
-    }
+    // private void LateUpdate()
+    // {
+    //     var activeWeaponName = playerWeaponController.ActiveWeapon.WeaponName;
+    //     spriteRenderer.sprite = activeWeaponName switch
+    //     {
+    //         WeaponName.BareHands => defaultSprite,
+    //         WeaponName.Pistol => armedSprite,
+    //         WeaponName.MachineGun => armedSprite,
+    //         _ => spriteRenderer.sprite
+    //     };
+    // }
 }

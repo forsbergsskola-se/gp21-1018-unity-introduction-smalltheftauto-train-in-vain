@@ -6,7 +6,6 @@ public class FiringWeapon : MonoBehaviour
 
     internal void Fire()
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
-        var bullet = Instantiate(Bullet);
+        Instantiate(Bullet);
     }
 }
