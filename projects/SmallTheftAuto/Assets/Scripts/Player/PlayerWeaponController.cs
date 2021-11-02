@@ -12,7 +12,6 @@ using UnityEngine;
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
     [SerializeField] private Weapon ActiveWeapon;
-    // [SerializeField] private WeaponDisplay DisplayActiveWeapon;
     private const int LeftClick = 0;
     private const KeyCode PickUpWeapon = KeyCode.F;
     private const KeyCode SwapToBareHands = KeyCode.Alpha1;
@@ -29,7 +28,11 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     private void Awake()
     {
-        displayActiveWeapon = FindObjectOfType<WeaponDisplay>();
+        displayActiveWeapon = GetComponent<WeaponDisplay>();
+    }
+
+    private void Start()
+    {
         // Note: Assume there's a default weapon assigned and it's bare hands
         if (ActiveWeapon == null) throw new Exception("Default weapon missing! Please assign a default weapon.");
         ActiveWeapon.EquipTo(this);
@@ -51,25 +54,27 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (ActiveWeapon.WeaponName != "BareHands" && Input.GetKeyDown(SwapToBareHands))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name == "BareHands");
-            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
         if (ActiveWeapon.WeaponName != "Pistol" && ownedWeapons.Find(x => x.WeaponName == "Pistol") && Input.GetKeyDown(SwapToPistol))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("Pistol"));
-            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
         if (ActiveWeapon.WeaponName != "MachineGun" && ownedWeapons.Find(x => x.WeaponName == "MachineGun") && Input.GetKeyDown(SwapToMachineGun))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("MachineGun"));
-            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
         }
     }
 
     private void LateUpdate()
     {
+        Debug.Log("get this current ActiveWeapon: " + ActiveWeapon);
+        Debug.Log("get this current display " + displayActiveWeapon);
         if (ActiveWeapon != null) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
     }
 
