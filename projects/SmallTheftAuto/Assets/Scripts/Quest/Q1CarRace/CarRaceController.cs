@@ -112,6 +112,7 @@ public class CarRaceController : MonoBehaviour
         else
         {
             Debug.Log("You didn't get all the checkpoints! Try again!");
+            Slider.SetActive(false);
             loseText.SetActive(true);
             Invoke(nameof(DisableLoseText),cooldown);
         }

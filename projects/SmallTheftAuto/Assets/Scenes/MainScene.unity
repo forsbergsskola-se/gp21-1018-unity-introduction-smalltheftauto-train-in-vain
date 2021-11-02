@@ -689,6 +689,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270492556}
   - component: {fileID: 270492555}
+  - component: {fileID: 270492557}
   m_Layer: 0
   m_Name: Demo Beach Scene (1)
   m_TagString: Untagged
@@ -762,6 +763,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &270492557
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270492554}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -7.6342983, y: 7.6892185}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 30.000002, y: 30.000002}
+    newSize: {x: 30.000002, y: 30.000002}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.602806, y: 8.909573}
+  m_EdgeRadius: 0
 --- !u!1 &300353912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,8 +2341,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.17121, y: -81}
-  m_SizeDelta: {x: 172.8535, y: 32.40399}
+  m_AnchoredPosition: {x: 1.4523, y: -76.651}
+  m_SizeDelta: {x: 131.85, y: 69.701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1034306470
 MonoBehaviour:
@@ -2337,7 +2364,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e4ba2393e26377c45b6ecf189c3378da, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3097,6 +3124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1481213610}
   - component: {fileID: 1481213609}
+  - component: {fileID: 1481213611}
   m_Layer: 0
   m_Name: Demo Beach Scene
   m_TagString: Untagged
@@ -3170,6 +3198,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1481213611
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481213608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -7.712718, y: 7.748748}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 30.000002, y: 30.000002}
+    newSize: {x: 30.000002, y: 30.000002}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 6.250044, y: 8.589239}
+  m_EdgeRadius: 0
 --- !u!1 &1527377237
 GameObject:
   m_ObjectHideFlags: 0
@@ -3582,8 +3636,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0.17121, y: -81}
-  m_SizeDelta: {x: 172.8535, y: 32.40399}
+  m_AnchoredPosition: {x: 1.4526, y: -76.651}
+  m_SizeDelta: {x: 131.8477, y: 69.701}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1643984140
 MonoBehaviour:
@@ -3605,7 +3659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: eb9a5e328e61be34d8cfe3af787c4136, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
