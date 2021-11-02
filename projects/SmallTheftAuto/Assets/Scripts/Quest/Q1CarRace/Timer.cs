@@ -12,6 +12,7 @@ public class Timer : MonoBehaviour
     public float gameTime;
     public float startTemp;
     private bool stopTime;
+    public GameObject carRaceController;
     int minutes;
     int seconds;
     void Start()
@@ -36,10 +37,11 @@ public class Timer : MonoBehaviour
         if (gameTime<=0)
         {
             stopTime = true;
-            
+            carRaceController.GetComponent<CarRaceController>().DisableLoseTextInvoke();
+
         }
 
-        if (stopTime== false)
+        else if (stopTime== false)
         {
             textSlider.text = textTime;
             slider.value = gameTime;

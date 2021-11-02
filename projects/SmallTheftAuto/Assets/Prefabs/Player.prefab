@@ -18,8 +18,9 @@ GameObject:
   - component: {fileID: 849736714710510647}
   - component: {fileID: -8364055760419563616}
   - component: {fileID: -1060661442283396699}
-  - component: {fileID: -7324317932517199746}
   - component: {fileID: -1886455180498070620}
+  - component: {fileID: -405919035511277636}
+  - component: {fileID: -7324317932517199746}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -197,6 +198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carsInScene: []
+  Enterables: []
+  InterractRange: 5
 --- !u!114 &-7833527537460937507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +251,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveWeapon: {fileID: 2258796007424826244, guid: cf657bee25d3acb4da0c334b8419d7aa, type: 3}
+--- !u!114 &-1886455180498070620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa21015e76f848499a35237cca1bc7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BareHandsSprite: {fileID: 21300000, guid: 97bef5c838c380e43820910187c7fa8f, type: 3}
+  PistolSprite: {fileID: 21300000, guid: 3e0b79ebe6d3dd44cb6b7da253b75434, type: 3}
+  MachineGunSprite: {fileID: 21300000, guid: d427218add2082c4f8b348dd3f465c20, type: 3}
+--- !u!114 &-405919035511277636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb25b9fa0726864e90c3396fe5d7323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSprite: {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
+  armedSprite: {fileID: 21300000, guid: bc8257d0f04ba864a98e03db76b71f2d, type: 3}
 --- !u!95 &-7324317932517199746
 Animator:
   serializedVersion: 3
@@ -267,18 +299,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-1886455180498070620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4396968072063033420}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa21015e76f848499a35237cca1bc7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BareHandsSprite: {fileID: 21300000, guid: 97bef5c838c380e43820910187c7fa8f, type: 3}
-  PistolSprite: {fileID: 21300000, guid: 3e0b79ebe6d3dd44cb6b7da253b75434, type: 3}
-  MachineGunSprite: {fileID: 21300000, guid: d427218add2082c4f8b348dd3f465c20, type: 3}

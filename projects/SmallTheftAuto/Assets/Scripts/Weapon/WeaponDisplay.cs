@@ -11,17 +11,15 @@ public class WeaponDisplay : MonoBehaviour
     void Awake()
     {
         weaponImage = FindObjectOfType<HUD>().WeaponImage;
-        Debug.Log("get this from line 14 weaponImage: " + weaponImage);
     }
 
     internal void UpdateWeaponDisplay(string weaponName)
     {
-        Debug.Log("get this updating weapon display");
         weaponImage.sprite = weaponName switch
         {
-            "BareHands" => BareHandsSprite,
-            "Pistol" => PistolSprite,
-            "MachineGun" => MachineGunSprite,
+            WeaponName.BareHands => BareHandsSprite,
+            WeaponName.Pistol => PistolSprite,
+            WeaponName.MachineGun => MachineGunSprite,
             _ => weaponImage.sprite
         };
     }

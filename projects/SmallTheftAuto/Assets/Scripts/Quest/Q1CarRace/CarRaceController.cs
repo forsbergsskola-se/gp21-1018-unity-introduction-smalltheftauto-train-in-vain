@@ -109,9 +109,16 @@ public class CarRaceController : MonoBehaviour
             Invoke(nameof(DisableWinText),cooldown);
             
         }
+        // else if(Slider.GetComponent<Timer>().gameTime== 0)
+        // {
+        //     Slider.SetActive(false);
+        //     loseText.SetActive(true);
+        //     Invoke(nameof(DisableLoseText),cooldown);
+        // }
         else
         {
             Debug.Log("You didn't get all the checkpoints! Try again!");
+            Slider.SetActive(false);
             loseText.SetActive(true);
             Invoke(nameof(DisableLoseText),cooldown);
         }
@@ -145,13 +152,24 @@ public class CarRaceController : MonoBehaviour
         placedPrefabs = new List<GameObject>();
     }
 
-    private void DisableWinText()
+    public void DisableWinText()
     {
         winText.SetActive(false);
     }
 
-    private void DisableLoseText()
+    public void DisableLoseText()
     {
         loseText.SetActive(false);
     }
+
+    public void DisableLoseTextInvoke()
+    {
+        Slider.SetActive(false);
+        loseText.SetActive(true);
+        Invoke(nameof(DisableLoseText),cooldown);
+        GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
+        DisplayQuest(false);
+        
+    }
+    
 }
