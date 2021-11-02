@@ -6,7 +6,7 @@ using UnityEngine;
 public class HealthPowerUp : MonoBehaviour
 {
     private PlayerHealth playerHealth;
-    private int healthUp;
+    public int healthUp;
     
 
     void Start()
@@ -20,14 +20,8 @@ public class HealthPowerUp : MonoBehaviour
         
         if (other.CompareTag("Player"))
         {
-            playerHealth.TakeDamage(50);
+            playerHealth.TakeDamage(- healthUp);
             Destroy(gameObject);
         }
     }
-
-    public void HealthIncrease(int healthToAdd)
-    {
-        healthUp += healthToAdd;
-    }
-
 }
