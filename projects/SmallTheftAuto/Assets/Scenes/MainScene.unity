@@ -1591,6 +1591,7 @@ MonoBehaviour:
   phoneBox: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
   phoneBox2: {fileID: 1516592271390903081, guid: 475a2ae015d15754dae729f9390de416, type: 3}
   questOne: {fileID: 429540630}
+  heart: {fileID: 8706437255675955121, guid: 9b1edea6541e7444f90be9fd07285048, type: 3}
   Pistol: {fileID: 951816989079572102, guid: eb8787ac5897a28459c89053f8994847, type: 3}
 --- !u!4 &642482743
 Transform:
