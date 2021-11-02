@@ -10,21 +10,25 @@ public class Timer : MonoBehaviour
     public Slider slider;
     public TextMeshProUGUI textSlider;
     public float gameTime;
-    public float startTemp;
+    public float startTime;
     private bool stopTime;
     public GameObject carRaceController;
     int minutes;
     int seconds;
-    void Start()
+
+    private void OnDisable()
     {
-        stopTime = false;
+        gameTime=startTime;
         slider.maxValue = gameTime;
         slider.value = gameTime;
     }
 
-    private void OnDisable()
+    private void OnEnable()
     {
-        gameTime = startTemp;
+        slider.maxValue = gameTime;
+        slider.value = gameTime;
+        stopTime = false;
+        
     }
 
     // Update is called once per frame
@@ -46,6 +50,5 @@ public class Timer : MonoBehaviour
             textSlider.text = textTime;
             slider.value = gameTime;
         }
-        
     }
 }

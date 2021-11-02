@@ -4093,8 +4093,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1907507275}
   textSlider: {fileID: 1726244043}
-  gameTime: 20
-  startTemp: 20
+  gameTime: 5
+  startTime: 5
   carRaceController: {fileID: 429540630}
 --- !u!1 &1918078659
 GameObject:
