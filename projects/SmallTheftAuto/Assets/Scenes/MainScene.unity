@@ -1037,6 +1037,7 @@ MonoBehaviour:
   Slider: {fileID: 1907507273}
   winText: {fileID: 1643984138}
   loseText: {fileID: 1034306468}
+  player: {fileID: 4396968072063033420, guid: b30f76cfa54ad974c808f01553842117, type: 3}
 --- !u!4 &429540632
 Transform:
   m_ObjectHideFlags: 0
@@ -1565,6 +1566,7 @@ GameObject:
   - component: {fileID: 642482742}
   - component: {fileID: 642482744}
   - component: {fileID: 642482745}
+  - component: {fileID: 642482746}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1615,7 +1617,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b37e2527c191da428a0d62384fd6366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carPrefab: {fileID: 6942922090966478902, guid: d64bf0052c4712d4cbc700cf653a6e02, type: 3}
   NewCarPrefab: {fileID: 4662404593033635940, guid: d3d5f337f272d624d897547b07db1b4d, type: 3}
 --- !u!114 &642482745
 MonoBehaviour:
@@ -1630,6 +1631,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePrefab: {fileID: 5494904029611182767, guid: 7a8b6c5ac5c6cab4c9c3a083a5ff5cab, type: 3}
+--- !u!114 &642482746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642482741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9314b86a011dec949b34c952646f006f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetMoney50: {fileID: 9198777453598004635, guid: cd260b79bc6db4c458de0505f3560585, type: 3}
+  GetMoney100: {fileID: 1910169804311544388, guid: 20979c475fec5694d843231aecabe49e, type: 3}
+  GetMoney200: {fileID: 1910169804311544388, guid: 20979c475fec5694d843231aecabe49e, type: 3}
 --- !u!1 &646175586
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,8 +4212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1907507275}
   textSlider: {fileID: 1726244043}
-  gameTime: 5
-  startTime: 5
+  gameTime: 10
+  startTime: 10
   carRaceController: {fileID: 429540630}
 --- !u!1 &1918078659
 GameObject:
