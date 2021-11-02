@@ -6,6 +6,7 @@ public class CarMovement : MonoBehaviour
     public float maxSpeed = 30f;
     public float turnSpeed = 150f;
 
+    // Used to scale damage in collisions.V
     public float Vertical { get; set; }
 
     void Update()
