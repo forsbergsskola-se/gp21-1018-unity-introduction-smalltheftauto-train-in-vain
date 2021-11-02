@@ -40,6 +40,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         EquipWeaponIfFound();
         SwapWeaponBasedOnInput();
         FireRangeWeaponWithLeftClick();
+        ReloadRangeWeaponWithR();
     }
 
     private void SwapWeaponBasedOnInput()
@@ -81,6 +82,14 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         if (Input.GetMouseButtonDown(KeyBinding.LeftClick) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
         {
             ActiveWeapon.GetComponent<FiringWeapon>().Fire();
+        }
+    }
+    
+    private void ReloadRangeWeaponWithR()
+    {
+        if (Input.GetKeyDown(KeyBinding.ReloadWeapon) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        {
+            ActiveWeapon.GetComponent<FiringWeapon>().Reload();
         }
     }
 
