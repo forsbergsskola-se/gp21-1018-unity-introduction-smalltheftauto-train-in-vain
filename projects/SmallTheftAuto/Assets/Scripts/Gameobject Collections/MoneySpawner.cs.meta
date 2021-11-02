@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 9314b86a011dec949b34c952646f006f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GetMoney10: {fileID: 4960541453665294450, guid: 69f76540bf581cc4787d8eb976fc7240, type: 3}
+  - GetMoney50: {fileID: 9198777453598004635, guid: cd260b79bc6db4c458de0505f3560585, type: 3}
+  - GetMoney100: {fileID: 1910169804311544388, guid: 20979c475fec5694d843231aecabe49e, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -51,15 +51,5 @@ public class PlayerController : MonoBehaviour
     {
         moneyText = FindObjectOfType<HUD>().MoneyText;
         moneyText.text = ": $ " + money;
-        
-        if (Input.GetMouseButtonDown(0))
-        {
-            addMoney(50);
-        }
-
-        else if (Input.GetMouseButtonDown(1))
-        {
-            subtractMoney(50);
-        }
     }
 }

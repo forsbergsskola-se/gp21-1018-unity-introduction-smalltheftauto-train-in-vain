@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     void Start()
     {
         Player = Instantiate(playerPrefab);
+        FindObjectOfType<CarRaceController>().player = Player;
+        
         var placedPhoneBox = Instantiate(phoneBox);
         placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();

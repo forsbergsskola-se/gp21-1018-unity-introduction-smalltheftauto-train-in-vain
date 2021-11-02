@@ -39,6 +39,10 @@ public class CollectMoney : MonoBehaviour
       {
          playerController.addMoney(10);
       }
+      else
+      {
+         Debug.Log("Something is wrong");
+      }
       
       Destroy(gameObject);
    }

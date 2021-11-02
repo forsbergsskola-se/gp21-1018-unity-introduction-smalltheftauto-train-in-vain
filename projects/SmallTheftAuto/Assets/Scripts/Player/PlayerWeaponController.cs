@@ -44,6 +44,15 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     {
         EquipWeaponIfFound();
         SwapWeaponBasedOnInput();
+        FireRangeWeaponWithLeftClick();
+    }
+
+    private void FireRangeWeaponWithLeftClick()
+    {
+        if (Input.GetMouseButtonDown(LeftClick) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        {
+            ActiveWeapon.GetComponent<FiringWeapon>().Fire();
+        }
     }
 
     private void SwapWeaponBasedOnInput()

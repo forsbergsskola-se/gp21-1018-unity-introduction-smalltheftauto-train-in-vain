@@ -20,6 +20,8 @@ public class CarRaceController : MonoBehaviour
     public GameObject Slider;
     public GameObject winText;
     public GameObject loseText;
+    private MoneySpawner moneySpawner;
+    public GameObject player;
     
     public GameObject QuestCar { get; private set; }
 
@@ -36,6 +38,7 @@ public class CarRaceController : MonoBehaviour
         Slider = FindObjectOfType<HUD>().QuestTimer;
         DisplayQuest(false);
         ScanCheckPointPosition();
+        moneySpawner = FindObjectOfType<MoneySpawner>();
     }
     
 
@@ -109,7 +112,10 @@ public class CarRaceController : MonoBehaviour
             Invoke(nameof(DisableWinText),cooldown);
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
-            
+            Debug.Log(player.gameObject.name);
+            moneySpawner.MoneyGet100(player.transform.position + new Vector3(3, 0));
+            moneySpawner.MoneyGet100(player.transform.position + new Vector3(-3, 0));
+
         }
         // else if(Slider.GetComponent<Timer>().gameTime== 0)
         // {
@@ -126,7 +132,6 @@ public class CarRaceController : MonoBehaviour
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
         }
-        
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
         DisplayQuest(false);
     }
