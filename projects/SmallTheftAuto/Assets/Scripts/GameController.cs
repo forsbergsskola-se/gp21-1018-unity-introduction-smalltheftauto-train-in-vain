@@ -15,6 +15,7 @@ public class GameController : MonoBehaviour
     public GameObject phoneBox;
     public GameObject phoneBox2;
     public GameObject questOne;
+    public GameObject heart;
 
     public GameObject Pistol; 
     private GameObject pistol;
@@ -35,6 +36,9 @@ public class GameController : MonoBehaviour
         var placedPhoneBox = Instantiate(phoneBox);
         placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);
         playerInteract.Interactables.Add(placedPhoneBox);
+
+        Instantiate(heart).transform.position = new Vector3(30, 0, 0);
+        
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
         questMenuController.QuestTitle = "CarRace";
         questMenuController.QuestDescription = "Complete the race course in time for a reward.";
