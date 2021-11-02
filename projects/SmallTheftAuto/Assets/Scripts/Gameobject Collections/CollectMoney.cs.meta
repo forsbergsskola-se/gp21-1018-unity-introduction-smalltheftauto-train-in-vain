@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 984e3d0aa375e444595aadcaece30a68
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - hundredDollars: {fileID: 21300000, guid: b2b0dc9873b1e644cae836bcd9d8ac2a, type: 3}
+  - fiftyDollars: {fileID: 21300000, guid: b337251dfabdf4244be30123408fc1dd, type: 3}
+  - tenDollars: {fileID: 21300000, guid: e00dcac7071ac27409d1f4c7843b27b0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

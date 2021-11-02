@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void addMoney(int moneyToAdd)
+    public void addMoney(int moneyToAdd)
     {
         money += moneyToAdd;
         Debug.Log("Woo-hoo, I'm rich!");

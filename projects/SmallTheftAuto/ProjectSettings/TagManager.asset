@@ -15,6 +15,7 @@ TagManager:
   - YesButton
   - Fire
   - Hurt
+  - Money
   layers:
   - Default
   - TransparentFX
