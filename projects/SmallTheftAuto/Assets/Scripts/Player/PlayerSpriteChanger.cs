@@ -9,13 +9,14 @@ public class PlayerSpriteChanger : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        playerWeaponController = gameObject.GetComponent<PlayerWeaponController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        playerWeaponController = GetComponent<PlayerWeaponController>();
     }
 
     private void LateUpdate()
     {
-        spriteRenderer.sprite = playerWeaponController.ActiveWeapon.WeaponName switch
+        var activeWeaponName = playerWeaponController.ActiveWeapon.WeaponName;
+        spriteRenderer.sprite = activeWeaponName switch
         {
             WeaponName.BareHands => defaultSprite,
             WeaponName.Pistol => armedSprite,

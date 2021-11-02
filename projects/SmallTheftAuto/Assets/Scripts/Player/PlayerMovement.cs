@@ -1,25 +1,25 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float rotSpeed = 120f;
-    public float speed = 10f;
-    public bool isWalking;
-    public bool isShooting;
-    public SpriteRenderer spriteRenderer;
-    public Animator animator;
-    public Sprite defaultSprite;
+    [SerializeField] private float rotSpeed = 120f;
+    [SerializeField] private float speed = 10f;
+    [SerializeField] private Sprite defaultSprite;
+    [SerializeField] private Sprite armedSprite;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private PlayerWeaponController playerWeaponController;
+    private bool isWalking;
+    private bool isShooting;
 
-    
-    void Start()
-     {
-         spriteRenderer = GetComponent<SpriteRenderer>();
-         animator = GetComponent<Animator>();
-     }
-
+    private void Awake()
+    {
+        playerWeaponController = GetComponent<PlayerWeaponController>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = defaultSprite;
+        animator = GetComponent<Animator>();
+        animator.enabled = false;
+    }
 
     void Update()
     {
@@ -30,21 +30,14 @@ public class PlayerMovement : MonoBehaviour
         isWalking = false;
         isShooting = false;
         animator.enabled = false;
-        spriteRenderer.sprite = defaultSprite;
-
+        var activeWeapon = playerWeaponController.ActiveWeapon;
+        spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? defaultSprite : armedSprite;
         
         if (vertical < 0)
         {
             transform.Translate(0,vertical/1.5f,0);
-            isShooting = true;
+            isWalking = true;
         }
-
-        else if (isShooting == true)
-        {
-            PlayerIsShootingPistol();
-        }
-        
-        
         else
         {
             transform.Translate(0,vertical,0);
@@ -60,19 +53,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (isWalking == true)
+        if (isWalking)
         {
-            PlayerIsWalking();
-        }
-
-        if (isShooting == true)
-        {
-            PlayerIsShootingPistol();
+            PlayWalkingAnimation();
         }
     }
      
     
-   void PlayerIsWalking()
+   void PlayWalkingAnimation()
     {
         if (animator.gameObject.activeSelf)
         {
@@ -81,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void PlayerIsShootingPistol()
+    void PlayShootingAnimation()
     {
         if (animator.gameObject.activeSelf)
         {
