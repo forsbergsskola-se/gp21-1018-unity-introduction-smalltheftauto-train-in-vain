@@ -42,6 +42,30 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     private void Update()
     {
+        EquipWeaponIfFound();
+
+        if (ActiveWeapon.WeaponName != WeaponName.BareHands && Input.GetKeyDown(SwapToBareHands))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name == WeaponName.BareHands);
+            Debug.Log("Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
+        }
+        if (ActiveWeapon.WeaponName != WeaponName.Pistol && ownedWeapons.Find(x => x.WeaponName == WeaponName.Pistol) && Input.GetKeyDown(SwapToPistol))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains(WeaponName.Pistol));
+            Debug.Log("Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
+        }
+        if (ActiveWeapon.WeaponName != WeaponName.MachineGun && ownedWeapons.Find(x => x.WeaponName == WeaponName.MachineGun) && Input.GetKeyDown(SwapToMachineGun))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains(WeaponName.MachineGun));
+            Debug.Log("Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
+        }
+    }
+
+    private void EquipWeaponIfFound()
+    {
         var foundWeapon = weaponIsWithinRange();
         if (foundWeapon != null && Input.GetKeyDown(PickUpWeapon))
         {
@@ -49,25 +73,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ownedWeapons.Add(ActiveWeapon);
             ActiveWeapon.EquipTo(this);
             ActiveWeapon.gameObject.SetActive(false);
-        }
-
-        if (ActiveWeapon.WeaponName != "BareHands" && Input.GetKeyDown(SwapToBareHands))
-        {
-            ActiveWeapon = ownedWeapons.Find(x => x.name == "BareHands");
-            Debug.Log("Swap weapon to: " + ActiveWeapon);
-            ActiveWeapon.EquipTo(this);
-        }
-        if (ActiveWeapon.WeaponName != "Pistol" && ownedWeapons.Find(x => x.WeaponName == "Pistol") && Input.GetKeyDown(SwapToPistol))
-        {
-            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("Pistol"));
-            Debug.Log("Swap weapon to: " + ActiveWeapon);
-            ActiveWeapon.EquipTo(this);
-        }
-        if (ActiveWeapon.WeaponName != "MachineGun" && ownedWeapons.Find(x => x.WeaponName == "MachineGun") && Input.GetKeyDown(SwapToMachineGun))
-        {
-            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("MachineGun"));
-            Debug.Log("Swap weapon to: " + ActiveWeapon);
-            ActiveWeapon.EquipTo(this);
         }
     }
 
