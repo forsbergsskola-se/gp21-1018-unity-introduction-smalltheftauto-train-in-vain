@@ -113,7 +113,9 @@ public class CarRaceController : MonoBehaviour
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
             Debug.Log(player.gameObject.name);
-            moneySpawner.MoneyGet200(player.transform.position);
+            moneySpawner.MoneyGet100(player.transform.position + new Vector3(3, 0));
+            moneySpawner.MoneyGet100(player.transform.position + new Vector3(-3, 0));
+
         }
         // else if(Slider.GetComponent<Timer>().gameTime== 0)
         // {

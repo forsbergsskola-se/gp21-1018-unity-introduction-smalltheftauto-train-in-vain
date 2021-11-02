@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class MoneySpawner : MonoBehaviour
 {
+    public GameObject GetMoney10;
     public GameObject GetMoney50;
     public GameObject GetMoney100;
-    public GameObject GetMoney200;
     
     // Start is called before the first frame update
     void Start()
@@ -21,19 +21,19 @@ public class MoneySpawner : MonoBehaviour
         
     }
 
-    void MoneyGet50(Vector3 spawnPostion)
+    public void MoneyGet10(Vector3 spawnPostion)
     {
-       
+        Instantiate(GetMoney10).transform.position = spawnPostion;
+
     }
-    void MoneyGet100(Vector3 spawnPostion)
+    public void MoneyGet100(Vector3 spawnPostion)
     {
-       
+        Instantiate(GetMoney50).transform.position = spawnPostion;
+        Instantiate(GetMoney50).transform.position = spawnPostion;
     }
     public void MoneyGet200(Vector3 spawnPostion)
     {
-        
-        Instantiate(GetMoney200).transform.position = spawnPostion;
-
+        Instantiate(GetMoney100).transform.position = spawnPostion;
+        Instantiate(GetMoney100).transform.position = spawnPostion;
     }
-    
 }
