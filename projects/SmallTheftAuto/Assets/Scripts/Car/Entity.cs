@@ -5,8 +5,14 @@ using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    public int MaxHealth;
     
+    private void Awake()
+    {
+        health = MaxHealth;
+    }
+    
+    public int MaxHealth;
+
     private int health;
     
     public bool IsAlive => health > 0;
@@ -17,7 +23,4 @@ public abstract class Entity : MonoBehaviour
         get => health;
         protected set => health = Mathf.Clamp(value, 0, MaxHealth);
     }
-
-    // TODO: Possibly add a invulnerability time.
-    public virtual void TakeDamage(int value) => Health -= value;
 }

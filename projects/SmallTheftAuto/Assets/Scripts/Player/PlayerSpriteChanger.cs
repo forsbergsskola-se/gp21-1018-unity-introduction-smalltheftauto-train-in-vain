@@ -17,9 +17,9 @@ public class PlayerSpriteChanger : MonoBehaviour
     {
         spriteRenderer.sprite = playerWeaponController.ActiveWeapon.WeaponName switch
         {
-            "BareHands" => defaultSprite,
-            "Pistol" => armedSprite,
-            "MachineGune" => armedSprite,
+            WeaponName.BareHands => defaultSprite,
+            WeaponName.Pistol => armedSprite,
+            WeaponName.MachineGun => armedSprite,
             _ => spriteRenderer.sprite
         };
     }

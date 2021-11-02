@@ -17,9 +17,9 @@ public class WeaponDisplay : MonoBehaviour
     {
         weaponImage.sprite = weaponName switch
         {
-            "BareHands" => BareHandsSprite,
-            "Pistol" => PistolSprite,
-            "MachineGun" => MachineGunSprite,
+            WeaponName.BareHands => BareHandsSprite,
+            WeaponName.Pistol => PistolSprite,
+            WeaponName.MachineGun => MachineGunSprite,
             _ => weaponImage.sprite
         };
     }
