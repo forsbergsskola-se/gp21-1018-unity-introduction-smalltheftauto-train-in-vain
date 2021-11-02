@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car : Entity, IDriveable, IEnterable
+public class Car : Entity, IDriveable, IEnterable, IDamageable
 {
     // Constructor
     public Car() : base()
@@ -11,21 +11,9 @@ public class Car : Entity, IDriveable, IEnterable
     }
 
 
-    public override void TakeDamage(int value)
-    {
-        base.TakeDamage(value);
-        if (Health < MaxHealth / 4)
-        {
-            IsBurning = true;
-            UpdateSprite();
-        }
-    }
-
-
     private bool CarRunning;
     private bool ExitAllowed;
     private const KeyCode VehicleInteractKey = KeyCode.F;
-    
     
     
     private void Start()
@@ -38,7 +26,6 @@ public class Car : Entity, IDriveable, IEnterable
         onFireAnimation = GetComponentInChildren<Animator>();
         onFireAnimation.enabled = false;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-
     }
     
     
@@ -96,6 +83,7 @@ public class Car : Entity, IDriveable, IEnterable
         currentUser.SetActive(false);
         followCamera.target = gameObject;
         CarRunning = true;
+        CollisionCheckActive = true;
         
         // Allow the car to be exited after half a second.
         Invoke("ExitCooldown", 0.5f);
@@ -124,6 +112,7 @@ public class Car : Entity, IDriveable, IEnterable
         
         
         CarRunning = false;
+        CollisionCheckActive = false;
 
         // TODO: ADD CAR SPRITE CHANGE HERE.----------------------------------------------------------------------------
         UpdateSprite();
@@ -148,6 +137,9 @@ public class Car : Entity, IDriveable, IEnterable
     {
         if (IsBurning)
         {
+            Debug.Log("Car is burning! " + IsBurning);
+            Debug.Log("Car health: " + Health);
+            Debug.Log($"Maxhealth = {MaxHealth}");
             if (currentUser != null)
             {
                 onFireAnimation.enabled = true;
@@ -160,5 +152,93 @@ public class Car : Entity, IDriveable, IEnterable
             }
         }
         spriteRenderer.sprite = currentUser != null ? drivingSkin : defaultSkin;
+    }
+    
+    
+    
+    
+    
+    // #################################################################################################################
+    // CarCollisions
+    
+    private const int MaxDamage = 500;
+    private bool CollisionCheckActive;
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (CollisionCheckActive)
+        {
+            if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
+            {
+                iDamageable.TakeDamage(CalculateCrashDamage(), gameObject);
+            }
+            TakeDamage(CalculateCrashDamage(), gameObject);
+        }
+    }
+
+    int CalculateCrashDamage()
+    {
+        return Math.Abs((int) Math.Round(MaxDamage * verticalSpeed));
+    }
+    
+    
+    
+    
+    
+    // #################################################################################################################
+    // CarDeath
+
+    public void CarExplode()
+    {
+        FindObjectOfType<FireSpawner>().SpawnFire(transform.position);
+        if (currentUser != null)
+        {
+            currentUser.GetComponent<PlayerHealth>().TakeDamage(999);
+            Exit();
+        }
+        Destroy(gameObject);
+    }
+    
+    
+    
+    
+    
+    // #################################################################################################################
+    // TakeDamage
+    
+    private bool takeDamageOnCooldown;
+    public void TakeDamage(int value, GameObject attacker)
+    {
+        if (!takeDamageOnCooldown)
+        {
+            if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase))
+            {
+                Debug.Log("Car takes a swim but sinks instantly!");
+                Debug.Log($"Car takes {value*1000} damage!");
+                Health -= value*1000;
+            }
+            else
+            {
+                Debug.Log($"Car takes {value} damage!");
+                Health -= value;
+            }
+            StartCoroutine(takeDamageCooldown());
+            if (Health < MaxHealth / 4)
+            {
+                IsBurning = true;
+                UpdateSprite();
+            }
+            if (Health <= 0)
+                CarExplode();
+        }
+    }
+
+    
+    
+    IEnumerator takeDamageCooldown()
+    {
+        takeDamageOnCooldown = true;
+        yield return new WaitForSeconds(0.25f);
+        takeDamageOnCooldown = false;
     }
 }

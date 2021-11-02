@@ -61,7 +61,6 @@ public class PlayerDrive : MonoBehaviour
             if (Vector3.Distance(gameObject.transform.position, Enterable.gameObject.transform.position) <=
                 InterractRange)
             {
-                Debug.Log(Vector3.Distance(gameObject.transform.position, Enterable.gameObject.transform.position));
                 SelectedEnterable = Enterable;
                 return true;
             }

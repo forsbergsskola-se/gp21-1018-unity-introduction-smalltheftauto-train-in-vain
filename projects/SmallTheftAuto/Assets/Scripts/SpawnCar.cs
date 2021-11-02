@@ -17,6 +17,7 @@ public class SpawnCar : MonoBehaviour
         Spawn(new Vector3(-10, 1.8f, 0));
         Spawn(new Vector3(10, 1.8f, 0));
         // SpawnUpgraded(new Vector3(0, 10, 0));
+        // SpawnUpgraded(new Vector3(-10, 10, 0));
     }
 
     public void Spawn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
