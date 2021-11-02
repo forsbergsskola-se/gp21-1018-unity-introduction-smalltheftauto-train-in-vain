@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 150
+Current Score: 155
 
-Current percent: 83.33% 
+Current percent: 86.11% 
 
 Current grade: VG - Magna Cum Laude (A) 
