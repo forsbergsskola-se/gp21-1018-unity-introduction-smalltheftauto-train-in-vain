@@ -11,12 +11,42 @@ public class Car : Entity, IDriveable, IEnterable
     }
 
 
+    public override void TakeDamage(int value)
+    {
+        base.TakeDamage(value);
+        if (Health < MaxHealth / 4)
+        {
+            IsBurning = true;
+            UpdateSprite();
+        }
+    }
+
+
     private bool CarRunning;
+    private bool ExitAllowed;
     private const KeyCode VehicleInteractKey = KeyCode.F;
+    
+    
+    
+    private void Start()
+    {
+        // IEnterable
+        followCamera = FindObjectOfType<FollowCamera>();
+        ExitPosition = transform.Find("CarExitPosition");
+        
+        // CarSpriteChanger
+        onFireAnimation = GetComponentInChildren<Animator>();
+        onFireAnimation.enabled = false;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+    }
+    
+    
+    
     // Main loop
     private void Update()
     {
-        if (currentUser != null && Input.GetKeyDown(VehicleInteractKey))
+        if (currentUser != null && Input.GetKeyDown(VehicleInteractKey) && ExitAllowed)
             Exit();
         if (CarRunning)
         {
@@ -24,6 +54,12 @@ public class Car : Entity, IDriveable, IEnterable
         }
     }
 
+    
+    
+    
+    
+    // #################################################################################################################
+    // IDriveable
 
     public float MaxSpeed = 30f;
     public float MaxTurnSpeed = 150f;
@@ -42,15 +78,18 @@ public class Car : Entity, IDriveable, IEnterable
     }
 
 
+    
+    
+    
+    // #################################################################################################################
+    // IEnterable
+    
     private FollowCamera followCamera;
     private Transform ExitPosition;
-    private void Start()
-    {
-        followCamera = FindObjectOfType<FollowCamera>();
-        ExitPosition = transform.Find("CarExitPosition");
-    }
-    
     private GameObject currentUser;
+    
+    
+
     public void Enter(GameObject User)
     {
         currentUser = User;
@@ -58,9 +97,22 @@ public class Car : Entity, IDriveable, IEnterable
         followCamera.target = gameObject;
         CarRunning = true;
         
-        // TODO: ADD CAR SPRITE CHANGE HERE.---------------------------------------------------------------------------_
+        // Allow the car to be exited after half a second.
+        Invoke("ExitCooldown", 0.5f);
+        
+        // TODO: ADD CAR SPRITE CHANGE HERE.----------------------------------------------------------------------------
+        UpdateSprite();
     }
 
+    
+    
+    void ExitCooldown()
+    {
+        ExitAllowed = true;
+    }
+
+    
+    
     public void Exit()
     {
         currentUser.transform.position = ExitPosition.position;
@@ -74,5 +126,39 @@ public class Car : Entity, IDriveable, IEnterable
         CarRunning = false;
 
         // TODO: ADD CAR SPRITE CHANGE HERE.----------------------------------------------------------------------------
+        UpdateSprite();
+    }
+    
+    
+    
+    
+    
+    // #################################################################################################################
+    // CarSpriteChanger
+
+    private Animator onFireAnimation;
+    private SpriteRenderer spriteRenderer;
+
+    public Sprite drivingSkin;
+    public Sprite defaultSkin;
+
+    private bool IsBurning;
+
+    void UpdateSprite()
+    {
+        if (IsBurning)
+        {
+            if (currentUser != null)
+            {
+                onFireAnimation.enabled = true;
+                onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On FireDriving") as RuntimeAnimatorController;
+            }
+            else
+            {
+                onFireAnimation.enabled = true;
+                onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On Fire") as RuntimeAnimatorController;
+            }
+        }
+        spriteRenderer.sprite = currentUser != null ? drivingSkin : defaultSkin;
     }
 }
