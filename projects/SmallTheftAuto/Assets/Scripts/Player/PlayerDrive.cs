@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class PlayerDrive : MonoBehaviour
 {
-    private const float RangeToGetIn = 5f;
-    private const KeyCode VehicleInteract = KeyCode.F;
-    public List<GameObject> carsInScene;
-    private GameObject targetCar;
+    // private const float RangeToGetIn = 5f;
+    // private const KeyCode VehicleInteract = KeyCode.F;
+    // public List<GameObject> carsInScene;
+    // private GameObject targetCar;
 
     // Currently in the new Update()
     // void Update()
@@ -17,23 +17,23 @@ public class PlayerDrive : MonoBehaviour
     //     }
     // }
     
-    private void EnterVehicle()
-    {
-        targetCar.GetComponent<HandlePassenger>().EnterCar();
-    }
-    
-    private bool carIsWithinRange()
-    {
-        var result = false;
-        foreach (var car in carsInScene)
-        {
-            result = Vector3.Distance(gameObject.transform.position, car.gameObject.transform.position) <= RangeToGetIn;
-            if (!result) continue;
-            targetCar = car;
-            break;
-        }
-        return result;
-    }
+    // private void EnterVehicle()
+    // {
+    //     targetCar.GetComponent<HandlePassenger>().EnterCar();
+    // }
+    //
+    // private bool carIsWithinRange()
+    // {
+    //     var result = false;
+    //     foreach (var car in carsInScene)
+    //     {
+    //         result = Vector3.Distance(gameObject.transform.position, car.gameObject.transform.position) <= RangeToGetIn;
+    //         if (!result) continue;
+    //         targetCar = car;
+    //         break;
+    //     }
+    //     return result;
+    // }
 
 
     public List<GameObject> Enterables;
@@ -47,10 +47,6 @@ public class PlayerDrive : MonoBehaviour
         {
             SelectedEnterable.GetComponent<IEnterable>().Enter(gameObject);
             SelectedEnterable = null;
-        }
-        if (gameObject.activeInHierarchy && carIsWithinRange() && Input.GetKeyDown(VehicleInteract))
-        {
-            EnterVehicle();
         }
     }
     
