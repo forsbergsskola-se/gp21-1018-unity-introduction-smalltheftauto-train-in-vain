@@ -43,7 +43,11 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private void Update()
     {
         EquipWeaponIfFound();
+        SwapWeaponBasedOnInput();
+    }
 
+    private void SwapWeaponBasedOnInput()
+    {
         if (ActiveWeapon.WeaponName != WeaponName.BareHands && Input.GetKeyDown(SwapToBareHands))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name == WeaponName.BareHands);
