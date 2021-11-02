@@ -27,7 +27,6 @@ public class PlayerDrive : MonoBehaviour
         var result = false;
         foreach (var car in carsInScene)
         {
-            Debug.Log($"Player: {gameObject.transform.position}, Target: {car.gameObject.transform.position}");
             result = Vector3.Distance(gameObject.transform.position, car.gameObject.transform.position) <= RangeToGetIn;
             if (!result) continue;
             targetCar = car;
@@ -59,7 +58,6 @@ public class PlayerDrive : MonoBehaviour
     {
         foreach (var Enterable in Enterables)
         {
-            Debug.Log($"Player: {gameObject.transform.position}, Target: {Enterable.transform.position}");
             if (Vector3.Distance(gameObject.transform.position, Enterable.gameObject.transform.position) <=
                 InterractRange)
             {
