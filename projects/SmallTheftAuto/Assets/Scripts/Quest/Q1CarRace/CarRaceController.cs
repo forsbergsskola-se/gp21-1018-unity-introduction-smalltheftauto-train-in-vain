@@ -10,7 +10,9 @@ public class CarRaceController : MonoBehaviour
     private List<GameObject> carRaceComponents = new List<GameObject>();
     private List<GameObject> placedPrefabs = new List<GameObject>();
     private List<GameObject> checkPointPostions = new List<GameObject>();
-
+    private PlayerController playerController;
+    
+    
     public SpawnCar SpawnCar;
     public GameObject CarSpawnPosition;
     private const float cooldown = 4f;
@@ -39,6 +41,8 @@ public class CarRaceController : MonoBehaviour
         DisplayQuest(false);
         ScanCheckPointPosition();
         moneySpawner = FindObjectOfType<MoneySpawner>();
+        
+        //playerController = FindObjectOfType<PlayerController>();
     }
     
 
@@ -131,6 +135,9 @@ public class CarRaceController : MonoBehaviour
             Invoke(nameof(DisableLoseText),cooldown);
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
+            
+            
+            //playerController.subtractMoney(10);
         }
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
         DisplayQuest(false);
