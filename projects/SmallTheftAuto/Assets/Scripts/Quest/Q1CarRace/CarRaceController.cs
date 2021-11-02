@@ -13,10 +13,13 @@ public class CarRaceController : MonoBehaviour
 
     public SpawnCar SpawnCar;
     public GameObject CarSpawnPosition;
+    private const float cooldown = 4f;
     
     public GameObject GoalPrefab;
     public GameObject CheckPointPrefab;
     public GameObject Slider;
+    public GameObject winText;
+    public GameObject loseText;
     
     public GameObject QuestCar { get; private set; }
 
@@ -34,9 +37,8 @@ public class CarRaceController : MonoBehaviour
         DisplayQuest(false);
         ScanCheckPointPosition();
     }
+    
 
-    
-    
     public void ActivateCarRaceQuest()
     {
         QuestCar = SpawnCar.SpawnAndReturn(CarSpawnPosition.transform.position, CarSpawnPosition.transform.rotation);
@@ -103,11 +105,15 @@ public class CarRaceController : MonoBehaviour
         {
             Debug.Log($"You won the race!");
             Slider.SetActive(false);
+            winText.SetActive(true);
+            Invoke(nameof(DisableWinText),cooldown);
             
         }
         else
         {
             Debug.Log("You didn't get all the checkpoints! Try again!");
+            loseText.SetActive(true);
+            Invoke(nameof(DisableLoseText),cooldown);
         }
         
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
@@ -137,5 +143,15 @@ public class CarRaceController : MonoBehaviour
              
         } 
         placedPrefabs = new List<GameObject>();
+    }
+
+    private void DisableWinText()
+    {
+        winText.SetActive(false);
+    }
+
+    private void DisableLoseText()
+    {
+        loseText.SetActive(false);
     }
 }

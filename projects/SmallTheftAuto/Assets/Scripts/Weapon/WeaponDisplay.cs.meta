@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: dfa21015e76f848499a35237cca1bc7a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BareHandsSprite: {fileID: 21300000, guid: 97bef5c838c380e43820910187c7fa8f, type: 3}
+  - PistolSprite: {fileID: 21300000, guid: 3e0b79ebe6d3dd44cb6b7da253b75434, type: 3}
+  - MachineGunSprite: {fileID: 21300000, guid: d427218add2082c4f8b348dd3f465c20, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

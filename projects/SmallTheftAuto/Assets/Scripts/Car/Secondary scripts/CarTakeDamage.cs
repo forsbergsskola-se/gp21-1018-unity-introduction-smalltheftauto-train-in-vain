@@ -20,8 +20,8 @@ public class CarTakeDamage : MonoBehaviour, ITarget
 
     public void TakeDamage(int damage)
     {
+        Debug.Log("get this Damage dealt to car: " + damage);
         carController.Health -= damage;
-        Debug.Log("get this damage dealt to car: " + damage);
     }
 
     public void DealDamage()

@@ -12,25 +12,29 @@ using UnityEngine;
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
     [SerializeField] private Weapon ActiveWeapon;
+    // [SerializeField] private WeaponDisplay DisplayActiveWeapon;
     private const int LeftClick = 0;
     private const KeyCode PickUpWeapon = KeyCode.F;
     private const KeyCode SwapToBareHands = KeyCode.Alpha1;
     private const KeyCode SwapToPistol = KeyCode.Alpha2;
+    private const KeyCode SwapToMachineGun = KeyCode.Alpha3;
     private const float RangeToPickUp = 5f;
+    
     private List<Weapon> nonMeleeWeaponsInScene;
     private List<Weapon> ownedWeapons = new List<Weapon>();
+    private WeaponDisplay displayActiveWeapon;
 
     public IEquippable Equippable { get; set; }
     public ITarget Target { get; set; }
 
     private void Awake()
     {
+        displayActiveWeapon = FindObjectOfType<WeaponDisplay>();
         // Note: Assume there's a default weapon assigned and it's bare hands
         if (ActiveWeapon == null) throw new Exception("Default weapon missing! Please assign a default weapon.");
         ActiveWeapon.EquipTo(this);
         ownedWeapons.Add(ActiveWeapon);
         nonMeleeWeaponsInScene = FindObjectsOfType<Weapon>().Where(w => !(FindObjectOfType<Melee>())).ToList();
-        Debug.Log("Get this non Melee weapons: " + nonMeleeWeaponsInScene);
     }
 
     private void Update()
@@ -40,27 +44,33 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         {
             ActiveWeapon = foundWeapon;
             ownedWeapons.Add(ActiveWeapon);
-
-            foreach (var w in ownedWeapons)
-            {
-                Debug.Log("Weapon available in ownedWeapons: " + w);
-            }
-            
             ActiveWeapon.EquipTo(this);
             ActiveWeapon.gameObject.SetActive(false);
         }
 
-        if (ActiveWeapon.name != "BareHands" && Input.GetKeyDown(SwapToBareHands))
+        if (ActiveWeapon.WeaponName != "BareHands" && Input.GetKeyDown(SwapToBareHands))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name == "BareHands");
-            Debug.Log("get this Swap to bare hands? " + ActiveWeapon);
-            Debug.Log("get this Active Weapon swapped to: " + ActiveWeapon);
+            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
         }
-        if (ActiveWeapon.name != "Pistol" && ownedWeapons.Find(x => x.name == "Pistol") &&  Input.GetKeyDown(SwapToPistol))
+        if (ActiveWeapon.WeaponName != "Pistol" && ownedWeapons.Find(x => x.WeaponName == "Pistol") && Input.GetKeyDown(SwapToPistol))
         {
-            ActiveWeapon = ownedWeapons.Find(x => x.name == "Pistol");
-            Debug.Log("get this Active Weapon swapped to: " + ActiveWeapon);
+            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("Pistol"));
+            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
         }
+        if (ActiveWeapon.WeaponName != "MachineGun" && ownedWeapons.Find(x => x.WeaponName == "MachineGun") && Input.GetKeyDown(SwapToMachineGun))
+        {
+            ActiveWeapon = ownedWeapons.Find(x => x.name.Contains("MachineGun"));
+            Debug.Log("get this Swap weapon to: " + ActiveWeapon);
+            ActiveWeapon.EquipTo(this);
+        }
+    }
+
+    private void LateUpdate()
+    {
+        if (ActiveWeapon != null) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
     }
 
     [CanBeNull]
@@ -70,7 +80,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         foreach (var weapon in from weapon in nonMeleeWeaponsInScene let find = Vector3.Distance(gameObject.transform.position, weapon.transform.position) <= RangeToPickUp where find select weapon)
         {
             weaponCandidate = weapon;
-            Debug.Log("Weapon candidate: " + weaponCandidate);
             break;
         }
         return weaponCandidate;
@@ -87,7 +96,6 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         // NOTE checking type instead of CompareTag
         // NOTE should be passing distance check instead of collision
         var gameObj = other.gameObject;
-        Debug.Log("HEY AM FROM PlayerWeaponController");
         if (gameObj.CompareTag("Car") && Input.GetMouseButtonDown(LeftClick)) 
         {
             Debug.Log(Equippable);
