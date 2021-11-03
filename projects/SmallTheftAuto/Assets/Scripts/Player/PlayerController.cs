@@ -85,9 +85,13 @@ public class PlayerController : Entity, IDamageable
         base.TakeDamage(value, attacker);
         healthBar.SetHealth(Health);
         
-        if (Health <= 40 && Health > 0)
+        if (Health < MaxHealth * 0.4 && Health > 0)
         {
             Hurt.SetActive(true);
+        }
+        else
+        {
+            Hurt.SetActive(false);
         }
     }
 
