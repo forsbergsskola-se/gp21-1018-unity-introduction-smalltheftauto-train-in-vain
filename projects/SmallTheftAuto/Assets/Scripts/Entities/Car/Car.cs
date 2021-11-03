@@ -95,7 +95,6 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
         // Allow the car to be exited after half a second.
         Invoke("ExitCooldown", 0.5f);
         
-        // TODO: ADD CAR SPRITE CHANGE HERE.----------------------------------------------------------------------------
         UpdateSprite();
     }
 
@@ -110,19 +109,21 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     
     public void Exit()
     {
-        currentUser.transform.position = ExitPosition.position;
-        currentUser.transform.rotation = ExitPosition.rotation;
+        if (currentUser != null)
+        {
+            currentUser.transform.position = ExitPosition.position;
+            currentUser.transform.rotation = ExitPosition.rotation;
 
-        currentUser.SetActive(true);
-        followCamera.target = currentUser;
-        currentUser = null;
+            currentUser.SetActive(true);
+            followCamera.target = currentUser;
+            currentUser = null;
         
         
-        CarRunning = false;
-        CollisionCheckActive = false;
+            CarRunning = false;
+            CollisionCheckActive = false;
 
-        // TODO: ADD CAR SPRITE CHANGE HERE.----------------------------------------------------------------------------
-        UpdateSprite();
+            UpdateSprite();
+        }
     }
     
     
