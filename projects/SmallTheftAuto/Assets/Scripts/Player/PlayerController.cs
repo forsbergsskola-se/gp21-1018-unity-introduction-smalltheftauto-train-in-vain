@@ -13,6 +13,11 @@ public class PlayerController : MonoBehaviour
     private int score;
     private int money;
 
+    public int Money
+    {
+        get => money;
+    }
+
     public int Score
     {
         get => score;
