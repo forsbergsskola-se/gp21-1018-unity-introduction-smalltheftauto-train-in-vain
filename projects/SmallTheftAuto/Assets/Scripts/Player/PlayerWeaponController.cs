@@ -81,7 +81,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private void FireRangeWeaponWithLeftClick()
     {
-        if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon && ActiveWeapon.WeaponName != WeaponName.BareHands)
         {
             playerMovement.isShooting = true;
             ActiveWeapon.GetComponent<FiringWeapon>().Fire();
@@ -90,7 +90,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private void ReloadRangeWeaponWithR()
     {
-        if (Input.GetKeyDown(KeyBinding.ReloadWeapon) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        if (Input.GetKeyDown(KeyBinding.ReloadWeapon) && ActiveWeapon && ActiveWeapon.WeaponName != WeaponName.BareHands)
         {
             ActiveWeapon.GetComponent<FiringWeapon>().Reload();
         }
@@ -98,7 +98,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     private void LateUpdate()
     {
-        if (ActiveWeapon != null) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
+        if (ActiveWeapon) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
     }
 
     [CanBeNull]
