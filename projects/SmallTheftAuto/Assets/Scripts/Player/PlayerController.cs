@@ -30,7 +30,8 @@ public class PlayerController : Entity, IDamageable
         set
         {
             score = value;
-            scoreText.text = "Score: " + score;
+            scoreText = FindObjectOfType<HUD>().ScoreText;
+            scoreText.text = "" + score;
         }
     }
 
