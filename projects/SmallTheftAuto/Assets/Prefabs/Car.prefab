@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409484d0567f6604aa96c1dd450eb685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 0
   MaxHealth: 300
   MaxSpeed: 30
   MaxTurnSpeed: 150
@@ -285,8 +286,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -620047959
-  m_SortingLayer: 2
+  m_SortingLayerID: -1982204957
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 042772663b91167488bf9ea38fa30936, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
