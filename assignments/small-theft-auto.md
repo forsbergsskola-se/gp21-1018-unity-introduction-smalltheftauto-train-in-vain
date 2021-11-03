@@ -57,12 +57,12 @@ Here's the set of features that I'll be looking for:
 |Death| Text "WASTED" is displayed. Player respawns after a few seconds. He loses half of his money. | | <ul><li>- [x] </li></ul> | 5 |
 |SavePoint| SavePoint-Powerups exist that save the Player's Progress, if he is not on a quest right now. When loading, the player's Health and Money is loaded and he spawns at the SavePoint that he touched last. | | <ul><li>- [x] </li></ul> | 5 |
 
-| | | | | Total: 185 |
+| | | | | Total: 180 |
 ------------------------------
 
 
 Current Score: 175
 
-Current percent: 94.6% 
+Current percent: 97.2% 
 
 Current grade: VG - Summa Cum laude (A*)
