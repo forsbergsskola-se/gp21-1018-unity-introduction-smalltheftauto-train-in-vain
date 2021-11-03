@@ -121,7 +121,9 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     // private void OnCollisionStay2D(Collision2D other)
     // {
-    //     if (other.gameObject.CompareTag("Car") && Input.GetMouseButtonDown(KeyBinding.LeftClick)) 
+    //     if (ActiveWeapon.WeaponName == WeaponName.BareHands &&
+    //         other.gameObject.CompareTag("Car") &&
+    //         Input.Get(KeyBinding.FireWeapon)) 
     //     {
     //         Debug.Log(Equippable);
     //         Attack(gameObj.GetComponent<CarTakeDamage>());
