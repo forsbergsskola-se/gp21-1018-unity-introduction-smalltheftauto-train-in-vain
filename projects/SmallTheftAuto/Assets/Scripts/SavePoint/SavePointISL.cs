@@ -1,14 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class SavePointISL : MonoBehaviour
+public class SavePointISL : MonoBehaviour, IInteractable
 {
     private static bool TurnYellow;
-    
+
+    internal static int nextId;
+    internal int id;
+
+    private PlayerHealth player;
+    private PlayerController playerControll;
+
     private void Start()
     {
+        id = nextId;
+        nextId++;
         FindObjectOfType<PlayerInteract>().Interactables.Add(gameObject);
+        player = FindObjectOfType<PlayerHealth>();
+        playerControll = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -34,6 +43,11 @@ public class SavePointISL : MonoBehaviour
 
     void Save()
     {
-        // TODO: ADD SAVE CODE HERE! -----------------------------------------------------------------------------------
+        StreamWriter saveWriter = new StreamWriter("Save.txt");
+        saveWriter.WriteLine(id);
+        saveWriter.WriteLine(player.currentHealth);
+        saveWriter.WriteLine(playerControll.Score);
+        saveWriter.WriteLine(playerControll.Money);
+        saveWriter.Close();
     }
 }
