@@ -56,6 +56,6 @@ public class PlayerHealth : MonoBehaviour
    IEnumerator SelfDestruct()
    {
        yield return new WaitForSeconds(5f);
-       ResetScene.Reset();
+       ResetScene.ResetLevel();
    }
 }

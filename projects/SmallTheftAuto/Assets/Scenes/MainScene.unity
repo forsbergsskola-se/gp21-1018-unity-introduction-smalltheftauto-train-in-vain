@@ -2897,7 +2897,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 954319414}
         m_TargetAssemblyTypeName: ResetScene, Assembly-CSharp
-        m_MethodName: Reset
+        m_MethodName: ResetLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
