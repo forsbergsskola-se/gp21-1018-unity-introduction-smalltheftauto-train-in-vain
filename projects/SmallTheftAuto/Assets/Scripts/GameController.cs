@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     public GameObject burger;
     
     public GameObject savePointPrefab;
+    public GameObject buildingPrefab;
 
     public GameObject Pistol; 
     private GameObject pistol;
@@ -45,6 +46,10 @@ public class GameController : MonoBehaviour
         
         Instantiate(savePointPrefab).transform.position = new Vector3(10, 28, 0);
         Instantiate(savePointPrefab).transform.position = new Vector3(-10, 28, 0);
+
+        Instantiate(buildingPrefab).transform.position = new Vector3(10, 10, 0);
+        
+        
         
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
         questMenuController.QuestTitle = "CarRace";

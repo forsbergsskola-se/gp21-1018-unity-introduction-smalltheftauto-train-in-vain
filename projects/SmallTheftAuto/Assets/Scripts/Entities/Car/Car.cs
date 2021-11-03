@@ -204,7 +204,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
             currentUser.GetComponent<PlayerHealth>().TakeDamage(999);
             Exit();
         }
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
     
     
@@ -214,37 +214,22 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     // #################################################################################################################
     // TakeDamage
     
-    private bool takeDamageOnCooldown;
-    public void TakeDamage(int value, GameObject attacker)
-    {
-        if (!takeDamageOnCooldown)
-        {
-            if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase))
-            {
-                Debug.Log("Car takes a swim but sinks instantly!");
-                Debug.Log($"Car takes {value*1000} damage!");
-                Health -= value*1000;
-            }
-            else
-            {
-                Debug.Log($"Car takes {value} damage!");
-                Health -= value;
-            }
-            StartCoroutine(takeDamageCooldown());
-            if (Health < MaxHealth / 4)
-            {
-                IsBurning = true;
-                UpdateSprite();
-            }
-            if (Health <= 0)
-                CarExplode();
-        }
-    }
     
-    IEnumerator takeDamageCooldown()
+    public override void TakeDamage(int value, GameObject attacker)
     {
-        takeDamageOnCooldown = true;
-        yield return new WaitForSeconds(0.25f);
-        takeDamageOnCooldown = false;
+        if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase))
+        {
+            Debug.Log("Car takes a swim but sinks instantly!");
+            value *= 1000;
+        }
+        base.TakeDamage(value, attacker);
+        Debug.Log($"Car takes {value} damage!");
+        if (Health < MaxHealth / 4)
+        {
+            IsBurning = true;
+            UpdateSprite();
+        }
+        if (Health <= 0)
+            CarExplode();
     }
 }

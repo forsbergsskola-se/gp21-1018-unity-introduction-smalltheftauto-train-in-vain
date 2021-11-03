@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6543132512824012744
+--- !u!1 &809183662722208181
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6543132512824012751}
-  - component: {fileID: 6543132512824012750}
-  - component: {fileID: 6543132512824012745}
-  - component: {fileID: 6543132512824012748}
-  - component: {fileID: -9050082269598425946}
+  - component: {fileID: 3387991362367112551}
+  - component: {fileID: 5403839191189863694}
+  - component: {fileID: 2142062923942661324}
+  - component: {fileID: 5376140763527808720}
   m_Layer: 0
-  m_Name: Sea Water
-  m_TagString: Water
+  m_Name: Beach Hut
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6543132512824012751
+--- !u!4 &3387991362367112551
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543132512824012744}
+  m_GameObject: {fileID: 809183662722208181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.6, y: 0.419, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalPosition: {x: -10.64, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6543132512824012750
+--- !u!212 &5403839191189863694
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543132512824012744}
+  m_GameObject: {fileID: 809183662722208181}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -72,67 +71,57 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 497170051
-  m_SortingLayer: 1
+  m_SortingLayerID: 496700913
+  m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1d82ae48087f02241a3bebeb467d83ac, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd01d10f409cc3341a99dc678700b914, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 50, y: 50}
+  m_Size: {x: 7.2, y: 9.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &6543132512824012745
+--- !u!61 &2142062923942661324
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543132512824012744}
+  m_GameObject: {fileID: 809183662722208181}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0059080124, y: -0.04389572}
+  m_Offset: {x: 0, y: -1.9389635}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 50, y: 50}
-    newSize: {x: 50, y: 50}
+    oldSize: {x: 7.2, y: 9.9}
+    newSize: {x: 7.2, y: 9.9}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 44.018143, y: 43.94216}
+  m_Size: {x: 7.2, y: 5.951932}
   m_EdgeRadius: 0
---- !u!114 &6543132512824012748
+--- !u!114 &5376140763527808720
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543132512824012744}
+  m_GameObject: {fileID: 809183662722208181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f300421b0c5c3874b982d0443cb76507, type: 3}
+  m_Script: {fileID: 11500000, guid: 49454314bf3e0cd4fb8f2da8eea4ea80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-9050082269598425946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6543132512824012744}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6643392db67987c42b33bbb227430e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  Id: 0
+  MaxHealth: 300

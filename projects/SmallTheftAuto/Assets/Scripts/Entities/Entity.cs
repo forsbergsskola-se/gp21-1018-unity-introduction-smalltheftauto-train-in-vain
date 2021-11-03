@@ -26,6 +26,30 @@ public abstract class Entity : MonoBehaviour
     public int Health
     {
         get => health;
-        protected set => health = Mathf.Clamp(value, 0, MaxHealth);
+        protected set { health = Mathf.Clamp(value, 0, MaxHealth); if (IsDead) { OnDeath(); } }
+    }
+
+
+    public virtual void OnDeath()
+    {
+        Destroy(gameObject);
+    }
+    
+    
+    private bool takeDamageOnCooldown;
+    public virtual void TakeDamage(int value, GameObject attacker = null)
+    {
+        if (!takeDamageOnCooldown)
+        {
+            Health -= value;
+            StartCoroutine(takeDamageCooldown());
+        }
+    }
+    
+    IEnumerator takeDamageCooldown()
+    {
+        takeDamageOnCooldown = true;
+        yield return new WaitForSeconds(0.25f);
+        takeDamageOnCooldown = false;
     }
 }
