@@ -20,7 +20,6 @@ public class SavePoint : MonoBehaviour, IInteractable
         Id = NextId;
         NextId++;
         player = FindObjectOfType<PlayerController>();
-        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     private void Update()
@@ -48,7 +47,7 @@ public class SavePoint : MonoBehaviour, IInteractable
     {
         StreamWriter save = new StreamWriter("Save.txt");
         save.WriteLine(Id);
-        save.WriteLine(playerHealth.currentHealth);
+        save.WriteLine(player.Health);
         save.WriteLine(player.Score);
         save.WriteLine(player.Money);
         save.Close();

@@ -201,7 +201,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
         FindObjectOfType<FireSpawner>().SpawnFire(transform.position);
         if (currentUser != null)
         {
-            currentUser.GetComponent<PlayerHealth>().TakeDamage(999);
+            currentUser.GetComponent<PlayerController>().TakeDamage(9999);
             Exit();
         }
         // Destroy(gameObject);
