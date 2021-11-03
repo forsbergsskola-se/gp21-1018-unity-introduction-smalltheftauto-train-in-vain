@@ -29,7 +29,7 @@ public class PhoneBoxInteraction : MonoBehaviour, IEnterable, IInteractable
         followCamera.target = gameObject;
         
         // Allow the phone box to be exited after half a second.
-        Invoke("ExitCooldown", 0.5f);
+        Invoke("ExitCooldown", 0.1f);
 
         questMenuController.enabled = true;
     }
