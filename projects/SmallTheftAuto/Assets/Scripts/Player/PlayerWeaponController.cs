@@ -81,7 +81,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private void FireRangeWeaponWithLeftClick()
     {
-        if (Input.GetMouseButtonDown(KeyBinding.LeftClick) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon != null && ActiveWeapon.WeaponName != WeaponName.BareHands)
         {
             playerMovement.isShooting = true;
             ActiveWeapon.GetComponent<FiringWeapon>().Fire();

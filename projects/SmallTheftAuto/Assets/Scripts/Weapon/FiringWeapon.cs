@@ -6,10 +6,16 @@ public class FiringWeapon : MonoBehaviour
     [SerializeField] private GameObject Bullet;
     [SerializeField] private int TotalRounds;
     private int totalRounds;
+    private GameObject player;
 
-    private void Awake()
+    // private void Awake()
+    // {
+    //     totalRounds = TotalRounds;
+    // }
+    private void Start()
     {
         totalRounds = TotalRounds;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     internal void Fire()
@@ -19,10 +25,18 @@ public class FiringWeapon : MonoBehaviour
             Debug.LogWarning("WARNING: RELOAD!");
             return;
         }
-        var bullet = Instantiate(Bullet);
+        InstantiateBullet();
+        MinusOneBullet();
+    }
+
+    private void InstantiateBullet()
+    {
+        // var bullet = Instantiate(Bullet);
+        var position = player.transform.position;
+        var rotation = player.transform.rotation;
+        var bullet = Instantiate(Bullet, position, rotation);
         var activeWeapon = FindObjectOfType<PlayerWeaponController>().ActiveWeapon;
         bullet.GetComponent<Projectile>().BulletDamage = (int)activeWeapon.Power;
-        MinusOneBullet();
     }
 
     private void MinusOneBullet() => totalRounds -= 1;
