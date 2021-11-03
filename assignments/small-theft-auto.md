@@ -39,9 +39,9 @@ Here's the set of features that I'll be looking for:
 |Quest| Player can interact with Phonebox to receive quest | | <ul><li>- [x] </li></ul> | 5 |
 |Quest| Player cannot interact with Phonebox if already on quest | | <ul><li>- [x] </li></ul> | 5 |
 |Quest| Quest yields Money Reward, if completed | | <ul><li>- [x] </li></ul> | 5 |
-|Weapon| Player can switch Weapon between Hands, Pistol and Machine Gun | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Player can switch Weapon between Hands, Pistol and Machine Gun | | <ul><li>- [x] </li></ul> | 5 |
 |Weapon| Player can use Weapon to Attack | | <ul><li>- [x] </li></ul> | 5 |
-|Weapon| Weapons need to reload | | <ul><li>- [ ] </li></ul> | 5 |
+|Weapon| Weapons need to reload | | <ul><li>- [x] </li></ul> | 5 |
 |UI| Player's chosen Weapon can be seen | | <ul><li>- [X] </li></ul> | 5 |
 |UI| Player's Weapon's shots until reload can be seen | | <ul><li>- [ ] </li></ul> | 5 |
 |Weapon| Attacks can hit cars | | <ul><li>- [x] </li></ul> | 5 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 160
+Current Score: 170
 
-Current percent: 88.88% 
+Current percent: 94.44% 
 
-Current grade: VG - Magna Cum Laude (A) 
+Current grade: VG - Magna Cum Laude (+A) 
