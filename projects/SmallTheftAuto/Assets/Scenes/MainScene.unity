@@ -4159,7 +4159,7 @@ MonoBehaviour:
   slider: {fileID: 1907507275}
   textSlider: {fileID: 1726244043}
   gameTime: 10
-  startTime: 0
+  startTime: 10
   carRaceController: {fileID: 429540630}
 --- !u!1 &1918078659
 GameObject:

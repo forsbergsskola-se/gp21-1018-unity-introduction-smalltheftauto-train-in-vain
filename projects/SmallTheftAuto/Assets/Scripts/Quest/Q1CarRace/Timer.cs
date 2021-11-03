@@ -9,8 +9,8 @@ public class Timer : MonoBehaviour
 {
     public Slider slider;
     public TextMeshProUGUI textSlider;
-    public float gameTime;
-    public float startTime;
+    public float gameTime=10;
+    public float startTime=10;
     private bool stopTime;
     public GameObject carRaceController;
     int minutes;
@@ -21,6 +21,7 @@ public class Timer : MonoBehaviour
         gameTime=startTime;
         slider.maxValue = gameTime;
         slider.value = gameTime;
+        stopTime = true;
     }
 
     private void OnEnable()
