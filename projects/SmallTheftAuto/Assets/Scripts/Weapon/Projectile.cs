@@ -16,12 +16,12 @@ public class Projectile : MonoBehaviour
         rb.AddForce(transform.up * BulletSpeed, ForceMode2D.Impulse);
     }
     
-    // private void OnTriggerEnter2D(Collider2D other)
-    // {
-    //     if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
-    //     {
-    //         iDamageable.TakeDamage(BulletDamage, gameObject);
-    //         Destroy(gameObject);
-    //     }
-    // }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
+        {
+            iDamageable.TakeDamage(BulletDamage, gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
