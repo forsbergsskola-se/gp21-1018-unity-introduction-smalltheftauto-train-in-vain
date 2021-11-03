@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     public GameObject burger;
     
     public GameObject savePointPrefab;
+    public GameObject buildingPrefab;
 
     public GameObject Pistol; 
     private GameObject pistol;
