@@ -204,7 +204,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
             currentUser.GetComponent<PlayerHealth>().TakeDamage(999);
             Exit();
         }
-        Destroy(gameObject);
+        // Destroy(gameObject);
     }
     
     
