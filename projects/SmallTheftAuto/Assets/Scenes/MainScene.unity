@@ -1568,6 +1568,7 @@ MonoBehaviour:
   pizza: {fileID: 7318896011683393578, guid: d642118b191f6994d9b62617249a7672, type: 3}
   burger: {fileID: 1502555259570542426, guid: a27b0966baab1b147b4429bbd0886259, type: 3}
   savePointPrefab: {fileID: 5428628570915178328, guid: c7d400734f23bc94680973dbf4a2a56b, type: 3}
+  buildingPrefab: {fileID: 809183662722208181, guid: 07f4462e896188c4fb73170d0e060935, type: 3}
   Pistol: {fileID: 951816989079572102, guid: eb8787ac5897a28459c89053f8994847, type: 3}
 --- !u!4 &642482743
 Transform:
