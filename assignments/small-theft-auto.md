@@ -65,4 +65,4 @@ Current Score: 170
 
 Current percent: 94.44% 
 
-Current grade: VG - Magna Cum Laude (+A) 
+Current grade: VG - Summa Cum laude (A*)
