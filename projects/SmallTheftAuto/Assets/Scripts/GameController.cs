@@ -46,6 +46,10 @@ public class GameController : MonoBehaviour
         
         Instantiate(savePointPrefab).transform.position = new Vector3(10, 28, 0);
         Instantiate(savePointPrefab).transform.position = new Vector3(-10, 28, 0);
+
+        Instantiate(buildingPrefab).transform.position = new Vector3(10, 10, 0);
+        
+        
         
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
         questMenuController.QuestTitle = "CarRace";

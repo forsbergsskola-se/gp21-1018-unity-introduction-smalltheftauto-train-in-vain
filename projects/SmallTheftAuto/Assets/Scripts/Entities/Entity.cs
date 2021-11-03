@@ -26,7 +26,13 @@ public abstract class Entity : MonoBehaviour
     public int Health
     {
         get => health;
-        protected set => health = Mathf.Clamp(value, 0, MaxHealth);
+        protected set { health = Mathf.Clamp(value, 0, MaxHealth); if (IsDead) { OnDeath(); } }
+    }
+
+
+    public virtual void OnDeath()
+    {
+        Destroy(gameObject);
     }
     
     
