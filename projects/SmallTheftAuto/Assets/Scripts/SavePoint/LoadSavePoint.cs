@@ -31,7 +31,7 @@ public class LoadSavePoint : MonoBehaviour
     {
         // Debug.Log("Hello there!");
         StreamReader loader = new StreamReader("Save.txt");
-        var playerHealth = FindObjectOfType<PlayerHealth>();
+        // var playerHealth = FindObjectOfType<PlayerHealth>();
         var playerController = FindObjectOfType<PlayerController>();
         var player = GameObject.FindGameObjectWithTag("Player");
         // TODO FIX POSITION
@@ -41,11 +41,9 @@ public class LoadSavePoint : MonoBehaviour
         var found = savePoints.Find(x => x.Id == savePointIdToFind);
         found.GetComponent<Transform>();
         player.transform.position = found.GetComponent<Transform>().position;
+
         
-        
-        
-        
-        playerHealth.TakeDamage(playerHealth.maxHealth - Int32.Parse(loader.ReadLine()));
+        playerController.TakeDamage(playerController.MaxHealth - Int32.Parse(loader.ReadLine()));
         playerController.Score = Int32.Parse(loader.ReadLine());
         playerController.addMoney(Int32.Parse(loader.ReadLine()));
         loader.Close();

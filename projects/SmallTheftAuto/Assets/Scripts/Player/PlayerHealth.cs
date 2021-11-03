@@ -19,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
         HealthBar = GameObject.FindWithTag("HealthBar").GetComponent<HealthBar>();
         currentHealth = maxHealth;
         ResetScene = FindObjectOfType<ResetScene>();
-        HealthBar.sethealth(maxHealth);
+        HealthBar.SetHealth(maxHealth);
         Wasted = GameObject.FindWithTag("Wasted");
         Wasted.SetActive(false);
         Hurt = GameObject.FindWithTag("Hurt");
@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        HealthBar.sethealth(currentHealth);
+        HealthBar.SetHealth(currentHealth);
 
         // trigger Hurt
         

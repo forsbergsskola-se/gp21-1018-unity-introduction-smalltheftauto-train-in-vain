@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        SavePoint.NextId = 0;
+        
         Player = Instantiate(playerPrefab);
         playerInteract = Player.GetComponent<PlayerInteract>();
         FindObjectOfType<CarRaceController>().player = Player;
