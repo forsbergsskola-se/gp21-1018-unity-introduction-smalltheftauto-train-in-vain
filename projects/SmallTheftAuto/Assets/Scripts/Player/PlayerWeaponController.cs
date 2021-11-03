@@ -18,6 +18,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private List<Weapon> ownedWeapons = new List<Weapon>();
     private WeaponDisplay displayActiveWeapon;
     private PlayerMovement playerMovement;
+    private List<GameObject> punchTargets = new List<GameObject>();
 
     public IEquippable Equippable { get; set; }
     public ITarget Target { get; set; }
@@ -43,6 +44,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         SwapWeaponBasedOnInput();
         FireRangeWeaponWithLeftClick();
         ReloadRangeWeaponWithR();
+        MeleeAttack();
     }
 
     private void SwapWeaponBasedOnInput()
@@ -95,6 +97,17 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ActiveWeapon.GetComponent<FiringWeapon>().Reload();
         }
     }
+    
+    private void MeleeAttack()
+    {
+        if (ActiveWeapon.WeaponName == WeaponName.BareHands && Input.GetButtonDown(KeyBinding.FireWeapon) && canPunch())
+        {
+            foreach (var t in punchTargets)
+            {
+                if (t.TryGetComponent(out IDamageable iDamageable)) iDamageable.TakeDamage((int)ActiveWeapon.Power, t);
+            }
+        }
+    }
 
     private void LateUpdate()
     {
@@ -118,6 +131,19 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         Target = target;
         Target.TakeDamage((int)ActiveWeapon.Power);
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        punchTargets.Add(other.gameObject);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        punchTargets.Remove(other.gameObject);
+        Debug.Log("Length of punchable things: " + punchTargets.Count);
+    }
+
+    private bool canPunch() => punchTargets.Count > 0;
 
     // private void OnCollisionStay2D(Collision2D other)
     // {
