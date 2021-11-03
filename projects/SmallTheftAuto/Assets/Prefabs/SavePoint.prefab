@@ -12,9 +12,6 @@ GameObject:
   - component: {fileID: 1933589692657106129}
   - component: {fileID: 9007825286782426636}
   - component: {fileID: 4646153970701680833}
-  - component: {fileID: -5693418989275420401}
-  - component: {fileID: 8537671851052018502}
-  - component: {fileID: -8303875996323492474}
   m_Layer: 0
   m_Name: SavePoint
   m_TagString: Untagged
@@ -114,41 +111,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aea8de18d54295248ad090671a2749f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-5693418989275420401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5428628570915178328}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47de3ecd9daa9e0429a4706ff637b151, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &8537671851052018502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5428628570915178328}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90bd6beffb908d945b93e665a4984e05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-8303875996323492474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5428628570915178328}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a065cb6cd32f58845869f88d7d302872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
