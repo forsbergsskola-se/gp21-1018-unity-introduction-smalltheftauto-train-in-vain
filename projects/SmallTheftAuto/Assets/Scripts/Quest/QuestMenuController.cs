@@ -29,11 +29,13 @@ public class QuestMenuController : MonoBehaviour
         get => questIsActive;
         set { questIsActive = value; }
     }
-    
-    
-    
-    
-    
+
+    public void Start()
+    { 
+        questIsActive=false;
+    }
+
+
     private void OnEnable()
     {
         // player = GameObject.FindGameObjectWithTag("Player");
