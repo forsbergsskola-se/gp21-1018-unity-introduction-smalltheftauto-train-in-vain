@@ -5,13 +5,11 @@ public class FiringWeapon : MonoBehaviour
     [SerializeField] private GameObject Bullet;
     [SerializeField] private int TotalRounds;
     private int totalRounds;
-    private GameObject player;
     private PlayerWeaponController playerWeaponController;
 
     private void Start()
     {
         totalRounds = TotalRounds;
-        player = GameObject.FindGameObjectWithTag("Player");
         playerWeaponController = FindObjectOfType<PlayerWeaponController>();
     }
 
@@ -28,8 +26,9 @@ public class FiringWeapon : MonoBehaviour
 
     private void InstantiateBullet()
     {
-        var position = player.transform.position;
-        var rotation = player.transform.rotation;
+        var initialBulletTransform = FindObjectOfType<TAG_InitialBulletPosition>().gameObject.transform;
+        var position = initialBulletTransform.position;
+        var rotation = initialBulletTransform.rotation;
         var bullet = Instantiate(Bullet, position, rotation);
         SetBulletDamageToActiveWeaponPower(bullet);
     }
