@@ -28,4 +28,22 @@ public abstract class Entity : MonoBehaviour
         get => health;
         protected set => health = Mathf.Clamp(value, 0, MaxHealth);
     }
+    
+    
+    private bool takeDamageOnCooldown;
+    public virtual void TakeDamage(int value, GameObject attacker = null)
+    {
+        if (!takeDamageOnCooldown)
+        {
+            Health -= value;
+            StartCoroutine(takeDamageCooldown());
+        }
+    }
+    
+    IEnumerator takeDamageCooldown()
+    {
+        takeDamageOnCooldown = true;
+        yield return new WaitForSeconds(0.25f);
+        takeDamageOnCooldown = false;
+    }
 }

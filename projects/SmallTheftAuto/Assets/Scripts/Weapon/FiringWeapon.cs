@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class FiringWeapon : MonoBehaviour
@@ -7,15 +6,13 @@ public class FiringWeapon : MonoBehaviour
     [SerializeField] private int TotalRounds;
     private int totalRounds;
     private GameObject player;
+    private PlayerWeaponController playerWeaponController;
 
-    // private void Awake()
-    // {
-    //     totalRounds = TotalRounds;
-    // }
     private void Start()
     {
         totalRounds = TotalRounds;
         player = GameObject.FindGameObjectWithTag("Player");
+        playerWeaponController = FindObjectOfType<PlayerWeaponController>();
     }
 
     internal void Fire()
@@ -31,11 +28,15 @@ public class FiringWeapon : MonoBehaviour
 
     private void InstantiateBullet()
     {
-        // var bullet = Instantiate(Bullet);
         var position = player.transform.position;
         var rotation = player.transform.rotation;
         var bullet = Instantiate(Bullet, position, rotation);
-        var activeWeapon = FindObjectOfType<PlayerWeaponController>().ActiveWeapon;
+        SetBulletDamageToActiveWeaponPower(bullet);
+    }
+
+    private void SetBulletDamageToActiveWeaponPower(GameObject bullet)
+    {
+        var activeWeapon = playerWeaponController.ActiveWeapon;
         bullet.GetComponent<Projectile>().BulletDamage = (int)activeWeapon.Power;
     }
 
