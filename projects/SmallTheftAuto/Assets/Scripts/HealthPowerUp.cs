@@ -5,28 +5,24 @@ using UnityEngine;
 
 public class HealthPowerUp : MonoBehaviour
 {
-    private PlayerHealth playerHealth;
     public int healthUp;
-    private int currentHealth;
+    private PlayerController playerController;
     
 
     void Start()
     {
-        playerHealth = FindObjectOfType<PlayerHealth>();
-        currentHealth = playerHealth.currentHealth;
-
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.name);
         
-        if (other.CompareTag("Player") && (currentHealth != 100))
+        if (other.CompareTag("Player") && (playerController.Health != playerController.MaxHealth))
         {
-            playerHealth.TakeDamage(- healthUp);
+            playerController.TakeDamage(-healthUp);
             Destroy(gameObject);
         }
-
         else
         {
              Debug.Log("Player has full health");
