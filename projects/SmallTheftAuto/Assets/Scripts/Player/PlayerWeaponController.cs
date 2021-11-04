@@ -86,8 +86,10 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     {
         if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon && ActiveWeapon.WeaponName != WeaponName.BareHands)
         {
+            var firingWeapon = ActiveWeapon.GetComponent<FiringWeapon>();
+            if (firingWeapon.totalRounds <= 0) return;
             playerMovement.isShooting = true;
-            ActiveWeapon.GetComponent<FiringWeapon>().Fire();
+            firingWeapon.Fire();
         }
     }
     
