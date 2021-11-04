@@ -44,6 +44,7 @@ public class CarRaceController : MonoBehaviour
         ScanCheckPointPosition();
         moneySpawner = FindObjectOfType<MoneySpawner>();
         
+
         //playerController = FindObjectOfType<PlayerController>();
     }
     
@@ -119,11 +120,11 @@ public class CarRaceController : MonoBehaviour
             winText.SetActive(true);
             Invoke(nameof(DisableWinText),cooldown);
             QuestCar.GetComponent<Car>().Exit();
+            player.GetComponent<PlayerController>().Score += 100;
             Destroy(QuestCar);
             Debug.Log(player.gameObject.name);
             moneySpawner.MoneyGet100(player.transform.position + new Vector3(3, 0));
             moneySpawner.MoneyGet100(player.transform.position + new Vector3(-3, 0));
-
         }
         // else if(Slider.GetComponent<Timer>().gameTime== 0)
         // {
@@ -141,8 +142,7 @@ public class CarRaceController : MonoBehaviour
             Destroy(QuestCar);
             //playerController.subtractMoney(10);
         }
-        carMusic.Stop();
-        WorldMusic.Play();
+        StopAndStartMusic();
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
         DisplayQuest(false);
     }
@@ -191,9 +191,14 @@ public class CarRaceController : MonoBehaviour
         DisplayQuest(false);
         QuestCar.GetComponent<Car>().Exit();
         Destroy(QuestCar);
+        StopAndStartMusic();
+        
+    }
+
+    void StopAndStartMusic()
+    {
         carMusic.Stop();
         WorldMusic.Play();
-        
     }
     
 }
