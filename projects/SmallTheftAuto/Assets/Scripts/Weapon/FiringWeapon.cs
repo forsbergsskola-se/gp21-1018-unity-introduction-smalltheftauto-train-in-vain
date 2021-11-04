@@ -55,17 +55,8 @@ public class FiringWeapon : MonoBehaviour
     internal void UpdateRemainBulletDisplay()
     {
         bulletCountText.text = totalRounds.ToString();
-        if (totalRounds == 0)
-        {
-            bulletCountText.enabled = false;
-            reloadCoverUp.SetActive(false);
-        }
-        else
-        {
-            bulletCountText.enabled = true;
-            reloadCoverUp.SetActive(true);
-        }
-            
+        bulletCountText.enabled = totalRounds != 0;
+        reloadCoverUp.SetActive(totalRounds != 0);
     }
 
     internal void Reload()
