@@ -57,6 +57,7 @@ public class PlayerController : Entity, IDamageable
     void Start()
     {
         var followCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
+        Debug.Log(followCamera.name);
         followCamera.target = gameObject;
 
         healthBar = FindObjectOfType<HealthBar>();
