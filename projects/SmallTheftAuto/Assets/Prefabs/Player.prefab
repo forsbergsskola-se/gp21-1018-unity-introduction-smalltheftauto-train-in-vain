@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveWeapon: {fileID: 2258796007424826244, guid: cf657bee25d3acb4da0c334b8419d7aa, type: 3}
+  RangeToPickUp: 3
 --- !u!114 &-1886455180498070620
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour
         }
         
         Instantiate(Pistol, new Vector3(-2.25f, 5f, 0f), Quaternion.identity);
-        Instantiate(MachineGun, new Vector3(-4.85f, 5f, 0f), Quaternion.identity);
+        Instantiate(MachineGun, new Vector3(-5.85f, 5f, 0f), Quaternion.identity);
         
         var placedPhoneBox = Instantiate(phoneBox, new Vector3(-0.519f, 41.2f,0f), Quaternion.identity);
         playerInteract.Interactables.Add(placedPhoneBox);
