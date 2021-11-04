@@ -12,7 +12,7 @@ using UnityEngine;
 internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 {
     [SerializeField] internal Weapon ActiveWeapon;
-    private const float RangeToPickUp = 5f;
+    [SerializeField] private float RangeToPickUp;
     
     private List<Weapon> nonMeleeWeaponsInScene;
     private List<Weapon> ownedWeapons = new List<Weapon>();
