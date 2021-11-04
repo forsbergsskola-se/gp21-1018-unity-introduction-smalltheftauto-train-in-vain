@@ -12,6 +12,7 @@ public class CarRaceController : MonoBehaviour
     private List<GameObject> checkPointPostions = new List<GameObject>();
     private PlayerController playerController;
     public AudioSource carMusic;
+    public AudioSource WorldMusic;
     
     public SpawnCar SpawnCar;
     public GameObject CarSpawnPosition;
@@ -58,6 +59,7 @@ public class CarRaceController : MonoBehaviour
         DisplayQuest(true);
         PlaceCheckPoints();
         carMusic.Play();
+        WorldMusic.Stop();
     }
 
     private void PlaceCheckPoints()
@@ -102,6 +104,7 @@ public class CarRaceController : MonoBehaviour
         {
             if (objectData.TryGetComponent<CheckPoint>(out var checkPoint))
             {
+                
                 Debug.Log($"Checking: {checkPoint.CarHasPassed}");
                 AllCheckPointsCollected = checkPoint.CarHasPassed;
                 if (!AllCheckPointsCollected)
@@ -114,7 +117,6 @@ public class CarRaceController : MonoBehaviour
             Debug.Log($"You won the race!");
             Slider.SetActive(false);
             winText.SetActive(true);
-            carMusic.Stop();
             Invoke(nameof(DisableWinText),cooldown);
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
@@ -137,10 +139,10 @@ public class CarRaceController : MonoBehaviour
             Invoke(nameof(DisableLoseText),cooldown);
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
-            carMusic.Stop();
-            
             //playerController.subtractMoney(10);
         }
+        carMusic.Stop();
+        WorldMusic.Play();
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
         DisplayQuest(false);
     }
@@ -189,6 +191,8 @@ public class CarRaceController : MonoBehaviour
         DisplayQuest(false);
         QuestCar.GetComponent<Car>().Exit();
         Destroy(QuestCar);
+        carMusic.Stop();
+        WorldMusic.Play();
         
     }
     
