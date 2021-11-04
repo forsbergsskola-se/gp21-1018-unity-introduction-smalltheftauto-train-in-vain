@@ -7,7 +7,7 @@ public class WeaponDisplay : MonoBehaviour
     [SerializeField] private Sprite PistolSprite;
     [SerializeField] private Sprite MachineGunSprite;
     private Image weaponImage;
-    
+
     void Awake()
     {
         weaponImage = FindObjectOfType<HUD>().WeaponImage;
