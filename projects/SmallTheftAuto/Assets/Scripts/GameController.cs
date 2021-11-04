@@ -61,4 +61,14 @@ public class GameController : MonoBehaviour
         questMenuController.QuestDescription = "Complete the race course in time for a reward.";
         questMenuController.quest = questOne;
     }
+
+    public void AddMoney(int value)
+    {
+        FindObjectOfType<PlayerController>().addMoney(value);
+    }
+
+    public void AddScore(int value)
+    {
+        FindObjectOfType<PlayerController>().Score += value;
+    }
 }
