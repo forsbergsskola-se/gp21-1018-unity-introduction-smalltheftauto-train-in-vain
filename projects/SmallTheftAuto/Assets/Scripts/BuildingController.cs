@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuildingController : Entity, IDamageable
 {
+    
     void TakeDamage(int value, GameObject attacker)
     {
         if (attacker.TryGetComponent(out TAG_BulletDamage noUseCase))
@@ -17,5 +18,12 @@ public class BuildingController : Entity, IDamageable
             value /= 2;
         }
         base.TakeDamage(value, attacker);
+    }
+
+    public override void OnDeath()
+    {
+        FindObjectOfType<GameController>().AddScore(10);
+        FindObjectOfType<GameController>().AddMoney(10);
+        base.OnDeath();
     }
 }
