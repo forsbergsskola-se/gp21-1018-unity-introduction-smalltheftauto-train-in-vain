@@ -60,6 +60,12 @@ public class FiringWeapon : MonoBehaviour
             bulletCountText.enabled = false;
             reloadCoverUp.SetActive(false);
         }
+        else
+        {
+            bulletCountText.enabled = true;
+            reloadCoverUp.SetActive(true);
+        }
+            
     }
 
     internal void Reload()
