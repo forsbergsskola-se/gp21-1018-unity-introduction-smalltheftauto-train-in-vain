@@ -63,7 +63,7 @@ public class PlayerController : Entity, IDamageable
         healthBar = FindObjectOfType<HealthBar>();
         
         scoreText = FindObjectOfType<HUD>().ScoreText;
-        Score = 50;
+        Score = 0;
         
         Wasted = GameObject.FindWithTag("Wasted");
         Wasted.SetActive(false);
