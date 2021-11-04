@@ -64,11 +64,11 @@ public class GameController : MonoBehaviour
 
     public void AddMoney(int value)
     {
-        FindObjectOfType<PlayerController>().addMoney(value);
+        Player.GetComponent<PlayerController>().addMoney(value);
     }
 
     public void AddScore(int value)
     {
-        FindObjectOfType<PlayerController>().Score += value;
+        Player.GetComponent<PlayerController>().Score += value;
     }
 }
