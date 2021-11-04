@@ -6,51 +6,67 @@ using Random = UnityEngine.Random;
 
 public class Pedestrian : Entity, IDamageable
 {
-    public int TurnCooldownMax;
-    public int TurnCooldownMin;
     public int MoveSpeed;
-    public int WalkDistance;
     public int WaitTimeMax;
     public int WaitTimeMin;
-
-
-
+    public int PanicModeTime;
+    
+    private bool somethingIsInFrontfMeOhNo;
+    private bool inPanicMode;
+    private bool walkBackwards;
     private bool walk;
+    private float panicModeTimeOffset = 1;
+    private float panicModeSpeedOffset = 1;
     private void Update()
     {
         // RandomMovement();
         if (walk)
-            transform.Translate(Vector3.up * MoveSpeed * Time.deltaTime);
+            transform.Translate(Vector3.up * (MoveSpeed * panicModeSpeedOffset)* Time.deltaTime);
+        if (walkBackwards)
+            transform.Translate(Vector3.down * (MoveSpeed/2 * panicModeSpeedOffset) * Time.deltaTime);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("OHNO something is in front of me!");
+        walk = false;
+        somethingIsInFrontfMeOhNo = true;
+        walkBackwards = true;
+        Invoke("WalkBackwards", 1 * panicModeTimeOffset);
+        // transform.Rotate(Vector3.forward * 180);
+
     }
 
     private void Start()
     {
-        // RandomMovement();
         Turn();
     }
 
-
-    // void RandomMovement()
-    // {
-    //     Invoke("RandomMovement", Random.Range(WaitTimeMin, WaitTimeMax));
-    //     
-    //     if (Random.Range(0, 100) < TurnChance)
-    //     {
-    //         
-    //     }
-    // }
+    void WalkBackwards()
+    {
+        walkBackwards = false;
+        somethingIsInFrontfMeOhNo = false;
+        Invoke("Turn", Random.Range(WaitTimeMin, WaitTimeMax) * panicModeTimeOffset);
+    }
 
     void Walk()
     {
-        walk = false;
-        Invoke("Turn", Random.Range(WaitTimeMin, WaitTimeMax));
+        if (!somethingIsInFrontfMeOhNo)
+        {
+            walk = false;
+            Invoke("Turn", Random.Range(WaitTimeMin, WaitTimeMax) * panicModeTimeOffset);
+        }
     }
 
     void Turn()
     {
-        transform.Rotate(Vector3.forward * Random.Range(0, 360));
-        walk = true;
-        Invoke("Walk", Random.Range(WaitTimeMin, WaitTimeMax));
+        if (!somethingIsInFrontfMeOhNo)
+        {
+            transform.Rotate(Vector3.forward * Random.Range(0, 360));
+            walk = true;
+            Invoke("Walk", Random.Range(WaitTimeMin, WaitTimeMax) * panicModeTimeOffset);
+        }
     }
 
 
@@ -59,13 +75,33 @@ public class Pedestrian : Entity, IDamageable
         if (attacker.TryGetComponent(out TAG_CollisionDamage noUseCase))
         {
             Debug.Log("NPC got run over!");
-            value *= 1000;
+            value *= 5;
         }
 
         if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase2))
         {
             value *= 10;
         }
+
+        StartCoroutine(PanicMode());
         base.TakeDamage(value, attacker);
+    }
+
+    IEnumerator PanicMode()
+    {
+        inPanicMode = true;
+        panicModeSpeedOffset = 7;
+        panicModeTimeOffset = 0.5f;
+        yield return new WaitForSeconds(PanicModeTime);
+        panicModeSpeedOffset = 1;
+        panicModeTimeOffset = 1;
+        inPanicMode = false;
+    }
+
+    public override void OnDeath()
+    {
+        FindObjectOfType<GameController>().AddMoney(75);
+        FindObjectOfType<GameController>().AddScore(150);
+        base.OnDeath();
     }
 }

@@ -16,6 +16,14 @@ public class NPCSpawner : MonoBehaviour
 
     public GameObject NPCPrefab;
 
+    public Sprite[] NPCskins;
+
+    public int[] MaxHealthRange;
+    public int[] MoveSpeedRange;
+    public int[] WaitTimeMaxRange;
+    public int[] WaitTimeMinRange;
+    public int[] PanicModeTimeRange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +43,16 @@ public class NPCSpawner : MonoBehaviour
             var newNPC = Instantiate(NPCPrefab);
             var temp = Random.Range(0, spawnPositions.Count);
             newNPC.transform.position = spawnPositions[temp];
+            newNPC.GetComponent<SpriteRenderer>().sprite = NPCskins[Random.Range(0, NPCskins.Length)];
+
+            var newNPCVariables = newNPC.GetComponent<Pedestrian>();
+
+            newNPCVariables.MaxHealth = Random.Range(MaxHealthRange[0], MaxHealthRange[1]);
+            newNPCVariables.MoveSpeed = Random.Range(MoveSpeedRange[0], MoveSpeedRange[1]);
+            newNPCVariables.WaitTimeMax = Random.Range(WaitTimeMaxRange[0], WaitTimeMaxRange[1]);
+            newNPCVariables.WaitTimeMin = Random.Range(WaitTimeMinRange[0], WaitTimeMinRange[1]);
+            newNPCVariables.PanicModeTime = Random.Range(PanicModeTimeRange[0], PanicModeTimeRange[1]);
+
             Debug.Log("Spawned a new NPC at spawnID: " + temp);
             NPCs.Add(newNPC);
             Debug.Log($"NPC has nr: {NPCs.Count}");
