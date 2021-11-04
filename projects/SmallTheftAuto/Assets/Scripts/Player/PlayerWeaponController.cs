@@ -104,6 +104,11 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
         {
             foreach (var t in punchTargets)
             {
+                if (t == null)
+                {
+                    punchTargets.Remove(t);
+                    break;
+                }
                 if (t.TryGetComponent(out IDamageable iDamageable)) iDamageable.TakeDamage((int)ActiveWeapon.Power, t);
             }
         }
@@ -139,20 +144,9 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        punchTargets.Remove(other.gameObject);
+        if (other != null) punchTargets.Remove(other.gameObject);
         Debug.Log("Length of punchable things: " + punchTargets.Count);
     }
 
     private bool canPunch() => punchTargets.Count > 0;
-
-    // private void OnCollisionStay2D(Collision2D other)
-    // {
-    //     if (ActiveWeapon.WeaponName == WeaponName.BareHands &&
-    //         other.gameObject.CompareTag("Car") &&
-    //         Input.Get(KeyBinding.FireWeapon)) 
-    //     {
-    //         Debug.Log(Equippable);
-    //         Attack(gameObj.GetComponent<CarTakeDamage>());
-    //     }
-    // }
 }
