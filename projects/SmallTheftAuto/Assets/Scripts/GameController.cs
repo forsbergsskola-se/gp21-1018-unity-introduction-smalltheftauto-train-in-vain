@@ -29,9 +29,7 @@ public class GameController : MonoBehaviour
 
     private void Awake()
     {
-        pistol = Instantiate(Pistol);
-        pistol.transform.position = new Vector3(-2.25f, 5f, 0f);
-        
+        pistol = Instantiate(Pistol, new Vector3(-2.25f, 5f, 0f), Quaternion.identity);
         machineGun = Instantiate(MachineGun, new Vector3(-4.85f, 5f, 0f), Quaternion.identity);
     }
 
