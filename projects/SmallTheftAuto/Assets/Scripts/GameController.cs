@@ -21,16 +21,14 @@ public class GameController : MonoBehaviour
     public GameObject savePointPrefab;
     public GameObject buildingPrefab;
 
-    public GameObject Pistol; 
-    private GameObject pistol;
+    [SerializeField] private GameObject Pistol;
     [SerializeField] private GameObject MachineGun;
-    private GameObject machineGun;
     private PlayerInteract playerInteract;
 
     private void Awake()
     {
-        pistol = Instantiate(Pistol, new Vector3(-2.25f, 5f, 0f), Quaternion.identity);
-        machineGun = Instantiate(MachineGun, new Vector3(-4.85f, 5f, 0f), Quaternion.identity);
+        Instantiate(Pistol, new Vector3(-2.25f, 5f, 0f), Quaternion.identity);
+        Instantiate(MachineGun, new Vector3(-4.85f, 5f, 0f), Quaternion.identity);
     }
 
     void Start()
