@@ -33,11 +33,21 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        
         SavePoint.NextId = 0;
         
         Player = Instantiate(playerPrefab);
         playerInteract = Player.GetComponent<PlayerInteract>();
         FindObjectOfType<CarRaceController>().player = Player;
+        var moneyOnDeath = PlayerController.MoneyOnDeath;
+        var scoreOnDeath = PlayerController.ScoreOnDeath;
+        if (moneyOnDeath!=0|| scoreOnDeath!=0)
+        {
+            FindObjectOfType<PlayerController>().addMoney(moneyOnDeath/2);
+            FindObjectOfType<PlayerController>().Score = scoreOnDeath;
+            PlayerController.MoneyOnDeath = 0;
+            PlayerController.ScoreOnDeath = 0;
+        }
         
         var placedPhoneBox = Instantiate(phoneBox);
         placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);

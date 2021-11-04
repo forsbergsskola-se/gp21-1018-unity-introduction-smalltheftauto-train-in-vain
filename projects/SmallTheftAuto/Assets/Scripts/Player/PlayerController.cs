@@ -13,8 +13,9 @@ public class PlayerController : Entity, IDamageable
     private HealthBar healthBar;
     private GameObject Wasted;
     private GameObject Hurt;
-    
-    
+
+    public static int MoneyOnDeath;
+    public static int ScoreOnDeath;
     private int score;
     private int money;
 
@@ -56,6 +57,7 @@ public class PlayerController : Entity, IDamageable
     void Start()
     {
         var followCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<FollowCamera>();
+        Debug.Log(followCamera.name);
         followCamera.target = gameObject;
 
         healthBar = FindObjectOfType<HealthBar>();
@@ -99,7 +101,7 @@ public class PlayerController : Entity, IDamageable
         Wasted.SetActive(true);
         GetComponent<PlayerMovement>().enabled = false;
 
-
+        
         StartCoroutine(DeathScreenDelay());
         Debug.Log("Hi im dead");
     }
@@ -107,6 +109,8 @@ public class PlayerController : Entity, IDamageable
     IEnumerator DeathScreenDelay()
     {
         yield return new WaitForSeconds(3);
+        ScoreOnDeath = score;
+        MoneyOnDeath = money;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

@@ -24,6 +24,7 @@ public class LoadSavePoint : MonoBehaviour
         if(LoadOnStart)
         {
             Invoke("PlacePlayer", 1);
+            LoadOnStart = false;
         }
     }
 
