@@ -3614,6 +3614,7 @@ MonoBehaviour:
   savePointPrefab: {fileID: 5428628570915178328, guid: c7d400734f23bc94680973dbf4a2a56b, type: 3}
   buildingPrefab: {fileID: 809183662722208181, guid: 07f4462e896188c4fb73170d0e060935, type: 3}
   Pistol: {fileID: 951816989079572102, guid: eb8787ac5897a28459c89053f8994847, type: 3}
+  MachineGun: {fileID: 951816989079572102, guid: f5f50f22ed6420c4f802b8718b87aa72, type: 3}
 --- !u!4 &642482743
 Transform:
   m_ObjectHideFlags: 0

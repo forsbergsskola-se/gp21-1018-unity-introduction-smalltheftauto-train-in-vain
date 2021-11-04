@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 951816989079572100}
   - component: {fileID: 951816989079572103}
   - component: {fileID: 2258796007424826244}
+  - component: {fileID: -8108264510350907294}
   m_Layer: 0
   m_Name: MachineGun
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WeaponName: MachineGun
   Power: 80
+--- !u!114 &-8108264510350907294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951816989079572102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbc2abdb62d6f746869e90e01930826, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bullet: {fileID: 2286285464873633768, guid: 2495cffdb00702b4c823ad9bbba0f525, type: 3}
+  TotalRounds: 30

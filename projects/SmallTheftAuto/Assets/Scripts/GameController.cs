@@ -21,15 +21,9 @@ public class GameController : MonoBehaviour
     public GameObject savePointPrefab;
     public GameObject buildingPrefab;
 
-    public GameObject Pistol; 
-    private GameObject pistol;
+    [SerializeField] private GameObject Pistol;
+    [SerializeField] private GameObject MachineGun;
     private PlayerInteract playerInteract;
-
-    private void Awake()
-    {
-        pistol = Instantiate(Pistol);
-        pistol.transform.position = new Vector3(-2.278244f, 5f, 0f);
-    }
 
     void Start()
     {
@@ -49,30 +43,22 @@ public class GameController : MonoBehaviour
             PlayerController.ScoreOnDeath = 0;
         }
         
-        var placedPhoneBox = Instantiate(phoneBox);
-        placedPhoneBox.transform.position=new Vector3(-0.519f, 41.2f,0f);
+        Instantiate(Pistol, new Vector3(-2.25f, 5f, 0f), Quaternion.identity);
+        Instantiate(MachineGun, new Vector3(-4.85f, 5f, 0f), Quaternion.identity);
+        
+        var placedPhoneBox = Instantiate(phoneBox, new Vector3(-0.519f, 41.2f,0f), Quaternion.identity);
         playerInteract.Interactables.Add(placedPhoneBox);
 
-        Instantiate(pizza).transform.position = new Vector3(30, 5, 0);
-        Instantiate(burger).transform.position = new Vector3(30, 0, 0);
+        Instantiate(pizza, new Vector3(30, 5, 0), Quaternion.identity);
+        Instantiate(burger, new Vector3(30, 0, 0), Quaternion.identity);
         
-        Instantiate(savePointPrefab).transform.position = new Vector3(10, 28, 0);
-        Instantiate(savePointPrefab).transform.position = new Vector3(-10, 28, 0);
+        Instantiate(savePointPrefab, new Vector3(10, 28, 0), Quaternion.identity);
+        Instantiate(savePointPrefab, new Vector3(-10, 28, 0), Quaternion.identity);
+        Instantiate(buildingPrefab, new Vector3(10, 10, 0), Quaternion.identity);
 
-        Instantiate(buildingPrefab).transform.position = new Vector3(10, 10, 0);
-        
-        
-        
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
         questMenuController.QuestTitle = "CarRace";
         questMenuController.QuestDescription = "Complete the race course in time for a reward.";
         questMenuController.quest = questOne;
-
-        // var placedPhoneBox2 = Instantiate(phoneBox2);
-        // placedPhoneBox2.transform.position=new Vector3(-0.519f, 21.2f,0f);
-        // var questMenuController2 = placedPhoneBox2.GetComponent<QuestMenuController>();
-        // questMenuController2.QuestTitle = "BikeRace";
-        // questMenuController2.QuestDescription = "Bike go ded.";
-        // questMenuController2.quest = questOne;
     }
 }
