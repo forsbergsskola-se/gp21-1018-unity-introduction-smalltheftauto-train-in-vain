@@ -5,9 +5,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float rotSpeed = 120f;
     [SerializeField] private float speed = 10f;
     [SerializeField] private Sprite defaultSprite;
-    [SerializeField] private Sprite armedSprite;
+    [SerializeField] private Sprite armedWithPistolSprite;
+    [SerializeField] private Sprite armedWithMachineGunSprite;
     private SpriteRenderer spriteRenderer;
-    private Animator animator;
+    private Animator shootPistolAnimator;
+    private Animator shootMachineGunAnimator;
     private PlayerWeaponController playerWeaponController;
     internal bool isWalking;
     internal bool isShooting;
@@ -17,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
         playerWeaponController = GetComponent<PlayerWeaponController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = defaultSprite;
-        animator = GetComponent<Animator>();
-        animator.enabled = false;
+        shootPistolAnimator = GetComponent<Animator>();
+        shootPistolAnimator.enabled = false;
     }
 
     void Update()
@@ -28,9 +30,10 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, -horizontal);
         
         isWalking = false;
-        animator.enabled = false;
+        shootPistolAnimator.enabled = false;
         var activeWeapon = playerWeaponController.ActiveWeapon;
-        spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? defaultSprite : armedSprite;
+        spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? 
+            defaultSprite : (activeWeapon.WeaponName == WeaponName.Pistol ? armedWithPistolSprite : armedWithMachineGunSprite);
         
         if (vertical < 0)
         {
@@ -64,19 +67,19 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayWalkingAnimation()
     {
-        if (animator.gameObject.activeSelf)
+        if (shootPistolAnimator.gameObject.activeSelf)
         {
-            animator.enabled = true;
-            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerWalk");
+            shootPistolAnimator.enabled = true;
+            shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerWalk");
         }
     }
 
     void PlayShootingAnimation()
     {
-        if (animator.gameObject.activeSelf)
+        if (shootPistolAnimator.gameObject.activeSelf)
         {
-            animator.enabled = true;
-            animator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+            shootPistolAnimator.enabled = true;
+            shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
         }
     }
 }
