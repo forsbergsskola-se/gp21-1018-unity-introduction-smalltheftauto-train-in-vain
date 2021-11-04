@@ -2017,6 +2017,7 @@ MonoBehaviour:
   QuestTimer: {fileID: 1907507273}
   WeaponImage: {fileID: 1857666714}
   BulletCountText: {fileID: 64354238}
+  ReloadCoverUp: {fileID: 1169453835}
 --- !u!1 &607578741
 GameObject:
   m_ObjectHideFlags: 0
@@ -4516,7 +4517,7 @@ GameObject:
   - component: {fileID: 1169453838}
   - component: {fileID: 1169453837}
   m_Layer: 5
-  m_Name: Reload Cover-Up
+  m_Name: ReloadCoverUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
