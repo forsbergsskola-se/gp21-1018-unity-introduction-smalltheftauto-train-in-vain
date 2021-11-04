@@ -22,8 +22,8 @@ public class BuildingController : Entity, IDamageable
 
     public override void OnDeath()
     {
-        FindObjectOfType<GameController>().AddScore(10);
-        FindObjectOfType<GameController>().AddMoney(10);
+        FindObjectOfType<GameController>().AddScore(50);
+        FindObjectOfType<GameController>().AddMoney(100);
         base.OnDeath();
     }
 }
