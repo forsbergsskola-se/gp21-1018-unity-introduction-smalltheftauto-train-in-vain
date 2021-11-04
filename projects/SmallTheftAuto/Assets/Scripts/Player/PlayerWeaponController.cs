@@ -78,6 +78,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ownedWeapons.Add(ActiveWeapon);
             ActiveWeapon.EquipTo(this);
             ActiveWeapon.gameObject.SetActive(false);
+            ActiveWeapon.GetComponent<FiringWeapon>().UpdateRemainBulletDisplay();
         }
     }
     
