@@ -60,12 +60,14 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains(WeaponName.Pistol));
             Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
+            ActiveWeapon.GetComponent<FiringWeapon>().UpdateRemainBulletDisplay();
         }
         if (ActiveWeapon.WeaponName != WeaponName.MachineGun && ownedWeapons.Find(x => x.WeaponName == WeaponName.MachineGun) && Input.GetKeyDown(KeyBinding.SwapToMachineGun))
         {
             ActiveWeapon = ownedWeapons.Find(x => x.name.Contains(WeaponName.MachineGun));
             Debug.Log("Swap weapon to: " + ActiveWeapon);
             ActiveWeapon.EquipTo(this);
+            ActiveWeapon.GetComponent<FiringWeapon>().UpdateRemainBulletDisplay();
         }
     }
 
@@ -119,7 +121,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
 
     private void LateUpdate()
     {
-        if (ActiveWeapon) displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
+        displayActiveWeapon.UpdateWeaponDisplay(ActiveWeapon.WeaponName);
     }
 
     [CanBeNull]

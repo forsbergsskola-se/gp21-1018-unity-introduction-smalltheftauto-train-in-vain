@@ -13,9 +13,10 @@ public class FiringWeapon : MonoBehaviour
 
     private void Start()
     {
+        var hud = FindObjectOfType<HUD>();
         totalRounds = TotalRounds;
-        bulletCountText = FindObjectOfType<HUD>().BulletCountText;
-        reloadCoverUp = FindObjectOfType<HUD>().ReloadCoverUp;
+        bulletCountText = hud.BulletCountText;
+        reloadCoverUp = hud.ReloadCoverUp;
     }
 
     internal void Fire()
