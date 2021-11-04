@@ -196,21 +196,22 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     // #################################################################################################################
     // CarDeath
 
-    public void CarExplode()
+    public override void OnDeath()
     {
         FindObjectOfType<FireSpawner>().SpawnFire(transform.position);
         if (currentUser != null)
         {
-            currentUser.GetComponent<PlayerController>().TakeDamage(9999);
             Exit();
+            // currentUser.GetComponent<PlayerController>().TakeDamage(9999);
+            FindObjectOfType<PlayerController>().TakeDamage(9999);
         }
-        // Destroy(gameObject);
+        base.OnDeath();
     }
-    
-    
-    
-    
-    
+
+
+
+
+
     // #################################################################################################################
     // TakeDamage
     
@@ -229,7 +230,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
             IsBurning = true;
             UpdateSprite();
         }
-        if (Health <= 0)
-            CarExplode();
+        // if (Health <= 0)
+        //     CarExplode();
     }
 }

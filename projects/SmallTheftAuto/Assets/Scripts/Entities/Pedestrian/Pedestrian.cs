@@ -29,7 +29,6 @@ public class Pedestrian : Entity, IDamageable
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OHNO something is in front of me!");
         walk = false;
         somethingIsInFrontfMeOhNo = true;
         walkBackwards = true;
