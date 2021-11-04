@@ -3725,13 +3725,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642482741}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a0aa4f96647b2941a2691bbf9da5a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxNPCs: 4
+  MaxNPCs: 5
   NPCPrefab: {fileID: 6290187871161045360, guid: 64fbc45fb5d681848918d076d70c0ce5, type: 3}
+  NPCskins:
+  - {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
+  - {fileID: 21300000, guid: 9024cb44ea7438c47902f57ae08d309a, type: 3}
+  - {fileID: 21300000, guid: 08349cc071c9e6d419e9dfa3689a032b, type: 3}
+  - {fileID: 21300000, guid: 0afc1316059221d4bb5c254d6cb87fa7, type: 3}
+  - {fileID: 21300000, guid: 81ff00d8bb8ba244fb107ce17f0e6e44, type: 3}
+  - {fileID: 21300000, guid: 274303e07f2f1914784f611454033535, type: 3}
+  MaxHealthRange: 4b00000096000000
+  MoveSpeedRange: 0300000007000000
+  WaitTimeMaxRange: 0300000007000000
+  WaitTimeMinRange: 0000000003000000
+  PanicModeTimeRange: 030000000f000000
 --- !u!1 &646175586
 GameObject:
   m_ObjectHideFlags: 0

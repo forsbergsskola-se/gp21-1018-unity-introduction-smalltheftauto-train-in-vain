@@ -75,7 +75,7 @@ public class Pedestrian : Entity, IDamageable
         if (attacker.TryGetComponent(out TAG_CollisionDamage noUseCase))
         {
             Debug.Log("NPC got run over!");
-            value *= 1000;
+            value *= 5;
         }
 
         if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase2))
@@ -96,5 +96,12 @@ public class Pedestrian : Entity, IDamageable
         panicModeSpeedOffset = 1;
         panicModeTimeOffset = 1;
         inPanicMode = false;
+    }
+
+    public override void OnDeath()
+    {
+        FindObjectOfType<PlayerController>().addMoney(50);
+        FindObjectOfType<PlayerController>().Score += 25;
+        base.OnDeath();
     }
 }
