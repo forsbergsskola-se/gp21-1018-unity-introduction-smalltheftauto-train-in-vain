@@ -11,4 +11,5 @@ public class HUD : MonoBehaviour
     public GameObject QuestTimer;
     public UnityEngine.UI.Image WeaponImage;
     public TMP_Text BulletCountText;
+    public GameObject ReloadCoverUp;
 }

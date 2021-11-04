@@ -64,7 +64,6 @@ public class Pedestrian : Entity, IDamageable
 
         if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase2))
         {
-            Debug.Log("NPC is taking a swim without knowing how to swim!");
             value *= 10;
         }
         base.TakeDamage(value, attacker);

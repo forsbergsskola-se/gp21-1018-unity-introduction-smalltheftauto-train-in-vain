@@ -7,23 +7,25 @@ public class FiringWeapon : MonoBehaviour
     [SerializeField] private int TotalRounds;
     
     private TMP_Text bulletCountText;
-    private int totalRounds;
+    private GameObject reloadCoverUp;
+    internal int totalRounds { get; private set; }
     private PlayerWeaponController playerWeaponController;
 
     private void Start()
     {
         totalRounds = TotalRounds;
+        bulletCountText = FindObjectOfType<HUD>().BulletCountText;
+        reloadCoverUp = FindObjectOfType<HUD>().ReloadCoverUp;
     }
 
     internal void Fire()
     {
-        if (totalRounds <= 0)
+        if (totalRounds == 0)
         {
-            Debug.LogWarning("WARNING: RELOAD!");
             return;
         }
-        InstantiateBullet();
         MinusOneBullet();
+        InstantiateBullet();
         UpdateRemainBulletDisplay();
     }
 
@@ -51,13 +53,19 @@ public class FiringWeapon : MonoBehaviour
 
     internal void UpdateRemainBulletDisplay()
     {
-        bulletCountText = FindObjectOfType<HUD>().BulletCountText;
         bulletCountText.text = totalRounds.ToString();
+        if (totalRounds == 0)
+        {
+            bulletCountText.enabled = false;
+            reloadCoverUp.SetActive(false);
+        }
     }
 
     internal void Reload()
     {
         totalRounds = TotalRounds;
         UpdateRemainBulletDisplay();
+        reloadCoverUp.SetActive(true);
+        bulletCountText.enabled = true;
     }
 }
