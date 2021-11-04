@@ -8,7 +8,7 @@ public class FiringWeapon : MonoBehaviour
     
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
-    private int totalRounds;
+    internal int totalRounds { get; private set; }
     private PlayerWeaponController playerWeaponController;
 
     private void Start()

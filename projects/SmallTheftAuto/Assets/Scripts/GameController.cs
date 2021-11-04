@@ -23,12 +23,16 @@ public class GameController : MonoBehaviour
 
     public GameObject Pistol; 
     private GameObject pistol;
+    [SerializeField] private GameObject MachineGun;
+    private GameObject machineGun;
     private PlayerInteract playerInteract;
 
     private void Awake()
     {
         pistol = Instantiate(Pistol);
-        pistol.transform.position = new Vector3(-2.278244f, 5f, 0f);
+        pistol.transform.position = new Vector3(-2.25f, 5f, 0f);
+        
+        machineGun = Instantiate(MachineGun, new Vector3(-4.85f, 5f, 0f), Quaternion.identity);
     }
 
     void Start()

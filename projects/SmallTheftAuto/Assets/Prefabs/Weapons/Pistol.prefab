@@ -111,5 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fbc2abdb62d6f746869e90e01930826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 9129092525525590948, guid: 68767e34e102ccf45b0845c6e21541ff, type: 3}
+  Bullet: {fileID: 2286285464873633768, guid: 2495cffdb00702b4c823ad9bbba0f525, type: 3}
   TotalRounds: 13
