@@ -16,9 +16,9 @@ public class SpawnCar : MonoBehaviour
         playerInteract = FindObjectOfType<PlayerInteract>();
         // playerInteract = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInteract>();
         
-        SpawnUpgraded(new Vector3(0, 1.8f, 0));
         SpawnUpgraded(new Vector3(-10, 1.8f, 0));
-        SpawnUpgraded(new Vector3(10, 1.8f, 0));
+        SpawnUpgraded(new Vector3(-30, 1.8f, 0));
+        SpawnUpgraded(new Vector3(-20, 1.8f, 0));
         // SpawnUpgraded(new Vector3(0, 10, 0));
         // SpawnUpgraded(new Vector3(-10, 10, 0));
     }

@@ -11,7 +11,8 @@ public class CarRaceController : MonoBehaviour
     private List<GameObject> placedPrefabs = new List<GameObject>();
     private List<GameObject> checkPointPostions = new List<GameObject>();
     private PlayerController playerController;
-    
+    public AudioSource carMusic;
+    public AudioSource WorldMusic;
     
     public SpawnCar SpawnCar;
     public GameObject CarSpawnPosition;
@@ -32,6 +33,7 @@ public class CarRaceController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         foreach (Transform child in transform)
         {
             carRaceComponents.Add(child.gameObject);
@@ -49,7 +51,6 @@ public class CarRaceController : MonoBehaviour
     public void ActivateCarRaceQuest()
     {
         QuestCar = SpawnCar.SpawnUpgradedAndReturn(CarSpawnPosition.transform.position, CarSpawnPosition.transform.rotation);
-
         var goalObject = Instantiate(GoalPrefab, transform);
         goalObject.transform.position = transform.Find("FinishPosition").gameObject.transform.position;
         goalObject.transform.rotation = transform.Find("FinishPosition").gameObject.transform.rotation;
@@ -57,6 +58,8 @@ public class CarRaceController : MonoBehaviour
         Slider.SetActive(true);
         DisplayQuest(true);
         PlaceCheckPoints();
+        carMusic.Play();
+        WorldMusic.Stop();
     }
 
     private void PlaceCheckPoints()
@@ -101,6 +104,7 @@ public class CarRaceController : MonoBehaviour
         {
             if (objectData.TryGetComponent<CheckPoint>(out var checkPoint))
             {
+                
                 Debug.Log($"Checking: {checkPoint.CarHasPassed}");
                 AllCheckPointsCollected = checkPoint.CarHasPassed;
                 if (!AllCheckPointsCollected)
@@ -135,10 +139,10 @@ public class CarRaceController : MonoBehaviour
             Invoke(nameof(DisableLoseText),cooldown);
             QuestCar.GetComponent<Car>().Exit();
             Destroy(QuestCar);
-            
-            
             //playerController.subtractMoney(10);
         }
+        carMusic.Stop();
+        WorldMusic.Play();
         GameObject.FindGameObjectWithTag("PhoneBox").GetComponent<QuestMenuController>().QuestIsActive = false;
         DisplayQuest(false);
     }
@@ -187,6 +191,8 @@ public class CarRaceController : MonoBehaviour
         DisplayQuest(false);
         QuestCar.GetComponent<Car>().Exit();
         Destroy(QuestCar);
+        carMusic.Stop();
+        WorldMusic.Play();
         
     }
     
