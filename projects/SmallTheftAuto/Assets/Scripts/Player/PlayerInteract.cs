@@ -39,6 +39,7 @@ public class PlayerInteract : MonoBehaviour
             if (distance <= InteractRange && distance < closestRange)
             {
                 ClosestInteractable = interactable;
+                closestRange = distance;
             }
         }
         return ClosestInteractable != null;
