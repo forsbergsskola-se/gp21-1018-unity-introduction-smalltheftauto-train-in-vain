@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 2944415430537735321}
   - component: {fileID: -7103849855364417520}
   - component: {fileID: 8646053431745688135}
+  - component: {fileID: -3904293553275097628}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -215,6 +216,18 @@ CompositeCollider2D:
       - {x: -0.7999968, y: -1.82}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+--- !u!114 &-3904293553275097628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662404593033635940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f81d4528dd32043af27b8c1e3328a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4662404593518225628
 GameObject:
   m_ObjectHideFlags: 0
