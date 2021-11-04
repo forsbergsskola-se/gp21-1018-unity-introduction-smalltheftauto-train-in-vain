@@ -55,9 +55,10 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (isWalking) PlayWalkingAnimation();
+        if (isWalking) PlayWalkingAnimation(); 
         if (isShooting)
         {
+            isWalking = false;
             PlayShootingAnimation();
             Invoke(nameof(SetIsShootingToFalse), 0.2f);
         }
@@ -79,7 +80,16 @@ public class PlayerMovement : MonoBehaviour
         if (shootPistolAnimator.gameObject.activeSelf)
         {
             shootPistolAnimator.enabled = true;
-            shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+            
+            if (spriteRenderer.sprite == armedWithMachineGunSprite)
+            {
+                shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerMachineGunShoot");
+            }
+            else
+            {
+                shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+            }
+          
         }
     }
 }
