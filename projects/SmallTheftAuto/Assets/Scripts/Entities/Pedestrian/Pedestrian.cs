@@ -114,8 +114,8 @@ public class Pedestrian : Entity, IDamageable
 
     IEnumerator HurtNoise()
     {
+        yield return new WaitForSeconds(0.5f);
         HurtNpc.Play();
-        yield return new WaitForSeconds(5f);
     }
 
     public override void OnDeath()
