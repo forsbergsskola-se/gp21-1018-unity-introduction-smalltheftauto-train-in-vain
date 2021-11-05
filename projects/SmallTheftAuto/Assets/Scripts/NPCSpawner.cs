@@ -62,6 +62,5 @@ public class NPCSpawner : MonoBehaviour
         
         
         NPCs.Add(newNPC);
-        Debug.Log($"NPC has nr: {NPCs.Count}");
     }
 }

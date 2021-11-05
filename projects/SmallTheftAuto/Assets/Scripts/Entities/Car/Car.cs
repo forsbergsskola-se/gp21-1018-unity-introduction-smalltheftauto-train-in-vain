@@ -11,7 +11,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     }
 
 
-    private bool CarRunning;
+    public bool CarRunning;
     private bool ExitAllowed;
     private const KeyCode VehicleInteractKey = KeyCode.F;
     
