@@ -12,7 +12,6 @@ public class Pedestrian : Entity, IDamageable
     public int PanicModeTime;
     
     private bool somethingIsInFrontfMeOhNo;
-    private bool inPanicMode;
     private bool walkBackwards;
     private bool walk;
     private float panicModeTimeOffset = 1;
@@ -103,13 +102,11 @@ public class Pedestrian : Entity, IDamageable
 
     IEnumerator PanicMode()
     {
-        inPanicMode = true;
         panicModeSpeedOffset = 7;
         panicModeTimeOffset = 0.5f;
         yield return new WaitForSeconds(PanicModeTime);
         panicModeSpeedOffset = 1;
         panicModeTimeOffset = 1;
-        inPanicMode = false;
     }
 
     IEnumerator HurtNoise()
