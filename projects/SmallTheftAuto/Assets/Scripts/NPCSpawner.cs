@@ -45,10 +45,11 @@ public class NPCSpawner : MonoBehaviour
         }
     }
 
-    void SpawnNewNPC(Vector3 position)
+    public void SpawnNewNPC(Vector3 position, Quaternion rotation = new Quaternion())
     {
         var newNPC = Instantiate(NPCPrefab);
         newNPC.transform.position = position;
+        newNPC.transform.rotation = rotation;
         newNPC.GetComponent<SpriteRenderer>().sprite = NPCskins[Random.Range(0, NPCskins.Length)];
 
         var newNPCVariables = newNPC.GetComponent<Pedestrian>();
