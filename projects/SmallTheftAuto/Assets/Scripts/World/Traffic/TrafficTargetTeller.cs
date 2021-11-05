@@ -19,7 +19,6 @@ public class TrafficTargetTeller : MonoBehaviour
     {
         if (other.TryGetComponent(out TAG_TrafficSensor trafficSensor))
         {
-            Debug.Log("Sent positions to passing car!");
             trafficSensor.GetComponentInParent<AiDriving>().TargetPositions = new List<Vector3>(TargetPositions);
         }
     }

@@ -42,16 +42,13 @@ public class AiDriving : MonoBehaviour
     {
         if (TargetPositions.Count != 0)
         {
-            Debug.Log("Got new targets!");
             target = TargetPositions[Random.Range(0, TargetPositions.Count)];
             TargetPositions.Clear();
             temp = target;
-            Debug.Log("Picked one target: " + target);
         }
 
         if (target == null)
         {
-            Debug.Log("No target found!");
             target = FindObjectOfType<TAG_TrafficPoint>().gameObject.transform.position;
         }
         
