@@ -86,15 +86,28 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private void FireRangeWeaponWithLeftClick()
     {
-        if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon && ActiveWeapon.WeaponName != WeaponName.BareHands)
+        if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon.WeaponName == WeaponName.Pistol)
         {
-            var firingWeapon = ActiveWeapon.GetComponent<FiringWeapon>();
-            if (firingWeapon.totalRounds <= 0) return;
-            playerMovement.isShooting = true;
-            firingWeapon.Fire();
+            FirePistol();
+        }
+        if (Input.GetButton(KeyBinding.FireWeapon) && ActiveWeapon.WeaponName == WeaponName.MachineGun)
+        {
+            FireMachineGun();
         }
     }
+
+    private void FirePistol()
+    {
+        var firingWeapon = ActiveWeapon.GetComponent<FiringWeapon>();
+        firingWeapon.Fire();
+    }
     
+    private void FireMachineGun()
+    {
+        var firingWeapon = ActiveWeapon.GetComponent<FiringWeapon>();
+        firingWeapon.Fire();
+    }
+
     private void ReloadRangeWeaponWithR()
     {
         if (Input.GetKeyDown(KeyBinding.ReloadWeapon) && ActiveWeapon && ActiveWeapon.WeaponName != WeaponName.BareHands)

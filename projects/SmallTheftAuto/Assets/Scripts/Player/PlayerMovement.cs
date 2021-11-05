@@ -15,10 +15,6 @@ public class PlayerMovement : MonoBehaviour
     internal bool isWalking;
     internal bool isShooting;
 
-
-    // public AnimatorController AnimatorController;
-    
-    
     private void Awake()
     {
         playerWeaponController = GetComponent<PlayerWeaponController>();
@@ -41,7 +37,8 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? 
             defaultSprite : (activeWeapon.WeaponName == WeaponName.Pistol ? armedWithPistolSprite : armedWithMachineGunSprite);
 
-        if (Input.GetKey(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse0))
+        if (activeWeapon.WeaponName != WeaponName.BareHands &&
+            (Input.GetKey(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse0)))
         {
            isShooting = true;
         }
@@ -70,14 +67,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (isWalking) PlayWalkingAnimation();
-        if (isShooting)
-        {
-            PlayShootingAnimation();
-            Invoke(nameof(SetIsShootingToFalse), 0.2f);
-        }
+        if (isShooting) PlayShootingAnimation();
     }
-
-    private void SetIsShootingToFalse() => isShooting = false;
 
     void PlayWalkingAnimation()
     {
