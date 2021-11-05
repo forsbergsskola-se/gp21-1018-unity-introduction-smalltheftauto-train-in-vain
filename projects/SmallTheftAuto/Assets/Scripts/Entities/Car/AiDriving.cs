@@ -5,28 +5,61 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Random = UnityEngine.Random;
 
 public class AiDriving : MonoBehaviour
 {
     public bool NPCInCar;
-    public bool ClockWise;
-
-    private bool CounterClockWise => !ClockWise;
+   
     private Car car;
     private Transform ExitPosition;
-    private List<Vector3> targetPositions = new List<Vector3>();
     private float maxSpeed;
 
-    private int currentTargetIndex;
-    private int CurrentTargetIndex
+    // Control variables:
+    public List<Vector3> TargetPositions;
+    private Vector3 target;
+
+    private void Update()
     {
-        get => currentTargetIndex;
-        set
+        if (NPCInCar)
         {
-            currentTargetIndex = value; 
-            if (currentTargetIndex == targetPositions.Count) { currentTargetIndex = 0; } 
+            if (!car.CarRunning)
+            {
+                Drive();
+            }
+            else
+            {
+                NPCInCar = false;
+                // TODO: Spawn NPC at coordinates of exit position;
+            }
         }
     }
+
+
+    public Vector3 temp;
+
+    void Drive()
+    {
+        if (TargetPositions.Count != 0)
+        {
+            Debug.Log("Got new targets!");
+            target = TargetPositions[Random.Range(0, TargetPositions.Count)];
+            TargetPositions.Clear();
+            temp = target;
+            Debug.Log("Picked one target: " + target);
+        }
+
+        if (target == null)
+        {
+            Debug.Log("No target found!");
+            target = FindObjectOfType<TAG_TrafficPoint>().gameObject.transform.position;
+        }
+        
+        transform.up = target - transform.position;
+        transform.position = Vector2.MoveTowards(transform.position, target,
+            maxSpeed * Time.deltaTime);
+    }
+    
 
     void Start()
     {
@@ -34,62 +67,17 @@ public class AiDriving : MonoBehaviour
         ExitPosition = ExitPosition = transform.Find("CarExitPosition");
         maxSpeed = car.MaxSpeed;
 
-        if (ClockWise)
+        float shortestDistance = 9999;
+        var temp = FindObjectsOfType<TAG_TrafficPoint>().ToList();
+        foreach (TAG_TrafficPoint t in temp)
         {
-            List<TAG_ClockwiseTrafficPoint> clockWiseTrafficPoints =
-                FindObjectsOfType<TAG_ClockwiseTrafficPoint>().ToList();
-            Debug.Log(clockWiseTrafficPoints.Count);
-            foreach (var point in clockWiseTrafficPoints)
+            var temp3 = t.gameObject.transform.position;
+            if (Vector3.Distance(transform.position, temp3) < shortestDistance)
             {
-                Debug.Log(point.GetComponent<Transform>().position);
-                targetPositions.Add(point.gameObject.transform.position);
-            }
-            // targetPositions = clockWiseTrafficPoints.FindAll(x => x.transform).ToList();
-        }
-
-        if (CounterClockWise)
-        {
-            List<TAG_CounterClockwiseTrafficPoint> counterClockWiseTrafficPoints =
-                FindObjectsOfType<TAG_CounterClockwiseTrafficPoint>().ToList();
-            foreach (var point in counterClockWiseTrafficPoints)
-            {
-                // targetPositions.Add(point.GetComponent<Transform>());
+                target = temp3;
+                shortestDistance = Vector3.Distance(transform.position, temp3);
             }
         }
-    }
 
-    private void Update()
-    {
-        if (NPCInCar)
-        {
-            // If the car is not being driven by the player. Would be nice with a better variable name here.
-            if (!car.CarRunning)
-            {
-                // TODO: Drive
-                Drive();
-            }
-            else
-                NPCInCar = false;
-        }
-    }
-
-    void Drive()
-    {
-        // Check if the coordinates are the same as the current target point with method.
-        CheckTarget();
-        
-        // Drive towards the current target point
-        // transform.LookAt(targetPositions[currentTargetIndex], Vector3.forward);
-        transform.up = targetPositions[currentTargetIndex] - transform.position;
-        transform.position = Vector2.MoveTowards(transform.position, targetPositions[currentTargetIndex],
-            maxSpeed * Time.deltaTime);
-    }
-
-    void CheckTarget()
-    {
-        if (transform.position == targetPositions[currentTargetIndex])
-        {
-            CurrentTargetIndex++;
-        }
     }
 }
