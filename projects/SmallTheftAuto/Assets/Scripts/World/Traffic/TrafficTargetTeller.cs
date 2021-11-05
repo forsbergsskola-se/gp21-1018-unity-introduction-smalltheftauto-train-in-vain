@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrafficTargetTeller : MonoBehaviour
@@ -16,10 +17,10 @@ public class TrafficTargetTeller : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent(out AiDriving aiDriving))
+        if (other.TryGetComponent(out TAG_TrafficSensor trafficSensor))
         {
             Debug.Log("Sent positions to passing car!");
-            aiDriving.TargetPositions = new List<Vector3>(TargetPositions);
+            trafficSensor.GetComponentInParent<AiDriving>().TargetPositions = new List<Vector3>(TargetPositions);
         }
     }
 }
