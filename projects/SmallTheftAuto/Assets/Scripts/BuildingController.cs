@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingController : Entity, IDamageable
 {
     
-    void TakeDamage(int value, GameObject attacker)
+    public override void TakeDamage(int value, GameObject attacker = null)
     {
         if (attacker.TryGetComponent(out TAG_BulletDamage noUseCase))
         {

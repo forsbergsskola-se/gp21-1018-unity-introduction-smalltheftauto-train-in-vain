@@ -100,6 +100,8 @@ public class Pedestrian : Entity, IDamageable
     public override void OnDeath()
     {
         FindObjectOfType<GameController>().AddMoney(75);
+        FindObjectOfType<MoneySpawner>().
+            ;
         FindObjectOfType<GameController>().AddScore(150);
         base.OnDeath();
     }

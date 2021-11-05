@@ -1,4 +1,4 @@
-using UnityEditor.Animations;
+using UnityEngine.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     internal bool isShooting;
 
 
-    public AnimatorController AnimatorController;
+    // public AnimatorController AnimatorController;
     
     
     private void Awake()

@@ -1,6 +1,5 @@
 using System;
 using TMPro;
-using UnityEditor.Animations;
 using UnityEngine;
 
 public class FiringWeapon : MonoBehaviour
