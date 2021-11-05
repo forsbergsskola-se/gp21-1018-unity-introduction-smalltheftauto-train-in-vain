@@ -32,6 +32,8 @@ public class Pedestrian : Entity, IDamageable
     public Sprite DeadDog;
     private void Update()
     {
+        SpriteRenderer = GetComponent<SpriteRenderer>();
+        
         // RandomMovement();
         if (walk)
             transform.Translate(Vector3.up * (MoveSpeed * panicModeSpeedOffset)* Time.deltaTime);
@@ -96,7 +98,7 @@ public class Pedestrian : Entity, IDamageable
 
         StartCoroutine(PanicMode());
         base.TakeDamage(value, attacker);
-        HurtNpc.Play();
+        StartCoroutine(HurtNoise());
     }
 
     IEnumerator PanicMode()
@@ -110,10 +112,15 @@ public class Pedestrian : Entity, IDamageable
         inPanicMode = false;
     }
 
+    IEnumerator HurtNoise()
+    {
+        HurtNpc.Play();
+        yield return new WaitForSeconds(5f);
+    }
+
     public override void OnDeath()
     {
         HurtNpc.Play();
-        GetComponent<SpriteRenderer>();
         if (SpriteRenderer.sprite == SchoolBoy)
         {
             SpriteRenderer.sprite = DeadSchoolBoy;
