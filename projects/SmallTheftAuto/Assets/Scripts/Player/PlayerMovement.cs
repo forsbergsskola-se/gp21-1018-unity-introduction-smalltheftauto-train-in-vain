@@ -31,17 +31,10 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, -horizontal);
         
         isWalking = false;
-        isShooting = false;
         shootPistolAnimator.enabled = false;
         var activeWeapon = playerWeaponController.ActiveWeapon;
         spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? 
             defaultSprite : (activeWeapon.WeaponName == WeaponName.Pistol ? armedWithPistolSprite : armedWithMachineGunSprite);
-
-        if (activeWeapon.WeaponName != WeaponName.BareHands &&
-            (Input.GetKey(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse0)))
-        {
-           isShooting = true;
-        }
         
         if (vertical < 0)
         {
