@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,8 @@ public class FiringWeapon : MonoBehaviour
     
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
+    private GameObject reloadPrompt;
+    private Animator animator;
     internal int totalRounds { get; private set; }
     private PlayerWeaponController playerWeaponController;
 
@@ -17,12 +20,15 @@ public class FiringWeapon : MonoBehaviour
         totalRounds = TotalRounds;
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
+        animator = GetComponent<Animator>();
+        reloadPrompt = hud.ReloadPrompt;
     }
 
     internal void Fire()
     {
         if (totalRounds == 0)
         {
+            //reloadPrompt.GetComponent<SpriteRenderer>().color = Color.Lerp(Color.white, Color.magenta, Mathf.PingPong(Time.time, 1));
             return;
         }
         MinusOneBullet();
