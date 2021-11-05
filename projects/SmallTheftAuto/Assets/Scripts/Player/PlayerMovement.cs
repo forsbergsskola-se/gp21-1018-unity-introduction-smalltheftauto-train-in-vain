@@ -9,19 +9,19 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Sprite armedWithPistolSprite;
     [SerializeField] private Sprite armedWithMachineGunSprite;
     private SpriteRenderer spriteRenderer;
-    private Animator shootPistolAnimator;
+    private Animator attackAnimator;
     private Animator shootMachineGunAnimator;
     private PlayerWeaponController playerWeaponController;
     internal bool isWalking;
-    internal bool isShooting;
+    internal bool isAttacking;
 
     private void Awake()
     {
         playerWeaponController = GetComponent<PlayerWeaponController>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = defaultSprite;
-        shootPistolAnimator = GetComponent<Animator>();
-        shootPistolAnimator.enabled = false;
+        attackAnimator = GetComponent<Animator>();
+        attackAnimator.enabled = false;
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, -horizontal);
         
         isWalking = false;
-        shootPistolAnimator.enabled = false;
+        attackAnimator.enabled = false;
         var activeWeapon = playerWeaponController.ActiveWeapon;
         spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? 
             defaultSprite : (activeWeapon.WeaponName == WeaponName.Pistol ? armedWithPistolSprite : armedWithMachineGunSprite);
@@ -60,35 +60,34 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (isWalking) PlayWalkingAnimation();
-        if (isShooting) PlayShootingAnimation();
+        if (isAttacking) PlayAttackAnimation();
     }
 
     void PlayWalkingAnimation()
     {
-        if (shootPistolAnimator.gameObject.activeSelf)
+        if (attackAnimator.gameObject.activeSelf)
         {
-            shootPistolAnimator.enabled = true;
-            shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerWalk");
+            attackAnimator.enabled = true;
+            attackAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerWalk");
         }
     }
 
-    void PlayShootingAnimation()
+    void PlayAttackAnimation()
     {
-        if (shootPistolAnimator.gameObject.activeSelf)
+        if (attackAnimator.gameObject.activeSelf)
         {
-            shootPistolAnimator.enabled = true;
-            
+            attackAnimator.enabled = true;
             if (spriteRenderer.sprite == armedWithMachineGunSprite)
             {
-                shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerMachineGunShoot");
+                attackAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerMachineGunShoot");
             }
             else if (spriteRenderer.sprite == armedWithPistolSprite)
             {
-                shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+                attackAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
             }
             else
             {
-                shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPunch");
+                attackAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPunch");
             }
           
         }

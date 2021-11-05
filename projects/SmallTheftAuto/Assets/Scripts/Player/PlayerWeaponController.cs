@@ -127,10 +127,18 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
                     punchTargets.Remove(t);
                     break;
                 }
-                if (t.TryGetComponent(out IDamageable iDamageable)) iDamageable.TakeDamage((int)ActiveWeapon.Power, t);
+
+                if (t.TryGetComponent(out IDamageable iDamageable))
+                {
+                    playerMovement.isAttacking = true;
+                    Invoke(nameof(SetMeleeAttackAnimationToFalse), 0.2f);
+                    iDamageable.TakeDamage((int)ActiveWeapon.Power, t);
+                }
             }
         }
     }
+
+    private void SetMeleeAttackAnimationToFalse() => playerMovement.isAttacking = false;
 
     private void LateUpdate()
     {
