@@ -120,7 +120,6 @@ public class Pedestrian : Entity, IDamageable
 
     public override void OnDeath()
     {
-        HurtNpc.Play();
         if (SpriteRenderer.sprite == SchoolBoy)
         {
             SpriteRenderer.sprite = DeadSchoolBoy;
