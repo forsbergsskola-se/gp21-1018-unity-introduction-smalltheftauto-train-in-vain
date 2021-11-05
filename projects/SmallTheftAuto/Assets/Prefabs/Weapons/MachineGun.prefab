@@ -113,3 +113,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 2286285464873633768, guid: 2495cffdb00702b4c823ad9bbba0f525, type: 3}
   TotalRounds: 30
+  fireAnimation: {fileID: 0}
+  temp: {fileID: 9100000, guid: 7196f059c4f7e454b8528f7d7fbd7d08, type: 2}

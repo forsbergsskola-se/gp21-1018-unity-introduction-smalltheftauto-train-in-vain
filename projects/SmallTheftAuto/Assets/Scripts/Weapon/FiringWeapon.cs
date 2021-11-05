@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class FiringWeapon : MonoBehaviour
@@ -11,12 +12,18 @@ public class FiringWeapon : MonoBehaviour
     internal int totalRounds { get; private set; }
     private PlayerWeaponController playerWeaponController;
 
+    public Animation fireAnimation;
+    public RuntimeAnimatorController temp;
+
+    private Animator playerAnimator;
+
     private void Start()
     {
         var hud = FindObjectOfType<HUD>();
         totalRounds = TotalRounds;
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
     internal void Fire()
@@ -28,6 +35,9 @@ public class FiringWeapon : MonoBehaviour
         MinusOneBullet();
         InstantiateBullet();
         UpdateRemainBulletDisplay();
+        // playerAnimator.enabled = true;
+        playerAnimator.runtimeAnimatorController = temp;
+        Debug.Log("TITTA JAG SKJUTER");
     }
 
     private void InstantiateBullet()

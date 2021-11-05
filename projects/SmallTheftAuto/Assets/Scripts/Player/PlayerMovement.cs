@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -14,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
     internal bool isWalking;
     internal bool isShooting;
 
+
+    public AnimatorController AnimatorController;
+    
+    
     private void Awake()
     {
         playerWeaponController = GetComponent<PlayerWeaponController>();
@@ -79,7 +84,8 @@ public class PlayerMovement : MonoBehaviour
         if (shootPistolAnimator.gameObject.activeSelf)
         {
             shootPistolAnimator.enabled = true;
-            shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+            // shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+            // shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerMachineGunShoot");
         }
     }
 }
