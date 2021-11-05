@@ -11,24 +11,24 @@ public class FiringWeapon : MonoBehaviour
     internal bool isInCooldown { get; private set; }
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
-    private GameObject reloadPrompt;
-    private Animator animator;
     private PlayerWeaponController playerWeaponController;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
+        playerMovement = FindObjectOfType<PlayerMovement>();
         var hud = FindObjectOfType<HUD>();
         totalRounds = TotalRounds;
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
         isInCooldown = false;
-        animator = GetComponent<Animator>();
-        reloadPrompt = hud.ReloadPrompt;
     }
 
     internal void Fire()
     {
         if (totalRounds == 0 || isInCooldown) return;
+        playerMovement.isShooting = true;
+        Invoke(nameof(SetShootAnimationToFalse), 0.2f);
         isInCooldown = true;
         Invoke(nameof(SetIsInCooldownToFalse), CooldownTimeInSeconds);
         MinusOneBullet();
@@ -37,6 +37,8 @@ public class FiringWeapon : MonoBehaviour
     }
 
     private void SetIsInCooldownToFalse() => isInCooldown = false;
+
+    private void SetShootAnimationToFalse() => playerMovement.isShooting = false;
 
     private void InstantiateBullet()
     {
