@@ -52,8 +52,10 @@ public class GameController : MonoBehaviour
         Instantiate(pizza, new Vector3(30, 5, 0), Quaternion.identity);
         Instantiate(burger, new Vector3(30, 0, 0), Quaternion.identity);
         
-        Instantiate(savePointPrefab, new Vector3(10, 28, 0), Quaternion.identity);
-        Instantiate(savePointPrefab, new Vector3(-10, 28, 0), Quaternion.identity);
+        Instantiate(savePointPrefab, new Vector3(-0.4f, 80.7f, 0), Quaternion.identity);
+        Instantiate(savePointPrefab, new Vector3(150, 40.7f, 0), Quaternion.identity);
+        Instantiate(savePointPrefab, new Vector3(-179, 170.3f, 0), Quaternion.identity);
+        Instantiate(savePointPrefab, new Vector3(108, 209.2f, 0), Quaternion.identity);
         Instantiate(buildingPrefab, new Vector3(10, 10, 0), Quaternion.identity);
 
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
