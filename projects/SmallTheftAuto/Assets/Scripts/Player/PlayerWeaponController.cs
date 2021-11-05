@@ -79,7 +79,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ActiveWeapon = foundWeapon;
             ownedWeapons.Add(ActiveWeapon);
             ActiveWeapon.EquipTo(this);
-            ActiveWeapon.gameObject.SetActive(false);
+            ActiveWeapon.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             ActiveWeapon.GetComponent<FiringWeapon>().UpdateRemainBulletDisplay();
         }
     }

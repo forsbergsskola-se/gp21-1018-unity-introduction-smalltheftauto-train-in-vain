@@ -6,6 +6,8 @@ public class FiringWeapon : MonoBehaviour
     [SerializeField] private GameObject Bullet;
     [SerializeField] private int TotalRounds;
     [SerializeField] private float CooldownTimeInSeconds;
+    public AudioSource GunShot;
+    public AudioSource GunReload;
 
     internal int totalRounds { get; private set; }
     internal bool isInCooldown { get; private set; }
@@ -34,6 +36,7 @@ public class FiringWeapon : MonoBehaviour
         MinusOneBullet();
         InstantiateBullet();
         UpdateRemainBulletDisplay();
+        GunShot.Play();
     }
 
     private void SetIsInCooldownToFalse() => isInCooldown = false;
@@ -71,6 +74,7 @@ public class FiringWeapon : MonoBehaviour
 
     internal void Reload()
     {
+        GunReload.Play();
         totalRounds = TotalRounds;
         UpdateRemainBulletDisplay();
         reloadCoverUp.SetActive(true);
