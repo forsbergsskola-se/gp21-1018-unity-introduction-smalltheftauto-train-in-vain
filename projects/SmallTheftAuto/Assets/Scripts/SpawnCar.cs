@@ -35,21 +35,21 @@ public class SpawnCar : MonoBehaviour
     }
     
 
-    public void SpawnUpgraded(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
+    public void SpawnUpgraded(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool NPCDriver = false)
     {
         var car = Instantiate(NewCarPrefab);
         car.transform.position = spawnPosition;
         car.transform.rotation = rotation;
-        car.GetComponent<AiDriving>().NPCInCar = false;
+        car.GetComponent<AiDriving>().NPCInCar = NPCDriver;
         playerInteract.Interactables.Add(car);
     }
     
-    public GameObject SpawnUpgradedAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
+    public GameObject SpawnUpgradedAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool NPCDriver = false)
     {
         var car = Instantiate(NewCarPrefab);
         car.transform.position = spawnPosition;
         car.transform.rotation = rotation;
-        car.GetComponent<AiDriving>().NPCInCar = false;
+        car.GetComponent<AiDriving>().NPCInCar = NPCDriver;
         playerInteract.Interactables.Add(car);
         return car;
     }
@@ -63,8 +63,7 @@ public class SpawnCar : MonoBehaviour
         if (npcCars.Count < MaxCars && !spawnOnCoolDown)
         {
             Invoke("SpawnCoolDown", 0.2f);
-            var car = Instantiate(NewCarPrefab);
-            car.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];
+            var car = SpawnUpgradedAndReturn(spawnPositions[Random.Range(0, spawnPositions.Count)], new Quaternion(), true);
             npcCars.Add(car);
         }
     }

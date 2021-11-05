@@ -174,7 +174,7 @@ MonoBehaviour:
   Id: 0
   MaxHealth: 300
   CarRunning: 0
-  MaxSpeed: 30
+  MaxSpeed: 15
   MaxTurnSpeed: 150
   drivingSkin: {fileID: 21300000, guid: 6428b559bdbe9524fb74c0f2009be8af, type: 3}
   defaultSkin: {fileID: 21300000, guid: 042772663b91167488bf9ea38fa30936, type: 3}

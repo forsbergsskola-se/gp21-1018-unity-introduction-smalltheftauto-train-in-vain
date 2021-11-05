@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour
     public GameObject questOne;
     public GameObject pizza;
     public GameObject burger;
+    public SpawnCar SpawnCar;
     
     public GameObject savePointPrefab;
     public GameObject buildingPrefab;
@@ -62,6 +63,8 @@ public class GameController : MonoBehaviour
         questMenuController.QuestTitle = "CarRace";
         questMenuController.QuestDescription = "Complete the race course in time for a reward.";
         questMenuController.quest = questOne;
+
+        SpawnCar.enabled = true;
     }
 
     public void AddMoney(int value)
