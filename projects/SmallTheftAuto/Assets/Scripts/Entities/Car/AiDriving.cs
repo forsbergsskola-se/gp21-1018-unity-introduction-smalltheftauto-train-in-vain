@@ -31,12 +31,11 @@ public class AiDriving : MonoBehaviour
             {
                 NPCInCar = false;
                 // TODO: Spawn NPC at coordinates of exit position;
+                FindObjectOfType<NPCSpawner>().SpawnNewNPC(ExitPosition.position, ExitPosition.rotation);
+                Debug.Log("Spawned new NPC from car!");
             }
         }
     }
-
-
-    public Vector3 temp;
 
     void Drive()
     {
@@ -44,7 +43,6 @@ public class AiDriving : MonoBehaviour
         {
             target = TargetPositions[Random.Range(0, TargetPositions.Count)];
             TargetPositions.Clear();
-            temp = target;
         }
 
         if (target == null)
@@ -61,7 +59,7 @@ public class AiDriving : MonoBehaviour
     void Start()
     {
         car = GetComponent<Car>();
-        ExitPosition = ExitPosition = transform.Find("CarExitPosition");
+        ExitPosition = transform.Find("CarExitPosition");
         maxSpeed = car.BaseSpeed;
 
         float shortestDistance = 9999;
