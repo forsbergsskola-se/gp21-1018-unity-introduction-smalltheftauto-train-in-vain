@@ -9,4 +9,5 @@ public class HUD : MonoBehaviour
     public UnityEngine.UI.Image WeaponImage;
     public TMP_Text BulletCountText;
     public GameObject ReloadCoverUp;
+    public GameObject ReloadPrompt;
 }

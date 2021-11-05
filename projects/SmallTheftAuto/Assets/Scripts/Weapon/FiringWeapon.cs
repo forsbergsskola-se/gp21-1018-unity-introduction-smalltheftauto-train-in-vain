@@ -10,6 +10,8 @@ public class FiringWeapon : MonoBehaviour
 
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
+    private GameObject reloadPrompt;
+    private Animator animator;
     internal int totalRounds { get; private set; }
     internal bool isInCooldown { get; private set; }
     private PlayerWeaponController playerWeaponController;
@@ -21,6 +23,8 @@ public class FiringWeapon : MonoBehaviour
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
         isInCooldown = false;
+        animator = GetComponent<Animator>();
+        reloadPrompt = hud.ReloadPrompt;
     }
 
     internal void Fire()
