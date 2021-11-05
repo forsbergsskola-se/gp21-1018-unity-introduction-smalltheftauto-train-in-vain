@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +16,7 @@ public class FollowCamera : MonoBehaviour
             var targetCoordinates = target.transform.position;
             var newCameraCoordinates = Vector3.Lerp(cameraCoordinates, targetCoordinates, 0.1f);
             // newCameraCoordinates.; = CameraHeightOffset;
-
+    
             transform.position = new Vector3(newCameraCoordinates.x, newCameraCoordinates.y, CameraHeightOffset);
         }
     }
