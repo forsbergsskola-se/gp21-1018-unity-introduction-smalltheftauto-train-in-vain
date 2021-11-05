@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEditor.Animations;
 using UnityEngine;
@@ -6,10 +7,14 @@ public class FiringWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] private int TotalRounds;
-    
+    [SerializeField] private int CooldownTimeInSeconds;
+
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
+    private GameObject reloadPrompt;
+    private Animator animator;
     internal int totalRounds { get; private set; }
+    internal bool isInCooldown { get; private set; }
     private PlayerWeaponController playerWeaponController;
 
     public Animation fireAnimation;
@@ -24,14 +29,16 @@ public class FiringWeapon : MonoBehaviour
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
         playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        isInCooldown = false;
+        animator = GetComponent<Animator>();
+        reloadPrompt = hud.ReloadPrompt;
     }
 
     internal void Fire()
     {
-        if (totalRounds == 0)
-        {
-            return;
-        }
+        if (totalRounds == 0 || isInCooldown) return;
+        isInCooldown = true;
+        Invoke(nameof(SetIsInCooldownToFalse), CooldownTimeInSeconds);
         MinusOneBullet();
         InstantiateBullet();
         UpdateRemainBulletDisplay();
@@ -39,6 +46,8 @@ public class FiringWeapon : MonoBehaviour
         playerAnimator.runtimeAnimatorController = temp;
         Debug.Log("TITTA JAG SKJUTER");
     }
+
+    private void SetIsInCooldownToFalse() => isInCooldown = false;
 
     private void InstantiateBullet()
     {
@@ -65,11 +74,8 @@ public class FiringWeapon : MonoBehaviour
     internal void UpdateRemainBulletDisplay()
     {
         bulletCountText.text = totalRounds.ToString();
-        if (totalRounds == 0)
-        {
-            bulletCountText.enabled = false;
-            reloadCoverUp.SetActive(false);
-        }
+        bulletCountText.enabled = totalRounds != 0;
+        reloadCoverUp.SetActive(totalRounds != 0);
     }
 
     internal void Reload()
