@@ -48,12 +48,12 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     // #################################################################################################################
     // IDriveable
 
-    public float MaxSpeed = 30f;
+    public float BaseSpeed = 30f;
     public float MaxTurnSpeed = 150f;
     private float verticalSpeed;
     public void Drive()
     {
-        verticalSpeed = Input.GetAxis("Vertical") * MaxSpeed * Time.deltaTime;
+        verticalSpeed = Input.GetAxis("Vertical") * (BaseSpeed * 2) * Time.deltaTime;
         var turnSpeed = Input.GetAxis("Horizontal") * (MaxTurnSpeed + verticalSpeed) * Time.deltaTime;
 
         if (verticalSpeed != 0) 

@@ -62,7 +62,7 @@ public class AiDriving : MonoBehaviour
     {
         car = GetComponent<Car>();
         ExitPosition = ExitPosition = transform.Find("CarExitPosition");
-        maxSpeed = car.MaxSpeed;
+        maxSpeed = car.BaseSpeed;
 
         float shortestDistance = 9999;
         var temp = FindObjectsOfType<TAG_TrafficPoint>().ToList();
