@@ -27,7 +27,7 @@ public class FiringWeapon : MonoBehaviour
     internal void Fire()
     {
         if (totalRounds == 0 || isInCooldown) return;
-        playerMovement.isShooting = true;
+        playerMovement.isAttacking = true;
         Invoke(nameof(SetShootAnimationToFalse), 0.2f);
         isInCooldown = true;
         Invoke(nameof(SetIsInCooldownToFalse), CooldownTimeInSeconds);
@@ -38,7 +38,7 @@ public class FiringWeapon : MonoBehaviour
 
     private void SetIsInCooldownToFalse() => isInCooldown = false;
 
-    private void SetShootAnimationToFalse() => playerMovement.isShooting = false;
+    private void SetShootAnimationToFalse() => playerMovement.isAttacking = false;
 
     private void InstantiateBullet()
     {
