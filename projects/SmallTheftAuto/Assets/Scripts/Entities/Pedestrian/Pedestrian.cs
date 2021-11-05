@@ -116,6 +116,8 @@ public class Pedestrian : Entity, IDamageable
     {
         yield return new WaitForSeconds(0.5f);
         HurtNpc.Play();
+        yield return new WaitForSeconds(5f);
+
     }
 
     public override void OnDeath()
