@@ -86,11 +86,11 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private void FireRangeWeaponWithLeftClick()
     {
-        if (Input.GetButtonDown(KeyBinding.FireWeapon) && ActiveWeapon.WeaponName == WeaponName.Pistol)
+        if (Input.GetButtonDown(KeyBinding.PlayerAttack) && ActiveWeapon.WeaponName == WeaponName.Pistol)
         {
             FirePistol();
         }
-        if (Input.GetButton(KeyBinding.FireWeapon) && ActiveWeapon.WeaponName == WeaponName.MachineGun)
+        if (Input.GetButton(KeyBinding.PlayerAttack) && ActiveWeapon.WeaponName == WeaponName.MachineGun)
         {
             FireMachineGun();
         }
@@ -118,7 +118,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     
     private void MeleeAttack()
     {
-        if (ActiveWeapon.WeaponName == WeaponName.BareHands && Input.GetButtonDown(KeyBinding.FireWeapon) && canPunch())
+        if (ActiveWeapon.WeaponName == WeaponName.BareHands && Input.GetButtonDown(KeyBinding.PlayerAttack) && canPunch())
         {
             foreach (var t in punchTargets)
             {
