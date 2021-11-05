@@ -30,20 +30,29 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, -horizontal);
         
         isWalking = false;
+        isShooting = false;
         shootPistolAnimator.enabled = false;
         var activeWeapon = playerWeaponController.ActiveWeapon;
         spriteRenderer.sprite = activeWeapon.WeaponName == WeaponName.BareHands ? 
             defaultSprite : (activeWeapon.WeaponName == WeaponName.Pistol ? armedWithPistolSprite : armedWithMachineGunSprite);
+
+        if (Input.GetKey(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse0))
+        {
+           isShooting = true;
+        }
         
         if (vertical < 0)
         {
             transform.Translate(0,vertical/1.5f,0);
-            isWalking = true;
+            if (!Input.GetKey(KeyCode.Mouse0))
+            {
+                isWalking = true;
+            }
         }
         else
         {
             transform.Translate(0,vertical,0);
-            if (Input.GetKey(KeyCode.W))
+            if ((Input.GetKey(KeyCode.W) && (!Input.GetKey(KeyCode.Mouse0))))
             {
                 isWalking = true;
             }
@@ -56,9 +65,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if (isWalking) PlayWalkingAnimation(); 
-        if (isShooting)
+        if (isShooting == true)
         {
-            isWalking = false;
             PlayShootingAnimation();
             Invoke(nameof(SetIsShootingToFalse), 0.2f);
         }
@@ -77,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayShootingAnimation()
     {
+        
         if (shootPistolAnimator.gameObject.activeSelf)
         {
             shootPistolAnimator.enabled = true;
@@ -85,9 +94,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerMachineGunShoot");
             }
-            else
+            else if (spriteRenderer.sprite == armedWithPistolSprite)
             {
                 shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPistolShoot");
+            }
+            else
+            {
+                shootPistolAnimator.runtimeAnimatorController = Resources.Load<RuntimeAnimatorController>("Animations/PlayerPunch");
             }
           
         }
