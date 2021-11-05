@@ -16,7 +16,7 @@ internal class WeaponName
 
 internal class KeyBinding : MonoBehaviour
 {
-    internal const string FireWeapon = "Fire1";
+    internal const string PlayerAttack = "Fire1";
     internal const KeyCode PickUpWeapon = KeyCode.F;
     internal const KeyCode ReloadWeapon = KeyCode.R;
     internal const KeyCode SwapToBareHands = KeyCode.Alpha1;

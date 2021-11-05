@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6609964993474773685}
   - component: {fileID: 2270540212239449580}
   - component: {fileID: 1116556668758160495}
+  - component: {fileID: 3086178681102476875}
   m_Layer: 0
   m_Name: Steroids
   m_TagString: Untagged
@@ -94,7 +95,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -163,3 +164,15 @@ PolygonCollider2D:
       - {x: -0.53999996, y: -0.98499995}
       - {x: -0.53999996, y: -0.955}
       - {x: -0.64, y: -0.815}
+--- !u!114 &3086178681102476875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385065779758834731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facc7589aadf403418d215d7d37109f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
