@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -6,20 +5,15 @@ public class FiringWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] private int TotalRounds;
-    [SerializeField] private int CooldownTimeInSeconds;
+    [SerializeField] private float CooldownTimeInSeconds;
 
+    internal int totalRounds { get; private set; }
+    internal bool isInCooldown { get; private set; }
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
     private GameObject reloadPrompt;
     private Animator animator;
-    internal int totalRounds { get; private set; }
-    internal bool isInCooldown { get; private set; }
     private PlayerWeaponController playerWeaponController;
-
-    public Animation fireAnimation;
-    public RuntimeAnimatorController temp;
-
-    private Animator playerAnimator;
 
     private void Start()
     {
@@ -27,7 +21,6 @@ public class FiringWeapon : MonoBehaviour
         totalRounds = TotalRounds;
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
-        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         isInCooldown = false;
         animator = GetComponent<Animator>();
         reloadPrompt = hud.ReloadPrompt;
@@ -41,9 +34,6 @@ public class FiringWeapon : MonoBehaviour
         MinusOneBullet();
         InstantiateBullet();
         UpdateRemainBulletDisplay();
-        // playerAnimator.enabled = true;
-        playerAnimator.runtimeAnimatorController = temp;
-        Debug.Log("TITTA JAG SKJUTER");
     }
 
     private void SetIsInCooldownToFalse() => isInCooldown = false;
