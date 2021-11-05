@@ -14,8 +14,10 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     public bool CarRunning;
     private bool ExitAllowed;
     private const KeyCode VehicleInteractKey = KeyCode.F;
-    
-    
+
+    public bool NPCInCar;
+
+
     private void Start()
     {
         // IEnterable
@@ -176,7 +178,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (CollisionCheckActive)
+        if (CollisionCheckActive || NPCInCar)
         {
             if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
             {
@@ -188,7 +190,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
     int CalculateCrashDamage()
     {
-        return Math.Abs((int) Math.Round(MaxDamage * verticalSpeed));
+        return Mathf.Clamp(Math.Abs((int) Math.Round(MaxDamage * verticalSpeed)), 15, 50);
     }
     
     
@@ -226,7 +228,6 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
             value *= 1000;
         }
         base.TakeDamage(value, attacker);
-        Debug.Log($"Car takes {value} damage!");
         if (Health < MaxHealth / 4)
         {
             IsBurning = true;

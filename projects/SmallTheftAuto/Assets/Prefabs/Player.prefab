@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Id: 0
-  MaxHealth: 10
+  MaxHealth: 100
 --- !u!114 &-3181994001049663900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,12 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86e970460ca8eb648ae84d7e172ca331, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotSpeed: 120
+  rotSpeed: 240
   speed: 10
   defaultSprite: {fileID: 21300000, guid: 6c8821c7d79a1594d932ff29358da812, type: 3}
   armedWithPistolSprite: {fileID: 21300000, guid: bc8257d0f04ba864a98e03db76b71f2d, type: 3}
   armedWithMachineGunSprite: {fileID: 21300000, guid: a0667283804715642907f306cf4fa987, type: 3}
-  AnimatorController: {fileID: 9100000, guid: 7196f059c4f7e454b8528f7d7fbd7d08, type: 2}
 --- !u!114 &-4736549970416121770
 MonoBehaviour:
   m_ObjectHideFlags: 0
