@@ -21,17 +21,17 @@ public class MoneySpawner : MonoBehaviour
         
     }
 
-    public void MoneyGet10(Vector3 spawnPostion)
+    public void SpawnMoney10(Vector3 spawnPostion)
     {
         Instantiate(GetMoney10).transform.position = spawnPostion;
 
     }
-    public void MoneyGet100(Vector3 spawnPostion)
+    public void SpawnMoney50(Vector3 spawnPostion)
     {
         Instantiate(GetMoney50).transform.position = spawnPostion;
         // Instantiate(GetMoney50).transform.position = spawnPostion;
     }
-    public void MoneyGet200(Vector3 spawnPostion)
+    public void SpawnMoney100(Vector3 spawnPostion)
     {
         Instantiate(GetMoney100).transform.position = spawnPostion;
         Instantiate(GetMoney100).transform.position = spawnPostion;

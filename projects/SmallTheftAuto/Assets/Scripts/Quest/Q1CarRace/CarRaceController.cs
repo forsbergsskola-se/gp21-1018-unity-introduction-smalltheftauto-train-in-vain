@@ -123,8 +123,8 @@ public class CarRaceController : MonoBehaviour
             player.GetComponent<PlayerController>().Score += 100;
             Destroy(QuestCar);
             Debug.Log(player.gameObject.name);
-            moneySpawner.MoneyGet100(player.transform.position + new Vector3(3, 0));
-            moneySpawner.MoneyGet100(player.transform.position + new Vector3(-3, 0));
+            moneySpawner.SpawnMoney100(player.transform.position + new Vector3(3, 0));
+            moneySpawner.SpawnMoney100(player.transform.position + new Vector3(-3, 0));
         }
         // else if(Slider.GetComponent<Timer>().gameTime== 0)
         // {
