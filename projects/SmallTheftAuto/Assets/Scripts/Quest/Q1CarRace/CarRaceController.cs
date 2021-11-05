@@ -126,12 +126,6 @@ public class CarRaceController : MonoBehaviour
             moneySpawner.SpawnMoney100(player.transform.position + new Vector3(3, 0));
             moneySpawner.SpawnMoney100(player.transform.position + new Vector3(-3, 0));
         }
-        // else if(Slider.GetComponent<Timer>().gameTime== 0)
-        // {
-        //     Slider.SetActive(false);
-        //     loseText.SetActive(true);
-        //     Invoke(nameof(DisableLoseText),cooldown);
-        // }
         else
         {
             Debug.Log("You didn't get all the checkpoints! Try again!");
