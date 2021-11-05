@@ -30,6 +30,7 @@ public class AiDriving : MonoBehaviour
             else
             {
                 NPCInCar = false;
+                car.NPCInCar = false;
                 // TODO: Spawn NPC at coordinates of exit position;
                 FindObjectOfType<NPCSpawner>().SpawnNewNPC(ExitPosition.position, ExitPosition.rotation);
                 Debug.Log("Spawned new NPC from car!");
@@ -59,6 +60,7 @@ public class AiDriving : MonoBehaviour
     void Start()
     {
         car = GetComponent<Car>();
+        car.NPCInCar = NPCInCar;
         ExitPosition = transform.Find("CarExitPosition");
         maxSpeed = car.BaseSpeed;
 

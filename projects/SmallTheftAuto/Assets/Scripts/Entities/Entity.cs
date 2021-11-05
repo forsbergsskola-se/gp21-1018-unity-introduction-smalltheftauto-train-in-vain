@@ -49,7 +49,7 @@ public abstract class Entity : MonoBehaviour
     IEnumerator takeDamageCooldown()
     {
         takeDamageOnCooldown = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.5f);
         takeDamageOnCooldown = false;
     }
 }

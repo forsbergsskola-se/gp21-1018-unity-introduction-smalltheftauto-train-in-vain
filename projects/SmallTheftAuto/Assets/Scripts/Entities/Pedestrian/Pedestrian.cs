@@ -17,6 +17,19 @@ public class Pedestrian : Entity, IDamageable
     private bool walk;
     private float panicModeTimeOffset = 1;
     private float panicModeSpeedOffset = 1;
+    public AudioSource HurtNpc;
+    public SpriteRenderer SpriteRenderer;
+    public Sprite SchoolBoy;
+    public Sprite Brawler;
+    public Sprite TopHat;
+    public Sprite Army;
+    public Sprite Dog;
+    
+    public Sprite DeadSchoolBoy;
+    public Sprite DeadBrawler;
+    public Sprite DeadTopHat;
+    public Sprite DeadArmy;
+    public Sprite DeadDog;
     private void Update()
     {
         // RandomMovement();
@@ -24,7 +37,6 @@ public class Pedestrian : Entity, IDamageable
             transform.Translate(Vector3.up * (MoveSpeed * panicModeSpeedOffset)* Time.deltaTime);
         if (walkBackwards)
             transform.Translate(Vector3.down * (MoveSpeed/2 * panicModeSpeedOffset) * Time.deltaTime);
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -84,6 +96,7 @@ public class Pedestrian : Entity, IDamageable
 
         StartCoroutine(PanicMode());
         base.TakeDamage(value, attacker);
+        HurtNpc.Play();
     }
 
     IEnumerator PanicMode()
@@ -99,6 +112,33 @@ public class Pedestrian : Entity, IDamageable
 
     public override void OnDeath()
     {
+        HurtNpc.Play();
+        GetComponent<SpriteRenderer>();
+        if (SpriteRenderer.sprite == SchoolBoy)
+        {
+            SpriteRenderer.sprite = DeadSchoolBoy;
+        }
+        
+        if (SpriteRenderer.sprite == TopHat)
+        {
+            SpriteRenderer.sprite = DeadTopHat;
+        }
+        
+        if (SpriteRenderer.sprite == Brawler)
+        {
+            SpriteRenderer.sprite = DeadBrawler;
+        }
+
+        if (SpriteRenderer.sprite == Army)
+        {
+            SpriteRenderer.sprite = DeadArmy;
+        }
+        
+        if (SpriteRenderer.sprite == Dog)
+        {
+            SpriteRenderer.sprite = DeadDog;
+        }
+      
         FindObjectOfType<GameController>().AddMoney(75);
         FindObjectOfType<MoneySpawner>().SpawnMoney50(gameObject.transform.position);
         FindObjectOfType<GameController>().AddScore(150);

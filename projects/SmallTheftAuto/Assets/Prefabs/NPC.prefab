@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6290187871161045356}
   - component: {fileID: 6290187871161045357}
   - component: {fileID: 7018105881424133247}
+  - component: {fileID: 8764776321579042535}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -105,6 +106,18 @@ MonoBehaviour:
   WaitTimeMax: 3
   WaitTimeMin: 1
   PanicModeTime: 5
+  HurtNpc: {fileID: 8764776321579042535}
+  SpriteRenderer: {fileID: 6290187871161045362}
+  SchoolBoy: {fileID: 21300000, guid: 81ff00d8bb8ba244fb107ce17f0e6e44, type: 3}
+  Brawler: {fileID: 21300000, guid: 9024cb44ea7438c47902f57ae08d309a, type: 3}
+  TopHat: {fileID: 21300000, guid: 0afc1316059221d4bb5c254d6cb87fa7, type: 3}
+  Army: {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
+  Dog: {fileID: 21300000, guid: 040730b7afeffc342a52f6a36258190c, type: 3}
+  DeadSchoolBoy: {fileID: 21300000, guid: c8eb93a0118cdab40aca0a0f80df0486, type: 3}
+  DeadBrawler: {fileID: 21300000, guid: 101d734fcbae1bd44ab7210a1d4307d1, type: 3}
+  DeadTopHat: {fileID: 21300000, guid: 128b3e1286f495044bbb663f3b432f99, type: 3}
+  DeadArmy: {fileID: 21300000, guid: 2309b31d007529d4eb3d3a99c5f8f6b5, type: 3}
+  DeadDog: {fileID: 21300000, guid: a3906140f8480f94892576d2452aa471, type: 3}
 --- !u!60 &6290187871161045356
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -203,3 +216,99 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
+--- !u!82 &8764776321579042535
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6290187871161045360}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 735a32d1fd2aa464985ea70745ebeee3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
