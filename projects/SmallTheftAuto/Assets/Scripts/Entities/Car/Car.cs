@@ -89,6 +89,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
         currentUser = User;
         currentUser.SetActive(false);
         followCamera.target = gameObject;
+        followCamera.CameraHeightOffset = -40;
         CarRunning = true;
         CollisionCheckActive = true;
         
@@ -116,6 +117,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
             currentUser.SetActive(true);
             followCamera.target = currentUser;
+            followCamera.CameraHeightOffset = -20;
             currentUser = null;
         
         
