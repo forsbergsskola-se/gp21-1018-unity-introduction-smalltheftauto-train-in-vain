@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
         Instantiate(savePointPrefab, new Vector3(-179, 170.3f, 0), Quaternion.identity);
         Instantiate(savePointPrefab, new Vector3(108, 209.2f, 0), Quaternion.identity);
         Instantiate(buildingPrefab, new Vector3(10, 10, 0), Quaternion.identity);
+        Instantiate(buildingPrefab, new Vector3(-40, 30, 0), Quaternion.identity);
 
         var questMenuController = placedPhoneBox.GetComponent<QuestMenuController>();
         questMenuController.QuestTitle = "CarRace";

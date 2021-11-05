@@ -183,7 +183,6 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
             if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
             {
                 iDamageable.TakeDamage(CalculateCrashDamage(), gameObject);
-                Debug.Log($"Dealt {CalculateCrashDamage()} damage to: {other.gameObject.name}");
             }
             TakeDamage(CalculateCrashDamage(), gameObject);
         }
