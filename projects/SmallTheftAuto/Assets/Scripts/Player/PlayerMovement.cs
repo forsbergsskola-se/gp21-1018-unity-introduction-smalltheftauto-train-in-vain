@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 transform.Translate(0,vertical*1,0);
-                isWalking = true;
+                isWalking = !Input.GetKey(KeyCode.Mouse0);
             }
         }
 
