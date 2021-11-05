@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
-        
+        Application.targetFrameRate = 300;
         SavePoint.NextId = 0;
         
         Player = Instantiate(playerPrefab);
