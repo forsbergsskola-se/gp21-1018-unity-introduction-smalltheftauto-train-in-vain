@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -5,10 +6,12 @@ public class FiringWeapon : MonoBehaviour
 {
     [SerializeField] private GameObject Bullet;
     [SerializeField] private int TotalRounds;
-    
+    [SerializeField] private int CooldownTimeInSeconds;
+
     private TMP_Text bulletCountText;
     private GameObject reloadCoverUp;
     internal int totalRounds { get; private set; }
+    internal bool isInCooldown { get; private set; }
     private PlayerWeaponController playerWeaponController;
 
     private void Start()
@@ -17,18 +20,20 @@ public class FiringWeapon : MonoBehaviour
         totalRounds = TotalRounds;
         bulletCountText = hud.BulletCountText;
         reloadCoverUp = hud.ReloadCoverUp;
+        isInCooldown = false;
     }
 
     internal void Fire()
     {
-        if (totalRounds == 0)
-        {
-            return;
-        }
+        if (totalRounds == 0 || isInCooldown) return;
+        isInCooldown = true;
+        Invoke(nameof(SetIsInCooldownToFalse), CooldownTimeInSeconds);
         MinusOneBullet();
         InstantiateBullet();
         UpdateRemainBulletDisplay();
     }
+
+    private void SetIsInCooldownToFalse() => isInCooldown = false;
 
     private void InstantiateBullet()
     {
