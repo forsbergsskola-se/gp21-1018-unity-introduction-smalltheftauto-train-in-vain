@@ -117,7 +117,7 @@ public class Pedestrian : Entity, IDamageable
 
     }
 
-    public override void OnDeath()
+    IEnumerator ChangeSpriteOnDeath()
     {
         if (SpriteRenderer.sprite == SchoolBoy)
         {
@@ -143,7 +143,12 @@ public class Pedestrian : Entity, IDamageable
         {
             SpriteRenderer.sprite = DeadDog;
         }
-      
+        yield return new WaitForSeconds(10f);
+    }
+
+    public override void OnDeath()
+    {
+        StartCoroutine(ChangeSpriteOnDeath());
         FindObjectOfType<GameController>().AddMoney(75);
         FindObjectOfType<MoneySpawner>().SpawnMoney50(gameObject.transform.position);
         FindObjectOfType<GameController>().AddScore(150);
