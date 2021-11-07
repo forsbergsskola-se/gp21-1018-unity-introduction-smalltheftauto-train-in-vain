@@ -176,15 +176,17 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     private const int MaxDamage = 500;
     private bool CollisionCheckActive;
 
+    public DamageType DamageType;
+    
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (CollisionCheckActive || NPCInCar)
         {
             if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
             {
-                iDamageable.TakeDamage(CalculateCrashDamage(), gameObject);
+                iDamageable.TakeDamage(CalculateCrashDamage(), DamageType);
             }
-            TakeDamage(CalculateCrashDamage(), gameObject);
+            TakeDamage(CalculateCrashDamage(), DamageType);
         }
     }
 
@@ -220,14 +222,14 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     // TakeDamage
     
     
-    public override void TakeDamage(int value, GameObject attacker)
+    public override void TakeDamage(int value, DamageType damageType)
     {
-        if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase))
+        if (damageType.Water)
         {
             Debug.Log("Car takes a swim but sinks instantly!");
             value *= 1000;
         }
-        base.TakeDamage(value, attacker);
+        base.TakeDamage(value, damageType);
         if (Health < MaxHealth / 4)
         {
             IsBurning = true;

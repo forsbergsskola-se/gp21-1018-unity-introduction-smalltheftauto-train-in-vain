@@ -115,7 +115,9 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
             ActiveWeapon.GetComponent<FiringWeapon>().Reload();
         }
     }
-    
+
+
+    public DamageType DamageType;
     private void MeleeAttack()
     {
         if (ActiveWeapon.WeaponName == WeaponName.BareHands && Input.GetButtonDown(KeyBinding.PlayerAttack) && canPunch())
@@ -132,7 +134,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
                 {
                     playerMovement.isAttacking = true;
                     Invoke(nameof(SetMeleeAttackAnimationToFalse), 0.2f);
-                    iDamageable.TakeDamage((int)ActiveWeapon.Power, t);
+                    iDamageable.TakeDamage((int)ActiveWeapon.Power, DamageType);
                 }
             }
         }

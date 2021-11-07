@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnvironmentDamage : MonoBehaviour
 {
+    public DamageType DamageType;
+    
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
         {
-            iDamageable.TakeDamage(1, gameObject);
+            iDamageable.TakeDamage(1, DamageType);
         }
     }
 }

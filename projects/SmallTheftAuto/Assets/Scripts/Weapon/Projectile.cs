@@ -24,11 +24,12 @@ public class Projectile : MonoBehaviour
         if (timer > lifeSpan) Destroy(gameObject);
     }
 
+    public DamageType DamageType;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
         {
-            iDamageable.TakeDamage(BulletDamage, gameObject);
+            iDamageable.TakeDamage(BulletDamage, DamageType);
             Destroy(gameObject);
         }
     }

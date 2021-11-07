@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: -1060661442283396699}
   - component: {fileID: -1886455180498070620}
   - component: {fileID: -7324317932517199746}
+  - component: {fileID: 5005175527692142551}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -239,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveWeapon: {fileID: 2258796007424826244, guid: cf657bee25d3acb4da0c334b8419d7aa, type: 3}
   RangeToPickUp: 3
+  DamageType: {fileID: 5005175527692142551}
 --- !u!114 &-1886455180498070620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5005175527692142551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4396968072063033420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d07e9c50b789a243b888c6f42e5df25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: 0
+  Collision: 0
+  Water: 0
+  Bullet: 0
+  Melee: 1
 --- !u!1 &5942490892660659760
 GameObject:
   m_ObjectHideFlags: 0

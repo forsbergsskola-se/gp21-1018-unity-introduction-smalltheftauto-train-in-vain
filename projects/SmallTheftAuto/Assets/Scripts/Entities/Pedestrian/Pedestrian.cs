@@ -82,21 +82,21 @@ public class Pedestrian : Entity, IDamageable
     }
 
 
-    public override void TakeDamage(int value, GameObject attacker = null)
+    public override void TakeDamage(int value, DamageType damageType = null)
     {
-        if (attacker.TryGetComponent(out TAG_CollisionDamage noUseCase))
+        if (damageType.Collision)
         {
             Debug.Log("NPC got run over!");
             value *= 5;
         }
 
-        if (attacker.TryGetComponent(out TAG_WaterDamage noUseCase2))
+        if (damageType.Water)
         {
             value *= 10;
         }
 
         StartCoroutine(PanicMode());
-        base.TakeDamage(value, attacker);
+        base.TakeDamage(value, damageType);
         StartCoroutine(HurtNoise());
     }
 

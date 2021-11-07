@@ -81,9 +81,9 @@ public class PlayerController : Entity, IDamageable
 
     
     
-    public override void TakeDamage(int value, GameObject attacker = null)
+    public override void TakeDamage(int value, DamageType damageType = null)
     {
-        base.TakeDamage(value, attacker);
+        base.TakeDamage(value, damageType);
         healthBar.SetHealth(Health);
         
         if (Health < MaxHealth * 0.4 && Health > 0)

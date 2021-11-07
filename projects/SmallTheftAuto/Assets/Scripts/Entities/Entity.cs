@@ -37,7 +37,7 @@ public abstract class Entity : MonoBehaviour
     
     
     private bool takeDamageOnCooldown;
-    public virtual void TakeDamage(int value, GameObject attacker = null)
+    public virtual void TakeDamage(int value, DamageType damageType = null)
     {
         if (!takeDamageOnCooldown)
         {

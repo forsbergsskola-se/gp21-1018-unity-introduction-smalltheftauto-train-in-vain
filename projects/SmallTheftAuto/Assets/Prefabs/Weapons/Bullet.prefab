@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -3962403808718351578}
   - component: {fileID: -5012085828092584432}
   - component: {fileID: 3789307114462711127}
+  - component: {fileID: 4815608730505241647}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpeed: 50
+  DamageType: {fileID: 4815608730505241647}
 --- !u!60 &-5012085828092584432
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -151,3 +153,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4815608730505241647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2286285464873633768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d07e9c50b789a243b888c6f42e5df25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: 0
+  Collision: 0
+  Water: 0
+  Bullet: 1
+  Melee: 0
