@@ -94,6 +94,8 @@ public class PlayerController : Entity, IDamageable
         {
             Hurt.SetActive(false);
         }
+
+        // Debug.Log("Player health: " + Health);
     }
 
     public override void OnDeath()
