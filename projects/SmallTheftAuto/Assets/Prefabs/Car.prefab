@@ -111,9 +111,9 @@ GameObject:
   - component: {fileID: 4662404593033635941}
   - component: {fileID: 2944415430537735321}
   - component: {fileID: -7103849855364417520}
-  - component: {fileID: 8646053431745688135}
   - component: {fileID: -3904293553275097628}
   - component: {fileID: -2724079531093348142}
+  - component: {fileID: 260363501538931023}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -174,121 +174,11 @@ MonoBehaviour:
   Id: 0
   MaxHealth: 300
   CarRunning: 0
+  NPCInCar: 0
   BaseSpeed: 15
   MaxTurnSpeed: 150
   drivingSkin: {fileID: 21300000, guid: 6428b559bdbe9524fb74c0f2009be8af, type: 3}
   defaultSkin: {fileID: 21300000, guid: 042772663b91167488bf9ea38fa30936, type: 3}
---- !u!66 &8646053431745688135
-CompositeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4662404593033635940}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_GeometryType: 1
-  m_GenerationType: 0
-  m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 4662404593518225631}
-    m_ColliderPaths:
-    - - X: 17500000
-        Y: 7299999
-      - X: 16300000
-        Y: 7399999
-      - X: 16600000
-        Y: 26299998
-      - X: 18200000
-        Y: 27299998
-      - X: 18200000
-        Y: 40299996
-      - X: 17500000
-        Y: 41299996
-      - X: 16400000
-        Y: 51099996
-      - X: 15100000
-        Y: 52399996
-      - X: 11999999
-        Y: 53199996
-      - X: -10000000
-        Y: 53199996
-      - X: -13199999
-        Y: 52599996
-      - X: -14399999
-        Y: 51000000
-      - X: -14599999
-        Y: 41699996
-      - X: -16200000
-        Y: 40699996
-      - X: -16200000
-        Y: 27699998
-      - X: -15500000
-        Y: 26699998
-      - X: -14299999
-        Y: 26599998
-      - X: -14599999
-        Y: 6699998
-      - X: -16200000
-        Y: 5699998
-      - X: -16200000
-        Y: -6300000
-      - X: -15500000
-        Y: -7300001
-      - X: -14399999
-        Y: -13100001
-      - X: -13399999
-        Y: -16100000
-      - X: -12300000
-        Y: -17200002
-      - X: -7999999
-        Y: -18200000
-      - X: 11899999
-        Y: -18200000
-      - X: 15999999
-        Y: -16500000
-      - X: 18200000
-        Y: -6200000
-      - X: 18200000
-        Y: 6299999
-  m_CompositePaths:
-    m_Paths:
-    - - {x: 1.1899948, y: -1.82}
-      - {x: 1.6000028, y: -1.6499864}
-      - {x: 1.82, y: -0.6199971}
-      - {x: 1.8199954, y: 0.63000673}
-      - {x: 1.7499881, y: 0.7300009}
-      - {x: 1.6300005, y: 0.7400269}
-      - {x: 1.6600122, y: 2.6300075}
-      - {x: 1.82, y: 2.7300146}
-      - {x: 1.8199954, y: 4.0300064}
-      - {x: 1.7499992, y: 4.1300063}
-      - {x: 1.6399937, y: 5.110006}
-      - {x: 1.5099933, y: 5.240001}
-      - {x: 1.1999968, y: 5.3199997}
-      - {x: -1.0000023, y: 5.319999}
-      - {x: -1.320006, y: 5.2599916}
-      - {x: -1.44, y: 5.0999923}
-      - {x: -1.4600122, y: 4.169992}
-      - {x: -1.62, y: 4.069985}
-      - {x: -1.6199955, y: 2.769993}
-      - {x: -1.5499879, y: 2.669999}
-      - {x: -1.4300003, y: 2.659973}
-      - {x: -1.4600121, y: 0.6699922}
-      - {x: -1.62, y: 0.56998503}
-      - {x: -1.6199955, y: -0.6300068}
-      - {x: -1.5499989, y: -0.7300057}
-      - {x: -1.4399995, y: -1.3100014}
-      - {x: -1.3399956, y: -1.6100043}
-      - {x: -1.229993, y: -1.7200018}
-      - {x: -0.7999968, y: -1.82}
-  m_VertexDistance: 0.0005
-  m_OffsetDistance: 0.00005
 --- !u!114 &-3904293553275097628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,7 +205,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NPCInCar: 1
   TargetPositions: []
-  temp: {x: 0, y: 0, z: 0}
+--- !u!61 &260363501538931023
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662404593033635940}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.10688603, y: 1.7483492}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.0461032, y: 7.1230392}
+  m_EdgeRadius: 0
 --- !u!1 &4662404593518225628
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +323,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4662404593518225628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
