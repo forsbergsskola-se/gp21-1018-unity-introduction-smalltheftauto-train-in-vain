@@ -207,7 +207,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
         {
             Exit();
             // currentUser.GetComponent<PlayerController>().TakeDamage(9999);
-            FindObjectOfType<PlayerController>().TakeDamage(9999);
+            FindObjectOfType<PlayerController>().OnDeath();
         }
         base.OnDeath();
     }
