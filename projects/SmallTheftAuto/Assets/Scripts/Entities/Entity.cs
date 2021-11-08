@@ -45,7 +45,7 @@ public abstract class Entity : MonoBehaviour
         if (!takeDamageOnCooldown && gameObject.activeSelf)
         {
             Health -= value;
-            if (HurtSound != null) {HurtSound.Play();}
+            if (HurtSound != null) {HurtSound.Play(); Debug.Log("This is a known warning!");}
             StartCoroutine(takeDamageCooldown());
         }
     }

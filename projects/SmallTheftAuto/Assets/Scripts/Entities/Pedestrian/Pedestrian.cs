@@ -114,13 +114,13 @@ public class Pedestrian : Entity, IDamageable
         panicModeSpeedOffset = 1;
         panicModeTimeOffset = 1;
     }
-
-    IEnumerator HurtNoise()
-    {
-        yield return new WaitForSeconds(0.5f);
-        HurtNpc.Play();
-        yield return new WaitForSeconds(5f);
-    }
+    
+    // IEnumerator HurtNoise()
+    // {
+    //     yield return new WaitForSeconds(0.5f);
+    //     HurtNpc.Play();
+    //     yield return new WaitForSeconds(5f);
+    // }
 
     IEnumerator ChangeSpriteOnDeath()
     {

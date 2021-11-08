@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 {
+    
+    /// <summary>
+    /// Main script for cars. Add a AiDriving script for automated driving after the traffic points.
+    /// </summary>
+    
+    
+    
     // Constructor
     public Car() : base()
     {
