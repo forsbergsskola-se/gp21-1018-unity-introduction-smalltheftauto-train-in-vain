@@ -5,15 +5,23 @@ using UnityEngine;
 public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 {
     // Constructor
+    //The constructor is not used and could be removed
     public Car() : base()
     {
     }
 
 
+    //Think about how capitalisation of letters is used. Unity recommends 
+    //carRunning because its a public bool
+    //and _exitAllowed because its a private bool
+    //Consistency however is most important and should be looked into because i see 
+    //some inconsistencies in this script.
     public bool CarRunning;
     private bool ExitAllowed;
     private const KeyCode VehicleInteractKey = KeyCode.F;
 
+    //Following your previous use of public bools, this should be NpcInCar
+    //Or according to rider npcInCar
     public bool NPCInCar;
 
 
