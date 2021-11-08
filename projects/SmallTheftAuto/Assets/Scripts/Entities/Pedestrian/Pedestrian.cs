@@ -103,7 +103,7 @@ public class Pedestrian : Entity, IDamageable
 
         StartCoroutine(PanicMode());
         base.TakeDamage(value, damageType);
-        StartCoroutine(HurtNoise());
+        // StartCoroutine(HurtNoise());
     }
 
     IEnumerator PanicMode()
