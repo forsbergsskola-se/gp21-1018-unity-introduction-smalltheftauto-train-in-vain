@@ -40,7 +40,7 @@ public abstract class Entity : MonoBehaviour
     private bool takeDamageOnCooldown;
     public virtual void TakeDamage(int value, DamageType damageType = null)
     {
-        if (!takeDamageOnCooldown)
+        if (!takeDamageOnCooldown && gameObject.activeInHierarchy)
         {
             Health -= value;
             StartCoroutine(takeDamageCooldown());
