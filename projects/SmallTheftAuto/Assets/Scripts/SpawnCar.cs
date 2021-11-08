@@ -9,6 +9,7 @@ public class SpawnCar : MonoBehaviour
 {
     [SerializeField] private int MaxCars;
     public GameObject NewCarPrefab;
+    public GameObject DogCarPrefab;
     private PlayerInteract playerInteract;
     private bool spawnOnCoolDown;
     List<Vector3> spawnPositions = new List<Vector3>();
@@ -20,6 +21,7 @@ public class SpawnCar : MonoBehaviour
         SpawnUpgraded(new Vector3(-10, 1.8f, 0));
         SpawnUpgraded(new Vector3(-30, 1.8f, 0));
         SpawnUpgraded(new Vector3(-20, 1.8f, 0));
+        SpawnDogCar(new Vector3(79, 121, 0));
         
         var spawnObjects = FindObjectsOfType<TAG_TrafficPoint>().ToList();
         foreach (TAG_TrafficPoint t in spawnObjects)
@@ -53,5 +55,12 @@ public class SpawnCar : MonoBehaviour
         car.GetComponent<AiDriving>().NPCInCar = NPCDriver;
         playerInteract.Interactables.Add(car);
         return car;
+    }
+
+    public void SpawnDogCar(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool isNPCDriver = false)
+    {
+        var dogCar = Instantiate(DogCarPrefab, spawnPosition, rotation);
+        dogCar.GetComponent<AiDriving>().NPCInCar = isNPCDriver;
+        playerInteract.Interactables.Add(dogCar);
     }
 }
