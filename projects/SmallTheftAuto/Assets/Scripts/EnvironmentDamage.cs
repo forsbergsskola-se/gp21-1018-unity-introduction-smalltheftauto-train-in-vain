@@ -10,7 +10,7 @@ public class EnvironmentDamage : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
         {
-            iDamageable.TakeDamage(1, DamageType);
+            iDamageable.TakeDamage(10, DamageType);
         }
     }
 }

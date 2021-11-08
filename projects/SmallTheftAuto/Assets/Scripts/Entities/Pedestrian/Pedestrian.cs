@@ -95,11 +95,11 @@ public class Pedestrian : Entity, IDamageable
             Debug.Log("NPC got run over!");
             value *= 5;
         }
-
-        if (damageType.Water)
-        {
-            value *= 10;
-        }
+        //
+        // if (damageType.Water)
+        // {
+        //     value *= 10;
+        // }
 
         StartCoroutine(PanicMode());
         base.TakeDamage(value, damageType);
