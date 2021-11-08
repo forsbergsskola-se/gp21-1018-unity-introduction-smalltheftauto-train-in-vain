@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 224d904917b8d984a8b201c0fa78fa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HurtSound: {fileID: 8764776321579042535}
   Id: 0
   MaxHealth: 100
   MoveSpeed: 5
@@ -109,11 +110,6 @@ MonoBehaviour:
   PanicModeTime: 5
   HurtNpc: {fileID: 8764776321579042535}
   SpriteRenderer: {fileID: 6290187871161045362}
-  SchoolBoy: {fileID: 21300000, guid: 81ff00d8bb8ba244fb107ce17f0e6e44, type: 3}
-  Brawler: {fileID: 21300000, guid: 9024cb44ea7438c47902f57ae08d309a, type: 3}
-  TopHat: {fileID: 21300000, guid: 0afc1316059221d4bb5c254d6cb87fa7, type: 3}
-  Army: {fileID: 21300000, guid: 5d5f6f957c1d96443907545131cb6a96, type: 3}
-  Dog: {fileID: 21300000, guid: 040730b7afeffc342a52f6a36258190c, type: 3}
   DeadSchoolBoy: {fileID: 21300000, guid: c8eb93a0118cdab40aca0a0f80df0486, type: 3}
   DeadBrawler: {fileID: 21300000, guid: 101d734fcbae1bd44ab7210a1d4307d1, type: 3}
   DeadTopHat: {fileID: 21300000, guid: 128b3e1286f495044bbb663f3b432f99, type: 3}
@@ -225,7 +221,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6290187871161045360}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 735a32d1fd2aa464985ea70745ebeee3, type: 3}
