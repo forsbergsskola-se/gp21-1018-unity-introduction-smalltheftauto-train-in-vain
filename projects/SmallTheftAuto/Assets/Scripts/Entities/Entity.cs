@@ -32,10 +32,11 @@ public abstract class Entity : MonoBehaviour
 
     public virtual void OnDeath()
     {
-        Destroy(gameObject);
+        // Destroy(gameObject);
+        gameObject.SetActive(false);
     }
-    
-    
+
+
     private bool takeDamageOnCooldown;
     public virtual void TakeDamage(int value, DamageType damageType = null)
     {
