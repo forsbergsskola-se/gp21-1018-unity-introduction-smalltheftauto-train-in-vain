@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
@@ -240,10 +241,16 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
         ResetCar();
     }
 
+    private void OnEnable()
+    {
+        ResetCar();
+    }
+
     private void ResetCar()
     {
         IsBurning = false;
         Health = MaxHealth;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         UpdateSprite();
     }
 }
