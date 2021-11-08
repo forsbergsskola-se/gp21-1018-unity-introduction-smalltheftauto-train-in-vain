@@ -28,9 +28,8 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
         onFireAnimation.enabled = false;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
-    
-    
-    
+
+
     // Main loop
     private void Update()
     {
@@ -146,11 +145,12 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
     void UpdateSprite()
     {
+        // Debug.Log("Car is burning! " + IsBurning);
+        // Debug.Log("Car health: " + Health);
+        // Debug.Log($"Maxhealth = {MaxHealth}");
+        
         if (IsBurning)
         {
-            Debug.Log("Car is burning! " + IsBurning);
-            Debug.Log("Car health: " + Health);
-            Debug.Log($"Maxhealth = {MaxHealth}");
             if (currentUser != null)
             {
                 onFireAnimation.enabled = true;
@@ -249,6 +249,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     private void ResetCar()
     {
         IsBurning = false;
+        // onFireAnimation.enabled = false;
         Health = MaxHealth;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         UpdateSprite();

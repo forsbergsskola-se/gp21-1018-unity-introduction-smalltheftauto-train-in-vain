@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409484d0567f6604aa96c1dd450eb685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HurtSound: {fileID: 0}
   Id: 0
   MaxHealth: 300
   CarRunning: 0
@@ -384,7 +385,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4662404593518225628}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: a975f6fb9172e6f47af3d370c1b56322, type: 2}
   m_CullingMode: 0
