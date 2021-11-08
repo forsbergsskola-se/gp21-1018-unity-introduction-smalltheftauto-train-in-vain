@@ -90,11 +90,15 @@ public class Pedestrian : Entity, IDamageable
 
     public override void TakeDamage(int value, DamageType damageType = null)
     {
-        if (damageType.Collision)
+        if (damageType != null)
         {
-            Debug.Log("NPC got run over!");
-            value *= 5;
+            if (damageType.Collision)
+            {
+                Debug.Log("NPC got run over!");
+                value *= 5;
+            }
         }
+
         //
         // if (damageType.Water)
         // {

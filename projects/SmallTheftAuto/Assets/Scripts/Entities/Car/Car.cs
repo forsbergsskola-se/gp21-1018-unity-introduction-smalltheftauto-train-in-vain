@@ -230,11 +230,15 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     
     public override void TakeDamage(int value, DamageType damageType)
     {
-        if (damageType.Water)
+        if (damageType != null)
         {
-            Debug.Log("Car takes a swim but sinks instantly!");
-            value *= 1000;
+            if (damageType.Water)
+            {
+                Debug.Log("Car takes a swim but sinks instantly!");
+                value *= 1000;
+            }
         }
+        
         base.TakeDamage(value, damageType);
         if (Health < MaxHealth / 4)
         {
