@@ -32,5 +32,6 @@ public class SteroidsPowerUp : MonoBehaviour
 
         yield return new WaitForSeconds(duration);
         player.transform.localScale /= multiplier;
+        Destroy(this.gameObject);
     }
 }
