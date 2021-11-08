@@ -173,7 +173,7 @@ internal class PlayerWeaponController : MonoBehaviour, IEquipTarget, IAttacker
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other != null) punchTargets.Remove(other.gameObject);
-        Debug.Log("Length of punchable things: " + punchTargets.Count);
+        // Debug.Log("Length of punchable things: " + punchTargets.Count);
     }
 
     private bool canPunch() => punchTargets.Count > 0;

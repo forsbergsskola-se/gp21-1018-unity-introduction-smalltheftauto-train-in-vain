@@ -16,16 +16,10 @@ public class HealthPowerUp : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
-        
         if (other.CompareTag("Player") && (playerController.Health != playerController.MaxHealth))
         {
             playerController.TakeDamage(-healthUp);
             Destroy(gameObject);
-        }
-        else
-        {
-             Debug.Log("Player has full health");
         }
     }
 }
