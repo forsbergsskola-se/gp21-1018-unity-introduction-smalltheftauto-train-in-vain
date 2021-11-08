@@ -7,12 +7,13 @@ using Random = UnityEngine.Random;
 
 public class SpawnCar : MonoBehaviour
 {
+    [SerializeField] private int MaxCars;
     public GameObject NewCarPrefab;
     private PlayerInteract playerInteract;
-    List<Vector3> spawnPositions = new List<Vector3>();
     private bool spawnOnCoolDown;
+    List<Vector3> spawnPositions = new List<Vector3>();
     private List<GameObject> npcCars = new List<GameObject>();
-    
+
     void Start()
     {
         playerInteract = FindObjectOfType<PlayerInteract>();
@@ -22,14 +23,22 @@ public class SpawnCar : MonoBehaviour
         
         var spawnObjects = FindObjectsOfType<TAG_TrafficPoint>().ToList();
         foreach (TAG_TrafficPoint t in spawnObjects)
+        { 
+            spawnPositions.Add(t.gameObject.transform.position);
+        }
+        SpawnCarsInTraffic();
+    }
+
+    private void SpawnCarsInTraffic()
+    {
+        for (var i = 0; i < MaxCars; i++)
         {
-            var spawnPosition = t.gameObject.transform.position; 
-            spawnPositions.Add(spawnPosition);
-            var car = SpawnUpgradedAndReturn(spawnPosition, Quaternion.identity, true);
+            var randomizedSpawn = spawnPositions[Random.Range(0, spawnPositions.Count + 1)];
+            var car = SpawnUpgradedAndReturn(randomizedSpawn, Quaternion.identity, true);
             npcCars.Add(car);
         }
     }
-    
+
 
     public void SpawnUpgraded(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool isNPCDriver = false)
     {
