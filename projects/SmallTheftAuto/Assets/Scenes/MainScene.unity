@@ -1626,6 +1626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Burger
       objectReference: {fileID: 0}
+    - target: {fileID: 3971123411872073208, guid: a27b0966baab1b147b4429bbd0886259, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 4396968072063033420, guid: ffb771594c0c03d4d9ffd265992c7f46, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a27b0966baab1b147b4429bbd0886259, type: 3}
 --- !u!1001 &115293901
