@@ -122,26 +122,31 @@ public class Pedestrian : Entity, IDamageable
         if (SpriteRenderer.sprite == SchoolBoy)
         {
             SpriteRenderer.sprite = DeadSchoolBoy;
+            GetComponent<Collider2D>().enabled = false;
         }
         
         if (SpriteRenderer.sprite == TopHat)
         {
             SpriteRenderer.sprite = DeadTopHat;
+            GetComponent<Collider2D>().enabled = false;
         }
         
         if (SpriteRenderer.sprite == Brawler)
         {
             SpriteRenderer.sprite = DeadBrawler;
+            GetComponent<Collider2D>().enabled = false;
         }
 
         if (SpriteRenderer.sprite == Army)
         {
             SpriteRenderer.sprite = DeadArmy;
+            GetComponent<Collider2D>().enabled = false;
         }
         
         if (SpriteRenderer.sprite == Dog)
         {
             SpriteRenderer.sprite = DeadDog;
+            GetComponent<Collider2D>().enabled = false;
         }
         yield return new WaitForSeconds(10f);
     }
@@ -153,5 +158,6 @@ public class Pedestrian : Entity, IDamageable
         FindObjectOfType<MoneySpawner>().SpawnMoney50(gameObject.transform.position);
         FindObjectOfType<GameController>().AddScore(150);
         base.OnDeath();
+        Destroy(this.gameObject);
     }
 }
