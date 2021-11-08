@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float BulletSpeed;
     internal int BulletDamage;
     private Rigidbody2D rb;
-    private const float lifeSpan = 5f;
+    private const float lifeSpan = 3f;
     private float timer;
 
     private void Awake()
