@@ -5009,6 +5009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b37e2527c191da428a0d62384fd6366, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxCars: 15
   NewCarPrefab: {fileID: 4662404593033635940, guid: d3d5f337f272d624d897547b07db1b4d, type: 3}
 --- !u!114 &642482745
 MonoBehaviour:
