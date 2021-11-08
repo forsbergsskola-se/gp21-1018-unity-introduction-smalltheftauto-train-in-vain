@@ -10,7 +10,8 @@ public class Pedestrian : Entity, IDamageable
     public int WaitTimeMax;
     public int WaitTimeMin;
     public int PanicModeTime;
-    
+
+    private NPCSpawner npcSpawner;
     private bool somethingIsInFrontfMeOhNo;
     private bool walkBackwards;
     private bool walk;
@@ -34,9 +35,9 @@ public class Pedestrian : Entity, IDamageable
         SpriteRenderer = GetComponent<SpriteRenderer>();
         
         // RandomMovement();
-        if (walk)
+        if (walk && IsAlive)
             transform.Translate(Vector3.up * (MoveSpeed * panicModeSpeedOffset)* Time.deltaTime);
-        if (walkBackwards)
+        if (walkBackwards && IsAlive)
             transform.Translate(Vector3.down * (MoveSpeed/2 * panicModeSpeedOffset) * Time.deltaTime);
     }
 
@@ -52,6 +53,15 @@ public class Pedestrian : Entity, IDamageable
 
     private void Start()
     {
+        npcSpawner = FindObjectOfType<NPCSpawner>();
+    }
+
+
+    private void OnEnable()
+    {
+        Health = MaxHealth;
+        GetComponent<BoxCollider2D>().enabled = true;
+        GetComponent<CircleCollider2D>().enabled = true;
         Turn();
     }
 
@@ -64,7 +74,7 @@ public class Pedestrian : Entity, IDamageable
 
     void Walk()
     {
-        if (!somethingIsInFrontfMeOhNo)
+        if (!somethingIsInFrontfMeOhNo && IsAlive)
         {
             walk = false;
             Invoke("Turn", Random.Range(WaitTimeMin, WaitTimeMax) * panicModeTimeOffset);
@@ -73,7 +83,7 @@ public class Pedestrian : Entity, IDamageable
 
     void Turn()
     {
-        if (!somethingIsInFrontfMeOhNo)
+        if (!somethingIsInFrontfMeOhNo && IsAlive)
         {
             transform.Rotate(Vector3.forward * Random.Range(0, 360));
             walk = true;
@@ -114,50 +124,32 @@ public class Pedestrian : Entity, IDamageable
         yield return new WaitForSeconds(0.5f);
         HurtNpc.Play();
         yield return new WaitForSeconds(5f);
-
     }
 
     IEnumerator ChangeSpriteOnDeath()
     {
         if (SpriteRenderer.sprite == SchoolBoy)
-        {
             SpriteRenderer.sprite = DeadSchoolBoy;
-            GetComponent<Collider2D>().enabled = false;
-        }
-        
         if (SpriteRenderer.sprite == TopHat)
-        {
             SpriteRenderer.sprite = DeadTopHat;
-            GetComponent<Collider2D>().enabled = false;
-        }
-        
         if (SpriteRenderer.sprite == Brawler)
-        {
             SpriteRenderer.sprite = DeadBrawler;
-            GetComponent<Collider2D>().enabled = false;
-        }
-
         if (SpriteRenderer.sprite == Army)
-        {
             SpriteRenderer.sprite = DeadArmy;
-            GetComponent<Collider2D>().enabled = false;
-        }
-        
         if (SpriteRenderer.sprite == Dog)
-        {
             SpriteRenderer.sprite = DeadDog;
-            GetComponent<Collider2D>().enabled = false;
-        }
+
+        GetComponent<BoxCollider2D>().enabled = false;
+        GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(10f);
+        npcSpawner.ReloadNPC(gameObject, this);
     }
 
     public override void OnDeath()
     {
-        StartCoroutine(ChangeSpriteOnDeath());
-        FindObjectOfType<GameController>().AddMoney(75);
         FindObjectOfType<MoneySpawner>().SpawnMoney50(gameObject.transform.position);
         FindObjectOfType<GameController>().AddScore(150);
-        base.OnDeath();
-        Destroy(this.gameObject);
+
+        StartCoroutine(ChangeSpriteOnDeath());
     }
 }

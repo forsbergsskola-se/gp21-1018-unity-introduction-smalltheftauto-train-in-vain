@@ -32,18 +32,39 @@ public class NPCSpawner : MonoBehaviour
         
         // temp = tempSpawnPositions.Select(x => x.transform.position);
         
+        
+        while (NPCs.Count < MaxNPCs)
+        {
+            SpawnNewNPC(spawnPositions[Random.Range(0, spawnPositions.Count)]);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        NPCs.RemoveAll(x => x == null);
-        if (NPCs.Count < MaxNPCs)
-        {
-            var spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Count)];
-            SpawnNewNPC(spawnPosition);
-        }
+        // TODO: If any NPCs are inactive teleport them to a random spawn position and enable them again with full stats.
+        
+        
+        
+        // NPCs.RemoveAll(x => x == null);
+        // if (NPCs.Count < MaxNPCs)
+        // {
+        //     var spawnPosition = spawnPositions[Random.Range(0, spawnPositions.Count)];
+        //     SpawnNewNPC(spawnPosition);
+        // }
     }
+
+
+
+    public void ReloadNPC(GameObject npcObject, Pedestrian pedestrian)
+    {
+        npcObject.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];
+        npcObject.GetComponent<SpriteRenderer>().sprite = NPCskins[Random.Range(0, NPCskins.Length)];
+        SetRandomStats(pedestrian);
+    }
+    
+    
+    
 
     public void SpawnNewNPC(Vector3 position, Quaternion rotation = new Quaternion())
     {
@@ -53,14 +74,18 @@ public class NPCSpawner : MonoBehaviour
         newNPC.GetComponent<SpriteRenderer>().sprite = NPCskins[Random.Range(0, NPCskins.Length)];
 
         var newNPCVariables = newNPC.GetComponent<Pedestrian>();
+        
+        SetRandomStats(newNPCVariables);
+        
+        NPCs.Add(newNPC);
+    }
 
+    void SetRandomStats(Pedestrian newNPCVariables)
+    {
         newNPCVariables.MaxHealth = Random.Range(MaxHealthRange[0], MaxHealthRange[1]);
         newNPCVariables.MoveSpeed = Random.Range(MoveSpeedRange[0], MoveSpeedRange[1]);
         newNPCVariables.WaitTimeMax = Random.Range(WaitTimeMaxRange[0], WaitTimeMaxRange[1]);
         newNPCVariables.WaitTimeMin = Random.Range(WaitTimeMinRange[0], WaitTimeMinRange[1]);
         newNPCVariables.PanicModeTime = Random.Range(PanicModeTimeRange[0], PanicModeTimeRange[1]);
-        
-        
-        NPCs.Add(newNPC);
     }
 }
