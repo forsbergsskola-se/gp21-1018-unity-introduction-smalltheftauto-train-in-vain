@@ -277,8 +277,8 @@ MonoBehaviour:
   MaxHealth: 500
   CarRunning: 0
   NPCInCar: 0
-  BaseSpeed: 30
-  MaxTurnSpeed: 150
+  BaseSpeed: 20
+  MaxTurnSpeed: 200
   drivingSkin: {fileID: 21300000, guid: 79749b2496f8b164895202f8a8ac651c, type: 3}
   defaultSkin: {fileID: 21300000, guid: 040730b7afeffc342a52f6a36258190c, type: 3}
   DamageType: {fileID: 7024335081391972671}
