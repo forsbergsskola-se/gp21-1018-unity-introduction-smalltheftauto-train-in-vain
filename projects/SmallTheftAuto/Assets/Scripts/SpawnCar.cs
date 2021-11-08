@@ -18,10 +18,10 @@ public class SpawnCar : MonoBehaviour
     void Start()
     {
         playerInteract = FindObjectOfType<PlayerInteract>();
+        SpawnDogCar(new Vector3(85, 118, 0));
         SpawnUpgraded(new Vector3(-10, 1.8f, 0));
         SpawnUpgraded(new Vector3(-30, 1.8f, 0));
         SpawnUpgraded(new Vector3(-20, 1.8f, 0));
-        SpawnDogCar(new Vector3(79, 121, 0));
         
         var spawnObjects = FindObjectsOfType<TAG_TrafficPoint>().ToList();
         foreach (TAG_TrafficPoint t in spawnObjects)
@@ -49,18 +49,16 @@ public class SpawnCar : MonoBehaviour
         playerInteract.Interactables.Add(car);
     }
     
+    public void SpawnDogCar(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
+    {
+        var dogCar = Instantiate(DogCarPrefab, spawnPosition, rotation);
+        playerInteract.Interactables.Add(dogCar);
+    }
+    
     public GameObject SpawnUpgradedAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool NPCDriver = false)
     {
         var car = Instantiate(NewCarPrefab, spawnPosition, rotation);
-        car.GetComponent<AiDriving>().NPCInCar = NPCDriver;
         playerInteract.Interactables.Add(car);
         return car;
-    }
-
-    public void SpawnDogCar(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool isNPCDriver = false)
-    {
-        var dogCar = Instantiate(DogCarPrefab, spawnPosition, rotation);
-        dogCar.GetComponent<AiDriving>().NPCInCar = isNPCDriver;
-        playerInteract.Interactables.Add(dogCar);
     }
 }

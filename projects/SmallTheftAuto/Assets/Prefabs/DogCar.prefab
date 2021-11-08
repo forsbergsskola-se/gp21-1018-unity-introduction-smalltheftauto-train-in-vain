@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1470127042555573092}
   - component: {fileID: 1470127042555573095}
   - component: {fileID: 1470127042555573093}
-  - component: {fileID: 7760882864090266054}
   m_Layer: 0
   m_Name: CarChassis
   m_TagString: Untagged
@@ -160,25 +159,6 @@ PolygonCollider2D:
       - {x: 0.205, y: -2.35}
       - {x: 0.305, y: -1.62}
       - {x: 0.73499995, y: -1.62}
---- !u!95 &7760882864090266054
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470127042555573094}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a975f6fb9172e6f47af3d370c1b56322, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1470127043174642654
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,10 +169,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1470127043174642655}
   - component: {fileID: 8939199666224150307}
-  - component: {fileID: 5312223042246468522}
-  - component: {fileID: 1072103682682743656}
   - component: {fileID: 6291035816038869749}
   - component: {fileID: 7024335081391972671}
+  - component: {fileID: 2806434251371483493}
   m_Layer: 0
   m_Name: DogCar
   m_TagString: Untagged
@@ -209,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 1470127043174642654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 30.948776, y: 3.9021053, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_Children:
   - {fileID: 1470127042555573092}
   - {fileID: 1470127043843284551}
@@ -238,42 +217,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5312223042246468522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470127043174642654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409484d0567f6604aa96c1dd450eb685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HurtSound: {fileID: 0}
-  Id: 0
-  MaxHealth: 500
-  CarRunning: 0
-  NPCInCar: 0
-  BaseSpeed: 30
-  MaxTurnSpeed: 250
-  drivingSkin: {fileID: 21300000, guid: 040730b7afeffc342a52f6a36258190c, type: 3}
-  defaultSkin: {fileID: 21300000, guid: 040730b7afeffc342a52f6a36258190c, type: 3}
-  DamageType: {fileID: 7024335081391972671}
---- !u!114 &1072103682682743656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1470127043174642654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 820208289d04dbd4d95e6ae7ae019f64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NPCInCar: 1
-  TargetPositions: []
 --- !u!61 &6291035816038869749
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -317,6 +260,28 @@ MonoBehaviour:
   Water: 0
   Bullet: 0
   Melee: 0
+--- !u!114 &2806434251371483493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470127043174642654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf81d268df7e894eb32486b1c211a97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HurtSound: {fileID: 0}
+  Id: 0
+  MaxHealth: 500
+  CarRunning: 0
+  NPCInCar: 0
+  BaseSpeed: 30
+  MaxTurnSpeed: 150
+  drivingSkin: {fileID: 21300000, guid: 79749b2496f8b164895202f8a8ac651c, type: 3}
+  defaultSkin: {fileID: 21300000, guid: 040730b7afeffc342a52f6a36258190c, type: 3}
+  DamageType: {fileID: 7024335081391972671}
 --- !u!1 &1470127043843284550
 GameObject:
   m_ObjectHideFlags: 0
