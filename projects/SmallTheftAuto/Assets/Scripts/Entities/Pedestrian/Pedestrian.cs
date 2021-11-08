@@ -19,17 +19,13 @@ public class Pedestrian : Entity, IDamageable
     private float panicModeSpeedOffset = 1;
     public AudioSource HurtNpc;
     public SpriteRenderer SpriteRenderer;
-    public Sprite SchoolBoy;
-    public Sprite Brawler;
-    public Sprite TopHat;
-    public Sprite Army;
-    public Sprite Dog;
-    
+
     public Sprite DeadSchoolBoy;
     public Sprite DeadBrawler;
     public Sprite DeadTopHat;
     public Sprite DeadArmy;
     public Sprite DeadDog;
+    public Sprite DeadGhost;
     private void Update()
     {
         SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -128,20 +124,33 @@ public class Pedestrian : Entity, IDamageable
 
     IEnumerator ChangeSpriteOnDeath()
     {
-        if (SpriteRenderer.sprite == SchoolBoy)
-            SpriteRenderer.sprite = DeadSchoolBoy;
-        if (SpriteRenderer.sprite == TopHat)
-            SpriteRenderer.sprite = DeadTopHat;
-        if (SpriteRenderer.sprite == Brawler)
-            SpriteRenderer.sprite = DeadBrawler;
-        if (SpriteRenderer.sprite == Army)
-            SpriteRenderer.sprite = DeadArmy;
-        if (SpriteRenderer.sprite == Dog)
-            SpriteRenderer.sprite = DeadDog;
-
+        switch (SpriteRenderer.sprite.name)
+        {
+            case "Dog":
+                SpriteRenderer.sprite = DeadDog;
+                break;
+            case "Player Schoolboy":
+                SpriteRenderer.sprite = DeadSchoolBoy;
+                break;
+            case "Player Tophat":
+                SpriteRenderer.sprite = DeadTopHat;
+                break;
+            case "Player Brawler":
+                SpriteRenderer.sprite = DeadBrawler;
+                break;
+            case "Player Army":
+                SpriteRenderer.sprite = DeadArmy;
+                break;
+            case "Player Ghost":
+                SpriteRenderer.sprite = DeadGhost;
+                break;
+        }
+        
+        
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<CircleCollider2D>().enabled = false;
         yield return new WaitForSeconds(10f);
+        gameObject.SetActive(false);
         npcSpawner.ReloadNPC(gameObject, this);
     }
 

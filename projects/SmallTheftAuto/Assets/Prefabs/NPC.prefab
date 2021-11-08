@@ -119,6 +119,7 @@ MonoBehaviour:
   DeadTopHat: {fileID: 21300000, guid: 128b3e1286f495044bbb663f3b432f99, type: 3}
   DeadArmy: {fileID: 21300000, guid: 2309b31d007529d4eb3d3a99c5f8f6b5, type: 3}
   DeadDog: {fileID: 21300000, guid: a3906140f8480f94892576d2452aa471, type: 3}
+  DeadGhost: {fileID: 21300000, guid: 5f4cbc388d54fbe40ae095c13ba4b394, type: 3}
 --- !u!60 &6290187871161045356
 PolygonCollider2D:
   m_ObjectHideFlags: 0

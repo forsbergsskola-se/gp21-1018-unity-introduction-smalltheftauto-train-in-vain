@@ -61,6 +61,7 @@ public class NPCSpawner : MonoBehaviour
         npcObject.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];
         npcObject.GetComponent<SpriteRenderer>().sprite = NPCskins[Random.Range(0, NPCskins.Length)];
         SetRandomStats(pedestrian);
+        npcObject.SetActive(true);
     }
     
     
