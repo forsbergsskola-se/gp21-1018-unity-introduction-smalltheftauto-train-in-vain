@@ -33,7 +33,7 @@ public class SpawnCar : MonoBehaviour
     {
         for (var i = 0; i < MaxCars; i++)
         {
-            var randomizedSpawn = spawnPositions[Random.Range(0, spawnPositions.Count + 1)];
+            var randomizedSpawn = spawnPositions[Random.Range(0, spawnPositions.Count)];
             var car = SpawnUpgradedAndReturn(randomizedSpawn, Quaternion.identity, true);
             npcCars.Add(car);
         }
