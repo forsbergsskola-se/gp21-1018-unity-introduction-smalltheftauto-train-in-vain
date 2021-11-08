@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
@@ -235,7 +233,17 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
             IsBurning = true;
             UpdateSprite();
         }
-        // if (Health <= 0)
-        //     CarExplode();
+    }
+
+    private void OnDisable()
+    {
+        ResetCar();
+    }
+
+    private void ResetCar()
+    {
+        IsBurning = false;
+        Health = MaxHealth;
+        UpdateSprite();
     }
 }
