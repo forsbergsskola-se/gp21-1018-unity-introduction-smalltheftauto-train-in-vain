@@ -1,6 +1,9 @@
 using System;
 using UnityEngine;
 
+/// <summary>
+/// This class controls the Game.
+/// </summary>
 public class GameController : MonoBehaviour
 {
     public GameObject playerPrefab;
