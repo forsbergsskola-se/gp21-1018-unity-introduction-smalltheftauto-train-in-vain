@@ -47,7 +47,7 @@ Here's the set of features that I'll be looking for:
 |Weapon| Attacks can hit cars | | <ul><li>- [x] </li></ul> | 5 |
 |Environment| There is houses | | <ul><li>- [x] </li></ul> | 5 |
 |Environment| There is streets | | <ul><li>- [x] </li></ul> | 5 |
-|Environment| BONUS: Traffic | | <ul><li>- [ ] </li></ul> | 20 |
+|Environment| BONUS: Traffic | | <ul><li>- [x] </li></ul> | 20 |
 |Environment| BONUS: Pedestrians | | <ul><li>- [x] </li></ul> | 20 |
 |Fire| Fire exists that deals damage to the player while he is standing in the Fire | | <ul><li>- [x] </li></ul> | 5 |
 |Fire| Fires are spawned by exploding cars | | <ul><li>- [x] </li></ul> | 5 |
@@ -61,8 +61,8 @@ Here's the set of features that I'll be looking for:
 ------------------------------
 
 
-Current Score: 200
+Current Score: 220
 
-Current percent: 111% 
+Current percent: 122.22% 
 
 Current grade: VG - Summa Cum laude (A*)
