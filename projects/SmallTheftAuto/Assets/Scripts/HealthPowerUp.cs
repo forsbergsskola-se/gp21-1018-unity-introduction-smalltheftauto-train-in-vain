@@ -8,15 +8,10 @@ public class HealthPowerUp : MonoBehaviour
     public int healthUp;
     private PlayerController playerController;
     
-
-    void LateUpdate()
-    {
-        playerController = FindObjectOfType<PlayerController>();
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.name);
+        playerController = FindObjectOfType<PlayerController>();
 
         if (other.CompareTag("Player") && (playerController.Health != playerController.MaxHealth))
         {
