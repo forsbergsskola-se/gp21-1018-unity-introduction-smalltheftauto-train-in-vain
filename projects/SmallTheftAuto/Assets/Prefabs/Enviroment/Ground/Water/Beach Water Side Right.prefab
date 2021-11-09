@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5929040822430213439}
   - component: {fileID: 5929040822430213432}
   - component: {fileID: 5929040822430213438}
-  - component: {fileID: 2351728246320024983}
   m_Layer: 0
   m_Name: Beach Water Side Right
   m_TagString: Water
@@ -152,15 +151,3 @@ PolygonCollider2D:
       - {x: 22.998047, y: -24.047852}
       - {x: 24.047852, y: -23.07129}
       - {x: 24.047852, y: -7.885742}
---- !u!114 &2351728246320024983
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5929040822430213433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6643392db67987c42b33bbb227430e6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
