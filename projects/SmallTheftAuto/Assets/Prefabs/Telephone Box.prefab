@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 497170051
-  m_SortingLayer: 1
+  m_SortingLayerID: -620047959
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fa3d50bde83f09449934a0ba87a9ae36, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -133,8 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d93aee10b2b54e4499e1a2523c8f55ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ExitPostion: {fileID: 3796426572830405934}
-  QuestMenuController: {fileID: -6631829878378991070}
 --- !u!114 &-6631829878378991070
 MonoBehaviour:
   m_ObjectHideFlags: 0
