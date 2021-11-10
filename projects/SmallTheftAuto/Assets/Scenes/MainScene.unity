@@ -16607,6 +16607,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1984958693}
   - component: {fileID: 1984958692}
+  - component: {fileID: 1984958698}
+  - component: {fileID: 1984958697}
+  - component: {fileID: 1984958696}
+  - component: {fileID: 1984958695}
+  - component: {fileID: 1984958694}
   m_Layer: 0
   m_Name: boat
   m_TagString: Untagged
@@ -16680,6 +16685,161 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+--- !u!95 &1984958694
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984958691}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6633405ec94921b42bf287172e033020, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1984958695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984958691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d07e9c50b789a243b888c6f42e5df25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Fire: 0
+  Collision: 1
+  Water: 0
+  Bullet: 0
+  Melee: 0
+--- !u!50 &1984958696
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984958691}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1984958697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984958691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409484d0567f6604aa96c1dd450eb685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HurtSound: {fileID: 0}
+  Id: 0
+  MaxHealth: 0
+  CarRunning: 0
+  NPCInCar: 0
+  BaseSpeed: 30
+  MaxTurnSpeed: 150
+  drivingSkin: {fileID: 21300000, guid: 6c749a7ebfdc3a14f9d0a8a2ffe69ea0, type: 3}
+  defaultSkin: {fileID: 21300000, guid: 27edf1ed789e2344f818d1819b34041f, type: 3}
+  DamageType: {fileID: 1984958695}
+--- !u!60 &1984958698
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984958691}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 9.6}
+    newSize: {x: 4, y: 9.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.51, y: -4.54}
+      - {x: 1.61, y: -4.44}
+      - {x: 1.73, y: -4.31}
+      - {x: 1.8199999, y: -4.1}
+      - {x: 1.92, y: -3.5}
+      - {x: 2, y: -3.24}
+      - {x: 2, y: 0.95}
+      - {x: 1.9399999, y: 1.2099999}
+      - {x: 1.8299999, y: 1.24}
+      - {x: 1.8399999, y: 1.51}
+      - {x: 1.73, y: 1.54}
+      - {x: 1.74, y: 1.91}
+      - {x: 1.63, y: 1.9399999}
+      - {x: 1.64, y: 2.21}
+      - {x: 1.53, y: 2.24}
+      - {x: 1.54, y: 2.51}
+      - {x: 1.43, y: 2.54}
+      - {x: 1.4399999, y: 2.81}
+      - {x: 1.3299999, y: 2.84}
+      - {x: 1.3399999, y: 3.21}
+      - {x: 1.23, y: 3.24}
+      - {x: 1.24, y: 3.51}
+      - {x: 1.13, y: 3.54}
+      - {x: 1.14, y: 3.81}
+      - {x: 0.64, y: 4.3199997}
+      - {x: 0.53999996, y: 4.5099998}
+      - {x: 0.44, y: 4.61}
+      - {x: 0.22999999, y: 4.7999997}
+      - {x: -0.22, y: 4.7999997}
+      - {x: -0.52, y: 4.5}
+      - {x: -0.63, y: 4.31}
+      - {x: -0.83, y: 4.14}
+      - {x: -1.12, y: 3.81}
+      - {x: -1.3199999, y: 3.4099998}
+      - {x: -1.52, y: 2.71}
+      - {x: -1.7199999, y: 1.91}
+      - {x: -2, y: 0.94}
+      - {x: -2, y: -3.25}
+      - {x: -1.9399999, y: -3.51}
+      - {x: -1.8299999, y: -3.54}
+      - {x: -1.8399999, y: -4.11}
+      - {x: -1.73, y: -4.14}
+      - {x: -1.7199999, y: -4.2999997}
+      - {x: -1.7199999, y: -4.35}
+      - {x: -1.53, y: -4.56}
+      - {x: -1.1999999, y: -4.72}
+      - {x: -0.84999996, y: -4.7999997}
+      - {x: 0.82, y: -4.7999997}
+      - {x: 0.82, y: -4.72}
+      - {x: 1.2099999, y: -4.74}
+      - {x: 1.3299999, y: -4.65}
 --- !u!1001 &1986630787
 PrefabInstance:
   m_ObjectHideFlags: 0
