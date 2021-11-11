@@ -9,4 +9,5 @@ public class DamageType : MonoBehaviour
     public bool Water;
     public bool Bullet;
     public bool Melee;
+    public bool Land;
 }

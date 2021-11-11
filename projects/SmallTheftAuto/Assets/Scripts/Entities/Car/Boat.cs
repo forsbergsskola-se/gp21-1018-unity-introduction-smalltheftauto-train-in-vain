@@ -227,6 +227,16 @@ public class Boat : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
             else
             {
+                if (damageType != null)
+                {
+                    if (damageType.Land)
+                    {
+                        Debug.Log("Car takes a swim but sinks instantly!");
+                        value *= 1000;
+                    }
+                }
+                
+                
                 base.TakeDamage(value, damageType);
                 if (Health < MaxHealth / 4)
                 {
