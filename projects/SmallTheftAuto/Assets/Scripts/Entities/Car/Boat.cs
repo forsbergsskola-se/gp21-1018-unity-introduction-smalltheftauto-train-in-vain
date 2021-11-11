@@ -152,28 +152,15 @@ public class Boat : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
     void UpdateSprite()
     {
-        // Debug.Log("Car is burning! " + IsBurning);
-        // Debug.Log("Car health: " + Health);
-        // Debug.Log($"Maxhealth = {MaxHealth}");
-        
-        if (IsBurning)
+     if (IsBurning)
         {
-            if (currentUser != null)
+            if (IsBurning)
             {
-                onFireAnimation.enabled = true;
-                onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On FireDriving") as RuntimeAnimatorController;
-            }
-            else
-            {
-                onFireAnimation.enabled = true;
-                onFireAnimation.runtimeAnimatorController = Resources.Load("Animations/Car On Fire") as RuntimeAnimatorController;
+                spriteRenderer.color = new Color(255, 0, 0, 255);
             }
         }
         spriteRenderer.sprite = currentUser != null ? drivingSkin : defaultSkin;
     }
-    
-    
-    
     
     
     // #################################################################################################################
@@ -231,12 +218,24 @@ public class Boat : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     public override void TakeDamage(int value, DamageType damageType)
     {
        
-        base.TakeDamage(value, damageType);
-        if (Health < MaxHealth / 4)
+        if (damageType != null)
         {
-            IsBurning = true;
-            UpdateSprite();
+            if (damageType.Water)
+            {
+                value = 0;
+            }
+
+            else
+            {
+                base.TakeDamage(value, damageType);
+                if (Health < MaxHealth / 4)
+                {
+                    IsBurning = true;
+                    UpdateSprite();
+                }
+            }
         }
+        
     }
 
     private void OnDisable()

@@ -20,7 +20,7 @@ public class SpawnCar : MonoBehaviour
     {
         playerInteract = FindObjectOfType<PlayerInteract>();
         SpawnDogCar(new Vector3(85, 118, 0));
-        SpawnBoat(new Vector3(-118, 169, 0));
+        SpawnBoat(new Vector3(-129, 174, 0));
 
         SpawnUpgraded(new Vector3(-10, 1.8f, 0));
         SpawnUpgraded(new Vector3(-30, 1.8f, 0));

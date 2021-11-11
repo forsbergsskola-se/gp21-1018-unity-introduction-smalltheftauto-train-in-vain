@@ -149,10 +149,6 @@ public class DogCar : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 
     void UpdateSprite()
     {
-        // Debug.Log("Car is burning! " + IsBurning);
-        // Debug.Log("Car health: " + Health);
-        // Debug.Log($"Maxhealth = {MaxHealth}");
-        
         if (IsBurning)
         {
             spriteRenderer.color = new Color(255, 0, 0, 255);

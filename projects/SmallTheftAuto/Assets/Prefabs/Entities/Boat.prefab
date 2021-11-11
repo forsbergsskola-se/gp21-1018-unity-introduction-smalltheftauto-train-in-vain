@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 532984331586440355}
   - component: {fileID: 532984331586440354}
   - component: {fileID: 532984331586440364}
-  - component: {fileID: 532984331586440367}
   - component: {fileID: 532984331586440366}
   - component: {fileID: 532984331586440353}
   - component: {fileID: 532984331586440352}
+  - component: {fileID: -2890150028241260305}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -164,28 +164,6 @@ PolygonCollider2D:
       - {x: 0.82, y: -4.72}
       - {x: 1.2099999, y: -4.74}
       - {x: 1.3299999, y: -4.65}
---- !u!114 &532984331586440367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 532984331586440357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 409484d0567f6604aa96c1dd450eb685, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HurtSound: {fileID: 0}
-  Id: 0
-  MaxHealth: 0
-  CarRunning: 0
-  NPCInCar: 0
-  BaseSpeed: 30
-  MaxTurnSpeed: 150
-  drivingSkin: {fileID: 21300000, guid: 6c749a7ebfdc3a14f9d0a8a2ffe69ea0, type: 3}
-  defaultSkin: {fileID: 21300000, guid: 27edf1ed789e2344f818d1819b34041f, type: 3}
-  DamageType: {fileID: 532984331586440353}
 --- !u!50 &532984331586440366
 Rigidbody2D:
   serializedVersion: 4
@@ -199,7 +177,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 1000
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -243,3 +221,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-2890150028241260305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 532984331586440357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8062e030ff6295447b59b788e9d829e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HurtSound: {fileID: 0}
+  Id: 0
+  MaxHealth: 600
+  CarRunning: 0
+  NPCInCar: 0
+  BaseSpeed: 30
+  MaxTurnSpeed: 200
+  drivingSkin: {fileID: 21300000, guid: 6c749a7ebfdc3a14f9d0a8a2ffe69ea0, type: 3}
+  defaultSkin: {fileID: 21300000, guid: 27edf1ed789e2344f818d1819b34041f, type: 3}
+  DamageType: {fileID: 532984331586440353}
