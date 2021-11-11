@@ -2,7 +2,7 @@ using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
+public class Boat : Entity, IDriveable, IEnterable, IDamageable, IInteractable
 {
     
     /// <summary>
@@ -12,7 +12,7 @@ public class Car : Entity, IDriveable, IEnterable, IDamageable, IInteractable
     
     
     // Constructor
-    public Car() : base()
+    public Boat() : base()
     {
     }
 
