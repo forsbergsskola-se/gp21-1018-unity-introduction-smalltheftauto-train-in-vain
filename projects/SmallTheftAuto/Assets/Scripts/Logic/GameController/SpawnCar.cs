@@ -10,6 +10,7 @@ public class SpawnCar : MonoBehaviour
     [SerializeField] private int MaxCars;
     public GameObject NewCarPrefab;
     public GameObject DogCarPrefab;
+    public GameObject BoatPrefab;
     private PlayerInteract playerInteract;
     private bool spawnOnCoolDown;
     List<Vector3> spawnPositions = new List<Vector3>();
@@ -19,6 +20,8 @@ public class SpawnCar : MonoBehaviour
     {
         playerInteract = FindObjectOfType<PlayerInteract>();
         SpawnDogCar(new Vector3(85, 118, 0));
+        SpawnBoat(new Vector3(-118, 169, 0));
+
         SpawnUpgraded(new Vector3(-10, 1.8f, 0));
         SpawnUpgraded(new Vector3(-30, 1.8f, 0));
         SpawnUpgraded(new Vector3(-20, 1.8f, 0));
@@ -53,6 +56,12 @@ public class SpawnCar : MonoBehaviour
     {
         var dogCar = Instantiate(DogCarPrefab, spawnPosition, rotation);
         playerInteract.Interactables.Add(dogCar);
+    }
+    
+    public void SpawnBoat(Vector3 spawnPosition, Quaternion rotation = new Quaternion())
+    {
+        var boat = Instantiate(BoatPrefab, spawnPosition, rotation);
+        playerInteract.Interactables.Add(boat);
     }
     
     public GameObject SpawnUpgradedAndReturn(Vector3 spawnPosition, Quaternion rotation = new Quaternion(), bool NPCDriver = false)
