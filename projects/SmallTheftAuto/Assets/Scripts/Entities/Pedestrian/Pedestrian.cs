@@ -124,6 +124,8 @@ public class Pedestrian : Entity, IDamageable
 
     IEnumerator ChangeSpriteOnDeath()
     {
+        // TODO: I think this could have been solved better in an object-oriented way. Maybe prefabs for each unit type where both sprites are assigned through the editor?
+        // like a Dog-Prefab and the Pedestrian-Script has a public Sprite deathSprite, which is then configured on the Dog-Prefab to be DeadDog
         switch (SpriteRenderer.sprite.name)
         {
             case "Dog":
@@ -156,6 +158,7 @@ public class Pedestrian : Entity, IDamageable
 
     public override void OnDeath()
     {
+        // TODO: Looks really nice!
         FindObjectOfType<MoneySpawner>().SpawnMoney50(gameObject.transform.position);
         FindObjectOfType<GameController>().AddScore(150);
 

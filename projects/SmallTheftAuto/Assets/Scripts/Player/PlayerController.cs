@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+// TODO: You managed to keep the PlayerController-Class very small for a pretty complex game.
+// Which means that you've done an awesome job in keeping your code modular. Great job!
 public class PlayerController : Entity, IDamageable
 {
     private TMP_Text scoreText;

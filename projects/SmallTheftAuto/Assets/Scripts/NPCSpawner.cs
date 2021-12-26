@@ -55,7 +55,7 @@ public class NPCSpawner : MonoBehaviour
     }
 
 
-
+    // TODO: Cool!
     public void ReloadNPC(GameObject npcObject, Pedestrian pedestrian)
     {
         npcObject.transform.position = spawnPositions[Random.Range(0, spawnPositions.Count)];

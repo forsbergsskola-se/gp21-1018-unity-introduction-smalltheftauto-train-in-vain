@@ -29,6 +29,10 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject MachineGun;
     private PlayerInteract playerInteract;
 
+    // TODO: I like the data-driven approach, but I imagine that setting the coordinates up is not so much fun.
+    // Maybe, you can utilize the editor instead? At least by referencing `public Transform[]` for every thing that you want to spawn?
+    // This would empower the designer to spawn these anywhere he wants to
+
     void Start()
     {
         Application.targetFrameRate = 300;

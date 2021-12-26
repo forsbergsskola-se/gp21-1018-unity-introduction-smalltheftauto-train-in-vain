@@ -50,7 +50,7 @@ public class HandlePassenger : MonoBehaviour
     }
 
     
-    
+    // TODO: Nice, clean function with a lot of comments
     public void ExitCar()
     {
         // Make the car sprite show a empty window again and no player.

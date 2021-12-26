@@ -12,6 +12,7 @@ public class FollowCamera : MonoBehaviour
     {
         if (target != null)
         {
+            // TODO: Good!
             var cameraCoordinates = transform.position;
             var targetCoordinates = target.transform.position;
             var newCameraCoordinates = Vector3.Lerp(cameraCoordinates, targetCoordinates, 0.1f);

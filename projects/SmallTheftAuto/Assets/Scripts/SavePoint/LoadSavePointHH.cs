@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
+// TODO: These scripts should not all have been here in this folder, I think
 public class LoadSavePointHH : MonoBehaviour
 {
     private static bool LoadOnStart;

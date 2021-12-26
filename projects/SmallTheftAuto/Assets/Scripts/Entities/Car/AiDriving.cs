@@ -65,6 +65,7 @@ public class AiDriving : MonoBehaviour
         maxSpeed = car.BaseSpeed;
 
         float shortestDistance = 9999;
+        // TODO: neat! :)
         var temp = FindObjectsOfType<TAG_TrafficPoint>().ToList();
         foreach (TAG_TrafficPoint t in temp)
         {

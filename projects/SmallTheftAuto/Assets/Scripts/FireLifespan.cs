@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: Cool solution!
 public class FireLifespan : MonoBehaviour
 {
     void Start()

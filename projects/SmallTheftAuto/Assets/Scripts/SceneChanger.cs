@@ -17,6 +17,7 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
     
+    // TODO: Fix naming (ExitGame)
     public void exitGame() {
         Application.Quit();
     }

@@ -8,6 +8,7 @@ public class EnvironmentDamage : MonoBehaviour
     
     private void OnTriggerStay2D(Collider2D other)
     {
+        // TODO: Nice! :)
         if (other.gameObject.TryGetComponent(out IDamageable iDamageable))
         {
             iDamageable.TakeDamage(10, DamageType);

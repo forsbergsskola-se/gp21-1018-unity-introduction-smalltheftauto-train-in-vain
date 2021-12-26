@@ -23,6 +23,7 @@ public class BuildingController : Entity, IDamageable
 
     public override void OnDeath()
     {
+        // TODO: Nicely decoupled! We'll do even better in the future when using the Broker-Pattern :)
         FindObjectOfType<GameController>().AddScore(50);
         FindObjectOfType<GameController>().AddMoney(100);
         base.OnDeath();

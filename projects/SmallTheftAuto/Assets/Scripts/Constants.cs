@@ -7,6 +7,7 @@ internal enum WeaponPower
     Strong = 80
 }
 
+// TODO: Might could have been an Enum
 internal class WeaponName
 {
     internal const string BareHands = "BareHands";
@@ -14,6 +15,7 @@ internal class WeaponName
     internal const string MachineGun = "MachineGun";
 }
 
+// TODO: This could be replaced by using Unity's Input Manager
 internal class KeyBinding : MonoBehaviour
 {
     internal const string PlayerAttack = "Fire1";
